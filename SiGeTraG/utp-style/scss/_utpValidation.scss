@@ -1,0 +1,8 @@
+input{
+  &[required]{
+    background-color: #fffddd;
+    &.ng-valid-required{
+      background-color: #ffffff;
+    }
+  }
+}

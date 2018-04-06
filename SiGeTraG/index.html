@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <!-- INICIA BOOTSTRAP -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- TERMINA BOOTSTRAP -->
+
+
+  <!-- Hojas de estilo propias -->
+  <link rel="stylesheet" type="text/css" href="utp-style/css/styles.css">
+
+</head>
+<body ng-controller="masterController as mctrl">
+
+  <ng-include  src="'common/templates/cabecera.html'"></ng-include>
+
+  <div ui-view></div>
+
+  <footer>
+    <!-- LIBRERÍA ANGULAR -->
+    <script src="lib/angularjs/angular.min.js"></script>
+
+    <!-- CONFIGURACIONES -->
+    <script src="common/config/app.config.js"></script>
+    <script src="common/config/app.module.js"></script>
+    <script src="common/config/aa.config.js"></script>
+    <script src="common/config/translate.config.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="common/controllers/utp-master-controller.js"></script>
+
+    <!-- DIRECTIVES -->
+    <script src="common/directives/login/login.directive.js"></script>
+    <script src="common/directives/addUser/addUser.directive.js"></script>
+    <script src="common/directives/pattern.directive.js"></script>
+
+    <!-- VALUES -->
+    <script src="common/values/values.js"></script>
+
+    <!-- FILTERS -->
+    <script src="common/filters/validate-filter.js"></script>
+    <script src="common/filters/value.filter.js"></script>
+    <script src="common/filters/utp.isEmpty.filter.js"></script>
+
+    <!-- STATES -->
+    <script src="common/config/states/app.state.js"></script>
+    <script src="common/config/states/main.state.js"></script>
+    <script src="common/config/states/head.state.js"></script>
+    <script src="common/config/states/login.state.js"></script>
+
+
+    <!-- EXTERNAL COMPONENTS -->
+    <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="node_modules/angular-agility/dist/angular-agility.js"></script>
+    <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
+  </footer>
+</body>
+</html>

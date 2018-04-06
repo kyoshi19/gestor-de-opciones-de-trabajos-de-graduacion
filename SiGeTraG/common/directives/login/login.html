@@ -1,0 +1,40 @@
+<div class ="text-center">
+  <h4>Ingresa al sistema</h4>
+</div>
+<div class="row form-group">
+  <div class="col-md-10 center-block">
+    <div class="row">
+      <div class="col-md-11 form-group center-block">
+        <label for="docNumber">Cedula:</label>
+        <input class="pull-right"
+        type="text" name="docNumber"
+        ng-model="docToSearch"
+        placeholder="ID"
+        ng-pattern="patternList.panamaIdPattern">
+      </div>
+      <div class="col-md-11 form-group center-block">
+        <label for="password">Contrasena:</label>
+        <input class="pull-right"
+        type="password" name="password"
+        ng-model="passToSearch"
+        placeholder="Password">
+      </div>
+    </div>
+
+    <div class="col-md-10 center-block form-group">
+      <button type="button"
+      class="btn btn-default"
+      ng-click="validateUser()">
+      Validar</button>
+
+      <button type="button"
+      class="btn btn-default pull-right"
+      ng-click="goToMain()">
+      Iniciar sesión</button>
+    </div>
+  </div>
+  <div class=" col-md-10 col-md-offset-1 text-center" ng-class="alert"
+  role="alert" ng-if="msg">
+  {{msg}}
+</div>
+</div>

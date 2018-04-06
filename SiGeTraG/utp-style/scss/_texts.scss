@@ -1,0 +1,55 @@
+@include font-face("GothicRegular", "../../fonts/GOTHIC",null,null,ttf);
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6{
+  font-family: "GothicRegular";
+  font-weight: bold;
+  color: $utp-main-color;
+}
+.name-and-slogan {
+  margin-top: 30px;
+  margin-left: 8px;
+}
+.site-slogan {
+  font-family: "GothicRegular";
+  font-size: 14px;
+  color: #383838;
+}
+
+.site-name {
+  font-family: "GothicRegular";
+  font-weight: normal;
+  font-size: 24px;
+  margin: 0;
+  line-height: 1.3em;
+  a{
+    color: #681a5d;
+  }
+}
+
+.site-title{
+  font-family: monospace;
+}
+
+
+.harlow{
+    font-family: "GothicRegular";
+}
+
+.navbar-nav {
+  a{
+    font-family: "GothicRegular";
+    color: white !important;
+    font-size: 13px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    text-align: center;
+  }
+}
+
+.mensaje-error{
+  color: #ff0000;
+  font-size: 12px;
+}

@@ -1,0 +1,99 @@
+.submit-btn {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+.navbar {
+  background-color: #681a5d;
+  min-height: 40px;
+  border-radius: 0px;
+  border: 0px; }
+  .navbar li {
+    max-height: 40px;
+    width: 111px; }
+  .navbar li:hover {
+    background-color: #51034f; }
+
+.navbar-nav {
+  min-width: 1175px; }
+
+#centros {
+  width: 14.5%; }
+
+.container.navigation {
+  margin-left: 87px;
+  margin-right: 87px;
+  padding: 0px; }
+
+.header.container {
+  min-height: 112px;
+  min-width: 1175px; }
+
+.center-block {
+  float: none; }
+
+.form-inline-mixed {
+  width: 100%;
+  height: 80px; }
+
+.utp-logo {
+  width: 108px;
+  height: 108px; }
+
+.utp-login {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #681a5d; }
+
+@font-face {
+  font-family: "GothicRegular";
+  src: url("../../fonts/GOTHIC.ttf") format("truetype"); }
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "GothicRegular";
+  font-weight: bold;
+  color: #681a5d; }
+
+.name-and-slogan {
+  margin-top: 30px;
+  margin-left: 8px; }
+
+.site-slogan {
+  font-family: "GothicRegular";
+  font-size: 14px;
+  color: #383838; }
+
+.site-name {
+  font-family: "GothicRegular";
+  font-weight: normal;
+  font-size: 24px;
+  margin: 0;
+  line-height: 1.3em; }
+  .site-name a {
+    color: #681a5d; }
+
+.site-title {
+  font-family: monospace; }
+
+.harlow {
+  font-family: "GothicRegular"; }
+
+.navbar-nav a {
+  font-family: "GothicRegular";
+  color: white !important;
+  font-size: 13px;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  text-align: center; }
+
+.mensaje-error {
+  color: #ff0000;
+  font-size: 12px; }
+
+input[required] {
+  background-color: #fffddd; }
+  input[required].ng-valid-required {
+    background-color: #ffffff; }
+
+/*# sourceMappingURL=styles.css.map */

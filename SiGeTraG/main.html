@@ -1,0 +1,44 @@
+<div class="container" ng-init="mctrl.setup()">
+  <div class="row">
+    <div class="col-md-8">
+      <add-user
+      main-student="mctrl.mainStudent">
+    </add-user>
+    <div class="row">
+      Eliminar un usuario
+      <br />
+      <div class="col-md-4">
+        <label for="docNumber">Cedula</label>
+        <input type="text" name="docNumber"
+        ng-model="mctrl.tempUser.docNum"
+        placeholder="ID">
+      </div>
+      <div class="col-md-12">
+        <button class="btn submit-btn"
+        ng-click="mctrl.deleteUser()">
+        Eliminar Usuario
+      </button>
+    </div>
+    <br /><br />
+  </div>
+</div>
+
+<div class="col-md-4">
+  <button class="btn"ng-click="mctrl.select()">Actualizar Datos</button>
+  {{mctrl.msg}}
+  <table class="table" ng-if="mctrl.isDefine(mctrl.users)">
+    <tr>
+      <td>ID</td>
+      <td>NOMBRE</td>
+      <td>APELLIDO</td>
+      <td>DOCUMENTO</td>
+    </tr>
+    <tr ng-repeat="x in mctrl.users">
+      <td>{{ x.id }}</td>
+      <td>{{ x.fName }}</td>
+      <td>{{ x.lName }}</td>
+      <td>{{ x.docNumber }}</td>
+    </tr>
+  </table>
+</div>
+</div>
