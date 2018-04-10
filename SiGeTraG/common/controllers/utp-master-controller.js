@@ -1,8 +1,8 @@
 (function(win){
   'use strict';
 
-  var masterController = function($scope,$log, patterns,
-    $http, $state, $stateParams){
+  var masterController = function($scope, $log, patterns,
+    $http, $state, storage, $timeout){
 
     $log.debug('[utp-master-controller] Initializing...');
 
@@ -22,7 +22,6 @@
       $http.get("php/selectAllUsers.php")
       .then(function (response) {
         vm.users = response.data.records;
-        vm.mainStudent = angular.copy(vm.users[1]);
         vm.msg="Consulta Exitosa";
       });
     };
@@ -35,13 +34,20 @@
       });
     };
 
-    vm.isDefine = function(item){
-      return angular.isDefined(item);
+    vm.logggOut = function(){
+      storage.user = undefined;
+      $timeout(function() { $state.transitionTo("login"); },1000);
     };
 
-    vm.setup = function(){
-      vm.mainStudent = $state.params;
+    var setup = function(){
+      vm.mainStudent = storage.user;
+      if (!angular.isDefined(vm.mainStudent)) {
+        vm.logggOut();
+      }
     };
+
+    setup();
+
   };
   masterController.$inject=[
     '$scope',
@@ -49,7 +55,8 @@
     'patternList',
     '$http',
     '$state',
-    '$stateParams'
+    '$sessionStorage',
+    '$timeout'
   ];
   win.MainApp.Controllers
   .controller('masterController',masterController);

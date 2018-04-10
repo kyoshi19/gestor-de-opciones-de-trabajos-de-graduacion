@@ -4,12 +4,10 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("localhost", "root", "root", "utp_tesis");
 
-$data = json_decode(file_get_contents("php://input"),true); //Recibe parametros como arreglo asociado
-
-$document = $data; 	//Optiene elemento actual
-
+$data = file_get_contents("php://input"); //Recibe parametro
+	//Optiene elemento actual
 $result = $conn->query("SELECT * FROM utp_users
-  WHERE us_doc_num = '$document';");
+  WHERE us_doc_num = '$data';");
 
   $outp = "";
   while($rs = $result->fetch_array(MYSQLI_ASSOC)) {

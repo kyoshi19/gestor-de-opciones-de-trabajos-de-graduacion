@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.3",
-    "angular-agility": "^0.8.40"
+    "angular-agility": "^0.8.40",
+    "ngstorage": "^0.3.11"
   }
 }

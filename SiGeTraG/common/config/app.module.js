@@ -23,7 +23,8 @@
     appName + ".factory",
     'ui.router',
     'aa.formExtensions',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'ngStorage'
   ]);
 
 }(window));

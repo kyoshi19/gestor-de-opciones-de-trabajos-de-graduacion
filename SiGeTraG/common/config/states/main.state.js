@@ -15,14 +15,7 @@ function config(
 
   $stateProvider.state('main', {
     url: '/main',
-    templateUrl: 'main.html',
-    params: {
-      'id': '',
-      'fName': 'Super',
-      'lName': 'Mario',
-      'docNumber': '112312',
-      'pass': '123456'
-    }
+    templateUrl: 'main.html'
   });
 
 }

@@ -2,12 +2,12 @@
   'use strict';
 
   //  directive directive
-  function utpLogin($log, patternList, $http, $state ) {
+  function utpLogin($log, userRules, $http, $state, storage, isEmpty ) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/login/login.html',
       scope           : {
-        mainStudent: '='
+        mainStudent   :"="
       },
       link            : linkFunc
     };
@@ -17,6 +17,7 @@
       /* - */
       scope.docToSearch = '';
       scope.passToSearch = '';
+      scope.userRules = userRules;
       var tempUser = {};
 
       scope.validateUser = function(){
@@ -26,32 +27,45 @@
           scope.alert="alert-warning";
           return;
         }
-        $http.post("php/selectUser.php",scope.docToSearch)
+        $http.post("php/selectUser.php",scope.docToSearch.toString())
         .then(function (response) {
           tempUser = response.data.records[0];
           if (angular.isDefined(tempUser) &&
           tempUser.pass===scope.passToSearch) {
-            scope.msg = "encontrado";
-            scope.alert="alert-success";
-            scope.goToMain(tempUser);
+            scope.goToMain();
           }else {
             scope.msg = "no encontrado";
             scope.alert="alert-danger";
           }
         });
       };
-      scope.goToMain = function(){
-        $state.transitionTo("main",tempUser);
+      scope.goToMain = function(logged){
+        if (logged) {
+          $state.transitionTo("main");
+        } else {
+          storage.user = tempUser;
+          scope.mainStudent = tempUser;
+          $state.transitionTo("main");
+        }
       };
+
+      var setup = function(){
+        if (!isEmpty(storage.user)) {
+          scope.goToMain(true);
+        }
+      };
+      setup();
     }
   }
 
   //  Module
   utpLogin.$inject = [
     '$log',
-    'patternList',
+    'userRules',
     '$http',
-    '$state'
+    '$state',
+    '$sessionStorage',
+    'isEmptyFilter'
   ];
 
   win.MainApp.Directives
