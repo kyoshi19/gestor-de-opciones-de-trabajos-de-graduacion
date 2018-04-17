@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="lib/bootstrap/js/bootstrap.min.js">
+
+  <!-- IMPORTACIÓN HOJAS DE ESTILOS -->
+  <link rel="stylesheet" type="text/css" href="utp-style/css/styles.css">
+
+</head>
+<body ng-controller="masterController as mctrl">
+
+  <!-- <div id="alert" class="alert alert-success" role="alert">Alerta</div> -->
+
+  <!-- CABECERA DE TODAS LAS PÁGINAS -->
+  <ng-include  src="'common/templates/cabecera.html'"></ng-include>
+
+  <!-- CARGADOR CON LOGO UTP -->
+  <div id="loader-content" ng-cloak ng-show="mctrl.showLoader">
+    <div class="logo-container">
+      <img class="utp-loader" src="src/img/logo_utp.jpg"></img>
+    </div>
+  </div>
+
+  <!-- VISTAS DE LAS PÁGINAS -->
+  <div ui-view></div>
+
+  <footer>
+    <!-- LIBRERÍA ANGULAR -->
+    <script src="lib/angularjs/angular.min.js"></script>
+
+    <!-- CONFIGURACIONES -->
+    <script src="common/config/app.config.js"></script>
+    <script src="common/config/app.module.js"></script>
+    <script src="common/config/aa.config.js"></script>
+    <script src="common/config/translate.config.js"></script>
+
+    <!-- CONTROLADORES -->
+    <script src="common/controllers/utp-master-controller.js"></script>
+
+    <!-- DIRECTIVAS -->
+    <script src="common/directives/login/login.directive.js"></script>
+    <script src="common/directives/addUser/addUser.directive.js"></script>
+    <script src="common/directives/deleteUser/deleteUser.directive.js"></script>
+    <script src="common/directives/pattern.directive.js"></script>
+
+    <!-- VALUES -->
+    <script src="common/values/values.js"></script>
+
+    <!-- FILTROS -->
+    <script src="common/filters/validate-filter.js"></script>
+    <script src="common/filters/value.filter.js"></script>
+    <script src="common/filters/utp.isEmpty.filter.js"></script>
+
+    <!-- ESTADOS -->
+    <script src="common/config/states/app.state.js"></script>
+    <script src="common/config/states/main.state.js"></script>
+    <script src="common/config/states/head.state.js"></script>
+    <script src="common/config/states/login.state.js"></script>
+
+
+    <!-- COMPONENTES EXTERNOS -->
+    <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="node_modules/angular-agility/dist/angular-agility.js"></script>
+    <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
+    <script src="node_modules/ngstorage/ngStorage.min.js"></script>
+  </footer>
+</body>
+</html>
