@@ -6,7 +6,9 @@
     var directive = {
       restrict        : 'EA',
       templateUrl     : 'common/directives/addUser/addUser.html',
-      scope           : {},
+      scope           : {
+        showLoaderFn  :"="
+      },
       link            : linkFunc
     };
     return directive;
@@ -20,15 +22,13 @@
       scope.mainStudent = storage.user;
 
       scope.insertUser = function(){
+        scope.showLoaderFn(true);
         $http.post("php/insertUser.php",scope.tempUser)
         .then(function (response) {
           scope.msg = response.data.records;
+          scope.showLoaderFn(false);
           // scope.tempUser = {};
         });
-      };
-
-      scope.goHome = function(){
-        $state.transitionTo('login');
       };
     }
   }

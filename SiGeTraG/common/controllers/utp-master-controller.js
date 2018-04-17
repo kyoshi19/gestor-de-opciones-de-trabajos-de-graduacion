@@ -17,6 +17,9 @@
     vm.mainStudent = {};
     vm.tempUser = {};
     vm.docPatern = patterns.panamaIdPattern;
+    vm.showLoader = false;
+
+    vm.isDefined = angular.isDefined;
 
     vm.select = function(){
       $http.get("php/selectAllUsers.php")
@@ -35,8 +38,16 @@
     };
 
     vm.logggOut = function(){
+      vm.showLoaderFn(true);
       storage.user = undefined;
-      $timeout(function() { $state.transitionTo("login"); },1000);
+      $timeout(function() {
+        vm.showLoaderFn(false);
+        $state.transitionTo("login");
+      },1000);
+    };
+
+    vm.showLoaderFn = function(show){
+      vm.showLoader = show;
     };
 
     var setup = function(){

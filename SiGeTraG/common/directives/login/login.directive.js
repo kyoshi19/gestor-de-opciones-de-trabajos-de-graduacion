@@ -7,7 +7,8 @@
       restrict        : 'E',
       templateUrl     : 'common/directives/login/login.html',
       scope           : {
-        mainStudent   :"="
+        mainStudent   :"=",
+        showLoaderFn  :"="
       },
       link            : linkFunc
     };
@@ -21,6 +22,7 @@
       var tempUser = {};
 
       scope.validateUser = function(){
+        scope.showLoaderFn(true);
         if (''===scope.docToSearch ||
         ''===scope.passToSearch) {
           scope.msg="Data incompleta";
@@ -36,6 +38,7 @@
           }else {
             scope.msg = "no encontrado";
             scope.alert="alert-danger";
+            scope.showLoaderFn(false);
           }
         });
       };
@@ -45,6 +48,7 @@
         } else {
           storage.user = tempUser;
           scope.mainStudent = tempUser;
+          scope.showLoaderFn(false);
           $state.transitionTo("main");
         }
       };

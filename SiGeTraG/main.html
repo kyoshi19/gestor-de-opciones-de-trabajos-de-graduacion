@@ -7,19 +7,18 @@
       </button>
     </div>
     <div class="col-md-8">
-      <add-user>
-
+      <add-user
+        show-loader-fn="mctrl.showLoaderfn">
       </add-user>
 
-      <delete-user>
-
+      <delete-user
+        show-loader-fn="mctrl.showLoaderfn">
       </delete-user>
     </div>
 
     <div class="col-md-4">
-      <button class="btn"ng-click="mctrl.select()">Actualizar Datos</button>
-      {{mctrl.msg}}
-      <table class="table" ng-if="mctrl.isDefine(mctrl.users)">
+      <button class="btn btn-default"ng-click="mctrl.select()">Actualizar Datos</button>
+      <table class="table" ng-if="mctrl.isDefined(mctrl.users)">
         <tr>
           <td>ID</td>
           <td>NOMBRE</td>

@@ -12,14 +12,25 @@
   <!-- TERMINA BOOTSTRAP -->
 
 
-  <!-- Hojas de estilo propias -->
+  <!-- IMPORTACIÓN HOJAS DE ESTILOS -->
   <link rel="stylesheet" type="text/css" href="utp-style/css/styles.css">
 
 </head>
 <body ng-controller="masterController as mctrl">
 
+  <!-- <div id="alert" class="alert alert-success" role="alert">Alerta</div> -->
+
+  <!-- CABECERA DE TODAS LAS PÁGINAS -->
   <ng-include  src="'common/templates/cabecera.html'"></ng-include>
 
+  <!-- CARGADOR CON LOGO UTP -->
+  <div id="loader-content" ng-cloak ng-show="mctrl.showLoader">
+    <div class="logo-container">
+      <img class="utp-loader" src="src/img/logo_utp.jpg"></img>
+    </div>
+  </div>
+
+  <!-- VISTAS DE LAS PÁGINAS -->
   <div ui-view></div>
 
   <footer>
@@ -32,10 +43,10 @@
     <script src="common/config/aa.config.js"></script>
     <script src="common/config/translate.config.js"></script>
 
-    <!-- CONTROLLERS -->
+    <!-- CONTROLADORES -->
     <script src="common/controllers/utp-master-controller.js"></script>
 
-    <!-- DIRECTIVES -->
+    <!-- DIRECTIVAS -->
     <script src="common/directives/login/login.directive.js"></script>
     <script src="common/directives/addUser/addUser.directive.js"></script>
     <script src="common/directives/deleteUser/deleteUser.directive.js"></script>
@@ -44,19 +55,19 @@
     <!-- VALUES -->
     <script src="common/values/values.js"></script>
 
-    <!-- FILTERS -->
+    <!-- FILTROS -->
     <script src="common/filters/validate-filter.js"></script>
     <script src="common/filters/value.filter.js"></script>
     <script src="common/filters/utp.isEmpty.filter.js"></script>
 
-    <!-- STATES -->
+    <!-- ESTADOS -->
     <script src="common/config/states/app.state.js"></script>
     <script src="common/config/states/main.state.js"></script>
     <script src="common/config/states/head.state.js"></script>
     <script src="common/config/states/login.state.js"></script>
 
 
-    <!-- EXTERNAL COMPONENTS -->
+    <!-- COMPONENTES EXTERNOS -->
     <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
     <script src="node_modules/angular-agility/dist/angular-agility.js"></script>
     <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
