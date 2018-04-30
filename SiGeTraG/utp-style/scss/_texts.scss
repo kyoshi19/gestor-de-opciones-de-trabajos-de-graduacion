@@ -13,7 +13,9 @@ h1,h2,h3,h4,h5,h6,
 .site-slogan {
   font-family: "GothicRegular";
   font-size: 14px;
-  color: #383838;
+  a {
+    color: $utp-black;
+  }
 }
 
 .site-name {
@@ -22,9 +24,6 @@ h1,h2,h3,h4,h5,h6,
   font-size: 24px;
   margin: 0;
   line-height: 1.3em;
-  a{
-    color: #681a5d;
-  }
 }
 
 .site-title{

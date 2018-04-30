@@ -5,7 +5,7 @@
   border: 0px;
   li{
     max-height: 40px;
-    width: 111px;
+    width: 14.15%;
   }
   li:hover{
     background-color: $utp-main-color-active;
@@ -13,11 +13,7 @@
 }
 
 .navbar-nav{
-  min-width: 1175px;
-}
-
-#centros{
-  width: 14.5%;
+  min-width: 100.5%;
 }
 
 .container.navigation{

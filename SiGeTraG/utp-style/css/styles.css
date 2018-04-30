@@ -3,21 +3,18 @@
   margin-bottom: 10px; }
 
 .navbar {
-  background-color: #681a5d;
+  background-color: #237c2c;
   min-height: 40px;
   border-radius: 0px;
   border: 0px; }
   .navbar li {
     max-height: 40px;
-    width: 111px; }
+    width: 14.15%; }
   .navbar li:hover {
-    background-color: #51034f; }
+    background-color: #18561e; }
 
 .navbar-nav {
-  min-width: 1175px; }
-
-#centros {
-  width: 14.5%; }
+  min-width: 100.5%; }
 
 .container.navigation {
   margin-left: 87px;
@@ -42,7 +39,7 @@
 .utp-login {
   border-width: 1px;
   border-style: solid;
-  border-color: #681a5d; }
+  border-color: #237c2c; }
 
 @font-face {
   font-family: "GothicRegular";
@@ -51,7 +48,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "GothicRegular";
   font-weight: bold;
-  color: #681a5d; }
+  color: #237c2c; }
 
 .name-and-slogan {
   margin-top: 30px;
@@ -59,8 +56,9 @@ h1, h2, h3, h4, h5, h6,
 
 .site-slogan {
   font-family: "GothicRegular";
-  font-size: 14px;
-  color: #383838; }
+  font-size: 14px; }
+  .site-slogan a {
+    color: #000; }
 
 .site-name {
   font-family: "GothicRegular";
@@ -68,8 +66,6 @@ h1, h2, h3, h4, h5, h6,
   font-size: 24px;
   margin: 0;
   line-height: 1.3em; }
-  .site-name a {
-    color: #681a5d; }
 
 .site-title {
   font-family: monospace; }

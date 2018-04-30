@@ -9,6 +9,8 @@ config.$inject= [
 
 var EStranslate = {
   // TITULOS PRINCIPALES
+  'header.title'                    :'Universidad Tecnológica de Panamá',
+  'header.faculty'                  :'Facultad de Ingeniería de Sistemas Computacionales',
   'global.firstName'                :'Nombre',
   'global.lastName'                 :'Apellido',
   'global.id'                       :'Identificación',
