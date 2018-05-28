@@ -1,8 +1,10 @@
 @include font-face("GothicRegular", "../../fonts/GOTHIC",null,null,ttf);
+@include font-face("Monterey", "../../fonts/monterey/MontereyFLF",null,null,ttf);
+@include font-face("Titillium", "../../fonts/titillium-web/TitilliumWeb-Regular",null,null,ttf);
 
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6{
-  font-family: "GothicRegular";
+  font-family: "Titillium";
   font-weight: bold;
   color: $utp-main-color;
 }
@@ -11,7 +13,7 @@ h1,h2,h3,h4,h5,h6,
   margin-left: 8px;
 }
 .site-slogan {
-  font-family: "GothicRegular";
+  font-family: "Titillium";
   font-size: 14px;
   a {
     color: $utp-black;
@@ -19,7 +21,7 @@ h1,h2,h3,h4,h5,h6,
 }
 
 .site-name {
-  font-family: "GothicRegular";
+  font-family: "Titillium";
   font-weight: normal;
   font-size: 24px;
   margin: 0;
@@ -32,12 +34,12 @@ h1,h2,h3,h4,h5,h6,
 
 
 .harlow{
-    font-family: "GothicRegular";
+    font-family: "Titillium";
 }
 
 .navbar-nav {
   a{
-    font-family: "GothicRegular";
+    font-family: "Titillium";
     color: white !important;
     font-size: 13px;
     padding-top: 10px !important;
