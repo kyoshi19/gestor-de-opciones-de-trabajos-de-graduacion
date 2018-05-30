@@ -38,16 +38,12 @@
     };
 
     vm.logggOut = function(){
-      vm.showLoaderFn(true);
+      vm.showLoader=true;
       storage.user = undefined;
       $timeout(function() {
-        vm.showLoaderFn(false);
+        vm.showLoader=false;
         $state.transitionTo("login");
       },1000);
-    };
-
-    vm.showLoaderFn = function(show){
-      vm.showLoader = show;
     };
 
     var setup = function(){
