@@ -9,7 +9,7 @@ config.$inject= [
 
 var EStranslate = {
   // TITULOS PRINCIPALES
-  'header.title'                    :'Universidad Tecnológica de Panamá',
+  'utp.name'                        :'Universidad Tecnológica de Panamá',
   'header.faculty'                  :'Facultad de Ingeniería de Sistemas Computacionales',
   'global.firstName'                :'Nombre',
   'global.lastName'                 :'Apellido',
@@ -27,7 +27,13 @@ var EStranslate = {
   'validation.url'                  : "El campo {0} debe ser un URL válido.",
   'validation.number'               : "El campo {0} debe ser numérico.",
   'validation.unknown'              : "El campo {0} es inválido.",
-  'validation.validationTitle'      : 'Hay algunos errores de validación'
+  'validation.validationTitle'      : 'Hay algunos errores de validación',
+
+  // TEXTOS DEL FOOTER
+  'footer.direction'                : 'Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,',
+  'footer.utp.campus'               : 'Campus Metropolitano Víctor Levi Sasso.',
+  'footer.utp.mail'                 : 'E-mail: investigadores.activos@utp.ac.pa',
+  'footer.utp.phone'                : 'Teléfono. (507) 560-3000'
 };
 
 function config($translateProvider) {
