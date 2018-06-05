@@ -18,6 +18,7 @@
     vm.tempUser = {};
     vm.docPatern = patterns.panamaIdPattern;
     vm.showLoader = false;
+    vm.fullYear = new Date().getFullYear();
 
     vm.isDefined = angular.isDefined;
 
@@ -37,19 +38,18 @@
       });
     };
 
-    vm.logggOut = function(){
+    vm.goToMain = function(){
       vm.showLoader=true;
-      storage.user = undefined;
       $timeout(function() {
         vm.showLoader=false;
-        $state.transitionTo("login");
+        $state.transitionTo("main");
       },1000);
     };
 
     var setup = function(){
       vm.mainStudent = storage.user;
       if (!angular.isDefined(vm.mainStudent)) {
-        vm.logggOut();
+        vm.goToMain();
       }
     };
 

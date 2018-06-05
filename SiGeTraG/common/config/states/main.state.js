@@ -15,7 +15,7 @@ function config(
 
   $stateProvider.state('main', {
     url: '/main',
-    templateUrl: 'main.html'
+    templateUrl: 'common/templates/main.html'
   });
 
 }

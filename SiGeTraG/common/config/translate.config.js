@@ -9,12 +9,14 @@ config.$inject= [
 
 var EStranslate = {
   // TITULOS PRINCIPALES
-  'utp.name'                        :'Universidad Tecnológica de Panamá',
-  'header.faculty'                  :'Facultad de Ingeniería de Sistemas Computacionales',
-  'global.firstName'                :'Nombre',
-  'global.lastName'                 :'Apellido',
-  'global.id'                       :'Identificación',
-  'global.password'                 :'Contraseña',
+  'utp.name'                        : 'Universidad Tecnológica de Panamá',
+  'header.faculty'                  : 'Facultad de Ingeniería de Sistemas Computacionales',
+  'global.firstName'                : 'Nombre',
+  'global.lastName'                 : 'Apellido',
+  'global.id'                       : 'Identificación',
+  'global.password'                 : 'Contraseña',
+  'global.login'                    : 'Iniciar Sesión',
+  'global.main.page.title'          : 'Busca tu opción de trabajo de graduación',
 
   // MENSAJES DE ERROR DE VALIDACION
   'validation.required'             : 'El campo {0} es requerido.',

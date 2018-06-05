@@ -15,7 +15,7 @@ function config(
 
   $stateProvider.state('login', {
     url: '/login',
-    templateUrl: 'main.login.html'
+    templateUrl: 'common/templates/login.html'
   });
 
 }

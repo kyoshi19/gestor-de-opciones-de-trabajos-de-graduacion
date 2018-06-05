@@ -1,20 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+
+    <!-- <div class="col-md-12">
       <button class="btn btn-default"
         ng-click="mctrl.logggOut()">
         cerrar sesion
       </button>
-    </div>
+    </div> -->
 
-    <div class="col-md-8">
+
+    <div class="col-md-12">
+      <search-job
+        show-loader="mctrl.showLoader">
+      </search-job>
+
+<!--
       <add-user
         show-loader="mctrl.showLoader">
       </add-user>
-
       <delete-user
         show-loader="mctrl.showLoader">
-      </delete-user>
+      </delete-user> -->
     </div>
 
     <div class="col-md-4">
