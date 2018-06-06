@@ -16,6 +16,8 @@
 
     function linkFunc(scope, el, attr, ctrl) {
       /* - */
+
+      scope.workType = null;
     }
   }
 
