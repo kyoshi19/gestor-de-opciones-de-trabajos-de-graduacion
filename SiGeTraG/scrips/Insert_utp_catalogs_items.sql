@@ -27,49 +27,49 @@ VALUES("GW","Certificación Internacional","CI","");
 -- ------------------------------------- --
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Campus “Dr. Víctor Levi Sasso”","PC","");
+VALUES("URC","Campus “Dr. Víctor Levi Sasso”","PC","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Sede de Howard","PH","");
+VALUES("URC","Sede de Howard","PH","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Sede de Tocumen","PT","");
+VALUES("URC","Sede de Tocumen","PT","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Regional de Azuero","RA","");
+VALUES("URC","Centro Regional de Azuero","RA","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Regional de Bocas del Toro","RB","");
+VALUES("URC","Centro Regional de Bocas del Toro","RB","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Regional de Coclé","RCO","");
+VALUES("URC","Centro Regional de Coclé","RCO","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Regional de Colón","RCL","");
+VALUES("URC","Centro Regional de Colón","RCL","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Regional de Chiriquí","RCH","");
+VALUES("URC","Centro Regional de Chiriquí","RCH","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Regional de Panamá Oeste","RPO","");
+VALUES("URC","Centro Regional de Panamá Oeste","RPO","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Regional de Veraguas","RV","");
+VALUES("URC","Centro Regional de Veraguas","RV","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro Experimental de Ingeniería (CEI)","CEI","");
+VALUES("URC","Centro Experimental de Ingeniería (CEI)","CEI","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro de Producción e Investigaciones Agroindustriales","CPIA","");
+VALUES("URC","Centro de Producción e Investigaciones Agroindustriales","CPIA","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro de Investigaciones Hidráulicas e Hidrotécnicas","CIHH","");
+VALUES("URC","Centro de Investigaciones Hidráulicas e Hidrotécnicas","CIHH","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro de Investigación, Desarrollo e Innovación en Tecnologías de la Información y las Comunicaciones (CIDITIC)","CIDITIC","");
+VALUES("URC","Centro de Investigación, Desarrollo e Innovación en Tecnologías de la Información y las Comunicaciones (CIDITIC)","CIDITIC","");
 
 INSERT INTO catalogs_items(cat_code, cati_name, cati_code, cati_code_rel)
-VALUES("UCR","Centro de Investigación e Innovación Eléctrica, Mecánica y de la Industria (CINEMI)","CINEMI","");
+VALUES("URC","Centro de Investigación e Innovación Eléctrica, Mecánica y de la Industria (CINEMI)","CINEMI","");
 
 -- ---------- --
 -- FACULTADES --

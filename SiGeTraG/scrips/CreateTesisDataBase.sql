@@ -28,9 +28,11 @@ CREATE TABLE catalogs (
 
 -- TABLA DE ITEMS DE CATÁLOGOS --
 CREATE TABLE catalogs_items (
-  cati_id varchar(4) NOT NULL,
+  cat_code varchar(5) NOT NULL,
   cati_name varchar(200) NOT NULL,
   cati_code varchar(45) NOT NULL,
-  cati_code_rel varchar(45),
-  PRIMARY KEY (cati_id,cati_code)
+  cati_code_rel varchar(45) DEFAULT NULL,
+  PRIMARY KEY (cat_code,cati_code),
+  CONSTRAINT fk_cat_code FOREIGN KEY (cat_code) REFERENCES catalogs (cat_code) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
