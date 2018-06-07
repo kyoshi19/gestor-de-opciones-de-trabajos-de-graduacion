@@ -19,6 +19,10 @@
     vm.docPatern = patterns.panamaIdPattern;
     vm.showLoader = false;
     vm.fullYear = new Date().getFullYear();
+    vm.catalogs ={};
+    vm.backImage = 'src/img/starwars.jpg';
+    vm.myBackObj = {'background-image': 'url('+vm.backImage+')',
+                    'background-size': 'cover'};
 
     vm.isDefined = angular.isDefined;
 
@@ -26,6 +30,14 @@
       $http.get("php/selectAllUsers.php")
       .then(function (response) {
         vm.users = response.data.records;
+        vm.msg="Consulta Exitosa";
+      });
+    };
+
+    vm.selectCatalogs = function(){
+      $http.get("php/selectCatalogs.php")
+      .then(function (response) {
+        storage.catalogs = response.data;
         vm.msg="Consulta Exitosa";
       });
     };
@@ -47,6 +59,7 @@
     };
 
     var setup = function(){
+      vm.selectCatalogs();
       vm.mainStudent = storage.user;
       if (!angular.isDefined(vm.mainStudent)) {
         vm.goToMain();
