@@ -12,7 +12,9 @@ $res = "";
 while($rs = $resultCatalogs->fetch_array(MYSQLI_ASSOC)) {
 	if ($outp != "") {$outp .= ",";}
 	$outp .= '"'.$rs["name"] . '":[';
-
+	
+	$res = '{"id":"-1","name":"SELECCIONAR"}';	
+	
 	$resultItems = $conn->query("SELECT cati_code AS 'id', cati_name AS 'name' FROM catalogs_items WHERE cat_code = '".$rs["code"]."';");
 	while($rrs = $resultItems->fetch_array(MYSQLI_ASSOC)){
 		if ($res != "") {$res .= ",";}
