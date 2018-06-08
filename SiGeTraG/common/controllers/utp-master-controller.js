@@ -60,10 +60,6 @@
 
     var setup = function(){
       vm.selectCatalogs();
-      vm.mainStudent = storage.user;
-      if (!angular.isDefined(vm.mainStudent)) {
-        vm.goToMain();
-      }
     };
 
     setup();
