@@ -2,6 +2,10 @@
   margin-top: 10px;
   margin-bottom: 10px; }
 
+.btn-outline-primary {
+  color: #004198;
+  border-color: #004198; }
+
 footer {
   background-color: #001129;
   height: 135px;
@@ -107,8 +111,6 @@ h1, h2, h3, h4, h5, h6,
   font-family: "Titillium";
   color: white !important;
   font-size: 13px;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
   padding-left: 0px !important;
   padding-right: 0px !important;
   text-align: center; }
@@ -121,6 +123,13 @@ input[required] {
   background-color: #fffddd; }
   input[required].ng-valid-required {
     background-color: #ffffff; }
+
+select[required] {
+  background-color: #fffddd; }
+  select[required].ng-valid-required {
+    background-color: #ffffff; }
+select option {
+  background-color: #ffffff; }
 
 #loader-content {
   position: absolute;
@@ -172,5 +181,14 @@ input[required] {
   height: 15%;
   margin-left: 85%;
   padding-top: 7px; }
+
+input,
+button,
+select {
+  font-size: 94% !important; }
+
+.custom-select {
+  padding: 0rem 1.75rem 0rem 0.75rem;
+  height: calc(1.5rem + 10px); }
 
 /*# sourceMappingURL=styles.css.map */
