@@ -6,6 +6,7 @@ CREATE DATABASE utp_tesis;
 
 USE utp_tesis;
 
+-- TABLA DE USUARIOS --
 CREATE TABLE utp_users (
   us_id int(11) NOT NULL AUTO_INCREMENT,
   us_type varchar(1) NOT NULL DEFAULT 'E',
@@ -25,7 +26,6 @@ CREATE TABLE catalogs (
   PRIMARY KEY (ct_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-
 -- TABLA DE ITEMS DE CATÁLOGOS --
 CREATE TABLE catalogs_items (
   cat_code varchar(5) NOT NULL,
@@ -36,3 +36,17 @@ CREATE TABLE catalogs_items (
   CONSTRAINT fk_cat_code FOREIGN KEY (cat_code) REFERENCES catalogs (cat_code) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- TABLA DE TRABAJOS DE GRADUACIÓN --
+CREATE TABLE graduation_works (
+  work_code int(11) NOT NULL AUTO_INCREMENT,
+  work_type char(2) NOT NULL,
+  w_title varchar(200) NOT NULL,
+  advisor varchar(45) NOT NULL,
+  faculty varchar(45) DEFAULT NULL,
+  reg_center varchar(45) DEFAULT NULL,
+  creation_date date NOT NULL,
+  studentsQty int(11) NOT NULL,
+  PRIMARY KEY (work_code),
+  KEY advisor_idx (advisor),
+  CONSTRAINT advisor FOREIGN KEY (advisor) REFERENCES utp_users (us_doc_num) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
