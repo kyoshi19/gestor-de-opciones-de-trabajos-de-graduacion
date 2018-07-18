@@ -13,12 +13,15 @@ $lname = next($data);		//Optiene Siguiente elemento
 $document = next($data);
 $pass = next($data);
 
-$result = $conn->query("INSERT INTO utp_users (us_fname, us_lname, us_doc_num, us_pass) 
-VALUES('$fname', '$lname', '$document', '$pass' );");		//ejecucion de query contra la base de datos
+echo "INSERT INTO utp_users (us_fname, us_lname, us_doc_num, us_pass)
+VALUES('$fname', '$lname', '$document', '$pass' );";
 
-$outp ='{"records":['.$result.']}';  	//Convierte despuesta a formato json
-
-$conn->close();
-
-echo($outp);	//Retorna json de respuesta
+// $result = $conn->query("INSERT INTO utp_users (us_fname, us_lname, us_doc_num, us_pass)
+// VALUES('$fname', '$lname', '$document', '$pass' );");		//ejecucion de query contra la base de datos
+//
+// $outp ='{"records":['.$result.']}';  	//Convierte despuesta a formato json
+//
+// $conn->close();
+//
+// echo($outp);	//Retorna json de respuesta
 ?>
