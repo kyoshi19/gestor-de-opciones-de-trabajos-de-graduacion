@@ -2,11 +2,12 @@
   'use strict';
 
   //  directive directive
-  function searchJob() {
+  function searchJob(selectOption) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/searchJob/searchJob.html',
       scope           : {
+        setShowLoader : '&'
       },
       link            : linkFunc
     };
@@ -16,12 +17,25 @@
 
     function linkFunc(scope, el, attr, ctrl) {
       /* - */
+      scope.options = [ { name: 'Hank' }, { name: 'Francisco' } ];
+      scope.myModel = scope.options[0];
+      scope.selectOption = selectOption;
 
-      scope.workType = null;
+      scope.initSelect = function(item){
+        if (!item) {
+          return selectOption.id;
+        }
+        return item;
+      };
+      scope.initSearchJob = function(){
+
+      };
+
+      scope.initSearchJob();
     }
   }
 
-  searchJob.$inject = [];
+  searchJob.$inject = ['selectOption'];
   //  Module
   win.MainApp.Directives
   .directive('searchJob', searchJob);

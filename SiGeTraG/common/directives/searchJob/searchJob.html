@@ -1,26 +1,89 @@
-<div class="row">
+{{setShowLoader({show:!('graduationWorkTypes'|catalogIsReady)})}}
+<div class="row" ng-if="('graduationWorkTypes'|catalogIsReady)">
   <div class="col-md-12 text-center">
     <h1>{{'global.main.page.title'|translate}}</h1>
   </div>
-  <div class="col-md-8 col-md-push-2">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="input-group mb-3">
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
+  <div class="col-md-12">
+    <ng-form name="searchJobForm">
+      <div class="row">
+
+        <!--Select Tipo de trabajo -->
+        <div class="col-md-3">
+          <div class="input-group">
+            <select class="custom-select" id="workType"
+              ng-init="workType = initSelect(workType)"
+              aa-field-group="workType"
+              aa-label="Tipo de trabajo"
+              required="true">
+              <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
+                ng-value="item.id" ng-disabled= "item.id == null">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!--Select Facultad -->
+        <div class="col-md-5">
+          <div class="input-group">
+            <select class="custom-select" id="faculty"
+              ng-init="faculty = initSelect(faculty)"
+              aa-field-group="faculty"
+              aa-label="Facultad"
+              required="true">
+              <option ng-repeat="item in ('utpFaculties'|catalog) track by item.id"
+                ng-value="item.id" ng-disabled= "item.id == null">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!--Select Centro regional -->
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <select class="custom-select" id="center"
+              ng-init="center = initSelect(center)"
+              aa-field-group="center"
+              aa-label="Centro regional"
+              required="true">
+              <option ng-repeat="item in ('utpRegionalCenters'|catalog) track by item.id"
+                ng-value="item.id" ng-disabled= "item.id == null">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="row">
+        <!--Input palabras claves -->
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text"
+              class="form-control" id="field"
+              aa-field-group="field"
+              aa-label="Palabras claves">
+            </input>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="col-md-2 align-self-end">
+          <div class="form-group">
+            <button class="btn btn-outline-primary"
+              aa-submit-form="">
+              Buscar Opciones
+            </button>
+          </div>
         </div>
       </div>
-      <div class="col-md-1">
-        <button class="btn btn-default">filtrar</button>
-      </div>
+    </ng-form>
+  </div>
+
+    <div class="col-md-12 text-center">
+      <h3>Resultados de la búsqueda</h3>
     </div>
-  </div>
-
-  <div class="col-md-3 faculty-tabs">
-
-  </div>
 </div>

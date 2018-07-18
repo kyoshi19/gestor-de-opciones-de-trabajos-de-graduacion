@@ -11,20 +11,12 @@
 
     <div class="col-md-12">
       <search-job
-        show-loader="mctrl.showLoader">
+        set-show-loader="mctrl.setShowLoader(show)">
       </search-job>
-
-<!--
-      <add-user
-        show-loader="mctrl.showLoader">
-      </add-user>
-      <delete-user
-        show-loader="mctrl.showLoader">
-      </delete-user> -->
     </div>
 
     <div class="col-md-4">
-      <button class="btn btn-default"ng-click="mctrl.selectCatalogs()">Actualizar Datos</button>
+      <button class="btn btn-outline-primary"ng-click="mctrl.initCatalogs()">Actualizar Datos</button>
       <table class="table" ng-if="mctrl.isDefined(mctrl.users)">
         <tr>
           <td>ID</td>

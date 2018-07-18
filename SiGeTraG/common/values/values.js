@@ -15,6 +15,11 @@
     'lastName':{maxlength:30, pattern: 'alphaLatin'},
     'secondLastName':{maxlength:30, pattern: 'alphaLatin'},
     'identification':{pattern:'panamaIdPattern'}
+  })
+
+  .value('selectOption',{
+    id:null,
+    name:'Seleccionar'
   });
 
 }(window));

@@ -2,7 +2,7 @@
   'use strict';
 
   var masterController = function($scope, $log, patterns,
-    $http, $state, storage, $timeout){
+    $http, $state, storage, $timeout, catalog, catalogItem){
 
     $log.debug('[utp-master-controller] Initializing...');
 
@@ -17,7 +17,6 @@
     vm.mainStudent = {};
     vm.tempUser = {};
     vm.docPatern = patterns.panamaIdPattern;
-    vm.showLoader = false;
     vm.fullYear = new Date().getFullYear();
     vm.catalogs ={};
     vm.backImage = 'src/img/starwars.jpg';
@@ -34,12 +33,13 @@
       });
     };
 
-    vm.selectCatalogs = function(){
-      $http.get("php/selectCatalogs.php")
-      .then(function (response) {
-        storage.catalogs = response.data;
-        vm.msg="Consulta Exitosa";
-      });
+    vm.initCatalogs = function(){
+      // $http.get("php/selectCatalogs.php")
+      // .then(function (response) {
+      //   storage.catalogs = response.data;
+      //   vm.msg="Consulta Exitosa";
+      // });
+      catalog();
     };
 
     vm.deleteUser = function(){
@@ -48,6 +48,10 @@
         vm.msg = response.data.records;
         vm.tempUser = {};
       });
+    };
+
+    vm.setShowLoader = function(show){
+      vm.showLoader = show;
     };
 
     vm.goToMain = function(){
@@ -59,7 +63,7 @@
     };
 
     var setup = function(){
-      vm.selectCatalogs();
+      vm.initCatalogs();
     };
 
     setup();
@@ -72,7 +76,9 @@
     '$http',
     '$state',
     '$sessionStorage',
-    '$timeout'
+    '$timeout',
+    'catalogFilter',
+    'catalogItemFilter'
   ];
   win.MainApp.Controllers
   .controller('masterController',masterController);
