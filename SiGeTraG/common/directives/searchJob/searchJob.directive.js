@@ -2,7 +2,7 @@
   'use strict';
 
   //  directive directive
-  function searchJob(selectOption) {
+  function searchJob(selectOption, $http, $window) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/searchJob/searchJob.html',
@@ -17,8 +17,7 @@
 
     function linkFunc(scope, el, attr, ctrl) {
       /* - */
-      scope.options = [ { name: 'Hank' }, { name: 'Francisco' } ];
-      scope.myModel = scope.options[0];
+      scope.workToSearch ={};
       scope.selectOption = selectOption;
 
       scope.initSelect = function(item){
@@ -27,15 +26,31 @@
         }
         return item;
       };
-      scope.initSearchJob = function(){
+      scope.searchJobs = function(){
+        if (!angular.isDefined(scope.workToSearch.field)) {
+          scope.workToSearch.field = "";
+        }
+        scope.showLoader = true;
+        $http.post("php/selectWorks.php",scope.workToSearch)
+        .then(function (response) {
 
+          scope.works = response.data.records;
+
+          scope.showLoader = false;
+          // scope.tempUser = {};
+        }).catch(function(exception){
+          $window.alert(exception);
+          scope.showLoader = false;
+        });
       };
-
-      scope.initSearchJob();
     }
   }
 
-  searchJob.$inject = ['selectOption'];
+  searchJob.$inject = [
+    'selectOption',
+    '$http',
+    '$window'
+  ];
   //  Module
   win.MainApp.Directives
   .directive('searchJob', searchJob);

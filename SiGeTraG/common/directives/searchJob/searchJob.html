@@ -11,8 +11,8 @@
         <div class="col-md-3">
           <div class="input-group">
             <select class="custom-select" id="workType"
-              ng-init="workType = initSelect(workType)"
-              aa-field-group="workType"
+              ng-init="workToSearch.workType = initSelect(workToSearch.workType)"
+              aa-field-group="workToSearch.workType"
               aa-label="Tipo de trabajo"
               required="true">
               <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
@@ -27,8 +27,8 @@
         <div class="col-md-5">
           <div class="input-group">
             <select class="custom-select" id="faculty"
-              ng-init="faculty = initSelect(faculty)"
-              aa-field-group="faculty"
+              ng-init="workToSearch.faculty = initSelect(workToSearch.faculty)"
+              aa-field-group="workToSearch.faculty"
               aa-label="Facultad"
               required="true">
               <option ng-repeat="item in ('utpFaculties'|catalog) track by item.id"
@@ -43,8 +43,8 @@
         <div class="form-group col-md-4">
           <div class="input-group">
             <select class="custom-select" id="center"
-              ng-init="center = initSelect(center)"
-              aa-field-group="center"
+              ng-init="workToSearch.center = initSelect(workToSearch.center)"
+              aa-field-group="workToSearch.center"
               aa-label="Centro regional"
               required="true">
               <option ng-repeat="item in ('utpRegionalCenters'|catalog) track by item.id"
@@ -64,7 +64,7 @@
           <div class="form-group">
             <input type="text"
               class="form-control" id="field"
-              aa-field-group="field"
+              aa-field-group="workToSearch.field"
               aa-label="Palabras claves">
             </input>
           </div>
@@ -74,7 +74,7 @@
         <div class="col-md-2 align-self-end">
           <div class="form-group">
             <button class="btn btn-outline-primary"
-              aa-submit-form="">
+              aa-submit-form="searchJobs()">
               Buscar Opciones
             </button>
           </div>
@@ -83,7 +83,18 @@
     </ng-form>
   </div>
 
-    <div class="col-md-12 text-center">
+  <div ng-if="works" class="col-md-12">
+    <div class="text-center">
       <h3>Resultados de la búsqueda</h3>
     </div>
+    <div ng-repeat="work in works" class="card">
+      <div class="card-body">
+        <h5 class="card-title">Título: {{work.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Asesor: {{work.advisor}}</h6>
+        <p class="card-text">Centro regional: {{(work.center | catalogItem:'utpRegionalCenters').name}}</p>
+        <p class="card-text">Facultad: {{(work.faculty | catalogItem:'utpFaculties').name}}</p>
+        <p class="card-text">Tipo: {{(work.type | catalogItem:'graduationWorkTypes').name}}, estudiantes: {{work.students}}</p>
+      </div>
+    </div>
+  </div>
 </div>

@@ -33,7 +33,8 @@
       defaultValue = angular.isDefined(defaultValue) ? defaultValue : '-1';
       var doFilterCatalog = function(filterBy) {
         return filter(catalog, function(element) {
-          if (angular.isDefined(element.id) && angular.isDefined(filterBy)) {
+          if ((angular.isDefined(element.id)&& null !== element.id ) &&
+          angular.isDefined(filterBy)) {
             return element.id.trim() === String(filterBy).trim();
           }
         });
