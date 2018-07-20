@@ -2,7 +2,7 @@
   'use strict';
 
   var masterController = function($scope, $log, patterns,
-    $http, $state, storage, $timeout, catalog, catalogItem){
+    $http, $state, storage, $timeout, catalog, catalogItem, isEmpty){
 
     $log.debug('[utp-master-controller] Initializing...');
 
@@ -14,8 +14,7 @@
 
     // VM
     var vm = this;
-    vm.mainStudent = {};
-    vm.tempUser = {};
+    vm.storage = storage;
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
     vm.catalogs ={};
@@ -34,32 +33,24 @@
     };
 
     vm.initCatalogs = function(){
-      // $http.get("php/selectCatalogs.php")
-      // .then(function (response) {
-      //   storage.catalogs = response.data;
-      //   vm.msg="Consulta Exitosa";
-      // });
       catalog();
     };
 
-    vm.deleteUser = function(){
-      $http.post("php/deleteUser.php",vm.tempUser)
-      .then(function (response) {
-        vm.msg = response.data.records;
-        vm.tempUser = {};
-      });
+    vm.showLogOff = function(){
+      return !isEmpty(storage.user);
     };
 
-    vm.setShowLoader = function(show){
-      vm.showLoader = show;
+    vm.logggOut = function(){
+      storage.user = undefined;
+      vm.goToLogIn();
     };
 
-    vm.goToMain = function(){
+    vm.goToLogIn = function(){
       vm.showLoader=true;
       $timeout(function() {
         vm.showLoader=false;
-        $state.transitionTo("main");
-      },1000);
+        $state.transitionTo("login");
+      },700);
     };
 
     var setup = function(){
@@ -78,7 +69,8 @@
     '$sessionStorage',
     '$timeout',
     'catalogFilter',
-    'catalogItemFilter'
+    'catalogItemFilter',
+    'isEmptyFilter'
   ];
   win.MainApp.Controllers
   .controller('masterController',masterController);

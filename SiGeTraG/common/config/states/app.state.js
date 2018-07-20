@@ -12,5 +12,5 @@ config.$inject = [
 function config(
   $urlRouterProvider
 ) {
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/login');
 }

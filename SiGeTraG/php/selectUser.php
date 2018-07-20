@@ -13,6 +13,7 @@ $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
   if ($outp != "") {$outp .= ",";}
   $outp .= '{"id":"'  . $rs["us_id"] . '",';
+  $outp .= '"type":"'   . $rs["us_type"] . '",';
   $outp .= '"fName":"'   . $rs["us_fname"] . '",';
   $outp .= '"lName":"'. $rs["us_lname"] . '",';
   $outp .= '"docNumber":"'. $rs["us_doc_num"] . '",';

@@ -7,7 +7,7 @@
       restrict        : 'E',
       templateUrl     : 'common/directives/searchJob/searchJob.html',
       scope           : {
-        setShowLoader : '&'
+        showLoader    :"="
       },
       link            : linkFunc
     };
@@ -17,6 +17,7 @@
 
     function linkFunc(scope, el, attr, ctrl) {
       /* - */
+      scope.showLoader = false;
       scope.workToSearch ={};
       scope.selectOption = selectOption;
 
@@ -37,7 +38,6 @@
           scope.works = response.data.records;
 
           scope.showLoader = false;
-          // scope.tempUser = {};
         }).catch(function(exception){
           $window.alert(exception);
           scope.showLoader = false;

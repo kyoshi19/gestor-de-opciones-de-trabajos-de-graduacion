@@ -1,8 +1,8 @@
 
 //En este bloque config solo se configuran las rutas
 angular
-  .module(appName)
-  .config(config);
+.module(appName)
+.config(config);
 
 
 config.$inject = [
@@ -13,9 +13,9 @@ function config(
   $stateProvider
 ) {
 
-  $stateProvider.state('login', {
-    url: '/login',
-    templateUrl: 'common/templates/main-login.html'
+  $stateProvider.state('main-student', {
+    url: '/main/student',
+    templateUrl: 'common/templates/main-student.html'
   });
 
 }

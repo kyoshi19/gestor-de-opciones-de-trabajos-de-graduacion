@@ -2,12 +2,12 @@
   'use strict';
 
   //  directive directive
-  function utpLogin($log, userRules, $http, $state, storage, isEmpty ) {
+  function utpLogin($log, userRules, $http, $state, storage, isEmpty,
+    $timeout ) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/login/login.html',
       scope           : {
-        mainStudent   :"=",
         showLoader    :"="
       },
       link            : linkFunc
@@ -22,40 +22,39 @@
       var tempUser = {};
 
       scope.validateUser = function(){
+
         scope.showLoader = true;
-        if (''===scope.docToSearch ||
-        ''===scope.passToSearch) {
-          scope.msg="Data incompleta";
-          scope.alert="alert-warning";
-          return;
-        }
+
         $http.post("php/selectUser.php",scope.docToSearch.toString())
         .then(function (response) {
           tempUser = response.data.records[0];
-          if (angular.isDefined(tempUser) &&
-          tempUser.pass===scope.passToSearch) {
+
+          if (angular.isDefined(tempUser) && tempUser.pass===scope.passToSearch) {
+            storage.user = response.data.records[0];
             scope.goToMain();
           }else {
-            scope.msg = "no encontrado";
+            scope.msg = "Usuario no encontrado";
             scope.alert="alert-danger";
             scope.showLoader = false;
           }
         });
       };
-      scope.goToMain = function(logged){
-        if (logged) {
-          $state.transitionTo("main");
-        } else {
-          storage.user = tempUser;
-          scope.mainStudent = tempUser;
+
+      scope.goToMain = function(){
+        $timeout(function() {
           scope.showLoader = false;
-          $state.transitionTo("main");
-        }
+          if (storage.user.type === "E") {
+            $state.transitionTo("main-student");
+          }else if (storage.user.type === "P") {
+            $state.transitionTo("main-advisers");
+          }
+        },700);
       };
 
       var setup = function(){
-        if (!isEmpty(storage.user)) {
-          scope.goToMain(true);
+        if (!isEmpty(storage.user)){
+          scope.showLoader = true;
+          scope.goToMain();
         }
       };
       setup();
@@ -69,7 +68,8 @@
     '$http',
     '$state',
     '$sessionStorage',
-    'isEmptyFilter'
+    'isEmptyFilter',
+    '$timeout'
   ];
 
   win.MainApp.Directives

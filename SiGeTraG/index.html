@@ -19,10 +19,10 @@
   <!-- <div id="alert" class="alert alert-success" role="alert">Alerta</div> -->
 
   <!-- CABECERA DE TODAS LAS PÁGINAS -->
-  <ng-include  src="'common/templates/cabecera.html'"></ng-include>
+  <ng-include  src="'common/templates/header.html'"></ng-include>
 
   <!-- CARGADOR CON LOGO UTP -->
-  <div id="loader-content" ng-cloak ng-show="mctrl.showLoader">
+  <div id="loader-content" ng-cloak ng-if="mctrl.showLoader">
     <div class="logo-container">
       <img class="utp-loader" src="src/img/logo_utp.jpg"></img>
     </div>
@@ -68,8 +68,9 @@
 
     <!-- ESTADOS -->
     <script src="common/config/states/app.state.js"></script>
-    <script src="common/config/states/main.state.js"></script>
+    <script src="common/config/states/main-student.state.js"></script>
     <script src="common/config/states/login.state.js"></script>
+    <script src="common/config/states/main-advirons.state.js"></script>
 
 
     <!-- COMPONENTES EXTERNOS -->

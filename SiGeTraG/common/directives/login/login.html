@@ -2,34 +2,32 @@
   <div class ="text-center">
     <h2>{{'global.login'|translate}}</h2>
   </div>
-  <div class="row form-group">
-    <div class="col-md-10 center-block">
-      <div class="row">
-        <div class="col-md-11 form-group center-block">
-          <input aa-label="{{'global.id' | translate}}"
-          aa-field-group="docToSearch"
-          placeholder="ID"
-          utp-pattern="{{userRules.identification.pattern | translate}}"
-          required="true">
-        </div>
-        <div class="col-md-11 form-group center-block">
-          <input aa-label="{{'global.password' | translate}}"
-          aa-field-group="passToSearch"
-          type="password"
-          placeholder="Password"
-          ng-required="true">
-        </div>
-      </div>
-        <button class="btn btn-default col-md-5 center-block"
-        type="button"
-        aa-submit-form="validateUser()">
-        Iniciar sesión</button>
-      </div>
-      <div class=" col-md-8 text-center center-block"
-        ng-class="alert"
-        role="alert" ng-if="msg">
-        {{msg}}
-      </div>
+  <div class="row form-group justify-content-center">
+    <div class="col-md-8 form-group">
+      <input aa-label="{{'global.id' | translate}}"
+      aa-field-group="docToSearch"
+      placeholder="ID"
+      utp-pattern="{{userRules.identification.pattern | translate}}"
+      required="true">
+    </div>
+    <div class="col-md-8 form-group mb-4">
+      <input aa-label="{{'global.password' | translate}}"
+      aa-field-group="passToSearch"
+      type="password"
+      placeholder="Password"
+      ng-required="true">
+    </div>
+
+    <button class="btn btn-default col-md-5 form-group"
+      type="button"
+      aa-submit-form="validateUser()">
+      Iniciar sesión
+    </button>
+
+    <div class=" col-md-8 text-center center-block"
+      ng-class="alert"
+      role="alert" ng-if="msg">
+      {{msg}}
     </div>
   </div>
 </ng-form>
