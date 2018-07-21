@@ -32,8 +32,7 @@ CREATE TABLE catalogs_items (
   cati_name varchar(200) NOT NULL,
   cati_code varchar(45) NOT NULL,
   cati_code_rel varchar(45) DEFAULT NULL,
-  PRIMARY KEY (cat_code,cati_code),
-  CONSTRAINT fk_cat_code FOREIGN KEY (cat_code) REFERENCES catalogs (cat_code) ON UPDATE CASCADE
+  PRIMARY KEY (cat_code,cati_code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- TABLA DE TRABAJOS DE GRADUACIÓN --
