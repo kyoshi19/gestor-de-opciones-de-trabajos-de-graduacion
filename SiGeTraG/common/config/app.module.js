@@ -24,7 +24,8 @@
     'ui.router',
     'aa.formExtensions',
     'pascalprecht.translate',
-    'ngStorage'
+    'ngStorage',
+    'angularModalService'
   ]);
 
 }(window));

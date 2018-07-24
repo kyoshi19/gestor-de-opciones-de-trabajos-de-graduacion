@@ -1,7 +1,7 @@
 (function(win){
   'use strict';
 
-  var masterController = function($scope, $log, patterns,
+  var masterController = function($log, patterns,
     $http, $state, storage, $timeout, catalog, catalogItem, isEmpty){
 
     $log.debug('[utp-master-controller] Initializing...');
@@ -61,7 +61,6 @@
 
   };
   masterController.$inject=[
-    '$scope',
     '$log',
     'patternList',
     '$http',

@@ -21,5 +21,3 @@ VALUES("P","Harry","Potter","1-123-11","jgiron19");
 INSERT INTO utp_users (us_type,us_fname,us_lname,us_doc_num,us_pass)
 VALUES("P","Wanda ","Maximoff","N-911-246","password");
 
-INSERT INTO utp_users (us_type,us_fname,us_lname,us_doc_num,us_pass)
-VALUES("P","Clark ","Kent","PE-14-5298","password");

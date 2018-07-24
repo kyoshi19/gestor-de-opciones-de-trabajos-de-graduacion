@@ -82,13 +82,14 @@
       </div>
     </ng-form>
   </div>
+  <button class="btn btn-outline-primary" ng-click="openWorkInfo()">Dynamic Popover</button>
 
   <div ng-if="works" class="col-md-12">
     <div class="text-center">
       <h3>Resultados de la búsqueda</h3>
     </div>
     <div ng-repeat="work in works" class="card">
-      <div class="card-body">
+      <div class="card-body" ng-click="openWorkInfo(work)">
         <h5 class="card-title">Título: {{work.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Asesor: {{work.advisor}}</h6>
         <p class="card-text">Centro regional: {{(work.center | catalogItem:'utpRegionalCenters').name}}</p>
