@@ -26,9 +26,12 @@ footer {
 .footer-interest {
   text-align: right; }
 
+.master-view {
+  min-height: 450px; }
+
 .navbar {
   background-color: #004198;
-  min-height: 40px;
+  max-height: 40px;
   border-radius: 0px;
   border: 0px; }
   .navbar li {
@@ -36,6 +39,13 @@ footer {
     width: 14.15%; }
   .navbar li:hover {
     background-color: #002d6a; }
+
+.works-cards {
+  min-width: 100%; }
+
+div.card-body.work-item:hover {
+  background-color: #ddeafc;
+  cursor: pointer; }
 
 .navbar-nav {
   min-width: 100.5%; }
@@ -70,7 +80,7 @@ footer {
 
 .utp-login {
   padding: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 56, 255, 0.38);
+  box-shadow: 0px 1px 8px rgba(0, 56, 255, 0.38);
   margin-bottom: 20px; }
 
 @font-face {
@@ -114,10 +124,14 @@ h1, h2, h3, h4, h5, h6,
 .navbar-nav a {
   font-family: "Titillium";
   color: white !important;
-  font-size: 13px;
+  font-size: 15px;
   padding-left: 0px !important;
   padding-right: 0px !important;
+  font-weight: bold;
   text-align: center; }
+
+.message-result {
+  color: #2b94b3; }
 
 .mensaje-error {
   color: #ff0000;
@@ -194,5 +208,9 @@ select {
 .custom-select {
   padding: 0rem 1.75rem 0rem 0.75rem;
   height: calc(1.5rem + 10px); }
+
+.modal-dialog {
+  max-width: 700px;
+  margin: 1.75rem auto; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,6 +1,9 @@
+.master-view{
+  min-height: 450px;
+}
 .navbar{
   background-color: $utp-main-color;
-  min-height: 40px;
+  max-height: 40px;
   border-radius: 0px;
   border: 0px;
   li{
@@ -10,6 +13,13 @@
   li:hover{
     background-color: $utp-main-color-active;
   }
+}
+.works-cards{
+  min-width: 100%;
+}
+div.card-body.work-item:hover{
+  background-color: #ddeafc;
+  cursor: pointer;
 }
 
 .navbar-nav{

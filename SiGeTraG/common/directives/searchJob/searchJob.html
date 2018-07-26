@@ -1,11 +1,11 @@
 {{setShowLoader({show:!('graduationWorkTypes'|catalogIsReady)})}}
-<div class="row" ng-if="('graduationWorkTypes'|catalogIsReady)">
+<div class="row justify-content-center" ng-if="('graduationWorkTypes'|catalogIsReady)">
   <div class="col-md-12 text-center">
     <h1>{{'global.main.page.title'|translate}}</h1>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 card">
     <ng-form name="searchJobForm">
-      <div class="row">
+      <div class="row card-body">
 
         <!--Select Tipo de trabajo -->
         <div class="col-md-3">
@@ -82,19 +82,16 @@
       </div>
     </ng-form>
   </div>
-  <button class="btn btn-outline-primary" ng-click="openWorkInfo()">Dynamic Popover</button>
 
-  <div ng-if="works" class="col-md-12">
+  <div ng-if="works" class="col-md-10 mb-5">
     <div class="text-center">
       <h3>Resultados de la búsqueda</h3>
     </div>
+    <h6 class="message-result">La búsqueda ha dado {{works.length}} resultado/s</h6>
     <div ng-repeat="work in works" class="card">
-      <div class="card-body" ng-click="openWorkInfo(work)">
+      <div class="card-body work-item" ng-click="openWorkInfo(work)">
         <h5 class="card-title">Título: {{work.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Asesor: {{work.advisor}}</h6>
-        <p class="card-text">Centro regional: {{(work.center | catalogItem:'utpRegionalCenters').name}}</p>
-        <p class="card-text">Facultad: {{(work.faculty | catalogItem:'utpFaculties').name}}</p>
-        <p class="card-text">Tipo: {{(work.type | catalogItem:'graduationWorkTypes').name}}, estudiantes: {{work.students}}</p>
       </div>
     </div>
   </div>

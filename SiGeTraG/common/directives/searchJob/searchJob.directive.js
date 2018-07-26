@@ -44,7 +44,7 @@
         });
       };
 
-      scope.openWorkInfo = function(){
+      scope.openWorkInfo = function(work){
 
         $log.debug('-->>PRUEBA MODAL<<--');
         //Fuente --> https://www.npmjs.com/package/angular-modal-service
@@ -52,14 +52,19 @@
         // Just provide a template url, a controller and call 'showModal'.
         ModalService.showModal({
           templateUrl: "common/templates/modal/choseWorkModal.html",
-          controller: "choseWorkController"
+          controller: "choseWorkController",
+          controllerAs:"ctrl",
+          inputs:{
+            data:work
+          }
         }).then(function(modal) {
           // The modal object has the element built, if this is a bootstrap modal
           // you can call 'modal' to show it, if it's a custom modal just show or hide
           // it as you need to.
           modal.element.modal();
           modal.close.then(function(result) {
-            $scope.message = result ? "You said Yes" : "You said No";
+            $log.debug("Modal is closed");
+            scope.message = result ? "You said Yes" : "You said No";
           });
         });
       };
