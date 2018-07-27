@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `utp_tesis` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `utp_tesis`;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: utp_tesis
@@ -88,7 +86,7 @@ CREATE TABLE `graduation_works` (
   PRIMARY KEY (`work_code`),
   KEY `advisor_idx` (`advisor`),
   CONSTRAINT `advisor` FOREIGN KEY (`advisor`) REFERENCES `utp_users` (`us_doc_num`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +95,7 @@ CREATE TABLE `graduation_works` (
 
 LOCK TABLES `graduation_works` WRITE;
 /*!40000 ALTER TABLE `graduation_works` DISABLE KEYS */;
-INSERT INTO `graduation_works` VALUES (13,'P','Impresión automática de actas en el Tribunal Electoral para las eleciones','5-482-691','FISC','PC','2018-07-13',2),(14,'TP','Manual de procedimiento para el diseño de sistemas de fontanería','1-123-11','FIC','PC','2018-04-24',1),(15,'TP','Diseño eléctrico realizado en la compañía ingeniería atlántico','8-475-1024','FIE','PC','2017-10-08',2),(16,'P','Reconocimiento, evaluación y manejo de equipos especiales de fuerza en las centrales telefónicas.','PE-14-5298','FII','PC','2017-06-10',3),(17,'TP','Sistema de gestión de la información del departamento de Bienestar Estudiantil de la Universidad Tecnológica de Panamá Centro Regional de Chiriquí','5-482-691','FIE','PC','2018-02-10',1),(18,'P','Práctica profesional en Ricardo Perez S.A. \"Ahorro energético y mejoras en la calidad de la energía\"','8-475-1024','FIE','PC','2018-02-10',2);
+INSERT INTO `graduation_works` VALUES (13,'P','Impresión automática de actas en el Tribunal Electoral para las eleciones','5-482-691','FISC','PC','2018-07-13',2),(14,'TP','Manual de procedimiento para el diseño de sistemas de fontanería','1-123-11','FIC','PC','2018-04-24',1),(15,'TP','Diseño eléctrico realizado en la compañía ingeniería atlántico','8-475-1024','FIE','PC','2017-10-08',2),(16,'P','Reconocimiento, evaluación y manejo de equipos especiales de fuerza en las centrales telefónicas.','PE-14-5298','FII','PC','2017-06-10',3),(17,'TP','Sistema de gestión de la información del departamento de Bienestar Estudiantil de la Universidad Tecnológica de Panamá Centro Regional de Chiriquí','5-482-691','FIE','PC','2018-02-10',1),(18,'P','Práctica profesional en Ricardo Perez S.A. \'Ahorro energético y mejoras en la calidad de la energía\'','8-475-1024','FIE','PC','2018-02-10',2),(19,'T','Diseño y construcción de un sistema analizador de señales lentas y/o no periódicas mediante el microprocesador','1-123-11','FISC','PC','2018-07-26',2),(20,'T','Diseño y construcción del sistema didáctico SD-88 basado en el microprocesador INTEL8088','PE-14-5298','FISC','PC','2018-07-26',4),(21,'T','Nuevo método computacional para el estudio de flujo de potencia','8-475-1024','FIE','PC','2018-07-26',1),(22,'P','Mantenimiento preventivo en los sistemas de transmisión digital por cables de fibras óptica y microondas.','5-482-691','FISC','PC','2018-07-26',3),(23,'P','Implementación de un sistema de información para la logística de materiales de una empresa industrial','1-123-11','FISC','PC','2018-07-26',1);
 /*!40000 ALTER TABLE `graduation_works` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +115,7 @@ CREATE TABLE `utp_users` (
   `us_pass` varchar(45) NOT NULL,
   PRIMARY KEY (`us_id`),
   UNIQUE KEY `us_doc_num_UNIQUE` (`us_doc_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +124,7 @@ CREATE TABLE `utp_users` (
 
 LOCK TABLES `utp_users` WRITE;
 /*!40000 ALTER TABLE `utp_users` DISABLE KEYS */;
-INSERT INTO `utp_users` VALUES (1,'E','Jorge','Girón','8-855-449','jgiron19'),(2,'E','Yirelki','Jiménez','8-901-1029','password'),(21,'P','Bruce','Wayne','5-482-691','password'),(22,'P','Diana','Prince','8-475-1024','password'),(23,'P','Kal','El','PE-14-5298','password'),(25,'E','Ranger','Rojo','8-855-448','321654987'),(81,'P','Harry','Potter','1-123-11','password');
+INSERT INTO `utp_users` VALUES (1,'E','Jorge','Girón','8-855-449','jgiron19'),(2,'E','Yirelki','Jiménez','8-901-1029','test'),(21,'P','Bruce','Wayne','5-482-691','test'),(22,'P','Diana','Prince','8-475-1024','test'),(23,'P','Kal','El','PE-14-5298','test'),(25,'E','Ranger','Rojo','8-855-448','test'),(81,'P','Harry','Potter','1-123-11','test'),(82,'E','Greysi','Diaz','1-123-12','test'),(83,'E','Ariel','Fernandez','E-8-111396','test');
 /*!40000 ALTER TABLE `utp_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -139,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-23  7:59:43
+-- Dump completed on 2018-07-27 16:31:54
