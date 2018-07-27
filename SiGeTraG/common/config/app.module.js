@@ -25,7 +25,8 @@
     'aa.formExtensions',
     'pascalprecht.translate',
     'ngStorage',
-    'angularModalService'
+    'angularModalService',
+    'ngTable'
   ]);
 
 }(window));

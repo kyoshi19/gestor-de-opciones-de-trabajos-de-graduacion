@@ -6,7 +6,7 @@
         <button type="button" class="close" ng-click="ctrl.close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
       <div class="modal-body">
-        <h6 class="card-subtitle mb-2 text-muted"><b>Asesor: {{ctrl.data.advisor}}</b></h6>
+        <p class="card-text text-muted"><b>Asesor:</b> {{ctrl.data.advisor}}</p>
         <p class="card-text text-muted"><b>Centro regional:</b> {{(ctrl.data.center | catalogItem:'utpRegionalCenters').name}}</p>
         <p class="card-text text-muted"><b>Facultad:</b> {{(ctrl.data.faculty | catalogItem:'utpFaculties').name}}</p>
         <p class="card-text text-muted"><b>Estudiantes:</b> {{ctrl.data.students}}</p>

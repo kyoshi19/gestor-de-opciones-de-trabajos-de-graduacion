@@ -1677,7 +1677,7 @@ pre code {
 .table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #dee2e6;
+  border: 1px solid #dee2e6;
 }
 
 .table thead th {
@@ -5397,7 +5397,7 @@ button.close {
 .modal-open {
   overflow: hidden;
 }
-
+/* --> POSITIONS AND ANIMATIONS FOR MODALS <-- */
 .modal {
   position: fixed;
   top: 0;
@@ -5426,13 +5426,13 @@ button.close {
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-  -webkit-transform: translate(0, -25%);
-  transform: translate(0, -25%);
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 .modal.show .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
+  -webkit-transform: translate(0, 10%);
+  transform: translate(0, 10%);
 }
 
 .modal-dialog-centered {

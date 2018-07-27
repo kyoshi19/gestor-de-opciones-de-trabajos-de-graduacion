@@ -8,6 +8,7 @@
     "@uirouter/angularjs": "^1.0.3",
     "angular-agility": "^0.8.40",
     "angular-modal-service": "^0.13.0",
+    "ng-table": "^3.0.1",
     "ngstorage": "^0.3.11"
   }
 }

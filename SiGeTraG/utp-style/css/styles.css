@@ -40,10 +40,7 @@ footer {
   .navbar li:hover {
     background-color: #002d6a; }
 
-.works-cards {
-  min-width: 100%; }
-
-div.card-body.work-item:hover {
+td.work-item:hover {
   background-color: #ddeafc;
   cursor: pointer; }
 
@@ -72,7 +69,7 @@ div.card-body.work-item:hover {
 
 .utp-logo {
   width: 308px;
-  height: 97px; }
+  height: 90px; }
 
 .utp-building {
   width: 100%;

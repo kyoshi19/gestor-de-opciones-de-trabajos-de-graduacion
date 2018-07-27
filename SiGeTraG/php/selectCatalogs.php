@@ -13,7 +13,7 @@ while($rs = $resultCatalogs->fetch_array(MYSQLI_ASSOC)) {
 	if ($outp != "") {$outp .= ",";}
 	$outp .= '"'.$rs["name"] . '":[';
 
-	$res = '{"id":null,"name":"Seleccionar"}';
+	$res = '{"id":null,"name":"Seleccionar"},{"id":"0", "name":"Todos"}';
 
 	$resultItems = $conn->query("SELECT cati_code AS 'id', cati_name AS 'name' FROM catalogs_items WHERE cat_code = '".$rs["code"]."'
 															 ORDER BY cati_name;");

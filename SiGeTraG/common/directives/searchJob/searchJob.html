@@ -83,16 +83,21 @@
     </ng-form>
   </div>
 
-  <div ng-if="works" class="col-md-10 mb-5">
+  <div ng-if="worksTable" class="col-md-10 mb-5">
     <div class="text-center">
       <h3>Resultados de la búsqueda</h3>
     </div>
-    <h6 class="message-result">La búsqueda ha dado {{works.length}} resultado/s</h6>
-    <div ng-repeat="work in works" class="card">
-      <div class="card-body work-item" ng-click="openWorkInfo(work)">
-        <h5 class="card-title">Título: {{work.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Asesor: {{work.advisor}}</h6>
-      </div>
+    <h6 class="message-result">La búsqueda ha dado {{worksCount}} resultado/s</h6>
+    <div class="">
+      <table ng-table="worksTable" class="table">
+        <thead></thead>
+        <tr ng-repeat="work in $data">
+          <td class ="work-item" ng-click="openWorkInfo(work)">
+            <h6>Título: {{work.title}}</h6>
+            <h6 class="text-muted">Asesor: {{work.advisor}}</h6>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

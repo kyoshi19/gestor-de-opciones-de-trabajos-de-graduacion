@@ -2,7 +2,8 @@
   'use strict';
 
   //  directive directive
-  function searchJob($log, selectOption, $http, $window, ModalService) {
+  function searchJob($log, selectOption, $http,
+    $window, ModalService, NgTableParams) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/searchJob/searchJob.html',
@@ -35,13 +36,29 @@
         $http.post("php/selectWorks.php",scope.workToSearch)
         .then(function (response) {
 
-          scope.works = response.data.records;
+          scope.worksCount = response.data.records.length;
+          scope.worksTable =  worksTableConfig(response.data.records);
 
           scope.showLoader = false;
         }).catch(function(exception){
           $window.alert(exception);
           scope.showLoader = false;
         });
+      };
+
+      var worksTableConfig = function(works){
+        var initialParams = {
+        count: 5 // rows count per page
+      };
+      var initialSettings = {
+        // rows count per page buttons (right set of buttons in demo)
+        counts: null,
+        // determines the pager buttons (left set of buttons in demo)
+        paginationMaxBlocks: 7, //maximum of pager blocks
+        paginationMinBlocks: 1, //minimum of pager blocks
+        dataset: works
+      };
+      return new NgTableParams(initialParams, initialSettings);
       };
 
       scope.openWorkInfo = function(work){
@@ -76,7 +93,8 @@
     'selectOption',
     '$http',
     '$window',
-    'ModalService'
+    'ModalService',
+    'NgTableParams'
   ];
   //  Module
   win.MainApp.Directives

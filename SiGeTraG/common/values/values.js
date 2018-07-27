@@ -5,7 +5,7 @@
   .value('patternList', {
     'numberOnly':/^[0-9]+$/,
     'alphaLatin': /^([a-zñáéíóúü]+)?$/i,
-    'panamaIdPattern':/^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,5})$/i
+    'panamaIdPattern':/^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$/i
   })
 
 
