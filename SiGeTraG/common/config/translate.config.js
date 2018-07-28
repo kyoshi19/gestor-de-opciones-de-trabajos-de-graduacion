@@ -17,6 +17,9 @@ var EStranslate = {
   'global.password'                 : 'Contraseña',
   'global.login'                    : 'Iniciar Sesión',
   'global.main.page.title'          : 'Busca tu opción de trabajo de graduación',
+  'global.email'                    : 'Correo electrónico',
+  'global.subject'                  : 'Asunto',
+  'global.message'                  : 'Mensaje',
 
   // MENSAJES DE ERROR DE VALIDACION
   'validation.required'             : 'El campo {0} es requerido.',
