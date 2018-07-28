@@ -1,9 +1,9 @@
 (function(win){
   'use strict';
 
-  var choseWorkController = function($log, data, close){
+  var sendEmailController = function($log, data, close, element){
 
-    $log.debug('[ChoseWorkModal] Initializing...');
+    $log.debug('[sendEmailModalController] Initializing...');
 
     /*
     ==============
@@ -14,23 +14,27 @@
     // VM
     var vm = this;
     vm.data = data;
+    vm.message = {};
+    vm.message.subject = 'Aplicación: '+vm.data.title+'.';
 
     vm.close = function(result) {
       var response = {
         'result':result
       };
-      $log.debug("Closing modal");
+      $log.debug("Closing email modal");
+      element.modal('hide');
       close(response, 500); // close, but give 500ms for bootstrap to animate
     };
 
 
   };
-  choseWorkController.$inject=[
+  sendEmailController.$inject=[
     '$log',
     'data',
-    'close'
+    'close',
+    '$element'
   ];
   win.MainApp.Controllers
-  .controller('choseWorkController',choseWorkController);
+  .controller('sendEmailController',sendEmailController);
 
 }(window));
