@@ -48,14 +48,15 @@
 
       var worksTableConfig = function(works){
         var initialParams = {
-        count: 5 // rows count per page
+        count: 5 // filas por página
       };
       var initialSettings = {
-        // rows count per page buttons (right set of buttons in demo)
+        // número de filas por botones de página
         counts: null,
-        // determines the pager buttons (left set of buttons in demo)
-        paginationMaxBlocks: 7, //maximum of pager blocks
-        paginationMinBlocks: 1, //minimum of pager blocks
+        // determina los botones del paginador
+        paginationMaxBlocks: 7, //máximo de bloques de página
+        paginationMinBlocks: 1, //mínimo de bloques de página
+        //Información a mostrar
         dataset: works
       };
       return new NgTableParams(initialParams, initialSettings);
@@ -66,7 +67,7 @@
         $log.debug('-->>PRUEBA MODAL<<--');
         //Fuente --> https://www.npmjs.com/package/angular-modal-service
 
-        // Just provide a template url, a controller and call 'showModal'.
+        // Solo proporciona una url de plantilla, un controlador y llama a 'showModal'.
         ModalService.showModal({
           templateUrl: "common/templates/modal/choseWorkModal.html",
           controller: "choseWorkController",
@@ -75,13 +76,35 @@
             data:work
           }
         }).then(function(modal) {
-          // The modal object has the element built, if this is a bootstrap modal
-          // you can call 'modal' to show it, if it's a custom modal just show or hide
-          // it as you need to.
+          // El objeto modal tiene el elemento creado, si esto es un modal de bootstrap
+          // puedes llamar a 'modal' para mostrarlo, si se trata de un modal personalizado
+          // solo muestra (show) u oculta (hide) como se necesites.
           modal.element.modal();
-          modal.close.then(function(result) {
-            $log.debug("Modal is closed");
-            scope.message = result ? "You said Yes" : "You said No";
+          modal.close.then(function(response) {
+            $log.debug("Modal is closed ==>", response);
+            if (response.result) {
+              openEmailFormModal(work);
+            }
+          });
+        });
+      };
+
+      var openEmailFormModal = function(work){
+
+        ModalService.showModal({
+          templateUrl: "common/templates/modal/sendEmailModal.html",
+          controller: "sendEmailController",
+          controllerAs:"ctrl",
+          inputs:{
+            data:work
+          }
+        }).then(function(modal) {
+          modal.element.modal();
+          modal.close.then(function(response) {
+            $log.debug("Modal is closed ==>", response);
+            if (response.result) {
+              $log.debug('===> Correo enviado <===');
+            }
           });
         });
       };

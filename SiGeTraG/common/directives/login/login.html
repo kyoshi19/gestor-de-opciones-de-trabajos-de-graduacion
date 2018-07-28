@@ -8,7 +8,7 @@
       aa-label="{{'global.id' | translate}}"
       aa-field-group="docToSearch"
       placeholder="ID"
-      utp-pattern="{{userRules.identification.pattern | translate}}"
+      utp-pattern="{{userRules.identification.pattern}}"
       required="true"
       autocomplete="off">
     </div>
@@ -20,7 +20,7 @@
       ng-required="true">
     </div>
 
-    <button class="btn btn-default col-md-5"
+    <button class="btn btn-default form-group col-md-5"
       type="button"
       aa-submit-form="validateUser()">
       Iniciar sesión
