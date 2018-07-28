@@ -1,0 +1,56 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Contactando a: {{ctrl.data.advisor}}</h4>
+        <button type="button" class="close" ng-click="ctrl.close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <ng-form name="sendMailForm">
+        <div class="modal-body">
+          <!-- CORREO ELECTRÓNICO -->
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input class="text-lowercase form-control"
+              aa-label="{{'global.email' | translate}}"
+              aa-field-group="ctrl.message.email"
+              placeholder="Ejemplo@dominio.com"
+              utp-pattern="{{userRules.email.pattern}}"
+              required="true"
+              autocomplete="off">
+            </div>
+          </div>
+          <!-- ASUNTO -->
+          <div class="row">
+            <div class="col-md-10 form-group">
+              <input class="form-control"
+              aa-label="{{'global.subject' | translate}}"
+              aa-field-group="ctrl.message.subject"
+              required="true"
+              autocomplete="off"
+              ng-disabled='true'>
+            </div>
+          </div>
+
+          <!-- MENSAJE -->
+          <div class="row">
+            <div class="col-md-10 form-group">
+              <textarea class="form-control" rows="3"
+                aa-field-group="ctrl.message.text"
+                aa-label="{{'global.subject' | translate}}"
+                required="true"
+                maxlength="255"
+                ng-maxlength="255">
+              </textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" ng-click="ctrl.close(false)" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="button" aa-submit-form="ctrl.close(true)" class="btn btn-primary" data-dismiss="">Enviar</button>
+        </div>
+
+      </ng-form>
+    </div>
+  </div>
+</div>
