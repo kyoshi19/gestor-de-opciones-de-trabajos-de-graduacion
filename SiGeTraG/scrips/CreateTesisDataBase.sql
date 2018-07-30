@@ -1,14 +1,10 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `utp_tesis` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
+USE `utp_tesis`;
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: utp_tesis
 -- ------------------------------------------------------
--- Server version	5.7.12-log
-
-DROP DATABASE IF EXISTS utp_tesis;
-
-CREATE DATABASE utp_tesis;
-
-USE utp_tesis;
+-- Server version	5.7.21-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,11 +25,11 @@ DROP TABLE IF EXISTS `catalogs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `catalogs` (
-  `cat_name` varchar(45) NOT NULL,
-  `cat_code` varchar(5) NOT NULL,
+  `cat_name` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `cat_code` varchar(5) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`cat_code`),
   UNIQUE KEY `cat_code_UNIQUE` (`cat_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,13 +50,13 @@ DROP TABLE IF EXISTS `catalogs_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `catalogs_items` (
-  `cat_code` varchar(5) NOT NULL,
-  `cati_name` varchar(200) NOT NULL,
-  `cati_code` varchar(45) NOT NULL,
-  `cati_code_rel` varchar(45) DEFAULT NULL,
+  `cat_code` varchar(5) CHARACTER SET utf8 NOT NULL,
+  `cati_name` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `cati_code` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `cati_code_rel` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`cat_code`,`cati_code`),
   CONSTRAINT `fk_cat_code` FOREIGN KEY (`cat_code`) REFERENCES `catalogs` (`cat_code`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -82,17 +78,17 @@ DROP TABLE IF EXISTS `graduation_works`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `graduation_works` (
   `work_code` int(11) NOT NULL AUTO_INCREMENT,
-  `work_type` char(2) NOT NULL,
-  `w_title` varchar(200) NOT NULL,
-  `advisor` varchar(45) NOT NULL,
-  `faculty` varchar(45) DEFAULT NULL,
-  `reg_center` varchar(45) DEFAULT NULL,
+  `work_type` char(2) CHARACTER SET utf8 NOT NULL,
+  `w_title` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `advisor` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `faculty` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `reg_center` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
   `creation_date` date NOT NULL,
   `studentsQty` int(11) NOT NULL,
   PRIMARY KEY (`work_code`),
   KEY `advisor_idx` (`advisor`),
   CONSTRAINT `advisor` FOREIGN KEY (`advisor`) REFERENCES `utp_users` (`us_doc_num`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,14 +110,14 @@ DROP TABLE IF EXISTS `utp_users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `utp_users` (
   `us_id` int(11) NOT NULL AUTO_INCREMENT,
-  `us_type` varchar(1) NOT NULL DEFAULT 'E',
-  `us_fname` varchar(45) NOT NULL,
-  `us_lname` varchar(45) NOT NULL,
-  `us_doc_num` varchar(45) NOT NULL,
-  `us_pass` varchar(45) NOT NULL,
+  `us_type` varchar(1) CHARACTER SET utf8 NOT NULL DEFAULT 'E',
+  `us_fname` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `us_lname` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `us_doc_num` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `us_pass` varchar(45) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`us_id`),
   UNIQUE KEY `us_doc_num_UNIQUE` (`us_doc_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-27 16:31:54
+-- Dump completed on 2018-07-29 21:58:57
