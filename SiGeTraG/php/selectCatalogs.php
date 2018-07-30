@@ -3,6 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("localhost", "root", "root", "utp_tesis");
+$conn->set_charset("utf8");
 
 $resultCatalogs = $conn->query("SELECT cat_name AS 'name', cat_code AS 'code' FROM catalogs;");
 

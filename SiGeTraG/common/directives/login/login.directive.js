@@ -28,7 +28,7 @@
         $http.post("php/selectUser.php",scope.docToSearch.toString())
         .then(function (response) {
           tempUser = response.data.records[0];
-
+          $log.debug(tempUser);
           if (angular.isDefined(tempUser) && tempUser.pass===scope.passToSearch) {
             storage.user = response.data.records[0];
             scope.goToMain();

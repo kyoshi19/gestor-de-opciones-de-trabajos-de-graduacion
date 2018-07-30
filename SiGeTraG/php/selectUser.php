@@ -3,6 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("localhost", "root", "root", "utp_tesis");
+$conn->set_charset("utf8");
 
 $data = file_get_contents("php://input"); //Recibe parametro
 //Optiene elemento actual

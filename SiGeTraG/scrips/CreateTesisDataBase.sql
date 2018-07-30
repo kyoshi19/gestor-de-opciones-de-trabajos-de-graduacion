@@ -4,6 +4,12 @@
 -- ------------------------------------------------------
 -- Server version	5.7.12-log
 
+DROP DATABASE IF EXISTS utp_tesis;
+
+CREATE DATABASE utp_tesis;
+
+USE utp_tesis;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
