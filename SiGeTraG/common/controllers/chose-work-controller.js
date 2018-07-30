@@ -20,7 +20,7 @@
         'result':result
       };
       $log.debug("Closing modal");
-      close(response, 500); // close, but give 500ms for bootstrap to animate
+      close(response, 400); // close, but give 500ms for bootstrap to animate
     };
 
 

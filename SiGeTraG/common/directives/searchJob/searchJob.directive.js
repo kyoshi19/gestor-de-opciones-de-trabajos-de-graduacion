@@ -104,6 +104,7 @@
             $log.debug("Modal is closed ==>", response);
             if (response.result) {
               $log.debug('===> Correo enviado <===');
+              //https://www.quora.com/How-can-I-send-mail-through-localhost-using-XAMPP-in-PHP
             }
           });
         });

@@ -1,4 +1,4 @@
-<ng-form name="loginForm">
+<ng-form name="loginForm" ng-submit="validateUser()">
   <div class ="text-center mb-3">
     <h2>{{'global.login'|translate}}</h2>
   </div>
@@ -20,8 +20,8 @@
       ng-required="true">
     </div>
 
-    <button class="btn btn-default form-group col-md-5"
-      type="button"
+    <button class="btn btn-outline-primary form-group col-md-4"
+      type="submit"
       aa-submit-form="validateUser()">
       Iniciar sesión
     </button>
