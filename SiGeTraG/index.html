@@ -7,8 +7,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- BOOTSTRAP -->
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+
+  <!-- MATERIALIZE -->
+  <!-- <script src="lib/materialize/js/materialize.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="lib/materialize/css/materialize.css"> -->
 
   <!-- IMPORTACIÓN HOJAS DE ESTILOS -->
   <link rel="stylesheet" type="text/css" href="utp-style/css/styles.css">
@@ -47,7 +51,7 @@
 
     <!-- CONTROLADORES -->
     <script src="common/controllers/utp-master-controller.js"></script>
-    <script src="common/controllers/chose-work-controller.js"></script>
+    <script src="common/controllers/work-controller.js"></script>
     <script src="common/controllers/send-email-controller.js"></script>
 
     <!-- DIRECTIVAS -->
@@ -56,6 +60,9 @@
     <script src="common/directives/deleteUser/deleteUser.directive.js"></script>
     <script src="common/directives/pattern.directive.js"></script>
     <script src="common/directives/searchJob/searchJob.directive.js"></script>
+    <script src="common/directives/adviserData/adviserData.directive.js"></script>
+    <script src="common/directives/setActive.directive.js"></script>
+    <script src="common/directives/jobsList/jobsList.directive.js"></script>
 
     <!-- VALUES -->
     <script src="common/values/values.js"></script>
@@ -69,6 +76,7 @@
     <!-- SERVICIOS -->
     <script src="common/services/catalog.service.js"></script>
     <script src="common/services/modal.service.js"></script>
+    <script src="common/services/works.util.service.js"></script>
 
 
     <!-- ESTADOS -->
@@ -85,6 +93,7 @@
     <script src="node_modules/ngstorage/ngStorage.min.js"></script>
     <script src="node_modules/angular-modal-service/dst/angular-modal-service.js"></script>
     <script src="node_modules/ng-table/bundles/ng-table.min.js"></script>
+    <script src="node_modules/feather-icons/dist/feather.min.js"></script>
   </footer>
 </body>
 </html>

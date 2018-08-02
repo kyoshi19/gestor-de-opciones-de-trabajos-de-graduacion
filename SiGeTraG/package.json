@@ -8,7 +8,10 @@
     "@uirouter/angularjs": "^1.0.3",
     "angular-agility": "^0.8.40",
     "angular-modal-service": "^0.13.0",
+    "feather-icons": "^4.7.3",
     "ng-table": "^3.0.1",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "nodemailer": "^4.6.7",
+    "popper.js": "^1.14.3"
   }
 }
