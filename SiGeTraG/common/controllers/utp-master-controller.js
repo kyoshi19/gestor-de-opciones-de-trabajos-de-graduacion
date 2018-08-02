@@ -2,7 +2,7 @@
   'use strict';
 
   var masterController = function($log, patterns,
-    $http, $state, storage, $timeout, catalog, catalogItem, isEmpty){
+    $http, $state, storage, $timeout, catalog, catalogItem, isEmpty, $q){
 
     $log.debug('[utp-master-controller] Initializing...');
 
@@ -17,7 +17,6 @@
     vm.storage = storage;
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
-    vm.catalogs ={};
     vm.backImage = 'src/img/starwars.jpg';
     vm.myBackObj = {'background-image': 'url('+vm.backImage+')',
                     'background-size': 'cover'};
@@ -59,6 +58,30 @@
 
     setup();
 
+    function secondMethod(){
+      var deferer = $q.defer();
+      $log.debug('--> INICIA SECOND <--');
+
+      $http.get("php/selectAllUsers.php")
+      .then(function (response) {
+
+        $log.debug('--> TERMINA SECOND <--');
+        deferer.resolve(true);
+      });
+
+      return deferer.promise;
+    }
+
+    vm.mainMethod = function(){
+      $log.debug('--> INICIA MAIN <--');
+      secondMethod().then(function(response){
+        if (response) {
+          $log.debug('--> TERMINA MAIN <--');
+        }
+      });
+    };
+
+
   };
   masterController.$inject=[
     '$log',
@@ -69,7 +92,8 @@
     '$timeout',
     'catalogFilter',
     'catalogItemFilter',
-    'isEmptyFilter'
+    'isEmptyFilter',
+    '$q'
   ];
   win.MainApp.Controllers
   .controller('masterController',masterController);

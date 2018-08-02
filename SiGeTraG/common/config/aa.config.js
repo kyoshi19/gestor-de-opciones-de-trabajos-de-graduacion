@@ -25,6 +25,7 @@
 
     //Estrategias para el formato de label
     aaFormExtensions.labelStrategies.customStrategy = defaultLabelStrategy;
+    aaFormExtensions.labelStrategies.emptyStrategy = emptyLabelStrategy;
     aaFormExtensions.defaultLabelStrategy = 'customStrategy';
 
     //Estrategias para el formato de campo
@@ -66,7 +67,7 @@
       isRequired,
       $injector
     ) {
-      
+
       // console.log("+++++++++++++++++++++++++++++++++++++");
       // console.log("element ",element);
       // console.log("labelText ",labelText);
@@ -99,6 +100,10 @@
       }
 
       // console.log("+++++++++++++++++++++++++++++++++++++");
+    }
+
+    function emptyLabelStrategy(element) {
+      element.parent().prepend('');
     }
 
     function defaultFieldGroupStrategy (

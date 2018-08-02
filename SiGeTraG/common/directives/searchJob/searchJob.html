@@ -1,9 +1,9 @@
 {{setShowLoader({show:!('graduationWorkTypes'|catalogIsReady)})}}
 <div class="row justify-content-center" ng-if="('graduationWorkTypes'|catalogIsReady)">
-  <div class="col-md-12 text-center">
-    <h1>{{'global.main.page.title'|translate}}</h1>
+  <div class="col-md-12 title-text text-center">
+    <h1>{{'global.main.student.page.title'|translate}}</h1>
   </div>
-  <div class="col-md-12 card">
+  <div class="col-md-12 card mb-3">
     <ng-form name="searchJobForm">
       <div class="row card-body">
 
@@ -83,21 +83,12 @@
     </ng-form>
   </div>
 
-  <div ng-if="worksTable" class="col-md-10 mb-5">
-    <div class="text-center">
-      <h3>Resultados de la búsqueda</h3>
-    </div>
-    <h6 class="message-result">La búsqueda ha dado {{worksCount}} resultado/s</h6>
-    <div class="">
-      <table ng-table="worksTable" class="table">
-        <thead></thead>
-        <tr ng-repeat="work in $data">
-          <td class ="work-item" ng-click="openWorkInfo(work)">
-            <h6>Título: {{work.title}}</h6>
-            <h6 class="text-muted">Asesor: {{work.advisor}}</h6>
-          </td>
-        </tr>
-      </table>
-    </div>
+  <div class="col-md-10 mb-5">
+    <jobs-list
+      works = "works"
+      works-count = "works.length"
+      table-title = "'Resultados de la búsqueda'"
+      user-type = "user.type">
+    </jobs-list>
   </div>
 </div>
