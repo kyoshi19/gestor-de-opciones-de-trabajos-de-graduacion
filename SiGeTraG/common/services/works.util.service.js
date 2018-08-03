@@ -6,7 +6,8 @@
     var jobs ={};
     return{
       searchWorks:searchWorks,
-      searchWorksByAdviser:searchWorksByAdviser
+      searchWorksByAdviser:searchWorksByAdviser,
+      deleteWork:deleteWork
     };
 
     function searchWorks(workToSearch) {
@@ -23,8 +24,18 @@
       var deferer = $q.defer();
       $http.post("php/selectWorksByAdviser.php",adviser)
         .then(function(response){
-          jobs = response;
-          deferer.resolve(jobs);
+
+          deferer.resolve(response);
+        });
+      return deferer.promise;
+    }
+
+    function deleteWork(workCode){
+      var deferer = $q.defer();
+      $http.post("php/deleteWork.php",workCode)
+        .then(function(response){
+
+          deferer.resolve(response);
         });
       return deferer.promise;
     }

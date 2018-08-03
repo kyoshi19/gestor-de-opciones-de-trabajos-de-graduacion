@@ -45,9 +45,9 @@
     };
 
     vm.goToLogIn = function(){
-      vm.showLoader=true;
+      storage.showLoader=true;
       $timeout(function() {
-        vm.showLoader=false;
+        storage.showLoader=false;
         $state.transitionTo("login");
       },700);
     };

@@ -8,7 +8,7 @@
       restrict        : 'E',
       templateUrl     : 'common/directives/login/login.html',
       scope           : {
-        showLoader    :"="
+
       },
       link            : linkFunc
     };
@@ -23,7 +23,7 @@
 
       scope.validateUser = function(){
 
-        scope.showLoader = true;
+        storage.showLoader = true;
 
         $http.post("php/selectUser.php",scope.docToSearch.toString())
         .then(function (response) {
@@ -35,14 +35,14 @@
           }else {
             scope.msg = "Usuario no encontrado";
             scope.alert="alert-danger";
-            scope.showLoader = false;
+            storage.showLoader = false;
           }
         });
       };
 
       scope.goToMain = function(){
         $timeout(function() {
-          scope.showLoader = false;
+          storage.showLoader = false;
           if (storage.user.type === "E") {
             $state.transitionTo("main-student");
           }else if (storage.user.type === "P") {
@@ -53,7 +53,7 @@
 
       var setup = function(){
         if (!isEmpty(storage.user)){
-          scope.showLoader = true;
+          storage.showLoader = true;
           scope.goToMain();
         }
       };

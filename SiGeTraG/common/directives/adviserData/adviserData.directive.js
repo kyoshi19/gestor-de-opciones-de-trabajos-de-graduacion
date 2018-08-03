@@ -45,7 +45,7 @@
         }
       };
 
-      function init(){
+      scope.searchWorks = function(){
         scope.showLoader = true;
         if (isEmpty(scope.user)) {
           scope.goToLogin();
@@ -65,8 +65,8 @@
 
 
         scope.setTemplate('show');
-      }
-      init();
+      };
+      scope.searchWorks();
     }
   }
 

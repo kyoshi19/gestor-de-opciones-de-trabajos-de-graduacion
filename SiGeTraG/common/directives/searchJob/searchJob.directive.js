@@ -8,7 +8,6 @@
         restrict        : 'E',
         templateUrl     : 'common/directives/searchJob/searchJob.html',
         scope           : {
-          showLoader    : "=",
           goToLogin     : "&"
         },
         link            : linkFunc
@@ -19,7 +18,7 @@
 
       function linkFunc(scope, el, attr, ctrl) {
         /* - */
-        scope.showLoader = false;
+        storage.showLoader = false;
         scope.user = storage.user;
         scope.workToSearch ={
           workType: "",
@@ -39,16 +38,16 @@
           if (!angular.isDefined(scope.workToSearch.field)) {
             scope.workToSearch.field = "";
           }
-          scope.showLoader = true;
+          storage.showLoader = true;
           workService.searchWorks(scope.workToSearch)
           .then(function (response) {
 
             scope.works = response.data.records;
 
-            scope.showLoader = false;
+            storage.showLoader = false;
           }).catch(function(exception){
             $window.alert(exception);
-            scope.showLoader = false;
+            storage.showLoader = false;
           });
         };
 

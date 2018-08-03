@@ -7,10 +7,11 @@
       restrict        : 'E',
       templateUrl     : 'common/directives/jobsList/jobsList.html',
       scope           : {
-        works    : "=",
+        works         : "=",
         worksCount    : "=",
         tableTitle    : "=",
-        userType      : "="
+        userType      : "=",
+        searchWorks   : "&"
       },
       link            : linkFunc
     };
@@ -94,7 +95,7 @@
         });
       };
 
-      scope.deteleWork = function(work){
+      scope.openDeleteWork = function(work){
 
         ModalService.showModal({
           templateUrl: "common/templates/modal/deleteWorkModal.html",
@@ -102,6 +103,7 @@
           controllerAs:"ctrl",
           inputs:{
             data:work
+
           }
         }).then(function(modal) {
           // El objeto modal tiene el elemento creado, si esto es un modal de bootstrap
@@ -109,10 +111,16 @@
           // solo muestra (show) u oculta (hide) como se necesites.
           modal.element.modal();
           modal.close.then(function(response) {
-            $log.debug("Modal is closed ==>", response);
-            if (response.result) {
-              openEmailFormModal(work);
+            $log.debug("Modal is close ==>", response.data);
+
+            if (response.data.result > 0) {
+              $log.debug('--> TRABAJO ELIMINADO <--');
+              scope.searchWorks();
+
+            } else {
+              $log.debug('--> TRABAJO NO ELIMINADO <--');
             }
+
           });
         });
 
