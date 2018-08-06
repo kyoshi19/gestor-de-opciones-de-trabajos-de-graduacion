@@ -17,7 +17,7 @@ $w_title = next($data);
 
 $query = "SELECT work_code as 'id', work_type as 'type',
   w_title as 'title',CONCAT(t2.us_fname,' ',t2.us_lname)  as 'advisor', faculty,
-  reg_center as 'center', studentsQty as 'students'
+  reg_center as 'center', studentsQty as 'students', t2.us_mail as 'contact'
   FROM utp_tesis.graduation_works as t1
 INNER JOIN utp_users as t2 ON t1.advisor = t2.us_doc_num";
 
@@ -51,8 +51,8 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
   $outp .= '"type":"'   . $rs["type"] . '",';
   $outp .= '"title":"'. $rs["title"] . '",';
   $outp .= '"advisor":"'. $rs["advisor"] . '",';
+  $outp .= '"contact":"'. $rs["contact"] . '",';
   $outp .= '"faculty":"'. $rs["faculty"] . '",';
-  $outp .= '"advisor":"'. $rs["advisor"] . '",';
   $outp .= '"center":"'. $rs["center"] . '",';
   $outp .= '"students":"'. $rs["students"] . '"}';
 }

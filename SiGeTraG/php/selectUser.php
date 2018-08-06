@@ -18,6 +18,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
   $outp .= '"fName":"'   . $rs["us_fname"] . '",';
   $outp .= '"lName":"'. $rs["us_lname"] . '",';
   $outp .= '"docNumber":"'. $rs["us_doc_num"] . '",';
+  $outp .= '"email":"'. $rs["us_mail"] . '",';
   $outp .= '"pass":"'. $rs["us_pass"] . '"}';
 }
 $outp ='{"records":['.$outp.']}';

@@ -2,7 +2,7 @@
   'use strict';
 
   //  jobsList directive
-  function jobsList($log, isEmpty, storage, ModalService, NgTableParams) {
+  function jobsList($log, isEmpty, storage, ModalService, NgTableParams, $http) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/jobsList/jobsList.html',
@@ -86,11 +86,9 @@
         }).then(function(modal) {
           modal.element.modal();
           modal.close.then(function(response) {
-            $log.debug("Modal is closed ==>", response);
-            if (response.result) {
-              $log.debug('===> Correo enviado <===');
-              //https://www.quora.com/How-can-I-send-mail-through-localhost-using-XAMPP-in-PHP
-            }
+            storage.showLoader = false;
+            $log.debug("Correo enviado ==>", response);
+
           });
         });
       };
@@ -136,7 +134,8 @@
     'isEmptyFilter',
     '$sessionStorage',
     'ModalService',
-    'NgTableParams'
+    'NgTableParams',
+    '$http'
   ];
 
   //  Module
