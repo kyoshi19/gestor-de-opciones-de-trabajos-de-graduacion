@@ -104,9 +104,7 @@
 
           }
         }).then(function(modal) {
-          // El objeto modal tiene el elemento creado, si esto es un modal de bootstrap
-          // puedes llamar a 'modal' para mostrarlo, si se trata de un modal personalizado
-          // solo muestra (show) u oculta (hide) como se necesites.
+
           modal.element.modal();
           modal.close.then(function(response) {
             $log.debug("Modal is close ==>", response.data);
@@ -123,6 +121,34 @@
         });
 
       };
+
+      scope.openUpdateWorkModal = function(work){
+        ModalService.showModal({
+          templateUrl: "common/templates/modal/updateWorkModal.html",
+          controller: "workController",
+          controllerAs:"ctrl",
+          inputs:{
+            data:work,
+            isEditing:true
+          }
+        }).then(function(modal) {
+
+          modal.element.modal();
+          modal.close.then(function(response) {
+            $log.debug("Modal is close ==>", response);
+
+            if (response.result > 0) {
+              $log.debug('--> TRABAJO ACTUALIZADO <--');
+              scope.searchWorks();
+
+            } else {
+              $log.debug('--> TRABAJO NO ACTUALIZADO <--');
+            }
+
+          });
+        });
+      };
+
       function resetTable(){
         scope.dataTable = worksTableConfig();
       }
