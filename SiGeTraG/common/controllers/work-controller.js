@@ -1,7 +1,7 @@
 (function(win){
   'use strict';
 
-  var workController = function($log, data, close, workService, storage){
+  var workController = function($log, data, isEditing, close, workService, storage){
 
     $log.debug('[workModal] Initializing...');
 
@@ -24,7 +24,7 @@
       close(response, 300); // close, but give 300ms for bootstrap to animate
     };
 
-    vm.delete =  function(){
+    vm.delete = function(){
       storage.showLoader = true;
       workService.deleteWork(vm.data.id)
       .then(function(response){
@@ -33,11 +33,35 @@
       });
     };
 
+    vm.update = function(response){
+      if (response) {
+        vm.data = vm. tempWork;
+      }
+      close(true, 300);
+    };
+
+    vm.validateForm = function(element){
+      var isValid = false;
+      if (angular.isDefined(element.editWorkForm)) {
+        isValid = element.editWorkForm.$valid;
+      }
+      return isValid;
+    };
+
+    function setUp(){
+      vm.data.students = parseInt(vm.data.students);
+      if (isEditing){
+        vm.tempWork = angular.copy(vm.data);
+      }
+    }
+
+    setUp();
 
   };
   workController.$inject=[
     '$log',
     'data',
+    'isEditing',
     'close',
     'workUtilService',
     '$sessionStorage'
