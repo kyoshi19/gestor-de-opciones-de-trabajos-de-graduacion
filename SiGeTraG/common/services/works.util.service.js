@@ -39,6 +39,13 @@
         });
       return deferer.promise;
     }
+
+    function editWork(work){
+      var deferer = $q.defer;
+
+
+      return deferer.promise;
+    }
   }
 
   //  Service
