@@ -11,6 +11,7 @@
         worksCount    : "=",
         tableTitle    : "=",
         userType      : "=",
+        showOptions   : "=",
         searchWorks   : "&"
       },
       link            : linkFunc
@@ -100,16 +101,17 @@
           controller: "workController",
           controllerAs:"ctrl",
           inputs:{
-            data:work
+            data:work,
+            isEditing: false
 
           }
         }).then(function(modal) {
 
           modal.element.modal();
           modal.close.then(function(response) {
-            $log.debug("Modal is close ==>", response.data);
+            $log.debug("Modal is close, result ==>", response.result);
 
-            if (response.data.result > 0) {
+            if (response.result) {
               $log.debug('--> TRABAJO ELIMINADO <--');
               scope.searchWorks();
 

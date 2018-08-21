@@ -97,7 +97,7 @@ CREATE TABLE `graduation_works` (
 
 LOCK TABLES `graduation_works` WRITE;
 /*!40000 ALTER TABLE `graduation_works` DISABLE KEYS */;
-INSERT INTO `graduation_works` VALUES (13,'P','Impresión automática de actas en el Tribunal Electoral para las eleciones','5-482-691','FISC','PC','2018-07-13',2),(14,'TP','Manual de procedimiento para el diseño de sistemas de fontanería','1-123-11','FIC','PC','2018-04-24',1),(15,'TP','Diseño eléctrico realizado en la compañía ingeniería atlántico','8-475-1024','FIE','PC','2017-10-08',2),(16,'P','Reconocimiento, evaluación y manejo de equipos especiales de fuerza en las centrales telefónicas.','PE-14-5298','FII','PC','2017-06-10',3),(17,'TP','Sistema de gestión de la información del departamento de Bienestar Estudiantil de la Universidad Tecnológica de Panamá Centro Regional de Chiriquí','5-482-691','FIE','PC','2018-02-10',1),(18,'P','Práctica profesional en Ricardo Perez S.A. \'Ahorro energético y mejoras en la calidad de la energía\'','8-475-1024','FIE','PC','2018-02-10',2),(20,'T','Diseño y construcción del sistema didáctico SD-88 basado en el microprocesador INTEL8088','PE-14-5298','FISC','PC','2018-07-26',4),(21,'T','Nuevo método computacional para el estudio de flujo de potencia','8-475-1024','FIE','PC','2018-07-26',1),(22,'P','Mantenimiento preventivo en los sistemas de transmisión digital por cables de fibras óptica y microondas.','5-482-691','FISC','PC','2018-07-26',3),(23,'P','Implementación de un sistema de información para la logística de materiales de una empresa industrial','1-123-11','FISC','PC','2018-07-26',1);
+INSERT INTO `graduation_works` VALUES (13,'P','Impresión automática de actas en el Tribunal Electoral para las eleciones','5-482-691','FISC','PC','2018-07-13',2),(14,'TP','Manual de procedimiento para el diseño de sistemas de fontanería','1-123-11','FIC','PC','2018-04-24',1),(15,'TP','Diseño eléctrico realizado en la compañía ingeniería atlántico','8-475-1024','FIE','PC','2017-10-08',2),(16,'P','Reconocimiento, evaluación y manejo de equipos especiales de fuerza en las centrales telefónicas.','PE-14-5298','FII','PC','2017-06-10',3),(17,'TP','Sistema de gestión de la información del departamento de Bienestar Estudiantil de la Universidad Tecnológica de Panamá Centro Regional de Chiriquí','5-482-691','FIE','PC','2018-02-10',1),(18,'P','Práctica profesional en Ricardo Perez S.A. \'Ahorro energético y mejoras en la calidad de la energía\'','8-475-1024','FIE','PC','2018-02-10',2),(20,'T','Diseño y construcción del sistema didáctico SD-88 basado en el microprocesador INTEL8088','PE-14-5298','FISC','PC','2018-07-26',4),(21,'T','Nuevo método computacional para el estudio de flujo de potenciaaa','8-475-1024','FISC','Pc','2018-07-26',2),(22,'P','Mantenimiento preventivo en los sistemas de transmisión digital por cables de fibras óptica y microondas.','5-482-691','FISC','PC','2018-07-26',3),(23,'P','Implementación de un sistema de información para la logística de materiales de una empresa industrial','1-123-11','FISC','PC','2018-07-26',1);
 /*!40000 ALTER TABLE `graduation_works` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,6 +116,8 @@ CREATE TABLE `utp_users` (
   `us_doc_num` varchar(45) CHARACTER SET utf8 NOT NULL,
   `us_pass` varchar(45) CHARACTER SET utf8 NOT NULL,
   `us_mail` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `us_facu` varchar(6) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `us_center` varchar(6) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`us_id`),
   UNIQUE KEY `us_doc_num_UNIQUE` (`us_doc_num`)
 ) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -127,7 +129,7 @@ CREATE TABLE `utp_users` (
 
 LOCK TABLES `utp_users` WRITE;
 /*!40000 ALTER TABLE `utp_users` DISABLE KEYS */;
-INSERT INTO `utp_users` VALUES (1,'E','Jorge','Girón','8-855-449','jgiron19','kyoshi.giron@gmail.com'),(2,'E','Yirelki','Jiménez','8-901-1029','test','kyoshi.giron@gmail.com'),(21,'P','Bruce','Wayne','5-482-691','test','kyoshi.giron@gmail.com'),(22,'P','Diana','Prince','8-475-1024','test','biologa507@gmail.com'),(23,'P','Kal','El','PE-14-5298','test','kyoshi.giron@gmail.com'),(25,'E','Ranger','Rojo','8-855-448','test','kyoshi.giron@gmail.com'),(81,'P','Harry','Potter','1-123-11','test','kyoshi.giron@gmail.com'),(82,'E','Greysi','Diaz','1-123-12','test','kyoshi.giron@gmail.com'),(83,'E','Ariel','Fernandez','E-8-111396','test','kyoshi.giron@gmail.com');
+INSERT INTO `utp_users` VALUES (1,'E','Jorge','Girón','8-855-449','jgiron19','kyoshi.giron@gmail.com',NULL,NULL),(2,'E','Yirelki','Jiménez','8-901-1029','test','kyoshi.giron@gmail.com',NULL,NULL),(21,'P','Bruce','Wayne','5-482-691','test','kyoshi.giron@gmail.com',NULL,NULL),(22,'P','Diana','Prince','8-475-1024','test','biologa507@gmail.com',NULL,NULL),(23,'P','Kal','El','PE-14-5298','test','kyoshi.giron@gmail.com',NULL,NULL),(25,'E','Ranger','Rojo','8-855-448','test','kyoshi.giron@gmail.com',NULL,NULL),(81,'P','Harry','Potter','1-123-11','test','kyoshi.giron@gmail.com','FISC','PC'),(82,'E','Greysi','Diaz','1-123-12','test','kyoshi.giron@gmail.com',NULL,NULL),(83,'E','Ariel','Fernandez','E-8-111396','test','kyoshi.giron@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `utp_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -140,4 +142,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-05 23:59:34
+-- Dump completed on 2018-08-20 21:52:45

@@ -1,7 +1,64 @@
 <div class="text-center">
   <h2>Agregar trabajos de graduación</h2>
 </div>
-<div class="row">
 
-  
+<ng-form name="addWorkForm">
+  <div class="row mb-4">
+
+    <!-- Título -->
+    <div class="col-md-12">
+      <div class="form-group">
+        <input type="text"
+          class="form-control" id="field"
+          aa-field-group="ctrl.tempWork.title"
+          aa-label="Titulo"
+          required="true">
+        </input>
+      </div>
+    </div>
+
+    <!-- Tipo de trabajo -->
+    <div class="col-md-4">
+      <div class="input-group">
+        <select class="custom-select" id="workType"
+          aa-field-group="addWork.type"
+          ng-init="addWork.type = ('graduationWorkTypes'|catalog)[0].id"
+          aa-label="Tipo de trabajo"
+          required="true">
+          <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
+            ng-value="item.id" ng-disabled= "item.id == null" ng-if="item.id !== '0'">
+            {{item.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Cantidad de estudiantes -->
+    <div class="col-md-4">
+      <div class="input-group">
+        <input type="number" class="form-control" id="workType"
+          min="1"
+          aa-field-group="addWork.students"
+          aa-label="Cantidad de estudiantes"
+          required="true"
+          ng-init="addWork.students = 1">
+        </input>
+      </div>
+    </div>
+
+    <div class="col-md-3 align-self-end">
+        <button class="btn btn-outline-primary"
+          aa-submit-form="searchJobs()">
+          Buscar Opciones
+        </button>
+    </div>
+  </div>
+</ng-form>
+<div class="">
+  <jobs-list
+    works = "works"
+    user-type = "user.type"
+    search-works = "searchWorks()"
+    show-options = "false">
+  </jobs-list>
 </div>
