@@ -7,7 +7,9 @@
     return{
       searchWorks:searchWorks,
       searchWorksByAdviser:searchWorksByAdviser,
-      deleteWork:deleteWork
+      deleteWork:deleteWork,
+      updatetWork:updatetWork,
+      insertWork:insertWork
     };
 
     function searchWorks(workToSearch) {
@@ -40,12 +42,26 @@
       return deferer.promise;
     }
 
-    function editWork(work){
-      var deferer = $q.defer;
+    function updatetWork(work){
+      var deferer = $q.defer();
+      $http.post("php/updatetWork.php",workCode)
+      .then(function(response){
 
-
+        deferer.resolve(response);
+      });
       return deferer.promise;
     }
+
+    function insertWork(work){
+      var deferer = $q.defer();
+      $http.post("php/insertWork.php",work)
+        .then(function(response){
+
+          deferer.resolve(response);
+        });
+      return deferer.promise;
+    }
+
   }
 
   //  Service
