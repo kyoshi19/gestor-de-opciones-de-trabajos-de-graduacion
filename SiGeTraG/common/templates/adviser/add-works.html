@@ -8,9 +8,9 @@
     <!-- Título -->
     <div class="col-md-12">
       <div class="form-group">
-        <input type="text"
+        <input type="text" name="workTitle"
           class="form-control" id="field"
-          aa-field-group="ctrl.tempWork.title"
+          aa-field-group="addWork.title"
           aa-label="Titulo"
           required="true">
         </input>
@@ -20,7 +20,8 @@
     <!-- Tipo de trabajo -->
     <div class="col-md-4">
       <div class="input-group">
-        <select class="custom-select" id="workType"
+        <select class="custom-select" name="workType"
+          id="workType"
           aa-field-group="addWork.type"
           ng-init="addWork.type = ('graduationWorkTypes'|catalog)[0].id"
           aa-label="Tipo de trabajo"
@@ -36,7 +37,8 @@
     <!-- Cantidad de estudiantes -->
     <div class="col-md-4">
       <div class="input-group">
-        <input type="number" class="form-control" id="workType"
+        <input type="number" name="workCount"
+          class="form-control" id="workType"
           min="1"
           aa-field-group="addWork.students"
           aa-label="Cantidad de estudiantes"
@@ -48,8 +50,8 @@
 
     <div class="col-md-3 align-self-end">
         <button class="btn btn-outline-primary"
-          aa-submit-form="searchJobs()">
-          Buscar Opciones
+          aa-submit-form="resetInputs(addWorkForm)">
+          Agregar trabajo
         </button>
     </div>
   </div>
