@@ -31,6 +31,8 @@
         id: scope.user.docNumber
       };
 
+      scope.addWork = {};
+
 
       /* --> METODOS <-- */
 
@@ -44,6 +46,8 @@
           scope.viewTemplate = templates.editWorks;
         }
       };
+
+      scope.setTemplate('show');
 
       scope.searchWorks = function(){
         scope.showLoader = true;
@@ -61,11 +65,34 @@
           $window.alert(exception);
           scope.showLoader = false;
         });
-
-
-
-        scope.setTemplate('show');
       };
+
+
+
+      scope.insertWork = function (addWorkForm){
+        scope.addWork.userId = adviser.id;
+        scope.showLoader = true;
+
+        workService.insertWork(scope.addWork)
+        .then(function(response){
+
+          resetInputs(addWorkForm);
+          scope.showLoader = false;
+
+        }).catch(function(exception){
+          $window.alert(exception);
+          scope.showLoader = false;
+        });
+      };
+
+      scope.resetInputs = function(addWorkForm){
+        addWorkForm.$setPristine(true);
+        scope.addWork.students = 1;
+        scope.addWork.type = null;
+        scope.addWork.title = '';
+
+      };
+      
       scope.searchWorks();
     }
   }
