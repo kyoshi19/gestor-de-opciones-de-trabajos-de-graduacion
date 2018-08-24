@@ -75,24 +75,27 @@
 
         workService.insertWork(scope.addWork)
         .then(function(response){
-
-          resetInputs(addWorkForm);
-          scope.showLoader = false;
+          if (!response.data.error) {
+            scope.resetInputs(addWorkForm);
+            scope.searchWorks();
+          }else{
+            $window.alert(response.data.error);
+            scope.showLoader = false;
+          }
 
         }).catch(function(exception){
-          $window.alert(exception);
-          scope.showLoader = false;
+          $log.error('ERROR ==>', exception);
         });
       };
 
       scope.resetInputs = function(addWorkForm){
-        addWorkForm.$setPristine(true);
+        addWorkForm.$aaFormExtensions.$reset(true);
         scope.addWork.students = 1;
         scope.addWork.type = null;
         scope.addWork.title = '';
 
       };
-      
+
       scope.searchWorks();
     }
   }

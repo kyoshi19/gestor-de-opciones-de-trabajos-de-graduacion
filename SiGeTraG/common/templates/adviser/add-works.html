@@ -9,6 +9,7 @@
     <div class="col-md-12">
       <div class="form-group">
         <input type="text" name="workTitle"
+          ng-init="addWork.title = ''"
           class="form-control" id="field"
           aa-field-group="addWork.title"
           aa-label="Titulo"
@@ -50,7 +51,7 @@
 
     <div class="col-md-3 align-self-end">
         <button class="btn btn-outline-primary"
-          aa-submit-form="resetInputs(addWorkForm)">
+          aa-submit-form="insertWork(addWorkForm)">
           Agregar trabajo
         </button>
     </div>
