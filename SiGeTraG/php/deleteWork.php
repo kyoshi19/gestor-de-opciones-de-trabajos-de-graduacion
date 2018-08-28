@@ -8,11 +8,13 @@ $data = file_get_contents("php://input"); //Recibe parametro
 
 $query = "DELETE FROM graduation_works WHERE work_code = '$data';";
 
-if ($conn->query($query)==true){
+if (!$conn->query($query)){
+  $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;
+  $outp = '{"error":"'.$result.'"}';
+}else{
   $result = $conn->affected_rows;
-}	//ejecucion de query contra la base de datos
-
-$outp ='{"result":'.$result.'}';  	//Convierte despuesta a formato json
+  $outp ='{"records":['.$result.']}';
+}
 
 $conn->close();
 

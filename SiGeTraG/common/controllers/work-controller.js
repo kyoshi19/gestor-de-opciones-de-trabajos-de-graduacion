@@ -35,7 +35,7 @@
 
     vm.update = function(response){
       if (response) {
-        vm.data = vm. tempWork;
+        vm.data = vm.tempWork;
       }
       close(true, 300);
     };

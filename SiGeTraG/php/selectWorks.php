@@ -42,21 +42,26 @@ if (strlen($w_title) > 0) {
   $query .= ";";
 }
 
-$result = $conn->query($query);
-$outp = "";
+if(!$conn->query($query)){
+  $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;
+  $outp = '{"error":"'.$result.'"}';
+}else{
+  $result = $conn->query($query);
+  $outp = "";
 
-while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-  if ($outp != "") {$outp .= ",";}
-  $outp .= '{"id":"'  . $rs["id"] . '",';
-  $outp .= '"type":"'   . $rs["type"] . '",';
-  $outp .= '"title":"'. $rs["title"] . '",';
-  $outp .= '"advisor":"'. $rs["advisor"] . '",';
-  $outp .= '"contact":"'. $rs["contact"] . '",';
-  $outp .= '"faculty":"'. $rs["faculty"] . '",';
-  $outp .= '"center":"'. $rs["center"] . '",';
-  $outp .= '"students":"'. $rs["students"] . '"}';
+  while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+    if ($outp != "") {$outp .= ",";}
+    $outp .= '{"id":"'  . $rs["id"] . '",';
+    $outp .= '"type":"'   . $rs["type"] . '",';
+    $outp .= '"title":"'. $rs["title"] . '",';
+    $outp .= '"advisor":"'. $rs["advisor"] . '",';
+    $outp .= '"contact":"'. $rs["contact"] . '",';
+    $outp .= '"faculty":"'. $rs["faculty"] . '",';
+    $outp .= '"center":"'. $rs["center"] . '",';
+    $outp .= '"students":"'. $rs["students"] . '"}';
+  }
+  $outp ='{"records":['.$outp.']}';
 }
-$outp ='{"records":['.$outp.']}';
 $conn->close();
 
 echo($outp);

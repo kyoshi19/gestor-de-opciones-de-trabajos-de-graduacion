@@ -16,8 +16,8 @@
       var deferer = $q.defer();
       $http.post("php/selectWorks.php",workToSearch)
         .then(function(response){
-          jobs = response;
-          deferer.resolve(jobs);
+
+          deferer.resolve(esponse);
         });
       return deferer.promise;
     }

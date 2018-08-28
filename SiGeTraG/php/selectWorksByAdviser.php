@@ -22,22 +22,26 @@ WHERE t2.us_doc_num = '".$id."'";
 //PARA VERIFICAR QUERY
  // echo($query);
 
+if(!$conn->query($query)){
+  $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;
+  $outp = '{"error":"'.$result.'"}';
+}else{
+  $result = $conn->query($query);
+  $outp = "";
 
-$result = $conn->query($query);
-$outp = "";
-
-while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
-  if ($outp != "") {$outp .= ",";}
-  $outp .= '{"id":"'  . $rs["id"] . '",';
-  $outp .= '"type":"'   . $rs["type"] . '",';
-  $outp .= '"title":"'. $rs["title"] . '",';
-  $outp .= '"advisor":"'. $rs["advisor"] . '",';
-  $outp .= '"faculty":"'. $rs["faculty"] . '",';
-  $outp .= '"advisor":"'. $rs["advisor"] . '",';
-  $outp .= '"center":"'. $rs["center"] . '",';
-  $outp .= '"students":"'. $rs["students"] . '"}';
+  while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
+    if ($outp != "") {$outp .= ",";}
+    $outp .= '{"id":"'  . $rs["id"] . '",';
+    $outp .= '"type":"'   . $rs["type"] . '",';
+    $outp .= '"title":"'. $rs["title"] . '",';
+    $outp .= '"advisor":"'. $rs["advisor"] . '",';
+    $outp .= '"faculty":"'. $rs["faculty"] . '",';
+    $outp .= '"advisor":"'. $rs["advisor"] . '",';
+    $outp .= '"center":"'. $rs["center"] . '",';
+    $outp .= '"students":"'. $rs["students"] . '"}';
+  }
+  $outp ='{"records":['.$outp.']}';
 }
-$outp ='{"records":['.$outp.']}';
 $conn->close();
 
 echo($outp);
