@@ -59,7 +59,8 @@
           controller: "workController",
           controllerAs:"ctrl",
           inputs:{
-            data:work
+            data:work,
+            isEditing: false
           }
         }).then(function(modal) {
           // El objeto modal tiene el elemento creado, si esto es un modal de bootstrap
@@ -82,7 +83,8 @@
           controller: "sendEmailController",
           controllerAs:"ctrl",
           inputs:{
-            data:work
+            data:work,
+            isEditing: false
           }
         }).then(function(modal) {
           modal.element.modal();
@@ -111,7 +113,7 @@
           modal.close.then(function(response) {
             $log.debug("Modal is close, result ==>", response.result);
 
-            if (response.result) {
+            if (response.data.records[0] > 0) {
               $log.debug('--> TRABAJO ELIMINADO <--');
               scope.searchWorks();
 
@@ -139,7 +141,7 @@
           modal.close.then(function(response) {
             $log.debug("Modal is close ==>", response);
 
-            if (response.result > 0) {
+            if (response.data.records[0] > 0) {
               $log.debug('--> TRABAJO ACTUALIZADO <--');
               scope.searchWorks();
 

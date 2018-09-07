@@ -42,8 +42,11 @@
           workService.searchWorks(scope.workToSearch)
           .then(function (response) {
 
-            scope.works = response.data.records;
-
+            if (!response.data.error) {
+              scope.works = response.data.records;
+            }else{
+              $window.alert(response.data.error);
+            }
             storage.showLoader = false;
           }).catch(function(exception){
             $window.alert(exception);

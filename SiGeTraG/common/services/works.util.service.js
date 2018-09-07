@@ -17,7 +17,7 @@
       $http.post("php/selectWorks.php",workToSearch)
         .then(function(response){
 
-          deferer.resolve(esponse);
+          deferer.resolve(response);
         });
       return deferer.promise;
     }
@@ -44,7 +44,7 @@
 
     function updatetWork(work){
       var deferer = $q.defer();
-      $http.post("php/updatetWork.php",workCode)
+      $http.post("php/updateWork.php",work)
       .then(function(response){
 
         deferer.resolve(response);

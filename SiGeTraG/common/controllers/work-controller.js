@@ -33,11 +33,19 @@
       });
     };
 
-    vm.update = function(response){
-      if (response) {
-        vm.data = vm.tempWork;
-      }
-      close(true, 300);
+    vm.update = function(){
+      storage.showLoader = true;
+      var updateWrapper = {
+        "workTitle": vm.tempWork.title,
+        "workType": vm.tempWork.type,
+        "workStudens": vm.tempWork.students,
+        "workCode" : vm.tempWork.id
+      };
+      workService.updatetWork(updateWrapper)
+      .then(function(response){
+        storage.showLoader = false;
+        close(response, 300);
+      });
     };
 
     vm.validateForm = function(element){

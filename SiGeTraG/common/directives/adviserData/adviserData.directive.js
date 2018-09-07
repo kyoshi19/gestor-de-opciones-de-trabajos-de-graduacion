@@ -50,28 +50,29 @@
       scope.setTemplate('show');
 
       scope.searchWorks = function(){
-        scope.showLoader = true;
+        storage.showLoader = true;
         if (isEmpty(scope.user)) {
           scope.goToLogin();
           return;
         }
         workService.searchWorksByAdviser(adviser)
         .then(function(response){
+          if (!response.data.error) {
+            scope.works = response.data.records;
+          }else{
+            $window.alert(response.data.error);
+          }
 
-          scope.works = response.data.records;
-
-          scope.showLoader = false;
+          storage.showLoader = false;
         }).catch(function(exception){
           $window.alert(exception);
-          scope.showLoader = false;
+          storage.showLoader = false;
         });
       };
 
-
-
       scope.insertWork = function (addWorkForm){
         scope.addWork.userId = adviser.id;
-        scope.showLoader = true;
+        storage.showLoader = true;
 
         workService.insertWork(scope.addWork)
         .then(function(response){
@@ -80,11 +81,12 @@
             scope.searchWorks();
           }else{
             $window.alert(response.data.error);
-            scope.showLoader = false;
           }
+          storage.showLoader = false;
 
         }).catch(function(exception){
           $log.error('ERROR ==>', exception);
+          storage.showLoader = false;
         });
       };
 

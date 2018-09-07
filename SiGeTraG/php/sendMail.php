@@ -25,7 +25,7 @@ $message = "
 <body>
 <h1>Sistema Gestor de Opciones de Trabajos de Graduación</h1>
 <h3>Estimado/a asesor/ra,<br>".$sender." ha decidido aplicar a su trabajo de
-graduación</3>";
+graduación</h3>";
 if (strlen($text) > 0) {
   $message .="
   <p>El mismo indica:<br>".$text."</p>";
@@ -43,6 +43,6 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: Go.Tg <webmaster@example.com>' . "\r\n";
 $headers .= 'Cc: kyoshi.giron@gmail.com' . "\r\n";
 
-//echo(mail($to,$subject,$message,$headers));
+echo(mail($to,$subject,$message,$headers));   //Ejecución de envío de correo
 echo(1);
 ?>
