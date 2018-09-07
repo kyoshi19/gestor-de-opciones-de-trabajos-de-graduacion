@@ -1,8 +1,6 @@
-CREATE DATABASE  IF NOT EXISTS `utp_tesis` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
-USE `utp_tesis`;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: utp_tesis
+-- Host: localhost    Database: utp_tesis
 -- ------------------------------------------------------
 -- Server version	5.7.12-log
 
@@ -97,7 +95,7 @@ CREATE TABLE `graduation_works` (
 
 LOCK TABLES `graduation_works` WRITE;
 /*!40000 ALTER TABLE `graduation_works` DISABLE KEYS */;
-INSERT INTO `graduation_works` VALUES (13,'P','Impresión automática de actas en el Tribunal Electoral para las eleciones','5-482-691','FISC','PC','2018-07-13',2),(14,'TP','Manual de procedimiento para el diseño de sistemas de fontanería','1-123-11','FIC','PC','2018-04-24',1),(15,'TP','Diseño eléctrico realizado en la compañía ingeniería atlántico','8-475-1024','FIE','PC','2017-10-08',2),(16,'P','Reconocimiento, evaluación y manejo de equipos especiales de fuerza en las centrales telefónicas.','PE-14-5298','FII','PC','2017-06-10',3),(17,'TP','Sistema de gestión de la información del departamento de Bienestar Estudiantil de la Universidad Tecnológica de Panamá Centro Regional de Chiriquí','5-482-691','FIE','PC','2018-02-10',1),(18,'P','Práctica profesional en Ricardo Perez S.A. \'Ahorro energético y mejoras en la calidad de la energía\'','8-475-1024','FIE','PC','2018-02-10',2),(20,'T','Diseño y construcción del sistema didáctico SD-88 basado en el microprocesador INTEL8088','PE-14-5298','FISC','PC','2018-07-26',4),(21,'T','Nuevo método computacional para el estudio de flujo de potenciaaa','8-475-1024','FISC','Pc','2018-07-26',2),(22,'P','Mantenimiento preventivo en los sistemas de transmisión digital por cables de fibras óptica y microondas.','5-482-691','FISC','PC','2018-07-26',3),(23,'P','Implementación de un sistema de información para la logística de materiales de una empresa industrial','1-123-11','FISC','PC','2018-07-26',1),(30,'TP','Implementación de un sistema de cualquier cosa','1-123-11','FISC','PC','2018-08-21',3),(34,'P','Angular: Empty Fiddle','1-123-11','FISC','PC','2018-08-21',5),(35,'T','HTML5 input events test','1-123-11','FISC','PC','2018-08-21',5),(36,'T','AngularJS Session Storage Example','1-123-11','FISC','PC','2018-08-21',6),(37,'P','AngularAgility sample','1-123-11','FISC','PC','2018-08-21',1),(38,'P','AngularJS Session Storage Example','1-123-11','FISC','PC','2018-08-21',1),(39,'P','Angular: Empty Fiddle','1-123-11','FISC','PC','2018-08-21',1),(40,'P','Angular: Empty Fiddle','1-123-11','FISC','PC','2018-08-21',6);
+INSERT INTO `graduation_works` VALUES (13,'P','Impresión automática de actas en el Tribunal Electoral para las eleciones','5-482-691','FISC','PC','2018-07-13',2),(14,'TP','Manual de procedimiento para el diseño de sistemas de fontanería','1-123-11','FIC','PC','2018-04-24',1),(15,'TP','Diseño eléctrico realizado en la compañía ingeniería atlántico','8-475-1024','FIE','PC','2017-10-08',2),(16,'P','Reconocimiento, evaluación y manejo de equipos especiales de fuerza en las centrales telefónicas.','PE-14-5298','FII','PC','2017-06-10',3),(17,'TP','Sistema de gestión de la información del departamento de Bienestar Estudiantil de la Universidad Tecnológica de Panamá Centro Regional de Chiriquí','5-482-691','FIE','PC','2018-02-10',1),(18,'P','Práctica profesional en Ricardo Perez S.A. \'Ahorro energético y mejoras en la calidad de la energía\'','8-475-1024','FIE','PC','2018-02-10',2),(20,'T','Diseño y construcción del sistema didáctico SD-88 basado en el microprocesador INTEL8088','PE-14-5298','FISC','PC','2018-07-26',4),(21,'T','Nuevo método computacional para el estudio de flujo de potenciaaa','8-475-1024','FISC','Pc','2018-07-26',2),(22,'P','Mantenimiento preventivo en los sistemas de transmisión digital por cables de fibras óptica y microondas.','5-482-691','FISC','PC','2018-07-26',3),(23,'P','Implementación de un sistema de información para la logística de materiales de una empresa industrial','1-123-11','FISC','PC','2018-07-26',1),(30,'TP','Implementación de un sistema de cualquier cosa','1-123-11','FISC','PC','2018-08-21',3),(34,'P','Angular: Empty Fiddle','1-123-11','FISC','PC','2018-08-21',5),(36,'T','AngularJS Session Storage Example','1-123-11','FISC','PC','2018-08-21',6),(37,'P','AngularAgility sample','1-123-11','FISC','PC','2018-08-21',1),(38,'P','AngularJS Session Storage Example','1-123-11','FISC','PC','2018-08-21',1),(39,'P','Angular: Empty Fiddle','1-123-11','FISC','PC','2018-08-21',1),(40,'P','Angular: Empty Fiddle','1-123-11','FISC','PC','2018-08-21',6);
 /*!40000 ALTER TABLE `graduation_works` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,6 +130,47 @@ LOCK TABLES `utp_users` WRITE;
 INSERT INTO `utp_users` VALUES (1,'E','Jorge','Girón','8-855-449','jgiron19','kyoshi.giron@gmail.com',NULL,NULL),(2,'E','Yirelki','Jiménez','8-901-1029','test','kyoshi.giron@gmail.com',NULL,NULL),(21,'P','Bruce','Wayne','5-482-691','test','kyoshi.giron@gmail.com',NULL,NULL),(22,'P','Diana','Prince','8-475-1024','test','biologa507@gmail.com',NULL,NULL),(23,'P','Kal','El','PE-14-5298','test','kyoshi.giron@gmail.com',NULL,NULL),(25,'E','Ranger','Rojo','8-855-448','test','kyoshi.giron@gmail.com',NULL,NULL),(81,'P','Harry','Potter','1-123-11','test','kyoshi.giron@gmail.com','FISC','PC'),(82,'E','Greysi','Diaz','1-123-12','test','kyoshi.giron@gmail.com',NULL,NULL),(83,'E','Ariel','Fernandez','E-8-111396','test','kyoshi.giron@gmail.com',NULL,NULL);
 /*!40000 ALTER TABLE `utp_users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'utp_tesis'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `insertWork` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertWork`(
+IN userId VARCHAR(45), 
+IN workTitle VARCHAR(200),
+IN workType CHAR(2),
+IN studentCount INT
+)
+BEGIN
+SELECT 
+    us_facu, us_center
+INTO
+	@facu, @center
+FROM
+    utp_tesis.utp_users
+WHERE
+	us_doc_num = '1-123-11';
+    
+SELECT CURDATE() INTO @today;
+
+INSERT INTO graduation_works (work_type, w_title, advisor, faculty, reg_center, creation_date, studentsQty) 
+VALUES (workType, workTitle,userId, @facu, @center, CURDATE(), studentCount);
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -142,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-21 15:52:19
+-- Dump completed on 2018-09-07 16:51:24
