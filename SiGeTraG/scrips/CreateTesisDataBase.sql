@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `utp_tesis` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci */;
+USE `utp_tesis`;
 -- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
 -- Host: localhost    Database: utp_tesis
