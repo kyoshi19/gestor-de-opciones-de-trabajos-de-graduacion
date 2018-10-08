@@ -44,5 +44,4 @@ $headers .= 'From: Go.Tg <webmaster@example.com>' . "\r\n";
 $headers .= 'Cc: kyoshi.giron@gmail.com' . "\r\n";
 
 echo(mail($to,$subject,$message,$headers));   //Ejecución de envío de correo
-echo(1);
 ?>

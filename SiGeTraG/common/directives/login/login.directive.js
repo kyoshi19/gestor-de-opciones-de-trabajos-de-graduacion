@@ -3,7 +3,7 @@
 
   //  directive directive
   function utpLogin($log, userRules, $http, $state, storage, isEmpty,
-    $timeout ) {
+    $timeout, notificationService) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/login/login.html',
@@ -33,9 +33,8 @@
             storage.user = response.data.records[0];
             scope.goToMain();
           }else {
-            scope.msg = "Usuario no encontrado";
-            scope.alert="alert-danger";
             storage.showLoader = false;
+            notificationService.showErrorMessage("Usuario no encontrado");
           }
         });
       };
@@ -69,7 +68,8 @@
     '$state',
     '$sessionStorage',
     'isEmptyFilter',
-    '$timeout'
+    '$timeout',
+    'notificationService'
   ];
 
   win.MainApp.Directives

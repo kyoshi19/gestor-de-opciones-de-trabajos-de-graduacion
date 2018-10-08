@@ -2,7 +2,8 @@
   'use strict';
 
   //  jobsList directive
-  function jobsList($log, isEmpty, storage, ModalService, NgTableParams, $http) {
+  function jobsList($log, isEmpty, storage, ModalService, NgTableParams, $http,
+  translate, notificationService) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/jobsList/jobsList.html',
@@ -90,8 +91,16 @@
           modal.element.modal();
           modal.close.then(function(response) {
             storage.showLoader = false;
-            $log.debug("Correo enviado ==>", response);
-
+            if (isEmpty(response.data)){
+              notificationService.showErrorMessage(
+                translate.instant('global.error.internet.conection'));
+              return;
+            }
+            notificationService.showSuccesMessage(
+              translate.instant('global.notification.mail.success'));
+          });
+          modal.close.catch(function(err){
+            $log.debug('ERROR ==> ',err);
           });
         });
       };
@@ -165,7 +174,9 @@
     '$sessionStorage',
     'ModalService',
     'NgTableParams',
-    '$http'
+    '$http',
+    '$translate',
+    'notificationService'
   ];
 
   //  Module

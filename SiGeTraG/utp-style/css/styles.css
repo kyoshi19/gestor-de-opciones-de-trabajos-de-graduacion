@@ -190,10 +190,6 @@ select option {
   animation: utpLoader 0.7s linear infinite;
   -webkit-animation: utpLoaderPulse 0.7s  linear infinite; }
 
-.utp-loader {
-  width: 150px;
-  height: 150px; }
-
 @keyframes utpLoader {
   0% {
     transform: rotateZ(0deg); }
@@ -214,6 +210,43 @@ select option {
     transform: scale(1); }
   50% {
     transform: scale(1.2); } }
+.utp-loader {
+  width: 150px;
+  height: 150px; }
+
+#message-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000; }
+
+.message-container {
+  display: block;
+  border-style: double;
+  margin-left: auto;
+  margin-right: 1%;
+  width: 250px;
+  height: 40px;
+  position: relative;
+  animation: msgOpacity 1s linear infinite;
+  animation-delay: 2s; }
+  .message-container div {
+    width: 100%;
+    height: 100%;
+    padding-top: 2%; }
+
+@keyframes msgOpacity {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@-webkit-keyframes msgOpacity {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 #alert {
   position: absolute;
   width: 15%;

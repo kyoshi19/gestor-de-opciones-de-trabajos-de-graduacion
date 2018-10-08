@@ -15,6 +15,7 @@
     // VM
     var vm = this;
     vm.storage = storage;
+    vm.storage.messages = [];
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
     vm.backImage = 'src/img/starwars.jpg';

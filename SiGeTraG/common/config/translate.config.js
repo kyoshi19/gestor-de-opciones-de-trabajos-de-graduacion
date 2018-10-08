@@ -39,7 +39,13 @@ var EStranslate = {
   'footer.direction'                : 'Dirección: Avenida Universidad Tecnológica de Panamá, Vía Puente Centenario,',
   'footer.utp.campus'               : 'Campus Metropolitano Víctor Levi Sasso.',
   'footer.utp.mail'                 : 'E-mail: investigadores.activos@utp.ac.pa',
-  'footer.utp.phone'                : 'Teléfono. (507) 560-3000'
+  'footer.utp.phone'                : 'Teléfono. (507) 560-3000',
+
+  // NOTICIFACIONES
+  'global.notification.mail.success': 'Correo enviado',
+  // MENSAJES DE ERROR;
+  'global.error.internet.conection' : 'Sin conección a internet'
+
 };
 
 function config($translateProvider) {

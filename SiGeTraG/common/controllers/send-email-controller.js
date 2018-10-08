@@ -22,7 +22,6 @@
       if (result) {
         storage.showLoader = true;
         var student = storage.user.fName+' '+storage.user.lName;
-        vm.message.text =
         sendMail.send(vm.message.email, data.contact,
           vm.message.subject, student, vm.message.text )
         .then(function(response){

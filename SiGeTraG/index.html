@@ -26,6 +26,15 @@
   <!-- CABECERA DE TODAS LAS PÁGINAS -->
   <ng-include  src="'common/templates/header.html'"></ng-include>
 
+  <!-- NOTIFICACIONES -->
+  <div id="message-content" ng-cloak ng-if="!(mctrl.storage.messages | isEmpty) ">
+    <div class="message-container mt-3 rounded text-center"
+      ng-repeat=" msg in mctrl.storage.messages" ng-class="msg.type">
+      <div>{{msg.text}}</div>
+    </div>
+  </div>
+
+
   <!-- CARGADOR CON LOGO UTP -->
   <div id="loader-content" ng-cloak ng-if="mctrl.storage.showLoader">
     <div class="logo-container">
@@ -78,6 +87,7 @@
     <script src="common/services/modal.service.js"></script>
     <script src="common/services/works.util.service.js"></script>
     <script src="common/services/sendMail.service.js"></script>
+    <script src="common/services/notification.service.js"></script>
 
 
     <!-- ESTADOS -->
