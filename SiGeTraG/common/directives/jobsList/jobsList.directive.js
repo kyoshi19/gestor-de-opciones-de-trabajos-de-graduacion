@@ -92,12 +92,10 @@
           modal.close.then(function(response) {
             storage.showLoader = false;
             if (isEmpty(response.data)){
-              notificationService.showErrorMessage(
-                translate.instant('global.error.internet.conection'));
+              notificationService.showError('global.error.internet.conection');
               return;
             }
-            notificationService.showSuccesMessage(
-              translate.instant('global.notification.mail.success'));
+            notificationService.showSucces('global.notification.mail.success');
           });
           modal.close.catch(function(err){
             $log.debug('ERROR ==> ',err);

@@ -35,15 +35,12 @@
         <td class ="" title="'OPCIONES'" ng-if="showOptions">
           <div class="row align-items-center">
             <div class="col-md-12 col-sm-12">
-              <i data-feather="edit" ng-click="openUpdateWorkModal(work)"></i>
-              <i data-feather="delete" ng-click="openDeleteWork(work)"></i>
+              <i class="far fa-edit" ng-click="openUpdateWorkModal(work)"></i>
+              <i class="far fa-trash-alt" ng-click="openDeleteWork(work)"></i>
             </div>
           </div>
         </td>
       </tr>
     </table>
   </div>
-  <script>
-    feather.replace()
-  </script>
 </div>

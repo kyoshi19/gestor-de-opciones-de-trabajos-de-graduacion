@@ -1,50 +1,53 @@
 (function(win) {
   'use strict';
 
-  function notificationService(storage, $timeout) {
-    return{
-        showErrorMessage:showErrorMessage,
-        showWarrningMessage:showWarrningMessage,
-        showInfoMessage:showInfoMessage,
-        showSuccesMessage:showSuccesMessage
+  function notificationService(storage, $timeout, translate) {
+    var statusClasses = {
+      info: 'alert-info',
+      success: 'alert-success',
+      warning: 'alert-warning',
+      error: 'alert-danger'
     };
 
-    function showSuccesMessage(msg) {
-      var message = {
-        type:'alert-success border-success',
-        text:msg
-      };
-      storage.messages.push(message);
-      hideNotificacion(message);
+    var iconClasses = {
+      info: 'fa-exclamation-circle',
+      success: 'fa-check-circle',
+      warning: 'fas fa-exclamation-triangle',
+      error: 'fa-times-circle'
+    };
+
+    return{
+        showError:showError,
+        showWarrning:showWarrning,
+        showInfo:showInfo,
+        showSucces:showSucces
+    };
+
+
+    function showSucces(msg) {
+      showMessage(msg, "success");
     }
 
-    function showErrorMessage(msg) {
-      var message = {
-        type:'alert-danger border-danger',
-        text:msg
-      };
-      storage.messages.push(message);
-      hideNotificacion(message);
+    function showError(msg) {
+      showMessage(msg, "error");
     }
 
-    function showWarrningMessage(msg) {
-      var message = {
-        type:'alert-warning border-warning',
-        text:msg
-      };
-      storage.messages.push(message);
-      hideNotificacion(message);
+    function showWarrning(msg) {
+      showMessage(msg, "warning");
     }
 
-    function showInfoMessage(msg) {
+    function showInfo(msg) {
+      showMessage(msg, "info");
+    }
+    function showMessage(msg, type){
       var message = {
-        type:'alert-info border-info',
-        text:msg
+        type:statusClasses[type],
+        icon:iconClasses[type],
+        text:translate.instant(msg),
       };
       storage.messages.push(message);
-      hideNotificacion(message);
+      // hideNotificacion(message);
     }
-
     function hideNotificacion(message){
       $timeout(function(){
         var index = storage.messages.indexOf(message);
@@ -56,7 +59,8 @@
 
   notificationService.$inject = [
     '$sessionStorage',
-    '$timeout'
+    '$timeout',
+    '$translate'
   ];
 
   win.MainApp.Services

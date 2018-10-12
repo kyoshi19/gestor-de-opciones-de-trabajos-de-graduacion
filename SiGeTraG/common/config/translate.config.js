@@ -44,7 +44,8 @@ var EStranslate = {
   // NOTICIFACIONES
   'global.notification.mail.success': 'Correo enviado',
   // MENSAJES DE ERROR;
-  'global.error.internet.conection' : 'Sin conección a internet'
+  'global.error.internet.conection' : 'Sin conección a internet',
+  'global.no.user.find'             : 'Usuario no encontrado'
 
 };
 

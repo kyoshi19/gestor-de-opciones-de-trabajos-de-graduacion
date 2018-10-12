@@ -2,7 +2,8 @@
   'use strict';
 
   var masterController = function($log, patterns,
-    $http, $state, storage, $timeout, catalog, catalogItem, isEmpty, $q){
+    $http, $state, storage, $timeout, catalog,
+    isEmpty, $q, notificationService){
 
     $log.debug('[utp-master-controller] Initializing...');
 
@@ -59,28 +60,6 @@
 
     setup();
 
-    function secondMethod(){
-      var deferer = $q.defer();
-      $log.debug('--> INICIA SECOND <--');
-
-      $http.get("php/selectAllUsers.php")
-      .then(function (response) {
-
-        $log.debug('--> TERMINA SECOND <--');
-        deferer.resolve(true);
-      });
-
-      return deferer.promise;
-    }
-
-    vm.mainMethod = function(){
-      $log.debug('--> INICIA MAIN <--');
-      secondMethod().then(function(response){
-        if (response) {
-          $log.debug('--> TERMINA MAIN <--');
-        }
-      });
-    };
 
 
   };
@@ -92,9 +71,9 @@
     '$sessionStorage',
     '$timeout',
     'catalogFilter',
-    'catalogItemFilter',
     'isEmptyFilter',
-    '$q'
+    '$q',
+    'notificationService'
   ];
   win.MainApp.Controllers
   .controller('masterController',masterController);

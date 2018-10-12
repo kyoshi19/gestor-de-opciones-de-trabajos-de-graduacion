@@ -34,7 +34,10 @@
             scope.goToMain();
           }else {
             storage.showLoader = false;
-            notificationService.showErrorMessage("Usuario no encontrado");
+            notificationService.showError("global.no.user.find");
+            notificationService.showSucces("global.no.user.find");
+            notificationService.showWarrning("global.no.user.find");
+            notificationService.showInfo("global.no.user.find");
           }
         });
       };
