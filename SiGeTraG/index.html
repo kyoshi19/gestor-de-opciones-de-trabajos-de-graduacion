@@ -10,9 +10,8 @@
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 
-  <!-- MATERIALIZE -->
-  <!-- <script src="lib/materialize/js/materialize.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="lib/materialize/css/materialize.css"> -->
+  <!-- FA ICONS CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   <!-- IMPORTACIÓN HOJAS DE ESTILOS -->
   <link rel="stylesheet" type="text/css" href="utp-style/css/styles.css">
@@ -21,18 +20,12 @@
 </head>
 <body ng-controller="masterController as mctrl">
 
-  <!-- <div id="alert" class="alert alert-success" role="alert">Alerta</div> -->
+  <!-- NOTIFICACIONES -->
+  <ng-include  src="'common/templates/notifications.html'"></ng-include>
 
   <!-- CABECERA DE TODAS LAS PÁGINAS -->
   <ng-include  src="'common/templates/header.html'"></ng-include>
 
-  <!-- NOTIFICACIONES -->
-  <div id="message-content" ng-cloak ng-if="!(mctrl.storage.messages | isEmpty) ">
-    <div class="message-container mt-3 rounded text-center"
-      ng-repeat=" msg in mctrl.storage.messages" ng-class="msg.type">
-      <div>{{msg.text}}</div>
-    </div>
-  </div>
 
 
   <!-- CARGADOR CON LOGO UTP -->
