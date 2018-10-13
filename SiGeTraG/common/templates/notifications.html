@@ -1,7 +1,7 @@
 <div id="message-content" ng-cloak ng-if="!(mctrl.storage.messages | isEmpty) ">
   <div class="message-container mt-3 rounded"
     ng-repeat=" msg in mctrl.storage.messages" ng-class="msg.type">
-    <div class="row alert">
+    <div class="row">
       <div class="col-md-1">
         <i class="fa" ng-class="msg.icon"></i>
       </div>

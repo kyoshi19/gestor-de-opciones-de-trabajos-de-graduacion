@@ -18,6 +18,7 @@
 
     return{
         showError:showError,
+        showErrorT:showErrorT,
         showWarrning:showWarrning,
         showInfo:showInfo,
         showSucces:showSucces
@@ -32,6 +33,10 @@
       showMessage(msg, "error");
     }
 
+    function showErrorT(msg) {
+      showMessage(msg, "error", true);
+    }
+
     function showWarrning(msg) {
       showMessage(msg, "warning");
     }
@@ -39,11 +44,11 @@
     function showInfo(msg) {
       showMessage(msg, "info");
     }
-    function showMessage(msg, type){
+    function showMessage(msg, type, haveMessage){
       var message = {
         type:statusClasses[type],
         icon:iconClasses[type],
-        text:translate.instant(msg),
+        text:haveMessage ? msg : translate.instant(msg),
       };
       storage.messages.push(message);
       // hideNotificacion(message);

@@ -28,16 +28,12 @@
         $http.post("php/selectUser.php",scope.docToSearch.toString())
         .then(function (response) {
           tempUser = response.data.records[0];
-          $log.debug(tempUser);
           if (angular.isDefined(tempUser) && tempUser.pass===scope.passToSearch) {
             storage.user = response.data.records[0];
             scope.goToMain();
           }else {
             storage.showLoader = false;
-            notificationService.showError("global.no.user.find");
-            notificationService.showSucces("global.no.user.find");
-            notificationService.showWarrning("global.no.user.find");
-            notificationService.showInfo("global.no.user.find");
+            notificationService.showError("global.error.no.user.find");
           }
         });
       };

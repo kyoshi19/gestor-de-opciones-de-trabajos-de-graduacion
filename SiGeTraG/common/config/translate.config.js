@@ -41,12 +41,17 @@ var EStranslate = {
   'footer.utp.mail'                 : 'E-mail: investigadores.activos@utp.ac.pa',
   'footer.utp.phone'                : 'Teléfono. (507) 560-3000',
 
-  // NOTICIFACIONES
-  'global.notification.mail.success': 'Correo enviado',
+  /*************************
+  ****  NOTICIFACIONES  ****
+  *************************/
+  'global.succes.work.added'        : 'Trabajo agregado correctamente',
+  'global.succes.work.deleted'      : 'Trabajo eliminado correctamente',
+  'global.succes.mail.success'      : 'Correo enviado',
+
   // MENSAJES DE ERROR;
   'global.error.internet.conection' : 'Sin conección a internet',
-  'global.no.user.find'             : 'Usuario no encontrado'
-
+  'global.error.no.user.find'       : 'Usuario no encontrado',
+  'global.error.work.no.deleted'    : 'Trabajo no eliminado'
 };
 
 function config($translateProvider) {

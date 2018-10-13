@@ -3,7 +3,7 @@
 
   //  adviserData directive
   function adviserData($log, isEmpty, storage, workService,
-    $window) {
+    $window, notificationService) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/adviserData/adviserData.html',
@@ -77,10 +77,11 @@
         workService.insertWork(scope.addWork)
         .then(function(response){
           if (!response.data.error) {
+            notificationService.showSucces('global.succes.work.added');
             scope.resetInputs(addWorkForm);
             scope.searchWorks();
           }else{
-            $window.alert(response.data.error);
+            notificationService.showError(response.data.error);
           }
           storage.showLoader = false;
 
@@ -107,7 +108,8 @@
     'isEmptyFilter',
     '$sessionStorage',
     'workUtilService',
-    '$window'
+    '$window',
+    'notificationService'
   ];
 
   //  Module

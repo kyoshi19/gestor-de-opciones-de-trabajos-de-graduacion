@@ -95,7 +95,7 @@
               notificationService.showError('global.error.internet.conection');
               return;
             }
-            notificationService.showSucces('global.notification.mail.success');
+            notificationService.showSucces('global.succes.mail.success');
           });
           modal.close.catch(function(err){
             $log.debug('ERROR ==> ',err);
@@ -118,15 +118,20 @@
 
           modal.element.modal();
           modal.close.then(function(response) {
-            $log.debug("Modal is close, result ==>", response.result);
+            $log.debug("Modal is closed");
 
-            if (response.data.records[0] > 0) {
-              $log.debug('--> TRABAJO ELIMINADO <--');
-              scope.searchWorks();
-
-            } else {
-              $log.debug('--> TRABAJO NO ELIMINADO <--');
+            if (response.data.error) {
+              notificationService.showErrorT(response.data.error);
+            }else{
+              if (response.data.records[0] > 0) {
+                notificationService.showSucces('global.succes.work.deleted');
+                scope.searchWorks();
+              } else {
+                notificationService.showError('global.error.work.no.deleted');
+              }  
             }
+
+
 
           });
         });
