@@ -83,19 +83,25 @@
           templateUrl: "common/templates/modal/sendEmailModal.html",
           controller: "sendEmailController",
           controllerAs:"ctrl",
+          backdrop:'static',
           inputs:{
             data:work,
             isEditing: false
           }
         }).then(function(modal) {
-          modal.element.modal();
+          modal.element.modal({
+            backdrop: 'static',
+            keyboard: false
+          });
           modal.close.then(function(response) {
             storage.showLoader = false;
-            if (isEmpty(response.data)){
-              notificationService.showError('global.error.internet.conection');
-              return;
+            if (response.result){
+              if (isEmpty(response.data)) {
+                notificationService.showError('global.error.internet.conection');
+                return;
+              }
+              notificationService.showSucces('global.succes.mail.success');
             }
-            notificationService.showSucces('global.succes.mail.success');
           });
           modal.close.catch(function(err){
             $log.debug('ERROR ==> ',err);
@@ -128,7 +134,7 @@
                 scope.searchWorks();
               } else {
                 notificationService.showError('global.error.work.no.deleted');
-              }  
+              }
             }
 
 

@@ -51,13 +51,13 @@
         text:haveMessage ? msg : translate.instant(msg),
       };
       storage.messages.push(message);
-      // hideNotificacion(message);
+       hideNotificacion(message);
     }
     function hideNotificacion(message){
       $timeout(function(){
         var index = storage.messages.indexOf(message);
         storage.messages.splice(index, 1);
-      },3000);
+      },2500);
     }
 
   }

@@ -25,14 +25,17 @@
         sendMail.send(vm.message.email, data.contact,
           vm.message.subject, student, vm.message.text )
         .then(function(response){
-
+          response.result = result;
           element.modal('hide');
           close(response, 500); // close, but give 500ms for bootstrap to animate
         });
+      }else{
+        var response = {
+          'result':result
+        };
+        element.modal('hide');
+        close(response, 500); // close, but give 500ms for bootstrap to animate
       }
-      var response = {
-        'result':result
-      };
 
     };
 
