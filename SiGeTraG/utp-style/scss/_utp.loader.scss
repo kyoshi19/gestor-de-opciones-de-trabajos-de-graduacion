@@ -60,7 +60,7 @@
   width: 300px;
   height: fit-content;
   position: relative;
-  animation: none; //msgOpacity 1.5s linear infinite;
+  animation: msgOpacity 1s linear infinite;
   animation-delay: 1.5s;
 
   p, div.row{
