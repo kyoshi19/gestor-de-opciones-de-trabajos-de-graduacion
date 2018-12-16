@@ -1,0 +1,29 @@
+input{
+  &[required]{
+    background-color: #fffddd;
+    &.ng-valid-required{
+      background-color: #ffffff;
+    }
+  }
+}
+
+textarea{
+  &[required]{
+    background-color: #fffddd;
+    &.ng-valid-required{
+      background-color: #ffffff;
+    }
+  }
+}
+
+select{
+  &[required]{
+    background-color: #fffddd;
+    &.ng-valid-required{
+      background-color: #ffffff;
+    }
+  }
+  option{
+    background-color: #ffffff;
+  }
+}

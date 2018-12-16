@@ -1,0 +1,20 @@
+.dropdown{
+  margin-top: 20%;
+
+  .dropdown-item{
+    border-style: solid;
+    border-color: $utp-main-color;
+    border-width: 0px 1px 1px 0px;
+
+
+    &:hover{
+      background-color: $utp-item-hover;
+      cursor: pointer;
+    }
+
+    &.active{
+      background-color: $utp-main-color;
+      color: white;
+    }
+  }
+}

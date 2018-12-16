@@ -1,0 +1,58 @@
+<div class="row">
+  <ng-form name="addForm">
+    <span>
+      <h5>Usuario en Linea:
+      {{mainStudent.fName}} {{mainStudent.lName}} -
+      {{mainStudent.docNumber}}</h5>
+    </span>
+    <!-- <button ng-click="">Home</button><br /> -->
+    <h4>Agregar un usuario</h4>
+    <div class="form-inline-mixed">
+      <div class=" col-md-4">
+        <input aa-label="{{'global.firstName' | translate}}"
+        aa-field-group="tempUser.fname"
+        placeholder="Nombre"
+        required="true"
+        utp-pattern="{{userRules.firstName.pattern}}"
+        ng-maxlength="userRules.firstName.maxlength">
+      </div>
+
+      <div class=" col-md-4">
+        <input aa-label="{{'global.lastName' | translate}}"
+        aa-field-group="tempUser.lname"
+        placeholder="Apellido"
+        required="true"
+        utp-pattern="{{userRules.lastName.pattern}}"
+        ng-maxlength="userRules.lastName.maxlength">
+      </div>
+
+      <div class=" col-md-4">
+        <input aa-label="{{'global.id' | translate}}"
+        aa-field-group="tempUser.docNum"
+        placeholder="ID"
+        utp-pattern="{{userRules.identification.pattern}}"
+        required="true">
+      </div>
+    </div>
+
+    <div class="form-inline-mixed">
+      <div class=" col-md-4">
+        <input aa-label="{{'global.password' | translate}}"
+        type="password"
+        aa-field-group="tempUser.pass"
+        placeholder="Password"
+        required="true">
+      </div>
+    </div>
+    <div class="form-inline-mixed">
+      <div class=" col-md-12">
+        <button class="btn btn-default"
+        aa-submit-form="insertUser()"
+        ng-disabled="false">
+        Agregar Usuario
+        </button>
+      </div>
+    </div>
+    <br /><br />
+  </ng-form>
+</div>

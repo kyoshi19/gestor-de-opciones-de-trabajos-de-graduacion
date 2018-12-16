@@ -1,0 +1,46 @@
+<div ng-if="dataTable">
+
+  <!-- TABLA PARA ESTUDIANTES -->
+  <div class="" ng-if="userType === 'E'">
+    <div class="text-center" ng-if="tableTitle">
+      <h3>{{tableTitle}}</h3>
+    </div>
+    <h6 ng-if="worksCount" class="message-result">La búsqueda ha dado {{worksCount}} resultado/s</h6>
+
+    <table ng-table="dataTable" class="table">
+      <thead></thead>
+      <tr ng-repeat="work in $data">
+        <td class ="work-item" ng-click="openWorkInfo(work)">
+          <h6>Título: {{work.title}}</h6>
+          <h6 class="text-muted">Asesor: {{work.advisor}}</h6>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- TABLA PARA ASESORES -->
+  <div class="" ng-if="userType === 'P'">
+    <div class="text-center" ng-if="tableTitle">
+      <h2>{{tableTitle}}</h2>
+    </div>
+    <h6 ng-if="worksCount" class="message-result">La búsqueda ha dado {{worksCount}} resultado/s</h6>
+    <table ng-table="dataTable" class="table">
+      <tr ng-repeat="work in $data">
+        <td class ="" title="'ID'" >
+          <h6 class="text-muted">{{work.id}}</h6>
+        </td>
+        <td class ="w-100" title="'TEMA'">
+          <h6>{{work.title}}</h6>
+        </td>
+        <td class ="" title="'OPCIONES'" ng-if="showOptions">
+          <div class="row align-items-center">
+            <div class="col-md-12 col-sm-12">
+              <i class="far fa-edit" ng-click="openUpdateWorkModal(work)"></i>
+              <i class="far fa-trash-alt" ng-click="openDeleteWork(work)"></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

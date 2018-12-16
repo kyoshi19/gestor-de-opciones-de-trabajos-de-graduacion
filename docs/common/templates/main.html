@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+
+    <!-- <div class="col-md-12">
+      <button class="btn btn-default"
+        ng-click="mctrl.logggOut()">
+        cerrar sesion
+      </button>
+    </div> -->
+
+
+    <div class="col-md-12">
+      <search-job
+        set-show-loader="mctrl.setShowLoader(show)">
+      </search-job>
+    </div>
+
+    <div class="col-md-4">
+      <button class="btn btn-outline-primary"ng-click="mctrl.initCatalogs()">Actualizar Datos</button>
+      <table class="table" ng-if="mctrl.isDefined(mctrl.users)">
+        <tr>
+          <td>ID</td>
+          <td>NOMBRE</td>
+          <td>APELLIDO</td>
+          <td>DOCUMENTO</td>
+        </tr>
+        <tr ng-repeat="x in mctrl.users">
+          <td>{{ x.id }}</td>
+          <td>{{ x.fName }}</td>
+          <td>{{ x.lName }}</td>
+          <td>{{ x.docNumber }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
