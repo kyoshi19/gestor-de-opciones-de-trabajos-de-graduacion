@@ -1,0 +1,23 @@
+<div class="row justify-content-center" ng-if="('graduationWorkTypes'|catalogIsReady)">
+  <div class="col-md-12 text-center title-text">
+    <h1>{{'global.documentation'|translate}}</h1>
+  </div>
+</div>
+
+<div class="row container">
+  <div class="col-md-3 col-sm-3">
+    <div class="dropdown">
+      <div class="dropdown-item" ng-click="setTemplate('workTypes')"
+        ng-class="(active ==='workTypes') ? 'active':''">
+        > {{'global.work.types' |translate}}
+      </div>
+      <div class="dropdown-item" ng-click="setTemplate('mainRules')"
+        ng-class="(active ==='mainRules') ? 'active':''">
+        > {{'global.main.rules' | translate}}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9 col-sm-9">
+    <ng-include  src="viewTemplate"></ng-include>
+  </div>
+</div>
