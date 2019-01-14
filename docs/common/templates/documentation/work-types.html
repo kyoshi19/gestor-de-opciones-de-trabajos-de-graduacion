@@ -1,0 +1,23 @@
+<div class="text-center">
+<h2>{{'global.work.types' | translate}}</h2>
+</div>
+
+El Tipo de Trabajo de Graduación puede ser seleccionado dentro de las siguientes opciones:
+<br><br>
+  <div class="card" ng-repeat="work in workTypesValue track by $index">
+
+    <div id="heading_{{$index}}" class="collapsed card-header"
+      data-toggle="collapse" data-target="#collapse_{{$index}}"
+      aria-expanded="false" aria-controls="collapse_{{$index}}">
+
+      <h6 class="mb-0">{{work.title}}</h6>
+
+    </div>
+
+    <div id="collapse_{{$index}}" class="collapse">
+      <div class="card-body">
+        {{work.name}}
+      </div>
+    </div>
+
+  </div>
