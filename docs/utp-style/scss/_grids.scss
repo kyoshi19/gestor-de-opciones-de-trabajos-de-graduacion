@@ -59,3 +59,8 @@ td .far{
   margin-left: 17%;
   cursor: pointer;
 }
+
+.hand-hover:hover{
+  background-color: $utp-item-hover;
+  cursor: pointer;
+}
