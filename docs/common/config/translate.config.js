@@ -21,6 +21,9 @@ var EStranslate = {
   'global.email'                    : 'Correo electrónico',
   'global.subject'                  : 'Asunto',
   'global.message'                  : 'Mensaje',
+  'global.documentation'            : 'Documentación',
+  'global.work.types'               : 'Tipos de trabajos',
+  'global.main.rules'               : 'Normas principales',
 
   // MENSAJES DE ERROR DE VALIDACION
   'validation.required'             : 'El campo {0} es requerido.',
@@ -44,6 +47,7 @@ var EStranslate = {
   /*************************
   ****  NOTICIFACIONES  ****
   *************************/
+
   'global.succes.work.added'        : 'Trabajo agregado correctamente',
   'global.succes.work.deleted'      : 'Trabajo eliminado correctamente',
   'global.succes.mail.success'      : 'Correo enviado',
@@ -51,7 +55,8 @@ var EStranslate = {
   // MENSAJES DE ERROR;
   'global.error.internet.conection' : 'Sin conección a internet',
   'global.error.no.user.find'       : 'Usuario no encontrado',
-  'global.error.work.no.deleted'    : 'Trabajo no eliminado'
+  'global.error.work.no.deleted'    : 'Trabajo no eliminado',
+
 };
 
 function config($translateProvider) {
