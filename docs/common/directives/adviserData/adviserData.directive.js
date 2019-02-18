@@ -32,6 +32,7 @@
       };
 
       scope.addWork = {};
+      scope.addWork.candidates = [];
 
 
       /* --> METODOS <-- */
@@ -96,6 +97,22 @@
         scope.addWork.students = 1;
         scope.addWork.type = null;
         scope.addWork.title = '';
+        scope.addWork.description = '';
+
+      };
+
+      scope.updateCandidate = function () {
+        var cant = scope.addWork.students - scope.addWork.candidates.length();
+
+        if (cant > 0) {
+          for (let index = 0; index < cant; index++) {
+            scope.addWork.candidates.push({name:"Hola"});
+          }
+        } else {
+          for (let index = 0; index < cant; index++) {
+            scope.addWork.candidates.pop();
+          }
+        }
 
       };
 

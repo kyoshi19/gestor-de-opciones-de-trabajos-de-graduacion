@@ -18,9 +18,23 @@
       </div>
     </div>
 
-    <!-- Tipo de trabajo -->
+    <!-- Descripción del trabajo -->
+    <div class="col-md-7">
+      <div class="form-group">
+        <textarea type="text" name="workDescription"
+          class="form-control" id="workDescription"
+          aa-field-group="addWork.description"
+          aa-label="Descripción del trabajo"
+          required="true"
+          rows="4">
+        </textarea>
+      </div>
+    </div>
+
     <div class="col-md-4">
-      <div class="input-group">
+
+      <!-- Tipo de trabajo -->
+      <div class="form-group">
         <select class="custom-select" name="workType"
           id="workType"
           aa-field-group="addWork.type"
@@ -33,22 +47,26 @@
           </option>
         </select>
       </div>
-    </div>
 
-    <!-- Cantidad de estudiantes -->
-    <div class="col-md-4">
-      <div class="input-group">
-        <input type="number" name="workCount"
-          class="form-control" id="workType"
-          min="1"
-          aa-field-group="addWork.students"
-          aa-label="Cantidad de estudiantes"
-          required="true"
-          ng-init="addWork.students = 1">
-        </input>
-      </div>
-    </div>
+      <!-- Cantidad de estudiantes -->
+      <div class="form-group">
+          <input type="number" name="workCount"
+            class="form-control" id="workType"
+            min="1"
+            max="3"
+            aa-field-group="addWork.students"
+            aa-label="Cantidad de estudiantes"
+            required="true"
+            ng-init="addWork.students = 1">
+          </input>
+        </div>
 
+    </div>
+    
+    <div class="col-md-4" ng-repeat candidate in addWork.candidates>
+      
+    </div>
+    
     <div class="col-md-3 align-self-end">
         <button class="btn btn-outline-primary"
           aa-submit-form="insertWork(addWorkForm)">
