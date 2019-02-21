@@ -1,0 +1,103 @@
+<div class="row">
+
+  <!-- Título -->
+  <div class="col-md-12">
+    <div class="form-group">
+      <input type="text" name="workTitle"
+        class="form-control" id="field"
+        aa-field-group="workInfo.title"
+        aa-label="Titulo"
+        required="true">
+      </input>
+    </div>
+  </div>
+
+  <!-- Descripción del trabajo -->
+  <div class="col-md-7">
+    <div class="form-group">
+      <textarea type="text" name="workDescription"
+        class="form-control" id="workDescription"
+        aa-field-group="workInfo.description"
+        aa-label="Descripción del trabajo"
+        required="true"
+        rows="4">
+      </textarea>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+
+    <!-- Tipo de trabajo -->
+    <div class="form-group">
+      <select class="custom-select" name="workType"
+        id="workType"
+        aa-field-group="workInfo.type"
+        aa-label="Tipo de trabajo"
+        required="true">
+        <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
+          ng-value="item.id" ng-disabled= "item.id == null" ng-if="item.id !== '0'">
+          {{item.name}}
+        </option>
+      </select>
+    </div>
+
+    <!-- Cantidad de estudiantes -->
+    <div class="form-group">
+        <input type="number" name="workCount"
+          class="form-control" id="workType"
+          min="1"
+          max="3"
+          aa-field-group="workInfo.students"
+          aa-label="Cantidad de estudiantes"
+          required="true">
+        </input>
+      </div>
+
+  </div>
+  
+  <!-- Candidatos -->
+  <div class="col-md-12" ng-repeat="candidate in updateCandidate() track by $index">
+    
+    <h6>Candidato {{$index+1}}</h6>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <select class="custom-select" name="faculty{{$index}}"
+            id="faculty{{$index}}"
+            aa-field-group="candidate.faculty"
+            aa-label="Facultad"
+            required="true">
+            <option ng-repeat="item in ('utpFaculties'|catalog) track by item.id"
+              ng-value="item.id" ng-disabled= "item.id == null" ng-if="item.id !== '0'">
+              {{item.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+            <select class="custom-select" name="career{{$index}}"
+              id="career{{$index}}"
+              aa-field-group="candidate.career"
+              aa-label="Carrera"
+              required="true"
+              ng-disabled="candidate.faculty == ''">
+              <option value="">
+                Seleccionar
+              </option>
+              <option ng-repeat="item in (('utpCareers'|catalog)| filter:candidate.faculty) track by item.id"
+                ng-value="item.id" ng-disabled= "item.id == null" ng-if="item.id !== '0'">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        
+      </div>
+    </div>
+
+  </div>
+  
+</div>
+  

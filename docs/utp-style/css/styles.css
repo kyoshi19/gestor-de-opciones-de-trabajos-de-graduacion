@@ -313,7 +313,7 @@ select option {
   height: fit-content;
   position: relative;
   animation: msgOpacity 1s linear infinite;
-  animation-delay: 1.5s; }
+  animation-delay: 3s; }
   .message-container p, .message-container div.row {
     padding-top: 6px;
     padding-bottom: 6px;
@@ -349,6 +349,9 @@ select {
 .modal-dialog {
   max-width: 700px;
   margin: 1.75rem auto; }
+
+.modal-lg {
+  max-width: 900px; }
 
 .dropdown {
   margin-top: 20%; }

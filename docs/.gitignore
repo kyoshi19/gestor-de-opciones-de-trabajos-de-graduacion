@@ -1,2 +1,6 @@
 # imports settings
-node-modules/
+
+node_modules/
+
+
+utp-style/.sass-cache/

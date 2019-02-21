@@ -2,84 +2,31 @@
   <h2>Agregar trabajos de graduación</h2>
 </div>
 
-<ng-form name="addWorkForm">
-  <div class="row mb-4">
+<ng-form name="workInfoForm">
+  
+  <div class="row">
 
-    <!-- Título -->
     <div class="col-md-12">
-      <div class="form-group">
-        <input type="text" name="workTitle"
-          ng-init="addWork.title = ''"
-          class="form-control" id="field"
-          aa-field-group="addWork.title"
-          aa-label="Titulo"
-          required="true">
-        </input>
-      </div>
-    </div>
-
-    <!-- Descripción del trabajo -->
-    <div class="col-md-7">
-      <div class="form-group">
-        <textarea type="text" name="workDescription"
-          class="form-control" id="workDescription"
-          aa-field-group="addWork.description"
-          aa-label="Descripción del trabajo"
-          required="true"
-          rows="4">
-        </textarea>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-
-      <!-- Tipo de trabajo -->
-      <div class="form-group">
-        <select class="custom-select" name="workType"
-          id="workType"
-          aa-field-group="addWork.type"
-          ng-init="addWork.type = ('graduationWorkTypes'|catalog)[0].id"
-          aa-label="Tipo de trabajo"
-          required="true">
-          <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
-            ng-value="item.id" ng-disabled= "item.id == null" ng-if="item.id !== '0'">
-            {{item.name}}
-          </option>
-        </select>
-      </div>
-
-      <!-- Cantidad de estudiantes -->
-      <div class="form-group">
-          <input type="number" name="workCount"
-            class="form-control" id="workType"
-            min="1"
-            max="3"
-            aa-field-group="addWork.students"
-            aa-label="Cantidad de estudiantes"
-            required="true"
-            ng-init="addWork.students = 1">
-          </input>
-        </div>
-
+      <work-info
+      work-info="addWork">
+      </work-info>  
     </div>
     
-    <div class="col-md-4" ng-repeat candidate in addWork.candidates>
-      
-    </div>
-    
-    <div class="col-md-3 align-self-end">
+    <div class="col-md-4 form-group">
         <button class="btn btn-outline-primary"
-          aa-submit-form="insertWork(addWorkForm)">
+          aa-submit-form="insertWork(workInfoForm)">
           Agregar trabajo
         </button>
-    </div>
+    </div> 
+
   </div>
+  
 </ng-form>
-<div class="">
-  <jobs-list
-    works = "works"
-    user-type = "user.type"
-    search-works = "searchWorks()"
-    show-options = "false">
-  </jobs-list>
-</div>
+
+<jobs-list
+  works = "works"
+  user-type = "user.type"
+  search-works = "searchWorks()"
+  show-options = "false">
+</jobs-list>
+

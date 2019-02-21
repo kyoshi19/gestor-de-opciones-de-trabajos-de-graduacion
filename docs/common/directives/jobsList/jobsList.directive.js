@@ -133,7 +133,7 @@
                 notificationService.showSucces('global.succes.work.deleted');
                 scope.searchWorks();
               } else {
-                notificationService.showError('global.error.work.no.deleted');
+                notificationService.showError('global.error.work.deleted');
               }
             }
 
@@ -159,12 +159,18 @@
           modal.close.then(function(response) {
             $log.debug("Modal is close ==>", response);
 
+            if (response.data.error) {
+              notificationService.showError('global.error.work.updated');
+              notificationService.showError(response.data.error);
+              return;
+            }
+
             if (response.data.records[0] > 0) {
-              $log.debug('--> TRABAJO ACTUALIZADO <--');
+              notificationService.showSucces('global.succes.work.added');
               scope.searchWorks();
 
             } else {
-              $log.debug('--> TRABAJO NO ACTUALIZADO <--');
+              notificationService.showError('global.error.work.updated');
             }
 
           });

@@ -57,7 +57,7 @@
       $timeout(function(){
         var index = storage.messages.indexOf(message);
         storage.messages.splice(index, 1);
-      },2500);
+      },4000);
     }
 
   }

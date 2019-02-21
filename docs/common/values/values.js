@@ -20,9 +20,14 @@
     'email':{pattern:'email'}
   })
 
-  .value('selectOption',{
-    id:null,
-    name:'Seleccionar'
+  .value('selectOption', {
+    id: null,
+    name: 'Seleccionar'
+  })
+
+  .value('candidateModel', {
+    faculty: '',
+    career: ''
   });
 
 }(window));

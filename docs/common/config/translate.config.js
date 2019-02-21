@@ -49,13 +49,16 @@ var EStranslate = {
   *************************/
 
   'global.succes.work.added'        : 'Trabajo agregado correctamente',
+  'global.succes.work.updated'      : 'Trabajo actualizado corectamente',
   'global.succes.work.deleted'      : 'Trabajo eliminado correctamente',
   'global.succes.mail.success'      : 'Correo enviado',
 
   // MENSAJES DE ERROR;
   'global.error.internet.conection' : 'Sin conección a internet',
   'global.error.no.user.find'       : 'Usuario no encontrado',
-  'global.error.work.no.deleted'    : 'Trabajo no eliminado',
+  'global.error.work.deleted'       : 'Trabajo no eliminado',
+  'global.error.work.updated'       : 'Trabajo no actualizado',
+  'global.error.work.added'         : 'Trabajo no agregado',
 
 };
 

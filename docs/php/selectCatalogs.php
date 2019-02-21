@@ -14,13 +14,13 @@ while($rs = $resultCatalogs->fetch_array(MYSQLI_ASSOC)) {
 	if ($outp != "") {$outp .= ",";}
 	$outp .= '"'.$rs["name"] . '":[';
 
-	$res = '{"id":null,"name":"Seleccionar"},{"id":"0", "name":"Todos"}';
+	$res = '{"id":"","name":"Seleccionar", "related":""},{"id":"0", "name":"Todos", "related":""}';
 
-	$resultItems = $conn->query("SELECT cati_code AS 'id', cati_name AS 'name' FROM catalogs_items WHERE cat_code = '".$rs["code"]."'
+	$resultItems = $conn->query("SELECT cati_code AS 'id', cati_name AS 'name', cati_code_rel AS 'related' FROM catalogs_items WHERE cat_code = '".$rs["code"]."'
 															 ORDER BY cati_name;");
 	while($rrs = $resultItems->fetch_array(MYSQLI_ASSOC)){
 		if ($res != "") {$res .= ",";}
-		$res .= '{"id":"'.$rrs["id"].'","name":"'.$rrs["name"].'"}';
+		$res .= '{"id":"'.$rrs["id"].'","name":"'.$rrs["name"].'","related":"'.$rrs["related"].'"}';
 	}
 	$outp .= $res .']';
 	$res = "";
@@ -28,5 +28,5 @@ while($rs = $resultCatalogs->fetch_array(MYSQLI_ASSOC)) {
 }
 $outp ='{'.$outp.'}';
 $conn->close();
-echo($outp);
+echo $outp;
 ?>
