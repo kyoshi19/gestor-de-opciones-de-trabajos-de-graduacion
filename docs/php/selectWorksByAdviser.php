@@ -6,9 +6,6 @@ $conn = new mysqli("localhost", "root", "root", "utp_tesis");
 $conn->set_charset("utf8");
 $data = json_decode(file_get_contents("php://input"),true); //Recibe parametros como arreglo asociado
 
-$condition = array(" WHERE ", " AND ", " AND ");
-$item = 0;
-
 reset($data);
 $id = current($data); 	//Optiene elemento actual
 
@@ -17,10 +14,11 @@ $query = "SELECT work_code as 'id', work_type as 'type',
   reg_center as 'center', studentsQty as 'students'
   FROM utp_tesis.graduation_works as t1
 INNER JOIN utp_users as t2 ON t1.advisor = t2.us_doc_num
-WHERE t2.us_doc_num = '".$id."'";
+WHERE t2.us_doc_num = '".$id."'
+ORDER BY t1.work_code DESC;";
 
-//PARA VERIFICAR QUERY
- // echo($query);
+
+// echo($query); //PARA VERIFICAR QUERY
 
 if(!$conn->query($query)){
   $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;

@@ -34,14 +34,13 @@ if ($reg_center !== "0"){
   $item = $item + 1;
 
 }
-/* PARA VERIFICAR QUERY
- echo($query); */
 
 if (strlen($w_title) > 0) {
-  $query .= $condition[$item]. "w_title like('%".$w_title."%');";
-} else {
-  $query .= ";";
+  $query .= $condition[$item]. "w_title like('%".$w_title."%')";
 }
+$query .= " ORDER BY t1.work_code DESC;";
+
+// echo $query; //PARA VERIFICAR QUERY
 
 if(!$conn->query($query)){
   $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;
