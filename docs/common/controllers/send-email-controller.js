@@ -2,7 +2,7 @@
   'use strict';
 
   var sendEmailController = function($log, data, $http, close,
-    element, storage, sendMail){
+    element, storage, sendMail, userRules){
 
     $log.debug('[sendEmailModalController] Initializing...');
 
@@ -15,6 +15,7 @@
     // VM
     var vm = this;
     vm.data = data;
+    vm.userRules = userRules;
     vm.message = {};
     vm.message.subject = 'Aplicación: '+vm.data.title+'.';
 
@@ -48,7 +49,8 @@
     'close',
     '$element',
     '$sessionStorage',
-    'sendMailService'
+    'sendMailService',
+    'userRules'
   ];
   win.MainApp.Controllers
   .controller('sendEmailController',sendEmailController);

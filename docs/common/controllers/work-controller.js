@@ -28,7 +28,6 @@
       storage.showLoader = true;
       workService.deleteWork(vm.data.id)
       .then(function(response){
-        storage.showLoader = false;
         close(response, 300);
       });
     };
@@ -38,7 +37,6 @@
 
       workService.updatetWork(vm.tempWork)
       .then(function(response){
-        storage.showLoader = false;
         close(response, 300);
       });
     };
