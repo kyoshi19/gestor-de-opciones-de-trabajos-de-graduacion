@@ -20,13 +20,20 @@
         showError:showError,
         showErrorT:showErrorT,
         showWarrning:showWarrning,
+        showWarrningT:showWarrningT,
         showInfo:showInfo,
-        showSucces:showSucces
+        showInfoT:showInfoT,
+        showSucces:showSucces,
+        showSuccesT:showSuccesT
     };
 
 
     function showSucces(msg) {
       showMessage(msg, "success");
+    }
+
+    function showSuccesT(msg) {
+      showMessage(msg, "success", true);
     }
 
     function showError(msg) {
@@ -41,9 +48,18 @@
       showMessage(msg, "warning");
     }
 
+    function showWarrningT(msg) {
+      showMessage(msg, "warning", true);
+    }
+
     function showInfo(msg) {
       showMessage(msg, "info");
     }
+
+    function showInfoT(msg) {
+      showMessage(msg, "info", true);
+    }
+
     function showMessage(msg, type, haveMessage){
       var message = {
         type:statusClasses[type],
