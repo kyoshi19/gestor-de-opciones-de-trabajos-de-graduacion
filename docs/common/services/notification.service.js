@@ -16,15 +16,11 @@
       error: 'fa-times-circle'
     };
 
-    return{
-        showError:showError,
-        showErrorT:showErrorT,
-        showWarrning:showWarrning,
-        showWarrningT:showWarrningT,
-        showInfo:showInfo,
-        showInfoT:showInfoT,
-        showSucces:showSucces,
-        showSuccesT:showSuccesT
+    return {
+      showError: showError,
+      showWarrning: showWarrning,
+      showInfo: showInfo,
+      showSucces: showSucces
     };
 
 
@@ -32,48 +28,33 @@
       showMessage(msg, "success");
     }
 
-    function showSuccesT(msg) {
-      showMessage(msg, "success", true);
-    }
-
     function showError(msg) {
       showMessage(msg, "error");
-    }
-
-    function showErrorT(msg) {
-      showMessage(msg, "error", true);
     }
 
     function showWarrning(msg) {
       showMessage(msg, "warning");
     }
 
-    function showWarrningT(msg) {
-      showMessage(msg, "warning", true);
-    }
-
     function showInfo(msg) {
       showMessage(msg, "info");
     }
 
-    function showInfoT(msg) {
-      showMessage(msg, "info", true);
-    }
-
-    function showMessage(msg, type, haveMessage){
+    function showMessage(msg, type, haveMessage) {
       var message = {
-        type:statusClasses[type],
-        icon:iconClasses[type],
-        text:haveMessage ? msg : translate.instant(msg),
+        type: statusClasses[type],
+        icon: iconClasses[type],
+        text: translate.instant(msg),
       };
       storage.messages.push(message);
-       hideNotificacion(message);
+      hideNotificacion(message);
     }
-    function hideNotificacion(message){
-      $timeout(function(){
+
+    function hideNotificacion(message) {
+      $timeout(function() {
         var index = storage.messages.indexOf(message);
         storage.messages.splice(index, 1);
-      },4000);
+      }, 4000);
     }
 
   }
@@ -85,7 +66,7 @@
   ];
 
   win.MainApp.Services
-  .service('notificationService', notificationService);
+    .service('notificationService', notificationService);
 
 
 
