@@ -1,0 +1,41 @@
+{
+  "beautify.config": {
+    "indent_size": 2,
+    "indent_char": " ",
+    "indentwith_tabs": false,
+    "wrap_line_length": 100,
+    "js": {
+      "type": [
+        "javascript",
+        "json"
+      ],
+      "keep_array_indentation": true,
+      "keep_function_indentation": true,
+      "break_chained_methods": false,
+      "jslint_happy": false,
+      "space_in_paren": false,
+      "space_after_anon_function": false
+    },
+    "html": {
+      "wrap_attributes": "force",
+      "indent_inner_html": true,
+      "indent_body_inner_html": true,
+      "preserve_newlines": true
+    },
+    "css": {
+      "type": [
+        "css",
+        "scss",
+        "sass"
+      ],
+      "newline_between_rules": true,
+      "selector_separator_newline": true,
+      "space_around_combinator": true
+    }
+  },
+  "css.validate": true,
+  "scss.validate": true,
+  "editor.tabSize": 2,
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.minimap.enabled": true
+}
