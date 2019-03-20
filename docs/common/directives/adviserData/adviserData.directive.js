@@ -5,17 +5,15 @@
   function adviserData($log, isEmpty, storage, workService,
     $window, notificationService) {
     var directive = {
-      restrict        : 'E',
-      templateUrl     : 'common/directives/adviserData/adviserData.html',
-      scope           : {
-        showLoader    : "=",
-        goToLogin     : "&"
+      restrict: 'E',
+      templateUrl: 'common/directives/adviserData/adviserData.html',
+      scope: {
+        showLoader: "=",
+        goToLogin: "&"
       },
-      link            : linkFunc
+      link: linkFunc
     };
     return directive;
-
-    ////////
 
     function linkFunc(scope, el, attr, ctrl) {
 
@@ -23,87 +21,118 @@
 
       scope.user = storage.user;
       var templates = {
-        showWorks : 'common/templates/adviser/show-works.html',
-        addWorks : 'common/templates/adviser/add-works.html',
-        editWorks : 'common/templates/adviser/edit-works.html'
+        showWorks: 'common/templates/adviser/show-works.html',
+        addWorks: 'common/templates/adviser/add-works.html',
+        editWorks: 'common/templates/adviser/edit-works.html'
       };
-      var adviser ={
+      var adviser = {
         id: scope.user.docNumber
       };
 
-      scope.addWork = {};
-      scope.addWork.candidates = [];
+      scope.workToAdd = {};
+      scope.workToAdd.candidates = [];
 
 
       /* --> METODOS <-- */
 
-      scope.setTemplate = function (option){
+      scope.setTemplate = function(option) {
+
         scope.active = option;
-        if (option==='show') {
-          scope.viewTemplate =  templates.showWorks;
-        } else if (option==='add') {
+
+        if (option === 'show') {
+          scope.viewTemplate = templates.showWorks;
+
+        } else if (option === 'add') {
           scope.viewTemplate = templates.addWorks;
-        } else if (option==='edit') {
+
+        } else if (option === 'edit') {
           scope.viewTemplate = templates.editWorks;
+
         }
+
       };
 
-      scope.setTemplate('show');
+      scope.searchWorks = function() {
 
-      scope.searchWorks = function(){
         storage.showLoader = true;
-        if (isEmpty(scope.user)) {
-          scope.goToLogin();
-          return;
-        }
-        workService.searchWorksByAdviser(adviser)
-        .then(function(response){
-          if (!response.data.error) {
-            scope.works = response.data.records;
-          }else{
-            $window.alert(response.data.error);
-          }
 
-          storage.showLoader = false;
-        }).catch(function(exception){
-          $window.alert(exception);
-          storage.showLoader = false;
-        });
+        workService.searchWorksByAdviser(adviser)
+          .then(function(response) {
+
+            if (response.data.error) {
+
+              notificationService.showErrorT(response.data.error);
+              return;
+
+            }
+
+            scope.works = response.data.records;
+
+          }).catch(function(exception) {
+            $log.error('ERROR ==>', exception);
+
+          }).finally(function() {
+            storage.showLoader = false;
+          });
+
       };
 
-      scope.insertWork = function (addWorkForm){
-        scope.addWork.userId = adviser.id;
-        // storage.showLoader = true;
+      scope.insertWork = function(addWorkForm) {
 
-        workService.insertWork(scope.addWork)
-        .then(function(response){
-          if (!response.data.error) {
-            notificationService.showSucces('global.succes.work.added');
+        scope.workToAdd.userId = adviser.id;
+        storage.showLoader = true;
+
+        workService.insertWork(scope.workToAdd)
+          .then(function(response) {
+
+            if (response.data.error) {
+              notificationService.showError(response.data.error);
+              return;
+            }
+
             scope.resetInputs(addWorkForm);
             scope.searchWorks();
-          }else{
-            notificationService.showError(response.data.error);
-          }
-          storage.showLoader = false;
 
-        }).catch(function(exception){
-          $log.error('ERROR ==>', exception);
-          storage.showLoader = false;
-        });
+            notificationService.showSucces('global.succes.work.added');
+
+          }).catch(function(exception) {
+            $log.error('ERROR ==>', exception);
+
+          }).finally(function() {
+            storage.showLoader = false;
+          });
       };
 
-      scope.resetInputs = function(addWorkForm){
+      scope.resetInputs = function(addWorkForm) {
+
         addWorkForm.$aaFormExtensions.$reset(true);
-        scope.addWork.students = 1;
-        scope.addWork.type = null;
-        scope.addWork.title = '';
-        scope.addWork.description = '';
+        scope.workToAdd.students = 1;
+        scope.workToAdd.type = null;
+        scope.workToAdd.title = '';
+        scope.workToAdd.description = '';
 
       };
 
-      scope.searchWorks();
+      function setUp() {
+
+        if (isEmpty(scope.user)) {
+
+          scope.goToLogin();
+          return;
+
+        }
+
+        scope.searchWorks();
+        scope.setTemplate('show');
+
+      }
+
+      setUp();
+
     }
   }
+
+  /* --> CONFIGURATION <-- */
 
   adviserData.$inject = [
     '$log',
@@ -114,9 +143,10 @@
     'notificationService'
   ];
 
-  //  Module
+  /* --> MODULE <-- */
+
   win.MainApp.Directives
-  .directive('adviserData', adviserData);
+    .directive('adviserData', adviserData);
 
 
 
