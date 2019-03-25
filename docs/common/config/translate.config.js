@@ -19,6 +19,7 @@ var EStranslate = {
   'global.passport'                 : 'Pasaporte',
   'global.password'                 : 'Contraseña',
   'global.login'                    : 'Iniciar Sesión',
+  'global.logout'                   : 'Cerrar sesión',
   'global.cancel'                   : 'Cancelar',
   'global.advisor'                  : 'Asesor',
   'global.title'                    : 'Título',
@@ -31,6 +32,10 @@ var EStranslate = {
   'global.key.words'                : 'Palabras claves',
   'global.search.results'           : 'Resultados de la búsqueda',
   'global.results.count'            : 'La búsqueda ha dado {{count}} resultado/s',
+
+  // PESTAÑAS
+  'global.tab.home'                 : 'Inicio',
+  'global.tab.documentation'        : 'Documentación',
 
   // TRABAJOS DE GRADUACIÓN
   'global.work'                     : 'Trabajo de graduación',
