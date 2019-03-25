@@ -3,7 +3,32 @@ button,
 select {
   font-size: 94% !important;
 }
-.custom-select{
+
+.custom-select {
   padding: 0rem 1.75rem 0rem 0.75rem;
   height: calc(1.5rem + 10px);
+}
+
+input[type="radio"] {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #0064A8;
+  cursor: default;
+  border-radius: 15px;
+
+
+  &:checked:before {
+    content: "\f111";
+    color: #0064A8;
+    font-size: 11px;
+    margin-left: 2px;
+    margin-top: -1px;
+    position: absolute;
+    font-family: 'FontAwesome';
+  }
 }

@@ -1,4 +1,6 @@
+@import "../../node_modules/font-awesome/css/font-awesome.css";
 @import "variables/colores";
+@import "general";
 @import "mixins/mixins";
 @import "alerts";
 @import "buttons";
@@ -13,3 +15,4 @@
 @import "selects";
 @import "modals";
 @import "dropdown";
+
