@@ -12,6 +12,7 @@
     "ng-table": "^3.0.1",
     "ngstorage": "^0.3.11",
     "nodemailer": "^4.6.7",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "font-awesome": "~4.7.0"
   }
 }
