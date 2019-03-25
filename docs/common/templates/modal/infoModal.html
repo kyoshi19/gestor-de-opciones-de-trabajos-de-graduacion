@@ -1,0 +1,19 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ctrl.data.title}}</h4>
+        <button type="button" class="close" ng-click="ctrl.close(true)" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <ng-form name="sendMailForm">
+        <div class="modal-body">
+         {{ctrl.data.content}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" aa-submit-form="ctrl.close(true)" class="btn btn-primary" data-dismiss="">Ok</button>
+        </div>
+
+      </ng-form>
+    </div>
+  </div>
+</div>

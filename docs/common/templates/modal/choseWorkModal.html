@@ -5,43 +5,12 @@
         <h4 class="modal-title">{{ctrl.data.title}}</h4>
         <button type="button" class="close" ng-click="ctrl.close(false)" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
-      <div class="modal-body row">
+      <div class="modal-body">
 
-        <!-- Datos del trabajo -->
-
-        <div class="col-md-6">
-          <p class="text-muted"><b>Centro regional:</b> {{(ctrl.data.center | catalogItem:'utpRegionalCenters').name}}</p>
-          <p class="text-muted"><b>Facultad:</b> {{(ctrl.data.faculty | catalogItem:'utpFaculties').name}}</p>
-          
-        </div>
-
-        <div class="col-md-6">
-            <p class="text-muted"><b>Asesor:</b> {{ctrl.data.advisor}}</p>
-            <p class="text-muted"><b>Tipo de trabajo:</b> {{(ctrl.data.type | catalogItem:'graduationWorkTypes').name}}</p>
-          
-        </div>
-
-        <div class="col-md-12">
-
-          <!-- Perfiles estudiantiles -->
-
-          <p class="text-muted"><b>Cantidad de estudiantes:</b> {{ctrl.data.students}}</p>
-
-          <div class="row">
-            <div class="col-md-6" ng-repeat="candidate in ctrl.data.candidates track by $index">
-                <p  class="text-muted">
-                    <b>Perfil estudiantil {{$index+1}}</b> <br>
-                    {{(candidate.faculty | catalogItem:'utpFaculties').name}}<br>
-                    {{(candidate.career | catalogItem:'utpCareers').name}}<br>
-                  </p>
-            </div>
-          </div>
-
-          <!-- Descripción del trabajo -->
-
-          <p class="text-muted"><b>Descripción:</b> {{ctrl.data.description}}</p>
-
-        </div>
+        <work-info 
+          work-info="ctrl.data"
+          to-update="true">
+        </work-info>
         
       </div>
       <div class="modal-footer">

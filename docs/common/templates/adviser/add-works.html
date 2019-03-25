@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h2>Agregar trabajos de graduación</h2>
+  <h2>{{'global.work.add' | translate}}</h2>
 </div>
 
 <ng-form name="workInfoForm">
@@ -8,14 +8,15 @@
 
     <div class="col-md-12">
       <work-info
-      work-info="workToAdd">
+      work-info="workToAdd"
+      editable="true">
       </work-info>  
     </div>
     
     <div class="col-md-4 form-group">
         <button class="btn btn-outline-primary"
           aa-submit-form="insertWork(workInfoForm)">
-          Agregar trabajo
+          {{'global.work.add.button' | translate}}
         </button>
     </div> 
 
