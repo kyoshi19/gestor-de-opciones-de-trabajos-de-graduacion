@@ -2,8 +2,8 @@
   'use strict';
 
   //  utpLogin directive
-  function utpLogin($log, userRules, $http, $state, storage, isEmpty,
-    $timeout, notificationService) {
+  function utpLogin(userRules,$http, $state, storage, isEmpty,
+    $timeout, notificationService, bgValueFilter) {
     var directive = {
       restrict: 'E',
       templateUrl: 'common/directives/login/login.html',
@@ -18,10 +18,15 @@
 
       /* --> VALUES <-- */
 
-      scope.docToSearch = '';
-      scope.passToSearch = '';
+      scope.userToSearch = {
+        docToSearch : '',
+        passToSearch : ''
+      };
+
       scope.userRules = userRules;
       var tempUser = {};
+
+      scope.identificationType = bgValueFilter('identificationTypes').identification;
 
       /* --> METHODS <-- */
 
@@ -29,12 +34,12 @@
 
         storage.showLoader = true;
 
-        $http.post("php/selectUser.php", scope.docToSearch.toString())
+        $http.post("php/selectUser.php", scope.userToSearch.docToSearch.toUpperCase())
           .then(function(response) {
 
             tempUser = response.data.records[0];
 
-            if (angular.isDefined(tempUser) && tempUser.pass === scope.passToSearch) {
+            if (angular.isDefined(tempUser) && tempUser.pass === scope.userToSearch.passToSearch) {
 
               storage.user = response.data.records[0];
               scope.goToMain();
@@ -85,14 +90,14 @@
   /* --> CONFIGURATION <-- */
 
   utpLogin.$inject = [
-    '$log',
     'userRules',
     '$http',
     '$state',
     '$sessionStorage',
     'isEmptyFilter',
     '$timeout',
-    'notificationService'
+    'notificationService',
+    'bgValueFilter'
   ];
 
   /* --> MODULE <-- */
