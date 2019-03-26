@@ -7,3 +7,7 @@ Asesora:<br>
 ---Prf. Elba Valderrama<br>
 Año:<br>
 ---2019
+
+
+
+Para el uso de la aplicación revisar el documento "Guía para el desarrollador.pdf" en la ruta docs/src/
