@@ -1,8 +1,8 @@
-(function(win){
+(function(win) {
   'use strict';
 
   var sendEmailController = function($log, data, $http, close,
-    element, storage, sendMail, userRules){
+    element, storage, sendMail, userRules) {
 
     $log.debug('[sendEmailModalController] Initializing...');
 
@@ -17,22 +17,22 @@
     vm.data = data;
     vm.userRules = userRules;
     vm.message = {};
-    vm.message.subject = 'Aplicación: '+vm.data.title+'.';
+    vm.message.subject = 'Aplicación: ' + vm.data.title + '.';
 
     vm.close = function(result) {
       if (result) {
         storage.showLoader = true;
-        var student = storage.user.fName+' '+storage.user.lName;
+        var student = storage.user.fName + ' ' + storage.user.lName;
         sendMail.send(vm.message.email, data.contact,
-          vm.message.subject, student, vm.message.text )
-        .then(function(response){
-          response.result = result;
-          element.modal('hide');
-          close(response, 500); // close, but give 500ms for bootstrap to animate
-        });
-      }else{
+            vm.message.subject, student, vm.message.text)
+          .then(function(response) {
+            response.result = result;
+            element.modal('hide');
+            close(response, 500); // close, but give 500ms for bootstrap to animate
+          });
+      } else {
         var response = {
-          'result':result
+          'result': result
         };
         element.modal('hide');
         close(response, 500); // close, but give 500ms for bootstrap to animate
@@ -42,7 +42,7 @@
 
 
   };
-  sendEmailController.$inject=[
+  sendEmailController.$inject = [
     '$log',
     'data',
     '$http',
@@ -53,6 +53,6 @@
     'userRules'
   ];
   win.MainApp.Controllers
-  .controller('sendEmailController',sendEmailController);
+    .controller('sendEmailController', sendEmailController);
 
 }(window));

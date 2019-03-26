@@ -1,9 +1,8 @@
-(function(win){
+(function(win) {
   'use strict';
 
   var masterController = function($log, patterns,
-    $http, $state, storage, $timeout, catalog,
-    isEmpty, $q, notificationService){
+    $http, $state, storage, $timeout, catalog) {
 
     $log.debug('[utp-master-controller] Initializing...');
 
@@ -20,41 +19,43 @@
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
     vm.backImage = 'src/img/starwars.jpg';
-    vm.myBackObj = {'background-image': 'url('+vm.backImage+')',
-                    'background-size': 'cover'};
+    vm.myBackObj = {
+      'background-image': 'url(' + vm.backImage + ')',
+      'background-size': 'cover'
+    };
 
     vm.isDefined = angular.isDefined;
 
-    vm.select = function(){
+    vm.select = function() {
       $http.get("php/selectAllUsers.php")
-      .then(function (response) {
-        vm.users = response.data.records;
-        vm.msg="Consulta Exitosa";
-      });
+        .then(function(response) {
+          vm.users = response.data.records;
+          vm.msg = "Consulta Exitosa";
+        });
     };
 
-    vm.initCatalogs = function(){
+    vm.initCatalogs = function() {
       catalog();
     };
 
-    vm.showLogOff = function(){
+    vm.showLogOff = function() {
       return !isEmpty(storage.user);
     };
 
-    vm.logggOut = function(){
+    vm.logggOut = function() {
       storage.user = undefined;
       vm.goToLogIn();
     };
 
-    vm.goToLogIn = function(){
-      storage.showLoader=true;
+    vm.goToLogIn = function() {
+      storage.showLoader = true;
       $timeout(function() {
-        storage.showLoader=false;
+        storage.showLoader = false;
         $state.transitionTo("login");
-      },700);
+      }, 700);
     };
 
-    var setup = function(){
+    var setup = function() {
       vm.initCatalogs();
     };
 
@@ -63,7 +64,7 @@
 
 
   };
-  masterController.$inject=[
+  masterController.$inject = [
     '$log',
     'patternList',
     '$http',
@@ -71,11 +72,9 @@
     '$sessionStorage',
     '$timeout',
     'catalogFilter',
-    'isEmptyFilter',
-    '$q',
-    'notificationService'
+    'isEmptyFilter'
   ];
   win.MainApp.Controllers
-  .controller('masterController',masterController);
+    .controller('masterController', masterController);
 
 }(window));

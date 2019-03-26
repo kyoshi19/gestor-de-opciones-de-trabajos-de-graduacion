@@ -1,7 +1,7 @@
-(function(win){
+(function(win) {
   'use strict';
 
-  var workController = function($log, data, isEditing, close, workService, storage){
+  var workController = function($log, data, isEditing, close, workService, storage) {
 
     $log.debug('[workModal] Initializing...');
 
@@ -17,31 +17,31 @@
 
     vm.close = function(result) {
       var response = {
-        'result':result
+        'result': result
       };
       $log.debug("Closing modal");
 
       close(response, 300); // close, but give 300ms for bootstrap to animate
     };
 
-    vm.delete = function(){
+    vm.delete = function() {
       storage.showLoader = true;
       workService.deleteWork(vm.data.id)
-      .then(function(response){
-        close(response, 300);
-      });
+        .then(function(response) {
+          close(response, 300);
+        });
     };
 
-    vm.update = function(){
+    vm.update = function() {
       storage.showLoader = true;
 
       workService.updatetWork(vm.tempWork)
-      .then(function(response){
-        close(response, 300);
-      });
+        .then(function(response) {
+          close(response, 300);
+        });
     };
 
-    vm.validateForm = function(element){
+    vm.validateForm = function(element) {
       var isValid = false;
       if (angular.isDefined(element.editWorkForm)) {
         isValid = element.editWorkForm.$valid;
@@ -49,9 +49,9 @@
       return isValid;
     };
 
-    function setUp(){
+    function setUp() {
       vm.data.students = parseInt(vm.data.students);
-      if (isEditing){
+      if (isEditing) {
         vm.tempWork = angular.copy(vm.data);
       }
     }
@@ -59,7 +59,7 @@
     setUp();
 
   };
-  workController.$inject=[
+  workController.$inject = [
     '$log',
     'data',
     'isEditing',
@@ -68,6 +68,6 @@
     '$sessionStorage'
   ];
   win.MainApp.Controllers
-  .controller('workController',workController);
+    .controller('workController', workController);
 
 }(window));
