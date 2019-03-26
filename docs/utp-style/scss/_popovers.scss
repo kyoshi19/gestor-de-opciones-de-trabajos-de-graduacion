@@ -1,0 +1,11 @@
+.popover {
+  max-width: 500px !important;
+
+  &.bs-popover-left {
+    top: 30px !important;
+
+    .arrow {
+      top: 7px !important;
+    }
+  }
+}
