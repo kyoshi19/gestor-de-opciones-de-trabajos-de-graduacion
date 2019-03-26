@@ -1,3 +1,4 @@
+
 <!-----------------------------------------
 ----  PARA AÑADIR Y EDITAR INFORMACIÓN ----
 ------------------------------------------>
@@ -35,7 +36,19 @@
 
       <label for="workType">
         {{'global.work.type' | translate}}
-        <i class="fas fa-info-circle info" ng-click="showTypeInfo()"></i>
+        <a data-toggle="popover" ng-if="workInfo.type"
+          data-container="body"
+          data-trigger="focus"
+          tabindex="0"
+          data-placement="bottom"
+          data-content="{{getTypeInfo().name}}">
+          <i class="fas fa-info-circle info"></i>
+          <script>
+              $(function() {
+                $('[data-toggle="popover"]').popover()
+              })
+            </script>
+      </a>
       </label>
       <select class="custom-select" name="workType"
         id="workType"
@@ -125,8 +138,22 @@
 
   <div class="col-md-6">
       <p class="text-muted"><b>{{'global.advisor' | translate}}:</b> {{workInfo.advisor}}</p>
-      <p class="text-muted"><b>{{'global.work.type' | translate}}:</b> {{(workInfo.type | catalogItem:'graduationWorkTypes').name}}</p>
-    
+      <p class="text-muted"><b>{{'global.work.type' | translate}}:</b> {{(workInfo.type | catalogItem:'graduationWorkTypes').name}}
+        <a data-toggle="popover"
+          data-container="body"
+          data-trigger="focus"
+          tabindex="0"
+          data-placement="bottom"
+          data-content="{{getTypeInfo().name}}">
+          <i class="fas fa-info-circle info"></i>
+          <script>
+              $(function() {
+                $('[data-toggle="popover"]').popover()
+              })
+            </script>
+      </a>
+      </p>
+      
   </div>
 
   <div class="col-md-12">

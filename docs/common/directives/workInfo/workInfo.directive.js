@@ -18,34 +18,15 @@
 
     function linkFunc(scope, el, attr, ctrl) {
 
-      scope.showTypeInfo = function() {
+      scope.getTypeInfo = function() {
 
         if (!scope.workInfo.type) {
           return;
         }
 
-        var workType = filter(bgValue('workTypesValue'), function(item) {
+        return filter(bgValue('workTypesValue'), function(item) {
           return item.id == scope.workInfo.type;
         })[0];
-
-        let data = {
-          title: workType.title,
-          content: workType.name
-        };
-
-        ModalService.showModal({
-          controller: "infoModalController",
-          templateUrl: "common/templates/modal/infoModal.html",
-          controllerAs: "ctrl",
-          inputs: {
-            data: data,
-          }
-        }).then(function(modal) {
-          modal.element.modal();
-          modal.close.then(function(response) {
-            $log.debug("Modal is closed ==>", response);
-          });
-        })
 
       }
 
