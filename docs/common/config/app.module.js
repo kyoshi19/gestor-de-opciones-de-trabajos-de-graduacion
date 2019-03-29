@@ -1,4 +1,4 @@
-(function(win){
+(function(win) {
   'use strict';
 
 
@@ -9,7 +9,7 @@
   win.MainApp.Services = angular.module(appName + ".services", []);
   win.MainApp.Filters = angular.module(appName + ".filters", []);
   win.MainApp.Values = angular.module(appName + ".values", []);
-  win.MainApp.Factory = angular.module(appName + ".factory", []);
+  win.MainApp.Factory = angular.module(appName + ".factory", [])
 
   //
   // Setup Common Modules
@@ -27,6 +27,10 @@
     'ngStorage',
     'angularModalService',
     'ngTable'
-  ]);
+  ])
+  
+  .run(['$templateCache', function ($templateCache) {
+    $templateCache.put('Tek.progressBarDirective.html', "<div class='progress' ng-class='bar.containerClass'><div class='progress-bar' ng-class='bar.barClass' ng-transclude></div></div>");
+}]);
 
 }(window));
