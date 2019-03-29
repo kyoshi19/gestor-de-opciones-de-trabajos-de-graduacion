@@ -2,7 +2,8 @@
   'use strict';
 
   var masterController = function($log, patterns,
-    $http, $state, storage, $timeout, catalog) {
+    $http, $state, storage, $timeout, catalog,
+    isEmpty, $q, notificationService) {
 
     $log.debug('[utp-master-controller] Initializing...');
 
@@ -23,6 +24,8 @@
       'background-image': 'url(' + vm.backImage + ')',
       'background-size': 'cover'
     };
+
+    vm.showExamples = true;
 
     vm.isDefined = angular.isDefined;
 
@@ -72,7 +75,9 @@
     '$sessionStorage',
     '$timeout',
     'catalogFilter',
-    'isEmptyFilter'
+    'isEmptyFilter',
+    '$q',
+    'notificationService'
   ];
   win.MainApp.Controllers
     .controller('masterController', masterController);
