@@ -43,13 +43,17 @@
         autocomplete="off">
     </div>
     
-    <div class="col-md-9 form-group mb-4">
+    <div class="offset-md-1 col-md-9 form-group mb-4">
 
       <input aa-label="{{'global.password' | translate}}"
         aa-field-group="userToSearch.passToSearch"
         placeholder="************"
-        type="password"
+        type="{{passwordConfig().type}}"
         required="true">
+    </div>
+
+    <div class="col-md-1 input-icon">
+      <i ng-class="passwordConfig().icon" ng-click="showPassword()"></i>
     </div>
 
     <button class="btn btn-outline-primary form-group col-md-4"

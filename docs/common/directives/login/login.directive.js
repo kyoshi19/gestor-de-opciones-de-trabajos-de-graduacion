@@ -28,7 +28,22 @@
 
       scope.identificationType = bgValueFilter('identificationTypes').identification;
 
+      var hidePassword = true;
+
       /* --> METHODS <-- */
+
+      scope.showPassword = function(){
+        hidePassword = !hidePassword;
+      }
+
+      scope.passwordConfig = function(){
+
+        if (hidePassword) {
+          return{type:"password",icon:"fas fa-eye"};
+        }
+
+        return{type:"text",icon:"fas fa-eye-slash"};
+      }
 
       scope.validateUser = function() {
 
