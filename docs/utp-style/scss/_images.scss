@@ -3,7 +3,19 @@
   height: 90px;
 }
 
-.utp-building{
+.utp-building {
   width: 75%;
   height: 85%;
+}
+
+.input-icon {
+  padding-left: 0%;
+  margin-right: 10px;
+  margin-left: -10px;
+
+  i {
+    color: $utp-main-color;
+    margin-top: 42px;
+  }
+
 }
