@@ -3,7 +3,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">{{ctrl.data.title}}</h4>
-        <button type="button" class="close" ng-click="ctrl.close(true)" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button type="button" class="close" ng-click="ctrl.close(true)" data-dismiss="modal" aria-hidden="true">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
       <ng-form name="sendMailForm">
         <div class="modal-body">

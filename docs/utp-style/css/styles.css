@@ -1,5 +1,10 @@
+@import url(../../node_modules/font-awesome/css/font-awesome.css);
 /*--------TEXTS--------*/
 /*-------ALERTS--------*/
+.info {
+  cursor: pointer;
+  color: #004198; }
+
 /*
  * ALERTAS
  */
@@ -175,6 +180,14 @@ td .far {
   width: 75%;
   height: 85%; }
 
+.input-icon {
+  padding-left: 0%;
+  margin-right: 10px;
+  margin-left: -10px; }
+  .input-icon i {
+    color: #004198;
+    margin-top: 42px; }
+
 .utp-login {
   padding: 10px;
   box-shadow: 0px 1px 8px rgba(0, 56, 255, 0.38);
@@ -346,12 +359,36 @@ select {
   padding: 0rem 1.75rem 0rem 0.75rem;
   height: calc(1.5rem + 10px); }
 
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #0064A8;
+  cursor: default;
+  border-radius: 15px; }
+  input[type="radio"]:checked:before {
+    content: "\f111";
+    color: #0064A8;
+    font-size: 11px;
+    margin-left: 2px;
+    margin-top: -1px;
+    position: absolute;
+    font-family: 'FontAwesome'; }
+
 .modal-dialog {
   max-width: 700px;
   margin: 1.75rem auto; }
 
 .modal-lg {
   max-width: 900px; }
+
+.modal-sm {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto; }
 
 .dropdown {
   margin-top: 20%; }
@@ -365,5 +402,12 @@ select {
     .dropdown .dropdown-item.active {
       background-color: #004198;
       color: white; }
+
+.popover {
+  max-width: 500px !important; }
+  .popover.bs-popover-left {
+    top: 30px !important; }
+    .popover.bs-popover-left .arrow {
+      top: 7px !important; }
 
 /*# sourceMappingURL=styles.css.map */
