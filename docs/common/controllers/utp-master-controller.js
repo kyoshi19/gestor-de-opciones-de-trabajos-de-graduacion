@@ -55,11 +55,16 @@
       $timeout(function() {
         storage.showLoader = false;
         $state.transitionTo("login");
+        setNavBar('login');
       }, 700);
     };
 
+    function setNavBar(item){
+      vm.navBarItem = item;
+    }
     var setup = function() {
       vm.initCatalogs();
+      setNavBar('login');
     };
 
     setup();

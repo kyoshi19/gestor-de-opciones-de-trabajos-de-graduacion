@@ -119,19 +119,424 @@ footer {
 .footer-interest {
   text-align: right; }
 
+body {
+  background-color: white; }
+
+.flex {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-1 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-2 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-3 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-4 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-5 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-6 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-7 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-8 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-9 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-10 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-11 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-12 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-13 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-14 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-15 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-16 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-17 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-18 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-19 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-20 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-21 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-22 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-23 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-24 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-25 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-26 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-27 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-28 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-29 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-30 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-31 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-32 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-33 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-34 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-35 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-36 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-37 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-38 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-39 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-40 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-41 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-42 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-43 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-44 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-45 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-46 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-47 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-48 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-49 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-50 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-51 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-52 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-53 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-54 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-55 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-56 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-57 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-58 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-59 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-60 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-61 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-62 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-63 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-64 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-65 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-66 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-67 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-68 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-69 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-70 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-71 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-72 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-73 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-74 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-75 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-76 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-77 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-78 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-79 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-80 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-81 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-82 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-83 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-84 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-85 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-86 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-87 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-88 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-89 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-90 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-91 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-92 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-93 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-94 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-95 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-96 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-97 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-98 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.flex-99 {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.layout-row {
+  margin-left: -15px;
+  margin-right: -15px; }
+
 .master-view {
   min-height: 450px; }
 
-.navbar {
-  background-color: #004198;
-  max-height: 40px;
-  border-radius: 0px;
-  border: 0px; }
-  .navbar li {
-    max-height: 40px;
-    width: 14.15%; }
-    .navbar li:hover {
-      background-color: #002d6a; }
+.md-nav-bar {
+  background-color: #004198 !important; }
+  .md-nav-bar span {
+    color: white; }
+  .md-nav-bar .md-active span {
+    font-weight: bold; }
+  .md-nav-bar md-nav-ink-bar {
+    background: white; }
 
 td.work-item:hover {
   background-color: #ddeafc;
@@ -250,6 +655,15 @@ h1, h2, h3, h4, h5, h6,
 .title-text {
   margin-top: 1%;
   margin-bottom: 2%; }
+
+.text-center {
+  text-align: center; }
+
+.text-end {
+  text-align: end; }
+
+.text-start {
+  text-align: start; }
 
 input[required] {
   background-color: #fffddd; }

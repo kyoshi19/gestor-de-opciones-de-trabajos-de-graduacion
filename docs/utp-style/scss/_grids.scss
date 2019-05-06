@@ -1,17 +1,41 @@
+body{
+background-color: $utp-white;
+}
+
+.flex{
+  padding-left: 15px;
+  padding-right: 15px
+}
+
+@for $i from 1 to 100 {
+  .flex-#{$i}{
+    padding-left: 15px;
+    padding-right: 15px
+  }
+}
+
+.layout-row{
+  margin-left: -15px;
+  margin-right: -15px
+}
+
 .master-view{
   min-height: 450px;
 }
-.navbar{
-  background-color: $utp-main-color;
-  max-height: 40px;
-  border-radius: 0px;
-  border: 0px;
-  li{
-    max-height: 40px;
-    width: 14.15%;
-    &:hover{
-      background-color: $utp-main-color-active;
-    }
+
+.md-nav-bar{
+  background-color: $utp-main-color !important;
+
+  span{
+    color: $utp-white;
+  }
+  .md-active{
+    span{ 
+    font-weight: bold;
+  }
+  }
+  md-nav-ink-bar{
+    background: $utp-white;
   }
 }
 
