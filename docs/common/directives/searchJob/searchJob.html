@@ -1,87 +1,85 @@
 {{setShowLoader({show:!('graduationWorkTypes'|catalogIsReady)})}}
-<div class="row justify-content-center" ng-if="('graduationWorkTypes'|catalogIsReady)">
-  <div class="col-md-12 title-text text-center">
+<div layout="row" ng-if="('graduationWorkTypes'|catalogIsReady)">
+  <div flex="100" class="title-text text-center">
     <h1>{{'global.main.student.page.title'|translate}}</h1>
   </div>
-  <div class="col-md-12 card mb-3">
-    <ng-form name="searchJobForm">
-      <div class="row card-body">
+</div>
+<ng-form name="searchJobForm">
+  <div layout="row">
+    <div flex>
 
-        <!--Select Tipo de trabajo -->
-        <div class="col-md-3">
-          <div class="input-group">
-            <select class="custom-select" id="workType"
-              ng-init="workToSearch.workType = initSelect(workToSearch.workType)"
-              aa-field-group="workToSearch.workType"
-              aa-label="{{'global.work.type' | translate}}"
-              required="true">
-              <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
-                ng-value="item.id" ng-disabled= "item.id == null">
-                {{item.name}}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <!--Select Facultad -->
-        <div class="col-md-5">
-          <div class="input-group">
-            <select class="custom-select" id="faculty"
-              ng-init="workToSearch.faculty = initSelect(workToSearch.faculty)"
-              aa-field-group="workToSearch.faculty"
-              aa-label="{{'global.faculty' | translate}}"
-              required="true">
-              <option ng-repeat="item in ('utpFaculties'|catalog) track by item.id"
-                ng-value="item.id" ng-disabled= "item.id == null">
-                {{item.name}}
-              </option>
-            </select>
-          </div>
-        </div>
-
-        <!--Select Centro regional -->
-        <div class="form-group col-md-4">
-          <div class="input-group">
-            <select class="custom-select" id="center"
-              ng-init="workToSearch.center = initSelect(workToSearch.center)"
-              aa-field-group="workToSearch.center"
-              aa-label="{{'global.regional.center' | translate}}"
-              required="true">
-              <option ng-repeat="item in ('utpRegionalCenters'|catalog) track by item.id"
-                ng-value="item.id" ng-disabled= "item.id == null">
-                {{item.name}}
-              </option>
-            </select>
-          </div>
-        </div>
-
-
-
-      </div>
-      <div class="row card-body">
-        <!--Input palabras claves -->
-        <div class="col-md-4">
-          <div class="form-group">
-            <input type="text"
-              class="form-control" id="field"
-              aa-field-group="workToSearch.field"
-              aa-label="{{'global.key.words' | translate}}">
-            </input>
-          </div>
-        </div>
-
-        <!-- Submit button -->
-        <div class="col-md-2 align-self-end">
-          <div class="form-group">
-            <button class="btn btn-outline-primary"
-              aa-submit-form="searchJobs()">
-              Buscar Opciones
-            </button>
-          </div>
+      <!--Select Tipo de trabajo -->
+      <div class="col-md-3">
+        <div class="input-group">
+          <select class="custom-select" id="workType"
+            ng-init="workToSearch.workType = initSelect(workToSearch.workType)"
+            aa-field-group="workToSearch.workType"
+            aa-label="{{'global.work.type' | translate}}"
+            required="true">
+            <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
+              ng-value="item.id" ng-disabled= "item.id == null">
+              {{item.name}}
+            </option>
+          </select>
         </div>
       </div>
-    </ng-form>
+
+      <!--Select Facultad -->
+      <div class="col-md-5">
+        <div class="input-group">
+          <select class="custom-select" id="faculty"
+            ng-init="workToSearch.faculty = initSelect(workToSearch.faculty)"
+            aa-field-group="workToSearch.faculty"
+            aa-label="{{'global.faculty' | translate}}"
+            required="true">
+            <option ng-repeat="item in ('utpFaculties'|catalog) track by item.id"
+              ng-value="item.id" ng-disabled= "item.id == null">
+              {{item.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!--Select Centro regional -->
+      <div class="form-group col-md-4">
+        <div class="input-group">
+          <select class="custom-select" id="center"
+            ng-init="workToSearch.center = initSelect(workToSearch.center)"
+            aa-field-group="workToSearch.center"
+            aa-label="{{'global.regional.center' | translate}}"
+            required="true">
+            <option ng-repeat="item in ('utpRegionalCenters'|catalog) track by item.id"
+              ng-value="item.id" ng-disabled= "item.id == null">
+              {{item.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!--Input palabras claves -->
+      <div class="col-md-4">
+        <div class="form-group">
+          <input type="text"
+            class="form-control" id="field"
+            aa-field-group="workToSearch.field"
+            aa-label="{{'global.key.words' | translate}}">
+          </input>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="col-md-2 align-self-end">
+        <div class="form-group">
+          <button class="btn btn-outline-primary"
+            aa-submit-form="searchJobs()">
+            Buscar Opciones
+          </button>
+        </div>
+      </div>
+
+    </div>
   </div>
+</ng-form>
 
   <div class="col-md-10 mb-5">
     <jobs-list
