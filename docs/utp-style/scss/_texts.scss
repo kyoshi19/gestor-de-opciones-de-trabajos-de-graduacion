@@ -5,10 +5,9 @@
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6{
   font-family: "Titillium";
-  font-weight: bold !important;
+  font-weight: bold;
   color: $utp-main-color;
 }
-
 .name-and-slogan {
   margin-top: 30px;
   margin-left: 8px;
@@ -38,35 +37,27 @@ h1,h2,h3,h4,h5,h6,
     font-family: "Titillium";
 }
 
+.navbar-nav {
+  a{
+    font-family: "Titillium";
+    color: white !important;
+    font-size: 15px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
 .message-result{
-  color: $utp-skyblue;
+  color: #2b94b3;
 }
 .mensaje-error{
-  color: $utp-red;
+  color: #ff0000;
   font-size: 12px;
 }
 
 .title-text{
   margin-top: 1%;
   margin-bottom: 2%;
-}
-
-.text-center{
-  text-align: center;
-}
-
-.text-end{
-  text-align: end;
-}
-
-.text-start{
-  text-align: start;
-}
-
-.viewPassword{
-  
-  &::before {
-    font-size: large;
-    color:$utp-main-color;
-  }
 }

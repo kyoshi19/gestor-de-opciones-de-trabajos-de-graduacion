@@ -1,85 +1,66 @@
-<ng-form name="loginForm"
-  ng-submit="validateUser()">
-  <div class="text-center mb-3">
+<ng-form name="loginForm" ng-submit="validateUser()">
+  <div class ="text-center mb-3">
     <h2>{{'global.login'|translate}}</h2>
   </div>
+  <div class="row form-group justify-content-center">
 
-  <div layout="row">
-    <div flex-offset="5" flex="90">
-      <div layout="column" layout-margin>
-        <!-- TIPO DE IDENTIFICACION -->
-        <div flex>
-          <md-radio-group layout="row"
-            layout-align="center center"
-            ng-model="identificationType">
-            <md-radio-button ng-repeat="item in ('identificationTypes'| bgValue)"
-              ng-value="item">
-              {{item.name}}
-            </md-radio-button>
-          </md-radio-group>
-        </div>
-    
-        <!-- IDENTIFICACION -->
-        <div flex ng-if="identificationType.id == ('identificationTypes'| bgValue).identification.id">
-          <md-input-container >
-          <label>{{'global.id' | translate}}</label>
-            <input class="text-uppercase"
-              name="identification"
-              aa-label="{{'global.id' | translate}}"
-              aa-label-strategy="emptyStrategy"
-              aa-field-group="userToSearch.docToSearch"
-              utp-pattern="{{userRules.identification.pattern}}"
-              required="true"
-              autocomplete="off">
-          </md-input-container>
-    
-        </div>
-    
-        <div flex ng-if="identificationType.id == ('identificationTypes'| bgValue).passport.id">
-          <md-input-container class="md-block">
-            <label>{{'global.passport' | translate}}</label>
-            <input class="text-uppercase"
-              name="passport"
-              aa-label="{{'global.passport' | translate}}"
-              aa-label-strategy="emptyStrategy"
-              aa-field-group="userToSearch.docToSearch"
-              required="true"
-              autocomplete="off">
-          </md-input-container>
-        </div>
-    
-        <!-- CONTRASEÑA -->
-        <div flex>
-          <div layout layout-align="center center">
-            <md-input-container >
-              <label>{{'global.password' | translate}}</label>
-              <input name="password"
-                aa-label="{{'global.password' | translate}}"
-                aa-label-strategy="emptyStrategy"
-                aa-field-group="userToSearch.passToSearch"
-                type="{{passwordConfig().type}}"
-                required="true">
-              </md-input-container>
-              
-              <i class="viewPassword" ng-class="passwordConfig().icon"
-            ng-click="showPassword()"></i>
-          </div>
-          
-        </div>
-    
-      </div>
+    <div class="col-md-4 form-group form-check" 
+      ng-repeat="item in ('identificationTypes'| bgValue)">
+      
+      <input class="form-check-input"
+        type="radio"
+        name="identificationType"
+        ng-value="item"
+        ng-model="$parent.identificationType">
+
+      <label class="form-check-label">
+        {{item.name}}
+      </label>
+
     </div>
-  </div>
-  <div layout="column" layout-margin layout-align="center center">
-    <!-- BOTÓN ACEPTAR -->
-    <div flex>
-      <md-button class="md-raised" 
+
+    <div class="col-md-9 form-group" 
+      ng-if="identificationType.id == ('identificationTypes'| bgValue).identification.id">
+
+      <input class="text-uppercase form-control"
+        name="identification"
+        aa-label="{{'global.id' | translate}}"
+        aa-field-group="userToSearch.docToSearch"
+        utp-pattern="{{userRules.identification.pattern}}"
+        placeholder="00-000-000"
+        required="true"
+        autocomplete="off">
+    </div>
+
+    <div class="col-md-9 form-group" 
+      ng-if="identificationType.id == ('identificationTypes'| bgValue).passport.id">
+      
+      <input class="text-uppercase form-control"
+        name="passport"
+        aa-label="{{'global.passport' | translate}}"
+        aa-field-group="userToSearch.docToSearch"
+        required="true"
+        autocomplete="off">
+    </div>
+    
+    <div class="offset-md-1 col-md-9 form-group mb-4">
+
+      <input aa-label="{{'global.password' | translate}}"
+        aa-field-group="userToSearch.passToSearch"
+        placeholder="************"
+        type="{{passwordConfig().type}}"
+        required="true">
+    </div>
+
+    <div class="col-md-1 input-icon">
+      <i ng-class="passwordConfig().icon" ng-click="showPassword()"></i>
+    </div>
+
+    <button class="btn btn-outline-primary form-group col-md-4"
       type="submit"
       aa-submit-form="validateUser()">
       Iniciar sesión
-    </md-button>
-    </div>
-  </div>
-  
+    </button>
 
+  </div>
 </ng-form>
