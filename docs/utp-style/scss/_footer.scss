@@ -1,6 +1,6 @@
 footer{
   background-color: $utp-footer-background;
-  height: 135px;
+  height: 120px;
   padding: 12px;
 }
 .footer-guia{
@@ -11,12 +11,16 @@ footer{
 .footer-info{
   background-image: url("../../src/img/logo-footer.png");
   background-repeat: no-repeat;
-  color: #9a9999;
-  font-size: 11px;
-  padding-left: 90px;
-  padding-top: 11px;
+  color: $utp-white;
+  font-size: 13px;
+  padding-left: 90px !important;
 }
 
 .footer-interest{
   text-align: right;
+  margin-top: 13px;
+  a{
+    color:$utp-white;
+    font-size: 13px;
+  }
 }

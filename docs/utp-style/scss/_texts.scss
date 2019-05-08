@@ -38,23 +38,11 @@ h1,h2,h3,h4,h5,h6,
     font-family: "Titillium";
 }
 
-.navbar-nav {
-  a{
-    font-family: "Titillium";
-    color: white !important;
-    font-size: 15px;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    font-weight: bold;
-    text-align: center;
-  }
-}
-
 .message-result{
-  color: #2b94b3;
+  color: $utp-skyblue;
 }
 .mensaje-error{
-  color: #ff0000;
+  color: $utp-red;
   font-size: 12px;
 }
 
@@ -73,4 +61,12 @@ h1,h2,h3,h4,h5,h6,
 
 .text-start{
   text-align: start;
+}
+
+.viewPassword{
+  
+  &::before {
+    font-size: large;
+    color:$utp-main-color;
+  }
 }
