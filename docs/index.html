@@ -8,6 +8,7 @@
 
   <!-- BOOTSTRAP -->
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"> -->
 
   <!-- LIBRERÍA ANGULAR -->
   <script src="lib/angularjs/angular.min.js"></script>
@@ -31,6 +32,7 @@
 
 </head>
 <body ng-controller="masterController as mctrl">
+  BRANCH : ft_angularjs_io
 
   <!-- NOTIFICACIONES -->
   <ng-include  src="'common/templates/notifications.html'"></ng-include>
@@ -38,7 +40,6 @@
   <!-- CABECERA DE TODAS LAS PÁGINAS -->
   <ng-include  src="'common/templates/header.html'"></ng-include>
   
-  BRANCH : ft_angularjs_io
 
   <!-- CARGADOR CON LOGO UTP -->
   <div id="loader-content" ng-cloak ng-if="mctrl.storage.showLoader">
