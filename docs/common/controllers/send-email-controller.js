@@ -1,7 +1,7 @@
 (function(win) {
   'use strict';
 
-  var sendEmailController = function($log, data, $http, close,
+  var sendEmailController = function($log, data, mdDialog,
     element, storage, sendMail, userRules) {
 
     $log.debug('[sendEmailModalController] Initializing...');
@@ -19,7 +19,7 @@
     vm.message = {};
     vm.message.subject = 'Aplicación: ' + vm.data.title + '.';
 
-    vm.close = function(result) {
+    vm.accept = function(result) {
       if (result) {
         storage.showLoader = true;
         var student = storage.user.fName + ' ' + storage.user.lName;
@@ -27,26 +27,31 @@
             vm.message.subject, student, vm.message.text)
           .then(function(response) {
             response.result = result;
-            element.modal('hide');
-            close(response, 500); // close, but give 500ms for bootstrap to animate
+            mdDialog.hide(response); // close, but give 500ms for bootstrap to animate
           });
       } else {
         var response = {
           'result': result
         };
-        element.modal('hide');
-        close(response, 500); // close, but give 500ms for bootstrap to animate
+        mdDialog.hide(response); // close, but give 500ms for bootstrap to animate
       }
 
     };
+
+    vm.cancel = function(result){
+      var response = {
+        'result': result
+      };
+      mdDialog.hide(response); // close, but give 500ms for bootstrap to animate
+
+    }
 
 
   };
   sendEmailController.$inject = [
     '$log',
     'data',
-    '$http',
-    'close',
+    '$mdDialog',
     '$element',
     '$sessionStorage',
     'sendMailService',
