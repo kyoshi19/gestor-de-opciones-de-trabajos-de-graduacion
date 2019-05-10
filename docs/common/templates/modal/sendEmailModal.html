@@ -1,58 +1,60 @@
-<div class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Contactando a: {{ctrl.data.advisor}}</h4>
-        <button type="button" class="close" ng-click="ctrl.close(false)" data-dismiss="modal" aria-hidden="true">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <ng-form name="sendMailForm">
-        <div class="modal-body">
-          <!-- CORREO ELECTRÓNICO -->
-          <div class="row">
-            <div class="col-md-6 form-group">
-              <input class="text-lowercase form-control"
-              aa-label="{{'global.email' | translate}}"
-              aa-field-group="ctrl.message.email"
-              placeholder="Ejemplo@dominio.com"
-              utp-pattern="{{ctrl.userRules.email.pattern}}"
-              required="true"
-              autocomplete="off">
-            </div>
-          </div>
-          <!-- ASUNTO -->
-          <div class="row">
-            <div class="col-md-10 form-group">
-              <input class="form-control"
-              aa-label="{{'global.subject' | translate}}"
-              aa-field-group="ctrl.message.subject"
-              required="true"
-              autocomplete="off"
-              ng-disabled='true'>
-            </div>
-          </div>
-
-          <!-- MENSAJE -->
-          <div class="row">
-            <div class="col-md-10 form-group">
-              <textarea class="form-control" rows="3"
-                aa-field-group="ctrl.message.text"
-                aa-label="{{'global.message' | translate}}"
-                required="true"
-                maxlength="255"
-                ng-maxlength="255">
-              </textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" ng-click="ctrl.close(false)" class="btn btn-default" data-dismiss="">Cancelar</button>
-          <button type="button" aa-submit-form="ctrl.close(true)" class="btn btn-primary" data-dismiss="">Enviar</button>
-        </div>
-
-      </ng-form>
+<md-dialog class="modal-dialog">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Contactando a: {{ctrl.data.advisor}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button"
+        ng-click="ctrl.cancel()">
+        <i class="fas fa-times"></i>
+      </md-button>
     </div>
-  </div>
-</div>
+  </md-toolbar>
+  <ng-form name="sendMailForm">
+    <md-dialog-content>
+        
+      <div layout="column" layout-margin>
+
+        <!-- CORREO ELECTRÓNICO -->
+        <div flex>
+          <md-input-container>
+            <label>{{'global.email' | translate}}</label>
+            <input name="mail"
+            aa-field-group="ctrl.message.email"
+            aa-label="{{'global.email' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            utp-pattern="{{ctrl.userRules.email.pattern}}"
+            required>
+          </md-imput-container>
+        </div> 
+          
+        <!-- ASUNTO -->
+        <div flex>
+          <p class="text-muted no-margin"><b>{{'global.subject' | translate}}:</b> {{ctrl.message.subject}}</p>
+        </div>
+
+        <!-- MENSAJE -->
+        <div flex>
+          <md-input-container class="md-block">
+            <label>{{'global.message' | translate}}</label>
+            <textarea  name="message"
+              aa-field-group="ctrl.message.text"
+              aa-label="{{'global.message' | translate}}"
+              aa-label-strategy="emptyStrategy"
+              required
+              rows="3"
+              ng-maxlength="255">
+            </textarea>
+          </md-input-container>
+        </div>
+      </div>
+  
+    </md-dialog-content>
+    
+    <md-dialog-actions>
+      
+      <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
+      <md-button class="md-raised md-primary" aa-submit-form="ctrl.accept(true)" >Contactar asesor</md-button>
+    
+    </md-dialog-actions>
+  </ng-form>
+</md-dialog>

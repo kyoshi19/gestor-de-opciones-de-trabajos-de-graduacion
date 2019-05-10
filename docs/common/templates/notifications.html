@@ -1,11 +1,11 @@
-<div id="message-content" ng-cloak ng-if="!(mctrl.storage.messages | isEmpty) ">
+<div id="message-content" class="active-animation"ng-cloak>
   <div class="message-container mt-3 rounded"
     ng-repeat=" msg in mctrl.storage.messages" ng-class="msg.type">
-    <div class="row">
-      <div class="col-md-1">
+    <div layout="row" layout-padding class="no-padding md-block">
+      <div>
         <i class="fa" ng-class="msg.icon"></i>
       </div>
-      <div class="col-md-10">
+      <div>
         <div>
           {{msg.text}}
         </div>

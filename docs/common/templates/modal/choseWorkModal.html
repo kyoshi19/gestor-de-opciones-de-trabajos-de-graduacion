@@ -1,24 +1,23 @@
-<div class="modal fade">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">{{ctrl.data.title}}</h4>
-        <button type="button" class="close" ng-click="ctrl.close(false)" data-dismiss="modal" aria-hidden="true">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <work-info 
-          work-info="ctrl.data"
-          to-update="true">
-        </work-info>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" ng-click="ctrl.close(false)" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" ng-click="ctrl.close(true)" class="btn btn-primary" data-dismiss="modal">Contactar asesor</button>
-      </div>
+<md-dialog class="modal-lg">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{ctrl.data.title}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button"
+        ng-click="ctrl.cancel()">
+        <i class="fas fa-times"></i>
+      </md-button>
     </div>
-  </div>
-</div>
+  </md-toolbar>
+  <md-dialog-content>
+
+    <work-info work-info="ctrl.data"
+      to-update="true">
+    </work-info>
+
+  </md-dialog-content>
+  <md-dialog-actions>
+      <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
+      <md-button class="md-raised md-primary" ng-click="ctrl.accept(true)" >Contactar asesor</md-button>
+  </md-dialog-actions>
+</md-dialog>
