@@ -7,7 +7,7 @@ background-color: $utp-white;
   padding-right: 10px
 }
 
-@for $i from 1 to 100 {
+@for $i from 1 to 101 {
   .flex-#{$i}{
     padding-left: 10px;
     padding-right: 10px
@@ -70,13 +70,6 @@ td.work-item:hover{
   float: none !important;
   margin-left: auto;
   margin-right: auto;
-}
-
-td .far{
-  width: 24%;
-  margin-bottom: -6%;
-  margin-left: 17%;
-  cursor: pointer;
 }
 
 .hand-hover:hover{

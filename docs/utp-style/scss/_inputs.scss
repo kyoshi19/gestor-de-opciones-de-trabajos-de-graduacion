@@ -1,26 +1,31 @@
-
-.md-errors-spacer{
+.md-errors-spacer {
   display: none;
 }
 
 /********* INPUT *********/
 
 md-input-container {
+  margin-bottom: 0px;
+
   label {
     color: $utp-main-color;
   }
 
-  &:not(.md-input-invalid).md-input-has-value label{
+  &:not(.md-input-invalid).md-input-has-value label {
     color: $utp-main-color;
+  }
+
+  &.aa-invalid-attempt label {
+    color: $utp-red;
   }
 }
 
 
 /********* RADIO *********/
 
-md-radio-button{
+md-radio-button {
 
-  .md-on{
+  .md-on {
     background-color: $utp-main-color;
   }
 
@@ -30,36 +35,37 @@ md-radio-button{
       border-color: $utp-main-color;
     }
 
-    .md-ink-ripple{
+    .md-ink-ripple {
       color: $utp-main-color-transparent
     }
   }
 }
 
 /********* SELECT *********/
-
-.custom-select {
-  padding: 0rem 1.75rem 0rem 0.75rem;
-  height: calc(1.5rem + 10px);
+md-select {
+  margin: 0px !important;
+  .md-select-value.md-select-placeholder {
+    color: $utp-main-color;
+  }
 }
 
 /********* DROPDOWN *********/
 
-.dropdown{
+.sidenav-adviser {
   margin-top: 20%;
 
-  .dropdown-item{
+  .sidenav-item {
     border-style: solid;
     border-color: $utp-main-color;
     border-width: 0px 1px 1px 0px;
 
 
-    &:hover{
+    &:hover {
       background-color: $utp-item-hover;
       cursor: pointer;
     }
 
-    &.active{
+    &.active {
       background-color: $utp-main-color;
       color: white;
     }

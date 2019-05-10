@@ -12,3 +12,15 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+md-toolbar{
+  background-color: $utp-main-color !important;
+  h2{
+    color:$utp-white
+  }
+}
+
+md-dialog{
+  top:-7%;
+  position: fixed;
+}
