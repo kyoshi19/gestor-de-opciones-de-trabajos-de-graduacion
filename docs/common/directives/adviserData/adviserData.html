@@ -1,23 +1,39 @@
-<div class="row justify-content-center" ng-if="('graduationWorkTypes'|catalogIsReady)">
-  <div class="col-md-12 text-center title-text">
+<div layout="row" ng-if="('graduationWorkTypes'|catalogIsReady)">
+  
+  <div flex="100" class="text-center">
     <h1>{{'global.main.advisor.page.title'|translate}}</h1>
   </div>
+
 </div>
 
-<div class="row container">
-  <div class="col-md-3 col-sm-3">
-    <div class="dropdown">
-      <div class="dropdown-item" ng-click="setTemplate('show')"
-        ng-class="(active ==='show') ? 'active':''">
-        > {{'global.my.works' | translate}}
-      </div>
-      <div class="dropdown-item" ng-click="setTemplate('add')"
-        ng-class="(active ==='add') ? 'active':''">
-        > {{'global.work.add.button' | translate}}
-      </div>
-    </div>
+<div layout="row">
+  <div flex="33">
+
+    <md-sidenav md-component-id="left" class="md-sidenav-left sidenav-adviser"
+      md-is-locked-open="true">
+
+      <md-content>
+        
+          <div layout="column" layout-padding>
+              <div flex class="sidenav-item" ng-click="setTemplate('show')"
+                ng-class="(active ==='show') ? 'active':''">
+                > {{'global.my.works' | translate}}
+              </div>
+              <div flex class="sidenav-item" ng-click="setTemplate('add')"
+                ng-class="(active ==='add') ? 'active':''">
+                > {{'global.work.add.button' | translate}}
+              </div>
+            </div>
+
+      </md-content>
+
+    </md-sidenav>
+    
+    
+
+
   </div>
-  <div class="col-md-9 col-sm-9">
+  <div flex="66">
     <ng-include  src="viewTemplate"></ng-include>
   </div>
 </div>

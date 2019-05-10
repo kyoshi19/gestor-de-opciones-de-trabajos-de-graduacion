@@ -7,6 +7,7 @@
   <div layout="row">
     <div flex-offset="5" flex="90">
       <div layout="column" layout-margin>
+
         <!-- TIPO DE IDENTIFICACION -->
         <div flex>
           <md-radio-group layout="row"
@@ -18,11 +19,11 @@
             </md-radio-button>
           </md-radio-group>
         </div>
-    
+        
         <!-- IDENTIFICACION -->
         <div flex ng-if="identificationType.id == ('identificationTypes'| bgValue).identification.id">
           <md-input-container >
-          <label>{{'global.id' | translate}}</label>
+          <label ng-class="loginForm.identification.$error.length > 0 ? aa-invalid-attempt:''">{{'global.id' | translate}}</label>
             <input class="text-uppercase"
               name="identification"
               aa-label="{{'global.id' | translate}}"

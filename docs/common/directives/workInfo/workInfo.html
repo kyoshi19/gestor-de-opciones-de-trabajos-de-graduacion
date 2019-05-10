@@ -126,20 +126,19 @@
 <!-------------------------------------
 ---- PARA SÓLO MOSTRAR INFORMACIÓN ----
 -------------------------------------->
-<div class="row" ng-if="!editable">
+<div layout="row" layout-wrap  ng-if="!editable">
 
   <!-- Datos del trabajo -->
-
-  <div class="col-md-6">
+  <div flex="50">
     <p class="text-muted"><b>{{'global.regional.center' | translate}}:</b> {{(workInfo.center | catalogItem:'utpRegionalCenters').name}}</p>
     <p class="text-muted"><b>Facultad:</b> {{(workInfo.faculty | catalogItem:'utpFaculties').name}}</p>
-    
+
   </div>
 
-  <div class="col-md-6">
-      <p class="text-muted"><b>{{'global.advisor' | translate}}:</b> {{workInfo.advisor}}</p>
-      <p class="text-muted"><b>{{'global.work.type' | translate}}:</b> {{(workInfo.type | catalogItem:'graduationWorkTypes').name}}
-        <a data-toggle="popover"
+  <div flex="50">
+    <p class="text-muted"><b>{{'global.advisor' | translate}}:</b> {{workInfo.advisor}}</p>
+    <p class="text-muted"><b>{{'global.work.type' | translate}}:</b> {{(workInfo.type | catalogItem:'graduationWorkTypes').name}}
+      <a data-toggle="popover"
           data-container="body"
           data-trigger="focus"
           tabindex="0"
@@ -155,27 +154,25 @@
       </p>
       
   </div>
-
-  <div class="col-md-12">
-
-    <!-- Perfiles estudiantiles -->
+  
+  <!-- Perfiles estudiantiles -->
+  <div flex="100">
 
     <p class="text-muted"><b>{{'global.work.students.count' | translate}}:</b> {{workInfo.students}}</p>
+  
+  </div>
 
-    <div class="row">
-      <div class="col-md-6" ng-repeat="candidate in workInfo.candidates track by $index">
-          <p  class="text-muted">
-              <b>Perfil estudiantil {{$index+1}}</b> <br>
-              {{(candidate.faculty | catalogItem:'utpFaculties').name}}<br>
-              {{(candidate.career | catalogItem:'utpCareers').name}}<br>
-            </p>
-      </div>
-    </div>
+  <div flex="50" ng-repeat="candidate in workInfo.candidates track by $index">
+      <p  class="text-muted">
+          <b>Perfil estudiantil {{$index+1}}</b> <br>
+          {{(candidate.faculty | catalogItem:'utpFaculties').name}}<br>
+          {{(candidate.career | catalogItem:'utpCareers').name}}<br>
+        </p>
+  </div>
 
     <!-- Descripción del trabajo -->
-
+  <div flex="100">
     <p class="text-muted"><b>{{'global.work.description' | translate}}:</b> {{workInfo.description}}</p>
 
   </div>
-  
 </div>
