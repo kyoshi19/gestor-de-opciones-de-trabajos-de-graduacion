@@ -3,7 +3,7 @@
 
   //  searchJob directive
   function searchJob($log, storage, selectOption, $http,
-    $window, isEmpty, workService) {
+    $window, isEmpty, workService, translate) {
       var directive = {
         restrict        : 'E',
         templateUrl     : 'common/directives/searchJob/searchJob.html',
@@ -17,6 +17,9 @@
       ////////
 
       function linkFunc(scope, el, attr, ctrl) {
+
+        $log.debug('[searchJobDirective] initializing...');
+
         /* - */
         storage.showLoader = false;
         scope.user = storage.user;
@@ -44,6 +47,7 @@
 
             if (!response.data.error) {
               scope.works = response.data.records;
+              scope.tableTitle = translate.instant('global.search.results');
             }else{
               $window.alert(response.data.error);
             }
@@ -70,7 +74,8 @@
       '$http',
       '$window',
       'isEmptyFilter',
-      'workUtilService'
+      'workUtilService',
+      '$translate'
     ];
     //  Module
     win.MainApp.Directives

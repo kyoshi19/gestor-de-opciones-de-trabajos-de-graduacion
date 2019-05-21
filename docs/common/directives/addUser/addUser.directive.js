@@ -2,7 +2,7 @@
   'use strict';
 
   //  addUser directive
-  function addUser(userRules, $http, storage, $window) {
+  function addUser($log, userRules, $http, storage, $window) {
     var directive = {
       restrict        : 'EA',
       templateUrl     : 'common/directives/addUser/addUser.html',
@@ -16,6 +16,8 @@
     ////////
 
     function linkFunc(scope, el, attr, ctrl) {
+
+      $log.debug('[addUserDirecvite] initializing...');
       /* - */
       scope.tempUser = {};
       scope.userRules = userRules;
@@ -41,6 +43,7 @@
   }
 
   addUser.$inject = [
+    '$log',
     'userRules',
     '$http',
     '$sessionStorage',

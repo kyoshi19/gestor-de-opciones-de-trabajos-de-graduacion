@@ -2,7 +2,7 @@
   'use strict';
 
   //workInfo directive
-  function workInfo($log, candidateModel, bgValue, ModalService, filter) {
+  function workInfo($log, candidateModel, bgValue, filter, mdDialog) {
 
     var directive = {
       restrict: 'E',
@@ -18,7 +18,9 @@
 
     function linkFunc(scope, el, attr, ctrl) {
 
-      scope.getTypeInfo = function() {
+      $log.debug();
+
+      function getTypeInfo() {
 
         if (!scope.workInfo.type) {
           return;
@@ -28,6 +30,24 @@
           return item.id == scope.workInfo.type;
         })[0];
 
+      }
+
+      scope.openTypeInfo = function(event) {
+
+        alert = mdDialog.show({
+          templateUrl: "common/templates/modal/infoModal.html",
+          controller: "infoModalController",
+          controllerAs: "ctrl",
+          targetEvent: event,
+          hasBackdrop: false,
+          multiple: true,
+          locals: {
+            data: {
+              title: getTypeInfo().title,
+              content: getTypeInfo().name
+            }
+          }
+        });
       }
 
       scope.updateCandidate = function() {
@@ -66,8 +86,8 @@
     '$log',
     'candidateModel',
     'bgValueFilter',
-    'ModalService',
-    'filterFilter'
+    'filterFilter',
+    '$mdDialog'
   ];
 
   // module

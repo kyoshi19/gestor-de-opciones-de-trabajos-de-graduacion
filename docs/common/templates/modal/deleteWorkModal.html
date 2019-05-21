@@ -1,19 +1,26 @@
-<div class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">{{ctrl.data.title}}</h4>
-        <button type="button" class="close" ng-click="ctrl.close(false)" data-dismiss="modal" aria-hidden="true">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="modal-body">
-        ¿Seguro que quiere eliminar este trabajo?
-      </div>
-      <div class="modal-footer">
-        <button type="button" ng-click="ctrl.close(false)" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button" ng-click="ctrl.delete()" class="btn btn-primary" data-dismiss="modal">Eliminar</button>
-      </div>
-    </div>
+<md-dialog class="modal-dialog modal-ms">
+
+  <div class="md-toolbar-tools">
+    <h2>Eliminar: {{ctrl.data.title}}</h2>
+    <span flex></span>
+    <md-button class="md-icon-button"
+      ng-click="ctrl.cancel()">
+      <em class="fas fa-times"></em>
+    </md-button>
   </div>
-</div>
+
+<md-dialog-content>
+  
+  <div layout layout-padding>
+    ¿Seguro que quiere eliminar este trabajo?
+  </div>
+
+</md-dialog-content>
+
+
+<md-dialog-actions>
+    <md-button ng-click="ctrl.cancel()" class="md-raised" >Cancelar</md-button>
+    <md-button ng-click="ctrl.delete()" class="md-raised md-primary" >Eliminar</md-button>
+</md-dialog-actions>
+
+</md-dialog>

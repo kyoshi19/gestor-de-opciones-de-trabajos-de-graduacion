@@ -2,7 +2,7 @@
   'use strict';
 
   //  utpLogin directive
-  function utpLogin(userRules,$http, $state, storage, isEmpty,
+  function utpLogin($log, userRules,$http, $state, storage, isEmpty,
     $timeout, notificationService, bgValueFilter) {
     var directive = {
       restrict: 'E',
@@ -15,6 +15,8 @@
     return directive;
 
     function linkFunc(scope, el, attr, ctrl) {
+
+      $log.debug('[utpLoginDirective] initializing...');
 
       /* --> VALUES <-- */
 
@@ -105,6 +107,7 @@
   /* --> CONFIGURATION <-- */
 
   utpLogin.$inject = [
+    '$log',
     'userRules',
     '$http',
     '$state',

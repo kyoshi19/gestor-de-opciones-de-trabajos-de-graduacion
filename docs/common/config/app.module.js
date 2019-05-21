@@ -26,7 +26,12 @@
     'pascalprecht.translate',
     'ngStorage',
     'angularModalService',
-    'ngTable'
+    'ngMaterial',
+    'ngMessages',
+    'md.data.table',
+    'ngAnimate',
+    'ngSanitize'
+
   ])
   
   .run(['$templateCache', function ($templateCache) {

@@ -1,9 +1,10 @@
 (function(win) {
   'use strict';
 
-  function workUtilService($http, $q) {
+  function workUtilService($log, $http, $q) {
 
-    var jobs ={};
+    $log.debug('[workUtilService] initializing...');
+
     return{
       searchWorks:searchWorks,
       searchWorksByAdviser:searchWorksByAdviser,
@@ -66,6 +67,7 @@
 
   //  Service
   workUtilService.$inject = [
+    '$log',
     '$http',
     '$q'
   ];

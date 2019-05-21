@@ -1,7 +1,10 @@
 (function(win) {
   'use strict';
 
-  function catalogService($http, isEmpty, filter) {
+  function catalogService($log, $http, isEmpty, filter) {
+
+    $log.debug('[catalogService] initializing...');
+
     var data={};
     var call = false;
     return{
@@ -10,8 +13,10 @@
     };
     // OBTENER CATALOGO //
     function get(element) {
+
       if (isEmpty(data) && !call) {
         call = true;
+        $log.debug('[geting catalogs]...');
         $http.get("php/selectCatalogs.php").then(
           function (response) {
             call = false;
@@ -52,7 +57,7 @@
     }
   }
   //  Service
-  catalogService.$inject = ['$http','isEmptyFilter', 'filterFilter'];
+  catalogService.$inject = ['$log', '$http', 'isEmptyFilter', 'filterFilter'];
 
   //  Module
   win.MainApp.Services

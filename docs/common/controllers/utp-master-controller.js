@@ -3,9 +3,9 @@
 
   var masterController = function($log, patterns,
     $http, $state, storage, $timeout, catalog,
-    isEmpty, $q, notificationService) {
+    isEmpty) {
 
-    $log.debug('[utp-master-controller] Initializing...');
+    $log.debug('[utpMasterController] Initializing...');
 
     /*
     ==============
@@ -58,6 +58,14 @@
       }, 700);
     };
 
+    vm.updateNavBar = function(){
+      if ($state.$current.name=="main-documentation") {
+        vm.navBarItem = $state.$current.name;
+        return;
+      }
+      vm.navBarItem = 'login';
+      
+    }
     var setup = function() {
       vm.initCatalogs();
     };
@@ -75,9 +83,7 @@
     '$sessionStorage',
     '$timeout',
     'catalogFilter',
-    'isEmptyFilter',
-    '$q',
-    'notificationService'
+    'isEmptyFilter'
   ];
   win.MainApp.Controllers
     .controller('masterController', masterController);

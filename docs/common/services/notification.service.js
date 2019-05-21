@@ -1,7 +1,10 @@
 (function(win) {
   'use strict';
 
-  function notificationService(storage, $timeout, translate) {
+  function notificationService($log, storage, $timeout, translate) {
+
+    $log.debug('[notificationService] initializing...');
+    
     var statusClasses = {
       info: 'alert-info',
       success: 'alert-success',
@@ -40,7 +43,7 @@
       showMessage(msg, "info");
     }
 
-    function showMessage(msg, type, haveMessage) {
+    function showMessage(msg, type) {
       var message = {
         type: statusClasses[type],
         icon: iconClasses[type],
@@ -54,12 +57,13 @@
       $timeout(function() {
         var index = storage.messages.indexOf(message);
         storage.messages.splice(index, 1);
-      }, 4000);
+      }, 3000);
     }
 
   }
 
   notificationService.$inject = [
+    '$log',
     '$sessionStorage',
     '$timeout',
     '$translate'

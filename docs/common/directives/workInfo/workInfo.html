@@ -1,181 +1,193 @@
-
 <!-----------------------------------------
 ----  PARA AÑADIR Y EDITAR INFORMACIÓN ----
 ------------------------------------------>
-<div class="row" ng-if="editable">
+<div layout="row" ng-if="editable" layout-wrap>
 
-  <!-- Título -->
-  <div class="col-md-12">
-    <div class="form-group">
-      <input type="text" name="workTitle"
-        class="form-control" id="field"
+  <!-- TÍTULO -->
+  <div flex="100">
+    <md-input-container class="md-block">
+      <label>{{'global.title' | translate}}</label>
+      <input name="workTitle"
+        id="field"
         aa-field-group="workInfo.title"
         aa-label="{{'global.title' | translate}}"
-        required="true">
-      </input>
-    </div>
-  </div>
-
-  <!-- Descripción del trabajo -->
-  <div class="col-md-7">
-    <div class="form-group">
-      <textarea type="text" name="workDescription"
-        class="form-control" id="workDescription"
-        aa-field-group="workInfo.description"
-        aa-label="{{'global.work.description' | translate}}"
-        required="true"
-        rows="4">
-      </textarea>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-
-    <!-- Tipo de trabajo -->
-    <div class="form-group">
-
-      <label for="workType">
-        {{'global.work.type' | translate}}
-        <a data-toggle="popover" ng-if="workInfo.type"
-          data-container="body"
-          data-trigger="focus"
-          tabindex="0"
-          data-placement="bottom"
-          data-content="{{getTypeInfo().name}}">
-          <i class="fas fa-info-circle info"></i>
-          <script>
-              $(function() {
-                $('[data-toggle="popover"]').popover()
-              })
-            </script>
-      </a>
-      </label>
-      <select class="custom-select" name="workType"
-        id="workType"
-        aa-field-group="workInfo.type"
-        aa-label="{{'global.work.type' | translate}}"
         aa-label-strategy="emptyStrategy"
         required="true">
-        <option ng-repeat="item in ('graduationWorkTypes'|catalog) track by item.id"
-          ng-value="item.id" ng-disabled= "item.id == ''" ng-if="item.id !== '0'">
-          {{item.name}}
-        </option>
-      </select>
-    </div>
-    
-    <!-- Cantidad de estudiantes -->
-    <div class="form-group">
-        <input type="number" name="workCount"
-          class="form-control" id="workType"
-          min="1"
-          max="3"
-          aa-field-group="workInfo.students"
-          aa-label="{{'global.work.students.count' | translate}}"
-          required="true">
-        </input>
-      </div>
-
+      </input>
+    </md-input-container>
   </div>
-  
-  <!-- Candidatos -->
-  <div class="col-md-12" ng-repeat="candidate in updateCandidate() track by $index">
-    
-    <h6>Candidato {{$index+1}}</h6>
-    
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <select class="custom-select" name="faculty{{$index}}"
-            id="faculty{{$index}}"
-            aa-field-group="candidate.faculty"
-            aa-label="{{'global.faculty' | translate}}"
-            required="true">
-            <option ng-repeat="item in ('utpFaculties'|catalog) track by item.id"
-              ng-value="item.id" ng-disabled= "item.id == ''" ng-if="item.id !== '0'">
-              {{item.name}}
-            </option>
-          </select>
+
+  <!-- DESCRIPCIÓN -->
+  <div flex="66">
+    <md-input-container class="md-block">
+      <label>{{'global.work.description' | translate}}</label>
+      <textarea type="text"
+        name="workDescription"
+        class="form-control"
+        id="workDescription"
+        aa-field-group="workInfo.description"
+        aa-label="{{'global.work.description' | translate}}"
+        aa-label-strategy="emptyStrategy"
+        required="true"
+        rows="4">
+    </textarea>
+    </md-input-container>
+  </div>
+
+  <div flex="33">
+    <div layout="column">
+      <!-- TIPO -->
+      <div flex>
+        <div layout layout-align="center center">
+
+          <div flex="95"
+            class="px-0">
+            <md-input-container class="md-block">
+              <label>{{'global.work.type' | translate}}</label>
+              <md-select aa-field-group="workInfo.type"
+                name="workType"
+                aa-label="{{'global.work.type' | translate}}"
+                aa-label-strategy="emptyStrategy"
+                required>
+                <md-option ng-value="item.id"
+                  ng-if="item.id !== '0'"
+                  ng-repeat="item in ('graduationWorkTypes'|catalog)">{{ item.name }}</md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+
+          <div>
+            <em ng-if="workInfo.type"
+              ng-click="openTypeInfo($event)"
+              class="fas fa-info-circle info">
+            </em>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="form-group">
-            <select class="custom-select" name="career{{$index}}"
-              id="career{{$index}}"
-              aa-field-group="candidate.career"
-              aa-label="{{'global.carrer' | translate}}"
-              required="true"
-              ng-disabled="candidate.faculty == ''">
-              <option value="" disabled="true">
-                Seleccionar
-              </option>
-              <option ng-repeat="item in (('utpCareers'|catalog)| filter:candidate.faculty) track by item.id"
-                ng-value="item.id" ng-if="item.id !== '0'">
-                {{item.name}}
-              </option>
-            </select>
-          </div>
-        
+      <!-- CANTIDAD ESTUDIANTES -->
+      <div flex>
+        <md-input-container>
+          <label>{{'global.work.students.count' | translate}}</label>
+          <input type="number"
+            name="workCount"
+            class="form-control"
+            id="workType"
+            min="1"
+            max="3"
+            ng-init="updateCandidate()"
+            ng-change="updateCandidate()"
+            aa-field-group="workInfo.students"
+            aa-label="{{'global.work.students.count' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            required="true">
+          </input>
+        </md-input-container>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CANDIDATOS -->
+  <div flex="100"
+    ng-repeat="candidate in workInfo.candidates track by $index">
+
+    <h3 class="no-margin">Candidato {{$index+1}}</h3>
+
+    <div layout>
+      <!-- FACULTAD -->
+      <div flex="50">
+        <md-input-container class="md-block">
+          <label>{{'global.faculty' | translate}}</label>
+          <md-select aa-field-group="candidate.faculty"
+            id="faculty{{$index}}"
+            name="faculty{{$index}}"
+            aa-label="{{'global.faculty' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            required>
+            <md-option ng-value="item.id"
+              ng-repeat="item in ('utpFaculties'|catalog)">
+              {{ item.name }}
+            </md-option>
+          </md-select>
+        </md-input-container>
+
+      </div>
+
+      <!-- CARRERA -->
+      <div flex="50">
+        <md-input-container class="md-block">
+          <label>{{'global.carrer' | translate}}</label>
+          <md-select aa-field-group="candidate.carrer"
+            id="career{{$index}}"
+            name="career{{$index}}"
+            aa-label="{{'global.carrer' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            required>
+            <md-option ng-value="item.id"
+              ng-repeat="item in (('utpCareers'|catalog)| filter:candidate.faculty) track by item.id">
+              {{ item.name }}
+            </md-option>
+          </md-select>
+        </md-input-container>
       </div>
     </div>
 
   </div>
-  
+
+
 </div>
 
 <!-------------------------------------
 ---- PARA SÓLO MOSTRAR INFORMACIÓN ----
 -------------------------------------->
-<div class="row" ng-if="!editable">
+<div layout="row"
+  layout-wrap
+  ng-if="!editable">
 
   <!-- Datos del trabajo -->
-
-  <div class="col-md-6">
-    <p class="text-muted"><b>{{'global.regional.center' | translate}}:</b> {{(workInfo.center | catalogItem:'utpRegionalCenters').name}}</p>
-    <p class="text-muted"><b>Facultad:</b> {{(workInfo.faculty | catalogItem:'utpFaculties').name}}</p>
-    
-  </div>
-
-  <div class="col-md-6">
-      <p class="text-muted"><b>{{'global.advisor' | translate}}:</b> {{workInfo.advisor}}</p>
-      <p class="text-muted"><b>{{'global.work.type' | translate}}:</b> {{(workInfo.type | catalogItem:'graduationWorkTypes').name}}
-        <a data-toggle="popover"
-          data-container="body"
-          data-trigger="focus"
-          tabindex="0"
-          data-placement="bottom"
-          data-content="{{getTypeInfo().name}}">
-          <i class="fas fa-info-circle info"></i>
-          <script>
-              $(function() {
-                $('[data-toggle="popover"]').popover()
-              })
-            </script>
-      </a>
-      </p>
-      
-  </div>
-
-  <div class="col-md-12">
-
-    <!-- Perfiles estudiantiles -->
-
-    <p class="text-muted"><b>{{'global.work.students.count' | translate}}:</b> {{workInfo.students}}</p>
-
-    <div class="row">
-      <div class="col-md-6" ng-repeat="candidate in workInfo.candidates track by $index">
-          <p  class="text-muted">
-              <b>Perfil estudiantil {{$index+1}}</b> <br>
-              {{(candidate.faculty | catalogItem:'utpFaculties').name}}<br>
-              {{(candidate.career | catalogItem:'utpCareers').name}}<br>
-            </p>
-      </div>
-    </div>
-
-    <!-- Descripción del trabajo -->
-
-    <p class="text-muted"><b>{{'global.work.description' | translate}}:</b> {{workInfo.description}}</p>
+  <div flex="50">
+    <p class="text-muted"><strong>{{'global.regional.center' | translate}}:</strong>
+      {{(workInfo.center | catalogItem:'utpRegionalCenters').name}}</p>
+    <p class="text-muted"><strong>Facultad:</strong>
+      {{(workInfo.faculty | catalogItem:'utpFaculties').name}}</p>
 
   </div>
-  
+
+  <div flex="50">
+    <p class="text-muted"><strong>{{'global.advisor' | translate}}:</strong> {{workInfo.advisor}}
+    </p>
+    <p class="text-muted"><strong>{{'global.work.type' | translate}}:</strong>
+      {{(workInfo.type | catalogItem:'graduationWorkTypes').name}}
+          <em ng-if="workInfo.type"
+            ng-click="openTypeInfo($event)"
+            class="fas fa-info-circle info">
+          </em>
+    </p>
+
+  </div>
+
+  <!-- Perfiles estudiantiles -->
+  <div flex="100">
+
+    <p class="text-muted"><strong>{{'global.work.students.count' | translate}}:</strong>
+      {{workInfo.students}}</p>
+
+  </div>
+
+  <div flex="50"
+    ng-repeat="candidate in workInfo.candidates track by $index">
+    <p class="text-muted">
+      <strong>Perfil estudiantil {{$index+1}}</strong> <br>
+      {{(candidate.faculty | catalogItem:'utpFaculties').name}}<br>
+      {{(candidate.career | catalogItem:'utpCareers').name}}<br>
+    </p>
+  </div>
+
+  <!-- Descripción del trabajo -->
+  <div flex="100">
+    <p class="text-muted"><strong>{{'global.work.description' | translate}}:</strong>
+      {{workInfo.description}}</p>
+
+  </div>
 </div>
