@@ -1,0 +1,38 @@
+table{
+  &.md-table{
+    th{
+      font-size: 16px !important;
+      color: $utp-black !important;
+      font-weight: bold !important;
+      border: 1px rgba(0, 0, 0, 0.12) solid !important;
+      &.md-column{
+        padding: 0px !important;
+      }
+    }
+    td{
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+      &.md-cell{
+        font-size: 16px !important;
+        border: 1px rgba(0, 0, 0, 0.12) solid !important;
+        i.far{
+          cursor: pointer;
+          font-size: 18px;
+        }
+      }
+    }
+
+  }
+}
+md-table-pagination{
+
+  &.md-table-pagination{
+    font-size: 14px;
+    font-weight: bold;
+    color: $utp-main-color;
+
+    md-icon {
+      color: $utp-main-color;
+  }
+  }
+}

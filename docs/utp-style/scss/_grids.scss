@@ -1,17 +1,99 @@
+body{
+background-color: $utp-white;
+}
+
+.flex{
+  padding-left: 10px;
+  padding-right: 10px
+}
+
+@for $i from 1 to 101 {
+  .flex-#{$i}{
+    padding-left: 10px;
+    padding-right: 10px
+  }
+}
+
+$val: 0 !default;
+
+@for $i from 0 to 6 {
+  
+
+  @if $i!=0 {
+
+    @if $i< 3  {
+      $val: $i/4;
+    } 
+    @if $i > 2 {
+      $val: 3/(6-$i);
+    }
+
+  }
+  
+  .m-#{$i}{
+    margin : #{$val}rem !important;
+  }
+  .mt-#{$i},
+  .my-#{$i} {
+    margin-top: #{$val}rem !important;
+  }
+
+  .mr-#{$i},
+  .mx-#{$i} {
+    margin-right: #{$val}rem !important;
+  }
+
+  .mb-#{$i},
+  .my-#{$i} {
+    margin-bottom: #{$val}rem !important;
+  }
+
+  .ml-#{$i},
+  .mx-#{$i} {
+    margin-left: #{$val}rem !important;
+  }
+
+  .p-#{$i}{
+    padding : #{$val}rem !important;
+  }
+  .pt-#{$i},
+  .py-#{$i} {
+    padding-top: #{$val}rem !important;
+  }
+
+  .pr-#{$i},
+  .px-#{$i} {
+    padding-right: #{$val}rem !important;
+  }
+
+  .pb-#{$i},
+  .py-#{$i} {
+    padding-bottom: #{$val}rem !important;
+  }
+
+  .pl-#{$i},
+  .px-#{$i} {
+    padding-left: #{$val}rem !important;
+  }
+  
+}
 .master-view{
   min-height: 450px;
 }
-.navbar{
-  background-color: $utp-main-color;
-  max-height: 40px;
-  border-radius: 0px;
-  border: 0px;
-  li{
-    max-height: 40px;
-    width: 14.15%;
-    &:hover{
-      background-color: $utp-main-color-active;
-    }
+
+.md-nav-bar{
+  background-color: $utp-main-color !important;
+
+  span{
+    color: $utp-white;
+  }
+  .md-active{
+    span{ 
+    font-weight: bold;
+  }
+  }
+  md-nav-ink-bar{
+    background: $utp-white;
   }
 }
 
@@ -51,13 +133,6 @@ td.work-item:hover{
   float: none !important;
   margin-left: auto;
   margin-right: auto;
-}
-
-td .far{
-  width: 24%;
-  margin-bottom: -6%;
-  margin-left: 17%;
-  cursor: pointer;
 }
 
 .hand-hover:hover{
