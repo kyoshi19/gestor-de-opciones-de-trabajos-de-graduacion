@@ -1,28 +1,23 @@
 (function(win) {
   'use strict';
 
-  var infoModalController = function($log, data, element, close) {
+  var infoModalController = function($log, data, mdDialog) {
 
     $log.debug('[infoModalController] Initializing...');
 
     var vm = this;
     vm.data = data;
 
-    vm.close = function(result) {
-      var response = {
-        result: result
-      }
-      element.modal('hide');
-      close(response, 500);
-    };
+    vm.accept = function() {
+      mdDialog.hide();
+    }
 
 
   };
   infoModalController.$inject = [
     '$log',
     'data',
-    '$element',
-    'close'
+    '$mdDialog'
   ];
   win.MainApp.Controllers
     .controller('infoModalController', infoModalController);

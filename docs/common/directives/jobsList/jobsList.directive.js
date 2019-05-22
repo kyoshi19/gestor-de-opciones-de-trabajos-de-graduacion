@@ -21,6 +21,8 @@
 
     function linkFunc(scope) {
 
+      $log.debug('[jobListDirective] initializing...');
+
       /* --> VARIABLES <-- */
       scope.selected = [];
       scope.user = storage.user;
@@ -32,9 +34,9 @@
       });
 
       function worksTableConfig() {
-
+        $log.debug('worksTableConfig Method...')
         var initialSettings = {
-          limit: 3, // filas por página
+          limit: 5, // filas por página
           page: 1, //Página actual
           totalPages: scope.works.length, //Total de páginas
           dataset: scope.works //Información a mostrar
@@ -56,12 +58,11 @@
               isEditing: false
             }
 
-          })
-          .then(function(response) {
+          }).then(function(response) {
             $log.info("My response-->", response);
             openEmailFormModal(work);
           }).catch(function(response) {
-            $log.error("My response-->", response);
+            $log.error("My error response-->", response);
           });
       }
 
@@ -79,8 +80,7 @@
               isEditing: false
             }
 
-          })
-          .then(function(response) {
+          }).then(function(response) {
             storage.showLoader = false;
             if (response.result) {
               if (isEmpty(response.data)) {
@@ -94,75 +94,72 @@
           });
       };
 
-      scope.openDeleteWork = function(work) {
+      scope.openDeleteWork = function(work, event) {
 
-        ModalService.showModal({
+        mdDialog.show({
           templateUrl: "common/templates/modal/deleteWorkModal.html",
           controller: "workController",
           controllerAs: "ctrl",
-          inputs: {
+          targetEvent: event,
+          locals: {
             data: work,
             isEditing: false
 
           }
-        }).then(function(modal) {
+        }).then(function(response) {
+          $log.debug("Modal is closed");
 
-          modal.element.modal();
-          modal.close.then(function(response) {
-            $log.debug("Modal is closed");
-
-            if (response.data.error) {
-              notificationService.showErrorT(response.data.error);
+          if (response.data.error) {
+            notificationService.showErrorT(response.data.error);
+          } else {
+            if (response.data.records[0] > 0) {
+              notificationService.showSucces('global.succes.work.deleted');
+              scope.searchWorks();
             } else {
-              if (response.data.records[0] > 0) {
-                notificationService.showSucces('global.succes.work.deleted');
-                scope.searchWorks();
-              } else {
-                notificationService.showError('global.error.work.deleted');
-              }
+              notificationService.showError('global.error.work.deleted');
             }
-
-
-
-          });
+          }
+        }).catch(function(err) {
+          $log.error('ERROR ==> ', err);
         });
 
       };
 
       scope.openUpdateWorkModal = function(work) {
-        ModalService.showModal({
+        mdDialog.show({
           templateUrl: "common/templates/modal/updateWorkModal.html",
           controller: "workController",
           controllerAs: "ctrl",
-          inputs: {
+          clickOutsideToClose: true,
+          escapeToClose: true,
+          locals: {
             data: work,
             isEditing: true
           }
-        }).then(function(modal) {
+        }).then(function(response) {
+          $log.debug("Modal is close ==>", response);
 
-          modal.element.modal();
-          modal.close.then(function(response) {
-            $log.debug("Modal is close ==>", response);
+          if (response.data.error) {
+            notificationService.showError('global.error.work.updated');
+            notificationService.showError(response.data.error);
+            return;
+          }
 
-            if (response.data.error) {
-              notificationService.showError('global.error.work.updated');
-              notificationService.showError(response.data.error);
-              return;
-            }
+          if (response.data.records[0] > 0) {
+            notificationService.showSucces('global.succes.work.added');
+            scope.searchWorks();
 
-            if (response.data.records[0] > 0) {
-              notificationService.showSucces('global.succes.work.added');
-              scope.searchWorks();
+          } else {
+            notificationService.showError('global.error.work.updated');
+          }
 
-            } else {
-              notificationService.showError('global.error.work.updated');
-            }
-
-          });
+        }).catch(function(err) {
+          $log.error('ERROR ==> ', err);
         });
       };
 
       function resetTable() {
+        $log.debug("ResetTabel Method...");
         if (scope.works) {
           scope.dataTable = worksTableConfig();
         }

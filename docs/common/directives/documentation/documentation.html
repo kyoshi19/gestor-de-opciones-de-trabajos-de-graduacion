@@ -1,19 +1,26 @@
-<div class="row justify-content-center" ng-if="('graduationWorkTypes'|catalogIsReady)">
-  <div class="col-md-12 text-center title-text">
+<div layout="row" layout-align="center center" ng-if="('graduationWorkTypes'|catalogIsReady)">
+  <div flex="33" class=" text-center">
     <h1>{{'global.documentation'|translate}}</h1>
   </div>
 </div>
 
-<div class="row container">
-  <div class="col-md-3 col-sm-3">
-    <div class="dropdown">
-      <div class="dropdown-item" ng-click="setTemplate('workTypes')"
-        ng-class="(active ==='workTypes') ? 'active':''">
-        > {{'global.work.types' |translate}}
-      </div>
-    </div>
-  </div>
-  <div class="col-md-9 col-sm-9">
+<div layout="row" class="mb-5">
+  <md-sidenav md-component-id="left" class="md-sidenav-left sidenav-document"
+    md-is-locked-open="true">
+
+    <md-content>
+      
+        <div layout="column" layout-padding>
+          <div flex class="sidenav-item no-focus-shaddow animate-color" 
+            ng-click="setTemplate('workTypes')"
+            ng-class="(active ==='workTypes') ? 'active':''">
+            > {{'global.work.types' | translate}}
+          </div>
+        </div>
+
+    </md-content>
+  </md-sidenav>
+  <div flex>
     <ng-include  src="viewTemplate"></ng-include>
   </div>
 </div>

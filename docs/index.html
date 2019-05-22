@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <title>{{'global.main.title' | translate}}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
   <!-- jQuery library -->
@@ -11,6 +12,7 @@
 
   <!-- LIBRERÍA ANGULAR -->
   <script src="lib/angularjs/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-sanitize.js"></script>
 
   <!-- ANGULAR MATERIALIZE -->
   <script src="node_modules/angular-aria/angular-aria.js"></script>
@@ -40,10 +42,11 @@
   <!-- CARGADOR CON LOGO UTP -->
   <div id="loader-content" ng-cloak ng-if="mctrl.storage.showLoader">
     <div class="logo-container">
-      <img class="utp-loader" src="src/img/logo_utp.jpg"></img>
+      <img class="utp-loader" src="src/img/logo_utp.jpg" alt="Imagen no disponible"></img>
     </div>
   </div>
 
+  {{mctrl.updateNavBar()}}
   <!-- VISTAS DE LAS PÁGINAS -->
   <div class="master-view"ui-view></div>
 
@@ -112,6 +115,7 @@
     <script src="node_modules/angular-modal-service/dst/angular-modal-service.js"></script>
     <script src="node_modules/feather-icons/dist/feather.min.js"></script>
     <script src="node_modules/angular-material-data-table/dist/md-data-table.js"></script>
+    
     
 
   </footer>

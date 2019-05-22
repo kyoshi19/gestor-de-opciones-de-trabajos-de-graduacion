@@ -24,3 +24,15 @@ table{
 
   }
 }
+md-table-pagination{
+
+  &.md-table-pagination{
+    font-size: 14px;
+    font-weight: bold;
+    color: $utp-main-color;
+
+    md-icon {
+      color: $utp-main-color;
+  }
+  }
+}

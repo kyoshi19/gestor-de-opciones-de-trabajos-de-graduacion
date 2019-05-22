@@ -6,7 +6,6 @@
     $log.debug("[Liferay/Angular/ModalService] Initializing...");
 
     var modalInstance = {};
-    var modalTitle = "Modal Title";
 
     var whenCancel = function() {
       return modalInstance.dismiss('cancel');

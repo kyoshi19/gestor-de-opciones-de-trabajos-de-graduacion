@@ -2,18 +2,19 @@
   'use strict';
 
   //  documentation directive
-  function documentation(workTypesValue) {
+  function documentation($log, workTypesValue) {
     var directive = {
       restrict        : 'E',
       templateUrl     : 'common/directives/documentation/documentation.html',
       scope           : {
-
       },
       link            : linkFunc,
     };
     return directive;
 
-    function linkFunc(scope, el, attr, ctrl) {
+    function linkFunc(scope, el, attr) {
+
+      $log.debug('[documentationDirective] initializing...');
 
       /* --> VARIABLES <-- */
 
@@ -23,6 +24,10 @@
       };
 
       scope.workTypesValue = workTypesValue;
+
+      scope.workTypesValue.forEach(element => {
+        element.isOpen = false;
+      });
 
 
       /* --> METODOS <-- */
@@ -37,10 +42,23 @@
       };
 
       scope.setTemplate('workTypes');
+
+      scope.openItem = function(item, index){
+
+        var icon = document.getElementById('icon'+index);
+
+        item.isOpen = !item.isOpen;
+
+        !$(icon).hasClass('active') ? 
+        $(icon).addClass('active'): $(icon).removeClass('active');
+        
+      }
+
     }
   }
 
   documentation.$inject =[
+    '$log',
     'workTypesValue'
   ];
 

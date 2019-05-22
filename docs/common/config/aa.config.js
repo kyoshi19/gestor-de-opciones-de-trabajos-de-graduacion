@@ -14,7 +14,7 @@
     translate
   ) {
 
-    var defaultCol = 'md-4';
+    // var defaultCol = 'md-4';
 
     // Ejemplo de implementacion de toda esta seccion
     // https://github.com/AngularAgility/AngularAgility/blob/master/src/formExtensions/provider.js
@@ -34,17 +34,17 @@
 
     //Mensajes
     aaFormExtensions.validationMessages = {
-      required: translate.instant('validation.required'),
-      email: translate.instant('validation.mail'),
-      minlength: translate.instant('validation.minlength'),
-      maxlength: translate.instant('validation.maxlength'),
-      min: translate.instant('validation.min'),
-      max: translate.instant('validation.max'),
-      pattern: translate.instant('validation.pattern'),
-      url: translate.instant('validation.url'),
-      number: translate.instant('validation.number'),
-      unknown: translate.instant('validation.unknown'),
-      validationTitle: translate.instant('validation.validationTitle')
+      required: translate.instant('validation.required').toString(),
+      email: translate.instant('validation.mail').toString(),
+      minlength: translate.instant('validation.minlength').toString(),
+      maxlength: translate.instant('validation.maxlength').toString(),
+      min: translate.instant('validation.min').toString(),
+      max: translate.instant('validation.max').toString(),
+      pattern: translate.instant('validation.pattern').toString(),
+      url: translate.instant('validation.url').toString(),
+      number: translate.instant('validation.number').toString(),
+      unknown: translate.instant('validation.unknown').toString(),
+      validationTitle: translate.instant('validation.validationTitle').toString()
     };
 
     // Estructura de mensajes de error
@@ -116,7 +116,7 @@
       // console.log("fieldGroupStrategy $injector ",$injector);
 
       // Con esto se define el tamaño de los campos, se construye usando bootstrap
-      var col = findClosestEleWithAttr(element, 'aa-col') || defaultCol;
+      // var col = findClosestEleWithAttr(element, 'aa-col') || defaultCol;
 
       if (!element.prop('class')) {
         element.addClass('form-control validation-control');

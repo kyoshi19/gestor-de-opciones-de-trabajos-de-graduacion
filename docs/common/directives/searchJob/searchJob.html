@@ -6,95 +6,97 @@
     <h1>{{'global.main.student.page.title'|translate}}</h1>
   </div>
 </div>
-<ng-form name="searchJobForm">
+<div md-whiteframe="1">
+  <ng-form name="searchJobForm">
 
-  <div layout="row"
-    layout-margin>
-    <div flex="25">
+    <div layout="row"
+      layout-margin>
+      <div flex="25">
 
-      <!--Select Tipo de trabajo -->
+        <!--Select Tipo de trabajo -->
 
-      <md-input-container class="md-block">
-        <label>{{'global.work.type' | translate}}</label>
-        <md-select aa-field-group="workToSearch.workType"
-          name="workType"
-          aa-label="{{'global.work.type' | translate}}"
-          aa-label-strategy="emptyStrategy"
-          required>
-          <md-option ng-value="item.id"
-            ng-repeat="item in ('graduationWorkTypes'|catalog)">{{ item.name }}</md-option>
-        </md-select>
-      </md-input-container>
+        <md-input-container class="md-block">
+          <label>{{'global.work.type' | translate}}</label>
+          <md-select aa-field-group="workToSearch.workType"
+            name="workType"
+            aa-label="{{'global.work.type' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            required>
+            <md-option ng-value="item.id"
+              ng-repeat="item in ('graduationWorkTypes'|catalog)">{{ item.name }}</md-option>
+          </md-select>
+        </md-input-container>
 
 
-    </div>
-    <div flex="45">
+      </div>
+      <div flex="45">
 
-      <!--Select Facultad -->
+        <!--Select Facultad -->
 
-      <md-input-container class="md-block">
-        <label>{{'global.faculty' | translate}}</label>
-        <md-select aa-field-group="workToSearch.faculty"
-          aa-label="{{'global.faculty' | translate}}"
-          aa-label-strategy="emptyStrategy"
-          required>
-          <md-option ng-value="item.id"
-            ng-repeat="item in ('utpFaculties'|catalog)">{{ item.name }}</md-option>
-        </md-select>
-      </md-input-container>
+        <md-input-container class="md-block">
+          <label>{{'global.faculty' | translate}}</label>
+          <md-select aa-field-group="workToSearch.faculty"
+            aa-label="{{'global.faculty' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            required>
+            <md-option ng-value="item.id"
+              ng-repeat="item in ('utpFaculties'|catalog)">{{ item.name }}</md-option>
+          </md-select>
+        </md-input-container>
 
-    </div>
-    <div flex="33">
+      </div>
+      <div flex="33">
 
-      <!--Select Centro regional -->
+        <!--Select Centro regional -->
 
-      <md-input-container class="md-block">
-        <label>{{'global.regional.center' | translate}}</label>
-        <md-select aa-field-group="workToSearch.center"
-          aa-label="{{'global.regional.center' | translate}}"
-          aa-label-strategy="emptyStrategy"
-          required>
-          <md-option ng-value="item.id"
-            ng-repeat="item in ('utpRegionalCenters'|catalog)">{{ item.name }}</md-option>
-        </md-select>
-      </md-input-container>
+        <md-input-container class="md-block">
+          <label>{{'global.regional.center' | translate}}</label>
+          <md-select aa-field-group="workToSearch.center"
+            aa-label="{{'global.regional.center' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            required>
+            <md-option ng-value="item.id"
+              ng-repeat="item in ('utpRegionalCenters'|catalog)">{{ item.name }}</md-option>
+          </md-select>
+        </md-input-container>
 
-    </div>
-  </div>
-
-  <div layout="row"
-    layout-margin
-    layout-align="start center">
-    <!--Input palabras claves -->
-    <div flex="33">
-      <md-input-container class="md-block">
-        <label>{{'global.key.words' | translate}}</label>
-        <input class="text-uppercase"
-          aa-label="{{'global.key.words' | translate}}"
-          aa-label-strategy="emptyStrategy"
-          aa-field-group="workToSearch.field"
-          autocomplete="off">
-      </md-input-container>
-
+      </div>
     </div>
 
-    <div flex="33">
-      <md-button class="md-raised"
-        type="submit"
-        aa-submit-form="searchJobs()">
-        Buscar Opciones
-      </md-button>
+    <div layout="row"
+      layout-margin
+      layout-align="start center">
+      <!--Input palabras claves -->
+      <div flex="33">
+        <md-input-container class="md-block">
+          <label>{{'global.key.words' | translate}}</label>
+          <input class="text-uppercase"
+            aa-label="{{'global.key.words' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            aa-field-group="workToSearch.field"
+            autocomplete="off">
+        </md-input-container>
+
+      </div>
+
+      <div flex="33">
+        <md-button class="md-raised md-primary"
+          type="submit"
+          aa-submit-form="searchJobs()">
+          Buscar Opciones
+        </md-button>
+      </div>
+      <div flex="33"></div>
+
     </div>
-    <div flex="33"></div>
+  </ng-form>
+</div>
 
-  </div>
-</ng-form>
-
-<div layout="row" layout-align="center">
+<div layout="row" layout-align="center" ng-if="works">
   <div flex="80">
     <jobs-list works="works"
       works-count="works.length"
-      table-title="'global.search.results' | translate"
+      table-title="tableTitle"
       user-type="user.type">
     </jobs-list>
   </div>

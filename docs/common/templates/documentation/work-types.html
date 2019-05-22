@@ -4,20 +4,16 @@
 
 El Tipo de Trabajo de Graduación puede ser seleccionado dentro de las siguientes opciones:
 <br><br>
-  <div class="card" ng-repeat="work in workTypesValue track by $index">
+  <ng-form name="documentationForm">
+    <div  layout="row" class=" active-animation-transform" layout-wrap ng-repeat="item in workTypesValue track by $index">
+      <div name="title" flex="100" class="hand-hover document-title no-padding no-focus-shaddow" ng-click="openItem(item,$index)">
+        <h3 class="my-1 pl-2"><em id="icon{{$index}}" class="fas fa-caret-right"></em> {{item.title}}</h3>
+      </div>
 
-    <div id="heading_{{$index}}" class="collapsed card-header hand-hover"
-      data-toggle="collapse" data-target="#collapse_{{$index}}"
-      aria-expanded="false" aria-controls="collapse_{{$index}}">
-
-      <h6 class="mb-0">> {{work.title}}</h6>
-
-    </div>
-
-    <div id="collapse_{{$index}}" class="collapse">
-      <div class="card-body">
-        {{work.name}}
+      <div flex="100" layout layout-align="center center" class="document-item" ng-if="item.isOpen">
+        <div>
+          {{item.name}}
+        </div>
       </div>
     </div>
-
-  </div>
+  </ng-form>

@@ -1,4 +1,3 @@
-
 //En este bloque config solo se configuran las rutas
 angular
   .module(appName)
