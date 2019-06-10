@@ -2,7 +2,7 @@
   'use strict';
 
   var sendEmailController = function($log, data, mdDialog,
-    element, storage, sendMail, userRules) {
+    element, storage, mailService, userRules) {
 
     $log.debug('[sendEmailModalController] Initializing...');
 
@@ -23,7 +23,7 @@
       if (result) {
         storage.showLoader = true;
         var student = storage.user.fName + ' ' + storage.user.lName;
-        sendMail.send(vm.message.email, data.contact,
+        mailService.send(vm.message.email, data.contact,
             vm.message.subject, student, vm.message.text)
           .then(function(response) {
             response.result = result;
@@ -54,7 +54,7 @@
     '$mdDialog',
     '$element',
     '$sessionStorage',
-    'sendMailService',
+    'mailService',
     'userRules'
   ];
   win.MainApp.Controllers

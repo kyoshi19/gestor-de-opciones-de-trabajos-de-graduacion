@@ -15,7 +15,7 @@ var EStranslate = {
   'header.faculty'                  : 'Facultad de Ingeniería de Sistemas Computacionales',
   'global.firstName'                : 'Nombre',
   'global.faculty'                  : 'Facultad',
-  'global.carrer'                   : 'Carrera',
+  'global.career'                   : 'Carrera',
   'global.lastName'                 : 'Apellido',
   'global.id'                       : 'Cédula',
   'global.passport'                 : 'Pasaporte',
@@ -34,6 +34,9 @@ var EStranslate = {
   'global.key.words'                : 'Palabras claves',
   'global.search.results'           : 'Resultados de la búsqueda',
   'global.results.count'            : 'La búsqueda ha dado {{count}} resultado/s',
+  'global.update'                   : 'Actualizar',
+  'global.adviser.contact'          : 'Contactar al asesor',
+
 
   // PESTAÑAS
   'global.tab.home'                 : 'Inicio',

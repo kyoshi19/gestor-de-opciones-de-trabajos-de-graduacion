@@ -155,6 +155,8 @@
 
         }).catch(function(err) {
           $log.error('ERROR ==> ', err);
+        }).finally(function(){
+          storage.showLoader = false;
         });
       };
 

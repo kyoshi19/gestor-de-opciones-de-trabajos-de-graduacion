@@ -2,8 +2,8 @@
   'use strict';
 
   var masterController = function($log, patterns,
-    $http, $state, storage, $timeout, catalog,
-    isEmpty) {
+    $http, $state, storage, $timeout, catalog, notificationService,
+    isEmpty, userService) {
 
     $log.debug('[utpMasterController] Initializing...');
 
@@ -19,31 +19,23 @@
     vm.storage.messages = [];
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
-    vm.backImage = 'src/img/starwars.jpg';
-    vm.myBackObj = {
-      'background-image': 'url(' + vm.backImage + ')',
-      'background-size': 'cover'
-    };
-
-    vm.showExamples = true;
-
-    vm.isDefined = angular.isDefined;
-
-    vm.select = function() {
-      $http.get("php/selectAllUsers.php")
-        .then(function(response) {
-          vm.users = response.data.records;
-          vm.msg = "Consulta Exitosa";
-        });
-    };
 
     vm.initCatalogs = function() {
       catalog();
     };
 
-    vm.showLogOff = function() {
+    vm.showLogOffButton = function() {
       return !isEmpty(storage.user);
     };
+
+    vm.updateNavBar = function() {
+      if ($state.$current.name == "main-documentation") {
+        vm.navBarItem = $state.$current.name;
+        return;
+      }
+      vm.navBarItem = 'login';
+
+    }
 
     vm.logggOut = function() {
       storage.user = undefined;
@@ -53,21 +45,76 @@
     vm.goToLogIn = function() {
       storage.showLoader = true;
       $timeout(function() {
-        storage.showLoader = false;
         $state.transitionTo("login");
+        storage.showLoader = false;
       }, 700);
     };
 
-    vm.updateNavBar = function(){
-      if ($state.$current.name=="main-documentation") {
-        vm.navBarItem = $state.$current.name;
+    vm.validateUser = function(logginUser) {
+
+      if (storage.user) {
+        vm.goToMain();
         return;
       }
-      vm.navBarItem = 'login';
-      
-    }
+
+      if (!logginUser) {
+        return;
+      }
+      storage.showLoader = true;
+
+      userService.findUser(logginUser).then(function(response) {
+
+        if (response.data.records.length > 0) {
+
+          storage.user = response.data.records[0];
+          vm.goToMain();
+
+        } else {
+
+          storage.showLoader = false;
+          notificationService.showError("global.error.no.user.find");
+
+        }
+      });
+
+
+    };
+
+    vm.goToMain = function() {
+
+      storage.showLoader = true;
+
+      $timeout(function() {
+
+        if (storage.user.type === "E") {
+          $state.transitionTo("main-student");
+
+        } else if (storage.user.type === "P") {
+          $state.transitionTo("main-advisers");
+
+        }
+
+        storage.showLoader = false;
+
+      }, 700);
+
+    };
+
+    vm.getInitialState = function() {
+
+      if (!isEmpty(storage.user)) {
+
+        vm.goToMain();
+
+      } else {
+        vm.goToLogIn();
+      }
+
+    };
+
     var setup = function() {
       vm.initCatalogs();
+      vm.getInitialState();
     };
 
     setup();
@@ -83,7 +130,9 @@
     '$sessionStorage',
     '$timeout',
     'catalogFilter',
-    'isEmptyFilter'
+    'notificationService',
+    'isEmptyFilter',
+    'userService'
   ];
   win.MainApp.Controllers
     .controller('masterController', masterController);
