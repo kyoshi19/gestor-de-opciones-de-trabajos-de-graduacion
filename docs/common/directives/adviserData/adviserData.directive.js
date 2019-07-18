@@ -3,7 +3,7 @@
 
   //  adviserData directive
   function adviserData($log, isEmpty, storage, workService,
-    $window, notificationService) {
+    notificationService, translate) {
     var directive = {
       restrict: 'E',
       templateUrl: 'common/directives/adviserData/adviserData.html',
@@ -16,6 +16,8 @@
     return directive;
 
     function linkFunc(scope, el, attr, ctrl) {
+
+      $log.debug('[adviserDataDirective] initializing...');
 
       /* --> VARIABLES <-- */
 
@@ -31,7 +33,7 @@
 
       scope.workToAdd = {};
       scope.workToAdd.candidates = [];
-
+      scope.showWorksTitleTable = translate.instant('global.works');
 
       /* --> METODOS <-- */
 
@@ -139,8 +141,8 @@
     'isEmptyFilter',
     '$sessionStorage',
     'workUtilService',
-    '$window',
-    'notificationService'
+    'notificationService',
+    '$translate'
   ];
 
   /* --> MODULE <-- */

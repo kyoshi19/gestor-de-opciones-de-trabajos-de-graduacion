@@ -3,7 +3,7 @@
 
   var workController = function($log, data, isEditing, mdDialog, workService, storage) {
 
-    $log.debug('[workModal] Initializing...');
+    $log.debug('[workModalController] Initializing...');
 
     /*
     ==============
@@ -22,8 +22,8 @@
       $log.debug("Closing modal");
 
       mdDialog.hide(response);
-      // close(response, 300); // close, but give 300ms for bootstrap to animate
     };
+    
     vm.cancel = function () {
       mdDialog.cancel();
     }
@@ -32,7 +32,7 @@
       storage.showLoader = true;
       workService.deleteWork(vm.data.id)
         .then(function(response) {
-          close(response, 300);
+          mdDialog.hide(response);
         });
     };
 
@@ -41,7 +41,7 @@
 
       workService.updatetWork(vm.tempWork)
         .then(function(response) {
-          close(response, 300);
+          mdDialog.hide(response);
         });
     };
 

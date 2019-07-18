@@ -1,34 +1,30 @@
-<div class="modal fade">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Editar: {{ctrl.data.title}}</h4>
-        <button type="button" class="close" ng-click="ctrl.close(false)" data-dismiss="modal" aria-hidden="true">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <ng-form name="editWorkForm">
-        <div class="modal-body">
-          
-          <work-info
-            work-info="ctrl.tempWork"
-            to-update="true"
-            editable="true">
-          </work-info>  
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default"
-            ng-click="ctrl.close(false)"
-            data-dismiss="modal">Cancelar
-          </button>
-
-          <button type="submit" class="btn btn-primary"
-            aa-submit-form="ctrl.update()"
-            data-dismiss="{{ctrl.validateForm(this) ? 'modal':''}}">Aceptar
-          </button>
-        </div>
-      </ng-form>
+<md-dialog class="modal-lg">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Editar: {{ctrl.data.title}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button"
+        ng-click="ctrl.cancel()">
+        <em class="fas fa-times"></em>
+      </md-button>
     </div>
-  </div>
-</div>
+  </md-toolbar>
+  <ng-form name="workInfoForm">
+  <md-dialog-content>
+    <div layout="row"layout-margin layout-padding>
+      <div flex="100">
+        <work-info 
+          work-info="ctrl.tempWork"
+          to-update="true"
+          editable="true">
+        </work-info>
+      </div>
+    </div>
+
+  </md-dialog-content>
+  <md-dialog-actions layout-margin>
+      <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
+      <md-button class="md-raised md-primary" aa-submit-form="ctrl.update(true)" >Contactar asesor</md-button>
+  </md-dialog-actions>
+</ng-form>
+</md-dialog>

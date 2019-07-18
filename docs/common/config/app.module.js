@@ -29,7 +29,9 @@
     'ngMaterial',
     'ngMessages',
     'md.data.table',
-    'ngAnimate'
+    'ngAnimate',
+    'ngSanitize'
+
   ])
   
   .run(['$templateCache', function ($templateCache) {

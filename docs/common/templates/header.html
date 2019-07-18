@@ -2,7 +2,7 @@
   <div flex-offset="5" flex="90">
     <div layout="row">
       <div flex="50">
-        <img class="utp-logo" title="Universidad Tecnológica de Panamá"
+        <img class="utp-logo" alt="Imagen no disponible"
           src="src/img/gotg-logo.png">
         </img>
       </div>
@@ -13,7 +13,7 @@
             <h3 >{{mctrl.storage.user.fName}} {{mctrl.storage.user.lName}}</h3>
           </div>
           <div flex="30">
-            <md-button class="md-raised" 
+            <md-button class="md-raised md-primary" 
               ng-click="mctrl.logggOut()">
               {{'global.logout' | translate}}
             </md-button>
@@ -24,11 +24,11 @@
   </div>
 </div>
 
-<md-nav-bar md-selected-nav-item="mctrl.navBarItem">
+<md-nav-bar md-selected-nav-item="mctrl.navBarItem" nav-bar-aria-label="navigation links">
   <md-nav-item md-nav-sref="login" name="login">
     {{'global.tab.home' | translate}}
   </md-nav-item>
-  <md-nav-item md-nav-sref='main-documentation' name="documentation">
+  <md-nav-item md-nav-sref='main-documentation' name="main-documentation">
     {{'global.tab.documentation' | translate}}
   </md-nav-item>
 </md-nav-bar>

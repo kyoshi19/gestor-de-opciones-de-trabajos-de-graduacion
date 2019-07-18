@@ -36,10 +36,21 @@ md-radio-button {
     }
 
     .md-ink-ripple {
-      color: $utp-main-color-transparent
+      color: $utp-main-color-transparent;
+    }
+
+  }
+}
+
+md-radio-group.md-focused {
+  .md-checked {
+    .md-container:before {
+      background-color: $utp-main-color-transparent !important;
     }
   }
 }
+
+
 
 /********* SELECT *********/
 md-select {
@@ -50,24 +61,26 @@ md-select {
 }
 
 /********* DROPDOWN *********/
-
 .sidenav-adviser {
-  margin-top: 20%;
+  margin-top: 19%;
+}
 
-  .sidenav-item {
-    border-style: solid;
-    border-color: $utp-main-color;
-    border-width: 0px 1px 1px 0px;
+.sidenav-document {
+  margin-top: 6%;
+}
 
+.sidenav-item {
+  border-style: solid;
+  border-color: $utp-main-color;
+  border-width: 0px 1px 1px 0px;
 
-    &:hover {
-      background-color: $utp-item-hover;
-      cursor: pointer;
-    }
+  &:hover {
+    background-color: $utp-item-hover;
+    cursor: pointer;
+  }
 
-    &.active {
-      background-color: $utp-main-color;
-      color: white;
-    }
+  &.active {
+    background-color: $utp-main-color;
+    color: white;
   }
 }

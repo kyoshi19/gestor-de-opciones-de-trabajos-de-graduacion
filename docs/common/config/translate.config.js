@@ -8,7 +8,9 @@ config.$inject= [
 ];
 
 var EStranslate = {
+
   // TITULOS PRINCIPALES
+  'global.main.title'               : 'Gestor de opciones de trabajo de graduación',
   'utp.name'                        : 'Universidad Tecnológica de Panamá',
   'header.faculty'                  : 'Facultad de Ingeniería de Sistemas Computacionales',
   'global.firstName'                : 'Nombre',
@@ -92,5 +94,7 @@ function config($translateProvider) {
   $translateProvider.translations('es',EStranslate);
 
   $translateProvider.preferredLanguage('es');
+
+  $translateProvider.useSanitizeValueStrategy('sce');
 
 }

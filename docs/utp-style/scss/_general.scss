@@ -1,3 +1,6 @@
+body {
+  height: fit-content;
+}
 .info{
   cursor: pointer;
   color: $utp-main-color;
@@ -9,4 +12,8 @@
 
 .no-padding{
   padding: 0px !important;
+}
+
+.no-focus-shaddow:focus{
+  outline: none;
 }

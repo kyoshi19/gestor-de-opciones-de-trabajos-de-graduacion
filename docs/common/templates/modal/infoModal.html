@@ -1,21 +1,25 @@
-<div class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">{{ctrl.data.title}}</h4>
-        <button type="button" class="close" ng-click="ctrl.close(true)" data-dismiss="modal" aria-hidden="true">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <ng-form name="sendMailForm">
-        <div class="modal-body">
-         {{ctrl.data.content}}
-        </div>
-        <div class="modal-footer">
-          <button type="button" aa-submit-form="ctrl.close(true)" class="btn btn-primary" data-dismiss="">Ok</button>
-        </div>
+<md-dialog class="modal-dialog modal-ms">
 
-      </ng-form>
+    <div class="md-toolbar-tools">
+      <h2>{{ctrl.data.title}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button"
+        ng-click="ctrl.accept()">
+        <em class="fas fa-times"></em>
+      </md-button>
     </div>
-  </div>
-</div>
+
+  <md-dialog-content>
+    
+    <div layout layout-padding>
+      {{ctrl.data.content}}
+    </div>
+
+  </md-dialog-content>
+
+
+  <md-dialog-actions>
+      <md-button ng-click="ctrl.accept()" class="md-raised md-primary" >Aceptar</md-button>
+  </md-dialog-actions>
+
+</md-dialog>

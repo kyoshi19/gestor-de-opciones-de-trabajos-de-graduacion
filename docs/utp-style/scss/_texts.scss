@@ -9,6 +9,14 @@ h1,h2,h3,h4,h5,h6,
   color: $utp-main-color;
 }
 
+button, select, html, textarea, input {
+  font-family: "Titillium", "Helvetica Neue", sans-serif !important;
+}
+
+button, html, select, textarea, input {
+  font-weight: bold !important;
+}
+
 .name-and-slogan {
   margin-top: 30px;
   margin-left: 8px;
@@ -31,11 +39,6 @@ h1,h2,h3,h4,h5,h6,
 
 .site-title{
   font-family: "Titillium";
-}
-
-
-.harlow{
-    font-family: "Titillium";
 }
 
 .message-result{
