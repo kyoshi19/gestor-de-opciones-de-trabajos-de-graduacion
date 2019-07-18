@@ -50,14 +50,68 @@
       }, 700);
     };
 
-    vm.updateNavBar = function(){
-      if ($state.$current.name=="main-documentation") {
-        vm.navBarItem = $state.$current.name;
+    vm.validateUser = function(logginUser) {
+
+      if (storage.user) {
+        vm.goToMain();
         return;
       }
-      vm.navBarItem = 'login';
-      
-    }
+
+      if (!logginUser) {
+        return;
+      }
+      storage.showLoader = true;
+
+      userService.findUser(logginUser).then(function(response) {
+
+        if (response.data.records.length > 0) {
+
+          storage.user = response.data.records[0];
+          vm.goToMain();
+
+        } else {
+
+          storage.showLoader = false;
+          notificationService.showError("global.error.no.user.find");
+
+        }
+      });
+
+
+    };
+
+    vm.goToMain = function() {
+
+      storage.showLoader = true;
+
+      $timeout(function() {
+
+        if (storage.user.type === "E") {
+          $state.transitionTo("main-student");
+
+        } else if (storage.user.type === "P") {
+          $state.transitionTo("main-advisers");
+
+        }
+
+        storage.showLoader = false;
+
+      }, 700);
+
+    };
+
+    vm.getInitialState = function() {
+
+      if (!isEmpty(storage.user)) {
+
+        vm.goToMain();
+
+      } else {
+        vm.goToLogIn();
+      }
+
+    };
+
     var setup = function() {
       vm.initCatalogs();
       vm.getInitialState();

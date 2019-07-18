@@ -2,6 +2,7 @@
   "name": "SiGeTraG",
   "private": true,
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
     "angular-translate": "^2.17.0"
   },
   "dependencies": {

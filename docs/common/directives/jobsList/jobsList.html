@@ -59,14 +59,8 @@
       </tr>
     </table>
 
-=======
     <h4 ng-if="worksCount" class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
     
->>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
-=======
-    <h4 ng-if="worksCount" class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
-    
->>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
     <md-table-container>
         <table md-table>
             <thead md-head>
@@ -78,23 +72,8 @@
               </thead>
           <tbody md-body>
             <tr md-row ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
-              <td md-cell >
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <h4 class="text-muted">{{work.id}}</h4>
-=======
-                <h4 class="no-margin text-muted">{{work.id}}</h4>
->>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
-              </td>
-              <td md-cell  class="py-3">
-                <h4 class="no-margin">{{work.title}}</h4>
-              </td>
-              <td md-cell ng-if="showOptions">
+              <td md-cell>
                 <div layout="row" layout-padding class="no-padding">
-<<<<<<< HEAD
-                  <i class="far fa-edit" ng-click="openUpdateWorkModal(work)"></i>
-                  <i class="far fa-trash-alt" ng-click="openDeleteWork(work)"></i>
-=======
                 <h4 class="no-margin text-muted">{{work.id}}</h4>
               </td>
               <td md-cell  class="py-3">
@@ -104,11 +83,6 @@
                 <div layout="row" layout-padding class="no-padding">
                   <em class="far fa-edit" ng-click="openUpdateWorkModal(work)"></em>
                   <em class="far fa-trash-alt" ng-click="openDeleteWork(work)"></em>
->>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
-=======
-                  <em class="far fa-edit" ng-click="openUpdateWorkModal(work)"></em>
-                  <em class="far fa-trash-alt" ng-click="openDeleteWork(work)"></em>
->>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
                 </div>
               </td>
             </tr>
@@ -119,17 +93,8 @@
     <md-table-pagination md-limit="dataTable.limit"
       md-page="dataTable.page"
       md-page-select
-<<<<<<< HEAD
-<<<<<<< HEAD
-      md-total="{{dataTable.totalPages}}">
-=======
       md-total="{{dataTable.totalPages}}"
       md-label="{page: 'Página:', of: 'de'}">
->>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
-=======
-      md-total="{{dataTable.totalPages}}"
-      md-label="{page: 'Página:', of: 'de'}">
->>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
     </md-table-pagination>
 
 
