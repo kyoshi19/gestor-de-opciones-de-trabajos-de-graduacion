@@ -117,12 +117,13 @@
       <!-- CARRERA -->
       <div flex="50">
         <md-input-container class="md-block">
-          <label>{{'global.carrer' | translate}}</label>
-          <md-select aa-field-group="candidate.carrer"
+          <label>{{'global.career' | translate}}</label>
+          <md-select aa-field-group="candidate.career"
             id="career{{$index}}"
             name="career{{$index}}"
-            aa-label="{{'global.carrer' | translate}}"
+            aa-label="{{'global.career' | translate}}"
             aa-label-strategy="emptyStrategy"
+            ng-disabled="candidate.faculty | isEmpty"
             required>
             <md-option ng-value="item.id"
               ng-repeat="item in (('utpCareers'|catalog)| filter:candidate.faculty) track by item.id">

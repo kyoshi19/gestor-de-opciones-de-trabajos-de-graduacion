@@ -2,8 +2,8 @@
   'use strict';
 
   var masterController = function($log, patterns,
-    $http, $state, storage, $timeout, catalog,
-    isEmpty) {
+    $http, $state, storage, $timeout, catalog, notificationService,
+    isEmpty, userService) {
 
     $log.debug('[utpMasterController] Initializing...');
 
@@ -19,31 +19,23 @@
     vm.storage.messages = [];
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
-    vm.backImage = 'src/img/starwars.jpg';
-    vm.myBackObj = {
-      'background-image': 'url(' + vm.backImage + ')',
-      'background-size': 'cover'
-    };
-
-    vm.showExamples = true;
-
-    vm.isDefined = angular.isDefined;
-
-    vm.select = function() {
-      $http.get("php/selectAllUsers.php")
-        .then(function(response) {
-          vm.users = response.data.records;
-          vm.msg = "Consulta Exitosa";
-        });
-    };
 
     vm.initCatalogs = function() {
       catalog();
     };
 
-    vm.showLogOff = function() {
+    vm.showLogOffButton = function() {
       return !isEmpty(storage.user);
     };
+
+    vm.updateNavBar = function() {
+      if ($state.$current.name == "main-documentation") {
+        vm.navBarItem = $state.$current.name;
+        return;
+      }
+      vm.navBarItem = 'login';
+
+    }
 
     vm.logggOut = function() {
       storage.user = undefined;
@@ -53,9 +45,8 @@
     vm.goToLogIn = function() {
       storage.showLoader = true;
       $timeout(function() {
-        storage.showLoader = false;
         $state.transitionTo("login");
-        setNavBar('login');
+        storage.showLoader = false;
       }, 700);
     };
 
@@ -69,7 +60,7 @@
     }
     var setup = function() {
       vm.initCatalogs();
-      setNavBar('login');
+      vm.getInitialState();
     };
 
     setup();
@@ -85,7 +76,9 @@
     '$sessionStorage',
     '$timeout',
     'catalogFilter',
-    'isEmptyFilter'
+    'notificationService',
+    'isEmptyFilter',
+    'userService'
   ];
   win.MainApp.Controllers
     .controller('masterController', masterController);

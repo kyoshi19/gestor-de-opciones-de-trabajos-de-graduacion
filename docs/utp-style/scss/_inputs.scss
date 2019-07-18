@@ -2,13 +2,27 @@
   display: none;
 }
 
-/********* INPUT *********/
+/*****INPUT CONTAINER*****/
 
 md-input-container {
   margin-bottom: 0px;
 
+  &.disabled{
+    label {
+      color: $utp-muted;
+  
+      &::after {
+        color: $utp-muted;
+      }
+    }    
+  }
+
   label {
     color: $utp-main-color;
+
+    &::after {
+      color: $utp-red;
+    }
   }
 
   &:not(.md-input-invalid).md-input-has-value label {
@@ -20,6 +34,20 @@ md-input-container {
   }
 }
 
+/********* INPUT *********/
+
+input {
+  border-color: $utp-input-border;
+
+  &:focus {
+    border-color: $utp-main-color;
+    border-width: 0 0 1px 0 !important;
+  }
+
+  &.aa-invalid-attempt:not(.ng-valid):not([disabled]) {
+    border-color: $utp-red;
+  }
+}
 
 /********* RADIO *********/
 
@@ -47,16 +75,61 @@ md-radio-group.md-focused {
     .md-container:before {
       background-color: $utp-main-color-transparent !important;
     }
+
+  }
+}
+
+md-radio-group.md-focused {
+  .md-checked {
+    .md-container:before {
+      background-color: $utp-main-color-transparent !important;
+    }
   }
 }
 
 
 
 /********* SELECT *********/
+
 md-select {
   margin: 0px !important;
-  .md-select-value.md-select-placeholder {
+
+  .md-select-value {
     color: $utp-main-color;
+    border-color: $utp-input-border;
+
+    span:not(.md-select-icon)::after {
+      color: $utp-red;
+    }
+  }
+
+  &:focus .md-select-value{
+    border-color: $utp-main-color !important;
+    border-width: 0 0 1px 0 !important;
+  }
+
+  &[disabled] .md-select-value{
+    color: $utp-muted !important;
+
+    span:not(.md-select-icon)::after {
+      color: $utp-muted;
+    }
+  }
+}
+
+md-select-menu {
+  background-color: $utp-white;
+
+  md-content {
+    md-option {
+      &[selected] {
+        color: $utp-main-color;
+        background-color: $utp-item-hover;
+      }
+      &:hover{
+        background-color: $utp-item-hover;
+      }
+    }
   }
 }
 
@@ -81,6 +154,17 @@ md-select {
 
   &.active {
     background-color: $utp-main-color;
-    color: white;
+    color: $utp-white;
+  }
+}
+
+/**********TEXT AREA**********/
+
+textarea{
+  border-color: $utp-input-border;
+
+  &:focus{
+    border-color: $utp-main-color !important;
+    border-width: 0 0 1px 0 !important;
   }
 }

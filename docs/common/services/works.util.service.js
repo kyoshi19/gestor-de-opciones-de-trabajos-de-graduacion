@@ -5,58 +5,72 @@
 
     $log.debug('[workUtilService] initializing...');
 
-    return{
-      searchWorks:searchWorks,
-      searchWorksByAdviser:searchWorksByAdviser,
-      deleteWork:deleteWork,
-      updatetWork:updatetWork,
-      insertWork:insertWork
+    return {
+      searchWorks: searchWorks,
+      searchWorksByAdviser: searchWorksByAdviser,
+      deleteWork: deleteWork,
+      updatetWork: updatetWork,
+      insertWork: insertWork
     };
 
     function searchWorks(workToSearch) {
       var deferer = $q.defer();
-      $http.post("php/selectWorks.php",workToSearch)
-        .then(function(response){
+      $http.post("php/selectWorks.php", workToSearch)
+        .then(function(response) {
+
+          if (response.data) {
+            response.data.records.forEach(element => {
+              element.description = element.description.replace(/@/g, '\n')
+            });
+          }
 
           deferer.resolve(response);
         });
       return deferer.promise;
     }
 
-    function searchWorksByAdviser(adviser){
+    function searchWorksByAdviser(adviser) {
       var deferer = $q.defer();
-      $http.post("php/selectWorksByAdviser.php",adviser)
-        .then(function(response){
+      $http.post("php/selectWorksByAdviser.php", adviser)
+        .then(function(response) {
+
+          if (response.data) {
+            response.data.records.forEach(element => {
+              element.description = element.description.replace(/@/g, '\n')
+            });
+          }
 
           deferer.resolve(response);
         });
       return deferer.promise;
     }
 
-    function deleteWork(workCode){
+    function deleteWork(workCode) {
       var deferer = $q.defer();
-      $http.post("php/deleteWork.php",workCode)
-        .then(function(response){
+      $http.post("php/deleteWork.php", workCode)
+        .then(function(response) {
 
           deferer.resolve(response);
         });
       return deferer.promise;
     }
 
-    function updatetWork(work){
+    function updatetWork(work) {
+      work.description = work.description.replace(/\n/g, '@');
       var deferer = $q.defer();
-      $http.post("php/updateWork.php",work)
-      .then(function(response){
+      $http.post("php/updateWork.php", work)
+        .then(function(response) {
 
-        deferer.resolve(response);
-      });
+          deferer.resolve(response);
+        });
       return deferer.promise;
     }
 
-    function insertWork(work){
+    function insertWork(work) {
+      work.description = work.description.replace(/\n/g, '@');
       var deferer = $q.defer();
-      $http.post("php/insertWork.php",work)
-        .then(function(response){
+      $http.post("php/insertWork.php", work)
+        .then(function(response) {
 
           deferer.resolve(response);
         });
@@ -73,7 +87,7 @@
   ];
   //  Module
   win.MainApp.Services
-  .service('workUtilService', workUtilService);
+    .service('workUtilService', workUtilService);
 
 
 })(window);

@@ -2,12 +2,18 @@
 /*--------TEXTS--------*/
 /*-------ALERTS--------*/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 body {
   height: fit-content;
 }
 
+<<<<<<< HEAD
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 .info {
   cursor: pointer;
   color: #004198;
@@ -22,12 +28,18 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 .no-focus-shaddow:focus {
   outline: none;
 }
 
+<<<<<<< HEAD
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 /*
  * ALERTAS
  */
@@ -150,11 +162,16 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .md-button.md-accent {
 =======
 .md-button.md-raised.md-primary {
   background-color: #004198 !important;
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+.md-button.md-raised.md-primary {
+  background-color: #004198 !important;
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
   color: #ffffff;
 }
 
@@ -175,6 +192,10 @@ footer {
   color: #ffffff;
   font-size: 13px;
   padding-left: 90px !important;
+  margin-top: 13px;
+}
+.footer-info p {
+  margin-top: 0px;
 }
 
 .footer-interest {
@@ -696,7 +717,10 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 .m-0 {
   margin: 0rem !important;
 }
@@ -985,7 +1009,10 @@ body {
   padding-left: 3rem !important;
 }
 
+<<<<<<< HEAD
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 .master-view {
   min-height: 450px;
 }
@@ -1005,10 +1032,14 @@ body {
 
 td.work-item:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #ddeafc;
 =======
   background-color: #dceaff;
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+  background-color: #dceaff;
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
   cursor: pointer;
 }
 
@@ -1045,10 +1076,14 @@ td.work-item:hover {
 
 .hand-hover:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background-color: #ddeafc;
 =======
   background-color: #dceaff;
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+  background-color: #dceaff;
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
   cursor: pointer;
 }
 
@@ -1075,9 +1110,12 @@ td.work-item:hover {
 .utp-login {
   padding: 10px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   box-shadow: 0px 1px 8px rgba(15, 65, 152, 0.26);
 =======
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
   margin-top: 40px;
   margin-bottom: 20px;
 }
@@ -1102,16 +1140,26 @@ h1, h2, h3, h4, h5, h6,
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 button, select, html, textarea, input {
   font-family: "Titillium", "Helvetica Neue", sans-serif !important;
 }
 
+<<<<<<< HEAD
 button, html, select, textarea, input {
   font-weight: bold !important;
 }
 
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+button, select, textarea {
+  font-weight: bold !important;
+}
+
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 .name-and-slogan {
   margin-top: 30px;
   margin-left: 8px;
@@ -1138,12 +1186,15 @@ button, html, select, textarea, input {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .harlow {
   font-family: "Titillium";
 }
 
 =======
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 .message-result {
   color: #2b94b3;
 }
@@ -1288,6 +1339,7 @@ md-toolbar h2 {
 md-dialog {
   top: -7%;
   position: fixed;
+  background-color: #ffffff;
 }
 
 .popover {
@@ -1304,18 +1356,39 @@ md-dialog {
   display: none;
 }
 
-/********* INPUT *********/
+/*****INPUT CONTAINER*****/
 md-input-container {
   margin-bottom: 0px;
 }
+md-input-container.disabled label {
+  color: #6c757d;
+}
+md-input-container.disabled label::after {
+  color: #6c757d;
+}
 md-input-container label {
   color: #004198;
+}
+md-input-container label::after {
+  color: #ff0000;
 }
 md-input-container:not(.md-input-invalid).md-input-has-value label {
   color: #004198;
 }
 md-input-container.aa-invalid-attempt label {
   color: #ff0000;
+}
+
+/********* INPUT *********/
+input {
+  border-color: rgba(0, 0, 0, 0.26);
+}
+input:focus {
+  border-color: #004198;
+  border-width: 0 0 1px 0 !important;
+}
+input.aa-invalid-attempt:not(.ng-valid):not([disabled]) {
+  border-color: #ff0000;
 }
 
 /********* RADIO *********/
@@ -1330,22 +1403,54 @@ md-radio-button.md-checked .md-ink-ripple {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 md-radio-group.md-focused .md-checked .md-container:before {
   background-color: rgba(15, 65, 152, 0.26) !important;
 }
 
+<<<<<<< HEAD
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 /********* SELECT *********/
 md-select {
   margin: 0px !important;
 }
-md-select .md-select-value.md-select-placeholder {
+md-select .md-select-value {
   color: #004198;
+  border-color: rgba(0, 0, 0, 0.26);
+}
+md-select .md-select-value span:not(.md-select-icon)::after {
+  color: #ff0000;
+}
+md-select:focus .md-select-value {
+  border-color: #004198 !important;
+  border-width: 0 0 1px 0 !important;
+}
+md-select[disabled] .md-select-value {
+  color: #6c757d !important;
+}
+md-select[disabled] .md-select-value span:not(.md-select-icon)::after {
+  color: #6c757d;
+}
+
+md-select-menu {
+  background-color: #ffffff;
+}
+md-select-menu md-content md-option[selected] {
+  color: #004198;
+  background-color: #dceaff;
+}
+md-select-menu md-content md-option:hover {
+  background-color: #dceaff;
 }
 
 /********* DROPDOWN *********/
 .sidenav-adviser {
+<<<<<<< HEAD
 <<<<<<< HEAD
   margin-top: 20%;
 }
@@ -1353,17 +1458,25 @@ md-select .md-select-value.md-select-placeholder {
 =======
   margin-top: 19%;
 }
+=======
+  margin-top: 19%;
+}
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 
 .sidenav-document {
   margin-top: 6%;
 }
 
 .sidenav-item {
+<<<<<<< HEAD
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
   border-style: solid;
   border-color: #004198;
   border-width: 0px 1px 1px 0px;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 .sidenav-adviser .sidenav-item:hover {
   background-color: #ddeafc;
@@ -1377,8 +1490,24 @@ md-select .md-select-value.md-select-placeholder {
 }
 .sidenav-item.active {
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
+=======
+.sidenav-item:hover {
+  background-color: #dceaff;
+  cursor: pointer;
+}
+.sidenav-item.active {
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
   background-color: #004198;
-  color: white;
+  color: #ffffff;
+}
+
+/**********TEXT AREA**********/
+textarea {
+  border-color: rgba(0, 0, 0, 0.26);
+}
+textarea:focus {
+  border-color: #004198 !important;
+  border-width: 0 0 1px 0 !important;
 }
 
 table.md-table th {
@@ -1404,8 +1533,11 @@ table.md-table td.md-cell i.far {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .active-animation .ng-move, .active-animation .ng-enter, .active-animation .ng-leave {
 =======
+=======
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 md-table-pagination.md-table-pagination {
   font-size: 14px;
   font-weight: bold;
@@ -1418,18 +1550,61 @@ md-table-pagination.md-table-pagination md-icon {
 .active-animation .ng-move,
 .active-animation .ng-enter,
 .active-animation .ng-leave {
+<<<<<<< HEAD
 >>>>>>> e23f33bcbe89466613dafce79374ac0ca428e68e
   transition: all linear 0.5s;
+=======
+  transition: all linear 0.25s;
+>>>>>>> 6334b59365b5bf1456d360e4546e4f3c91e6d57f
 }
 .active-animation .ng-leave.ng-leave-active,
 .active-animation .ng-move,
 .active-animation .ng-enter {
   opacity: 0;
+  top: -10px;
 }
 .active-animation .ng-leave,
 .active-animation .ng-move.ng-move-active,
 .active-animation .ng-enter.ng-enter-active {
   opacity: 1;
+  top: 0px;
+}
+
+.document-item {
+  height: 120px;
+  overflow: hidden;
+}
+
+.document-title {
+  border: #004198;
+  border-bottom: solid;
+  border-width: 1px;
+}
+.document-title em {
+  transition: all ease 0.5s;
+}
+.document-title em.active {
+  transform: rotate(90deg);
+}
+
+.active-animation-transform .ng-move,
+.active-animation-transform .ng-enter,
+.active-animation-transform .ng-leave {
+  transition: all ease 0.5s;
+}
+.active-animation-transform .ng-leave.ng-leave-active,
+.active-animation-transform .ng-move,
+.active-animation-transform .ng-enter {
+  height: 0px;
+}
+.active-animation-transform .ng-leave,
+.active-animation-transform .ng-move.ng-move-active,
+.active-animation-transform .ng-enter.ng-enter-active {
+  height: 120px;
+}
+
+.animate-color {
+  transition: background-color linear 0.2s;
 }
 
 <<<<<<< HEAD

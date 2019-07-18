@@ -3,7 +3,7 @@
 
   var modalService = function($log, $uibModal, $rootScope) {
 
-    $log.debug("[Liferay/Angular/ModalService] Initializing...");
+    $log.debug("[ModalService] Initializing...");
 
     var modalInstance = {};
 

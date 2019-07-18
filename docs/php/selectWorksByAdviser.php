@@ -40,13 +40,14 @@ if(!$conn->query($query)){
     
     $outp .= '"candidates":[';
 
-    $query = "SELECT faculty, career FROM candidates WHERE work_code = ".$rs["id"].";";
+    $query = "SELECT id, faculty, career FROM candidates WHERE work_code = ".$rs["id"].";";
     $candidates = $conn->query($query);
     $outp2 = "";
     
     while($res = $candidates->fetch_array(MYSQLI_ASSOC)) {
       if ($outp2 != "") {$outp2 .= ",";}
-      $outp2 .= '{"faculty":"'. $res["faculty"] . '",';
+      $outp2 .= '{"id":"'. $res["id"] . '",';
+        $outp2 .= '"faculty":"'. $res["faculty"] . '",';
       $outp2 .= '"career":"'. $res["career"] . '"}';
     }
 
