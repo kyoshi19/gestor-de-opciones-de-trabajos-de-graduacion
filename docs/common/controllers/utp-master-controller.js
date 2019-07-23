@@ -1,9 +1,8 @@
 (function(win) {
   'use strict';
 
-  var masterController = function($log, patterns,
-    $http, $state, storage, $timeout, catalog, notificationService,
-    isEmpty, userService) {
+  var masterController = function($log, patterns, $state, storage, $timeout, catalog,
+    notificationService,   isEmpty, userService) {
 
     $log.debug('[utpMasterController] Initializing...');
 
@@ -29,37 +28,51 @@
     };
 
     vm.updateNavBar = function() {
+
       if ($state.$current.name == "main-documentation") {
+
         vm.navBarItem = $state.$current.name;
         return;
+
       }
+
       vm.navBarItem = 'login';
 
-    }
+    };
 
     vm.logggOut = function() {
+
       storage.user = undefined;
       vm.goToLogIn();
+
     };
 
     vm.goToLogIn = function() {
+
       storage.showLoader = true;
+
       $timeout(function() {
+
         $state.transitionTo("login");
         storage.showLoader = false;
+
       }, 700);
+
     };
 
     vm.validateUser = function(logginUser) {
 
       if (storage.user) {
+
         vm.goToMain();
         return;
+
       }
 
       if (!logginUser) {
         return;
       }
+
       storage.showLoader = true;
 
       userService.findUser(logginUser).then(function(response) {
@@ -75,8 +88,8 @@
           notificationService.showError("global.error.no.user.find");
 
         }
-      });
 
+      });
 
     };
 
@@ -119,13 +132,10 @@
 
     setup();
 
-
-
   };
   masterController.$inject = [
     '$log',
     'patternList',
-    '$http',
     '$state',
     '$sessionStorage',
     '$timeout',
