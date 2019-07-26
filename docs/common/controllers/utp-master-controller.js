@@ -13,6 +13,7 @@
     */
 
     // VM
+    
     var vm = this;
     vm.storage = storage;
     vm.storage.messages = [];

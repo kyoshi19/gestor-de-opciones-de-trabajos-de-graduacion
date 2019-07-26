@@ -30,9 +30,12 @@
 
     vm.delete = function() {
       storage.showLoader = true;
+
       workService.deleteWork(vm.data.id)
         .then(function(response) {
+
           mdDialog.hide(response);
+          
         });
     };
 
@@ -40,10 +43,12 @@
       storage.showLoader = true;
       
       vm.tempWork.description = angular.copy(vm.tempWork.description.replace(/\n/g, '@'));
-      workService.updatetWork(vm.tempWork)
 
+      workService.updatetWork(vm.tempWork)
         .then(function(response) {
+
           mdDialog.hide(response);
+
         });
     };
 
