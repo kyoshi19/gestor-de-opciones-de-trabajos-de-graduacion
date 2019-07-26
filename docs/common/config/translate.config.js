@@ -44,15 +44,15 @@ var EStranslate = {
 
   // TRABAJOS DE GRADUACIÓN
   'global.work'                     : 'Trabajo de graduación',
-  'global.works'                    : 'Trabajos de graduación',
-  'global.my.works'                 : 'Mis trabajos de graduación',
+  'global.works'                    : 'Opciones de trabajos de graduación',
+  'global.my.works'                 : 'Mis opciones de trabajo de graduación',
   'global.work.description'         : 'Descripción del trabajo',
   'global.work.type'                : 'Tipo de trabajo',
   'global.work.types'               : 'Tipos de trabajos',
   'global.work.students.count'      : 'Cantidad de estudiantes',
   'global.main.student.page.title'  : 'Busca tu opción de trabajo de graduación',
   'global.main.advisor.page.title'  : 'Administrar opciones de trabajo de graduación',
-  'global.work.add'                 : 'Agregar trabajos de graduación',
+  'global.work.add'                 : 'Agregar opciones de trabajos de graduación',
   'global.work.add.button'          : 'Agregar trabajo',
   
   // MENSAJES DE ERROR DE VALIDACION
