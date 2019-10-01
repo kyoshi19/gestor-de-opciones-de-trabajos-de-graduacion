@@ -75,19 +75,8 @@ md-radio-group.md-focused {
     .md-container:before {
       background-color: $utp-main-color-transparent !important;
     }
-
   }
 }
-
-md-radio-group.md-focused {
-  .md-checked {
-    .md-container:before {
-      background-color: $utp-main-color-transparent !important;
-    }
-  }
-}
-
-
 
 /********* SELECT *********/
 
@@ -134,6 +123,7 @@ md-select-menu {
 }
 
 /********* DROPDOWN *********/
+
 .sidenav-adviser {
   margin-top: 19%;
 }
