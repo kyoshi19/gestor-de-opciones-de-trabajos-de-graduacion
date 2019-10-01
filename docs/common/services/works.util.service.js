@@ -36,7 +36,7 @@
 
           if (response.data) {
             response.data.records.forEach(element => {
-              element.description = element.description.replace(/@/g, '\n')
+              element.description = element.description.replace(/@/g, '\n');
             });
           }
 

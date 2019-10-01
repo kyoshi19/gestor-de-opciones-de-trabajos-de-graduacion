@@ -4,30 +4,32 @@
   //  searchJob directive
   function searchJob($log, storage, selectOption, $http,
     $window, isEmpty, workService, translate) {
-      var directive = {
-        restrict        : 'E',
-        templateUrl     : 'common/directives/searchJob/searchJob.html',
-        scope           : {
-          goToLogin     : "&"
-        },
-        link            : linkFunc
+    var directive = {
+      restrict: 'E',
+      templateUrl: 'common/directives/searchJob/searchJob.html',
+      scope: {
+        goToLogin: "&"
+      },
+      link: linkFunc
+    };
+    return directive;
+
+    ////////
+
+    function linkFunc(scope, el, attr, ctrl) {
+
+      $log.debug('[searchJobDirective] initializing...');
+
+      /* - */
+      storage.showLoader = false;
+      scope.user = storage.user;
+      scope.workToSearch = {
+        workType: "",
+        faculty: "",
+        center: "",
+        field: ""
       };
-      return directive;
-
-      function linkFunc(scope, el, attr, ctrl) {
-
-        $log.debug('[searchJobDirective] initializing...');
-
-        /* - */
-        storage.showLoader = false;
-        scope.user = storage.user;
-        scope.workToSearch ={
-          workType: "",
-          faculty: "",
-          center: "",
-          field: ""
-        };
-        scope.selectOption = selectOption;
+      scope.selectOption = selectOption;
 
       scope.initSelect = function(item) {
         if (!item) {

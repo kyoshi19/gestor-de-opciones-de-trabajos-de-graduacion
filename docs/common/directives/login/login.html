@@ -6,10 +6,7 @@
 
   <div layout="row">
     <div flex-offset="5" flex="90">
-      <div layout="column" layout-margin>
-
-      <div layout="row" layout-margin layout-wrap layout-align="center center">
-
+      <div layout="row" layout-margin layout-wrap layout-align="start center">
 
         <!-- TIPO DE IDENTIFICACION -->
         <div flex=100>
@@ -26,11 +23,7 @@
         <!-- IDENTIFICACION -->
         <div flex="100" ng-if="identificationType.id == ('identificationTypes'| bgValue).identification.id">
           <md-input-container class="md-block">
-
-          <label ng-class="loginForm.identification.$error.length > 0 ? aa-invalid-attempt:''">
-            {{'global.id' | translate}}
-          </label>
-          
+          <label>{{'global.id' | translate}}</label>
             <input class="text-uppercase"
               name="identification"
               aa-label="{{'global.id' | translate}}"

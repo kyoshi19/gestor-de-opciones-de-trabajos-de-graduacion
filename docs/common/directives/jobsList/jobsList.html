@@ -36,29 +36,6 @@
     <div class="text-center" ng-if="tableTitle">
       <h2>{{tableTitle}}</h2>
     </div>
-    
-    <h6 ng-if="worksCount" class="message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h6>
-    
-    
-    <table ng-table="dataTable" class="table">
-      <tr ng-repeat="work in $data">
-        <td class ="" title="'ID'" >
-          <h6 class="text-muted">{{work.id}}</h6>
-        </td>
-        <td class ="w-100" title="'TEMA'">
-          <h6>{{work.title}}</h6>
-        </td>
-        <td class ="" title="'OPCIONES'" ng-if="showOptions">
-          <div class="row align-items-center">
-            <div class="col-md-12 col-sm-12">
-              <i class="far fa-edit" ng-click="openUpdateWorkModal(work)"></i>
-              <i class="far fa-trash-alt" ng-click="openDeleteWork(work)"></i>
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
-
     <h4 ng-if="worksCount" class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
     
     <md-table-container>
@@ -72,8 +49,7 @@
               </thead>
           <tbody md-body>
             <tr md-row ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
-              <td md-cell>
-                <div layout="row" layout-padding class="no-padding">
+              <td md-cell >
                 <h4 class="no-margin text-muted">{{work.id}}</h4>
               </td>
               <td md-cell  class="py-3">

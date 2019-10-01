@@ -17,8 +17,6 @@
 
       $log.debug('[utpLoginDirective] initializing...');
 
-      $log.debug('[utpLoginDirective] initializing...');
-
       /* --> VALUES <-- */
 
       scope.userToSearch = {
