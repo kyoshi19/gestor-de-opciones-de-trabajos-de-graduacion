@@ -15,7 +15,7 @@ while($rs = $resultCatalogs->fetch_array(MYSQLI_ASSOC)) {
 	$outp .= '"'.$rs["name"] . '":[';
 
 	if ($rs['code'] != 'IDT') {
-		$res = '{"id":"","name":"Seleccionar", "related":""},{"id":"0", "name":"Todos", "related":""}';
+		$res = '{"id":"0", "name":"Todos", "related":""}';
 	}
 
 	$resultItems = $conn->query("SELECT cati_code AS 'id', cati_name AS 'name', cati_code_rel AS 'related' FROM catalogs_items WHERE cat_code = '".$rs["code"]."'

@@ -15,7 +15,7 @@ var EStranslate = {
   'header.faculty'                  : 'Facultad de Ingeniería de Sistemas Computacionales',
   'global.firstName'                : 'Nombre',
   'global.faculty'                  : 'Facultad',
-  'global.carrer'                   : 'Carrera',
+  'global.career'                   : 'Carrera',
   'global.lastName'                 : 'Apellido',
   'global.id'                       : 'Cédula',
   'global.passport'                 : 'Pasaporte',
@@ -23,7 +23,7 @@ var EStranslate = {
   'global.login'                    : 'Iniciar Sesión',
   'global.logout'                   : 'Cerrar sesión',
   'global.cancel'                   : 'Cancelar',
-  'global.advisor'                  : 'Asesor',
+  'global.advisor'                  : 'Proponente',
   'global.title'                    : 'Título',
   'global.email'                    : 'Correo electrónico',
   'global.subject'                  : 'Asunto',
@@ -34,6 +34,9 @@ var EStranslate = {
   'global.key.words'                : 'Palabras claves',
   'global.search.results'           : 'Resultados de la búsqueda',
   'global.results.count'            : 'La búsqueda ha dado {{count}} resultado/s',
+  'global.update'                   : 'Actualizar',
+  'global.adviser.contact'          : 'Contactar al asesor',
+
 
   // PESTAÑAS
   'global.tab.home'                 : 'Inicio',
@@ -41,15 +44,15 @@ var EStranslate = {
 
   // TRABAJOS DE GRADUACIÓN
   'global.work'                     : 'Trabajo de graduación',
-  'global.works'                    : 'Trabajos de graduación',
-  'global.my.works'                 : 'Mis trabajos de graduación',
+  'global.works'                    : 'Opciones de trabajos de graduación',
+  'global.my.works'                 : 'Mis opciones de trabajo de graduación',
   'global.work.description'         : 'Descripción del trabajo',
   'global.work.type'                : 'Tipo de trabajo',
   'global.work.types'               : 'Tipos de trabajos',
   'global.work.students.count'      : 'Cantidad de estudiantes',
   'global.main.student.page.title'  : 'Busca tu opción de trabajo de graduación',
   'global.main.advisor.page.title'  : 'Administrar opciones de trabajo de graduación',
-  'global.work.add'                 : 'Agregar trabajos de graduación',
+  'global.work.add'                 : 'Agregar opciones de trabajos de graduación',
   'global.work.add.button'          : 'Agregar trabajo',
   
   // MENSAJES DE ERROR DE VALIDACION

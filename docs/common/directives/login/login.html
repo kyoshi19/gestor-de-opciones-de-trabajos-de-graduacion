@@ -6,7 +6,7 @@
 
   <div layout="row">
     <div flex-offset="5" flex="90">
-      <div layout="row" layout-margin layout-wrap layout-align="center center">
+      <div layout="row" layout-margin layout-wrap layout-align="start center">
 
         <!-- TIPO DE IDENTIFICACION -->
         <div flex=100>
@@ -19,11 +19,11 @@
             </md-radio-button>
           </md-radio-group>
         </div>
-        
+
         <!-- IDENTIFICACION -->
         <div flex="100" ng-if="identificationType.id == ('identificationTypes'| bgValue).identification.id">
           <md-input-container class="md-block">
-          <label ng-class="loginForm.identification.$error.length > 0 ? aa-invalid-attempt:''">{{'global.id' | translate}}</label>
+          <label>{{'global.id' | translate}}</label>
             <input class="text-uppercase"
               name="identification"
               aa-label="{{'global.id' | translate}}"
@@ -62,7 +62,7 @@
           </md-input-container>
 
         </div>
-        <div>
+        <div class="ml-0">
           <em class="viewPassword no-focus-shaddow"
             ng-class="passwordConfig().icon"
             ng-click="showPassword()">
@@ -77,7 +77,7 @@
     <div flex>
       <md-button class="md-raised md-primary" 
       type="submit"
-      aa-submit-form="validateUser()">
+      aa-submit-form="findUser(userToSearch)">
       Iniciar sesión
     </md-button>
     </div>
