@@ -1,23 +1,34 @@
-(function(win) {
+(function (win) {
   "use strict";
 
-  var userService = function($log, $http, $q) {
+  var userService = function ($log, $http, $q) {
 
     $log.debug("[ModalService] Initializing...");
 
-    return{
-      findUser:findUser
+    return {
+      findUser: findUser
     }
 
-    function findUser(data){
+    function findUser(data) {
 
       var deferer = $q.defer();
 
-      $http.post("php/selectUser.php", data)
-        .then(function(response) {
-  
-          deferer.resolve(response);
-        });
+      var xhr = $http.post("php/selectUser.php", data);
+
+      xhr.then(function (response) {
+
+        if (response.data.error) {
+
+          deferer.reject(response);
+
+          return;
+
+        }
+
+        deferer.resolve(response);
+
+      });
+
       return deferer.promise;
 
     }

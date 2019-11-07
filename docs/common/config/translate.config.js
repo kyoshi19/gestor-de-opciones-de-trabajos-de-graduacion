@@ -23,7 +23,7 @@ var EStranslate = {
   'global.login'                    : 'Iniciar Sesión',
   'global.logout'                   : 'Cerrar sesión',
   'global.cancel'                   : 'Cancelar',
-  'global.advisor'                  : 'Asesor',
+  'global.advisor'                  : 'Proponente',
   'global.title'                    : 'Título',
   'global.email'                    : 'Correo electrónico',
   'global.subject'                  : 'Asunto',

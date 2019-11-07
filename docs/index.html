@@ -30,7 +30,6 @@
 
 </head>
 <body ng-controller="masterController as mctrl">
-  BRANCH : ft_angularjs_io
 
   <!-- NOTIFICACIONES -->
   <ng-include  src="'common/templates/notifications.html'"></ng-include>
@@ -46,9 +45,8 @@
     </div>
   </div>
 
-  {{mctrl.updateNavBar()}}
   <!-- VISTAS DE LAS PÁGINAS -->
-  <div class="master-view"ui-view></div>
+  <div class="master-view"ui-view ng-init="mctrl.updateNavBar()"></div>
 
   <footer>
     <!-- FOOTER DE TODAS LAS PÁGINAS -->

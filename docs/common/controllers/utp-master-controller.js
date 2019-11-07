@@ -1,8 +1,8 @@
-(function(win) {
+(function (win) {
   'use strict';
 
-  var masterController = function($log, patterns, $state, storage, $timeout, catalog,
-    notificationService,   isEmpty, userService) {
+  var masterController = function ($log, patterns, $state, storage, $timeout, catalog,
+    notificationService, isEmpty, userService) {
 
     $log.debug('[utpMasterController] Initializing...');
 
@@ -13,22 +13,22 @@
     */
 
     // VM
-    
+
     var vm = this;
     vm.storage = storage;
     vm.storage.messages = [];
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
 
-    vm.initCatalogs = function() {
+    vm.initCatalogs = function () {
       catalog();
     };
 
-    vm.showLogOffButton = function() {
+    vm.showLogOffButton = function () {
       return !isEmpty(storage.user);
     };
 
-    vm.updateNavBar = function() {
+    vm.updateNavBar = function () {
 
       if ($state.$current.name == "main-documentation") {
 
@@ -41,18 +41,18 @@
 
     };
 
-    vm.logggOut = function() {
+    vm.logggOut = function () {
 
       storage.user = undefined;
       vm.goToLogIn();
 
     };
 
-    vm.goToLogIn = function() {
+    vm.goToLogIn = function () {
 
       storage.showLoader = true;
 
-      $timeout(function() {
+      $timeout(function () {
 
         $state.transitionTo("login");
         storage.showLoader = false;
@@ -61,7 +61,7 @@
 
     };
 
-    vm.validateUser = function(logginUser) {
+    vm.validateUser = function (logginUser) {
 
       if (storage.user) {
 
@@ -76,7 +76,7 @@
 
       storage.showLoader = true;
 
-      userService.findUser(logginUser).then(function(response) {
+      userService.findUser(logginUser).then(function (response) {
 
         if (response.data.records.length > 0) {
 
@@ -94,11 +94,11 @@
 
     };
 
-    vm.goToMain = function() {
+    vm.goToMain = function () {
 
       storage.showLoader = true;
 
-      $timeout(function() {
+      $timeout(function () {
 
         if (storage.user.type === "E") {
           $state.transitionTo("main-student");
@@ -114,7 +114,7 @@
 
     };
 
-    vm.getInitialState = function() {
+    vm.getInitialState = function () {
 
       if (!isEmpty(storage.user)) {
 
@@ -126,7 +126,7 @@
 
     };
 
-    var setup = function() {
+    var setup = function () {
       vm.initCatalogs();
       vm.getInitialState();
     };

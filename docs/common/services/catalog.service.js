@@ -1,45 +1,44 @@
-(function(win) {
+(function (win) {
   'use strict';
 
   function catalogService($log, $http, isEmpty, filter) {
 
     $log.debug('[catalogService] initializing...');
 
-    var data={};
+    var data = {};
     var call = false;
-    return{
-      get:get,
-      item:item
+    return {
+      get: get,
+      item: item
     };
     // OBTENER CATALOGO //
     function get(element) {
 
       if (isEmpty(data) && !call) {
         call = true;
+
         $log.debug('[geting catalogs]...');
-        $http.get("php/selectCatalogs.php").then(
-          function (response) {
-            call = false;
-            data = response.data;
-          },
-          function(data) {
-            /*
-             * TODO: llamada de servicio de error en notificiación
-             */
-        });
+
+        $http.get("php/selectCatalogs.php").then(function (response) {
+          call = false;
+          data = response.data;
+        },
+          function (data) {
+
+          });
       }
       if (element) {
         return data[element];
       }
     }
 
-    function item(value, catalogName, defaultValue){
+    function item(value, catalogName, defaultValue) {
       var catalog = get(catalogName);
       defaultValue = angular.isDefined(defaultValue) ? defaultValue : '-1';
-      var doFilterCatalog = function(filterBy) {
-        return filter(catalog, function(element) {
-          if ((angular.isDefined(element.id)&& null !== element.id ) &&
-          angular.isDefined(filterBy)) {
+      var doFilterCatalog = function (filterBy) {
+        return filter(catalog, function (element) {
+          if ((angular.isDefined(element.id) && null !== element.id) &&
+            angular.isDefined(filterBy)) {
             return element.id.trim() === String(filterBy).trim();
           }
         });
@@ -61,6 +60,6 @@
 
   //  Module
   win.MainApp.Services
-  .service('catalogService', catalogService);
+    .service('catalogService', catalogService);
 
 })(window);
