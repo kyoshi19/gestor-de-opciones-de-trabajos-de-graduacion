@@ -2,7 +2,7 @@
   'use strict';
 
   //workInfo directive
-  function workInfo($log, candidateModel, bgValue, filter, mdDialog) {
+  function workInfo($log, profileModel, bgValue, filter, mdDialog) {
 
     var directive = {
       restrict: 'E',
@@ -50,26 +50,26 @@
         });
       }
 
-      scope.updateCandidate = function() {
-        var cant = scope.workInfo.students - scope.workInfo.candidates.length;
+      scope.updateProfiles = function() {
+        var cant = scope.workInfo.students - scope.workInfo.profiles.length;
 
         if (cant > 0) {
           for (let index = 0; index < cant; index++) {
-            scope.workInfo.candidates.push(angular.copy(candidateModel));
+            scope.workInfo.profiles.push(angular.copy(profileModel));
           }
         } else {
           for (let index = 0; index > cant; index--) {
-            scope.workInfo.candidates.pop();
+            scope.workInfo.profiles.pop();
           }
         }
 
-        return scope.workInfo.candidates;
+        return scope.workInfo.profiles;
 
       };
 
       function setup() {
         if (!scope.toUpdate) {
-          scope.workInfo.candidates = [];
+          scope.workInfo.profiles = [];
           scope.workInfo.students = 1;
           scope.workInfo.type = null;
           scope.workInfo.title = '';
@@ -84,7 +84,7 @@
 
   workInfo.$inject = [
     '$log',
-    'candidateModel',
+    'profileModel',
     'bgValueFilter',
     'filterFilter',
     '$mdDialog'

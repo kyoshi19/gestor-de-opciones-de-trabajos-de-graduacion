@@ -32,7 +32,7 @@
       };
 
       scope.workToAdd = {};
-      scope.workToAdd.candidates = [];
+      scope.workToAdd.profiles = [];
       scope.showWorksTitleTable = translate.instant('global.works');
 
       /* --> METODOS <-- */

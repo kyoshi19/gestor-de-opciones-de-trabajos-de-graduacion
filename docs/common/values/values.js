@@ -39,7 +39,7 @@
       name: 'Seleccionar'
     })
 
-    .value('candidateModel', {
+    .value('profileModel', {
       faculty: '',
       career: ''
     })

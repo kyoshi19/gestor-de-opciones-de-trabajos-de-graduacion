@@ -75,8 +75,8 @@
             id="workType"
             min="1"
             max="3"
-            ng-init="updateCandidate()"
-            ng-change="updateCandidate()"
+            ng-init="updateProfiles()"
+            ng-change="updateProfiles()"
             aa-field-group="workInfo.students"
             aa-label="{{'global.work.students.count' | translate}}"
             aa-label-strategy="emptyStrategy"
@@ -88,18 +88,18 @@
     </div>
   </div>
 
-  <!-- CANDIDATOS -->
+  <!-- PERFILES -->
   <div flex="100"
-    ng-repeat="candidate in workInfo.candidates track by $index">
+    ng-repeat="profile in workInfo.profiles track by $index">
 
-    <h3 class="no-margin">Candidato {{$index+1}}</h3>
+    <h3 class="no-margin"> {{'global.pofile' | translate}} {{$index+1}}</h3>
 
     <div layout>
       <!-- FACULTAD -->
       <div flex="50">
         <md-input-container class="md-block">
           <label>{{'global.faculty' | translate}}</label>
-          <md-select aa-field-group="candidate.faculty"
+          <md-select aa-field-group="profile.faculty"
             id="faculty{{$index}}"
             name="faculty{{$index}}"
             aa-label="{{'global.faculty' | translate}}"
@@ -118,15 +118,15 @@
       <div flex="50">
         <md-input-container class="md-block">
           <label>{{'global.career' | translate}}</label>
-          <md-select aa-field-group="candidate.career"
+          <md-select aa-field-group="profile.career"
             id="career{{$index}}"
             name="career{{$index}}"
             aa-label="{{'global.career' | translate}}"
             aa-label-strategy="emptyStrategy"
-            ng-disabled="candidate.faculty | isEmpty"
+            ng-disabled="profile.faculty | isEmpty"
             required>
             <md-option ng-value="item.id"
-              ng-repeat="item in (('utpCareers'|catalog)| filter:candidate.faculty) track by item.id">
+              ng-repeat="item in (('utpCareers'|catalog)| filter:profile.faculty) track by item.id">
               {{ item.name }}
             </md-option>
           </md-select>
@@ -156,7 +156,7 @@
   </div>
 
   <div flex="50">
-    <p class="text-muted"><strong>{{'global.advisor' | translate}}:</strong> {{workInfo.advisor}}
+    <p class="text-muted"><strong>{{'global.proponent' | translate}}:</strong> {{workInfo.proponent}}
     </p>
     <p class="text-muted"><strong>{{'global.work.type' | translate}}:</strong>
       {{(workInfo.type | catalogItem:'graduationWorkTypes').name}}
@@ -177,11 +177,11 @@
   </div>
 
   <div flex="50"
-    ng-repeat="candidate in workInfo.candidates track by $index">
+    ng-repeat="profile in workInfo.profiles track by $index">
     <p class="text-muted">
       <strong>Perfil estudiantil {{$index+1}}</strong> <br>
-      {{(candidate.faculty | catalogItem:'utpFaculties').name}}<br>
-      {{(candidate.career | catalogItem:'utpCareers').name}}<br>
+      {{(profile.faculty | catalogItem:'utpFaculties').name}}<br>
+      {{(profile.career | catalogItem:'utpCareers').name}}<br>
     </p>
   </div>
 

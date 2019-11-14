@@ -23,7 +23,7 @@ var EStranslate = {
   'global.login'                    : 'Iniciar Sesión',
   'global.logout'                   : 'Cerrar sesión',
   'global.cancel'                   : 'Cancelar',
-  'global.advisor'                  : 'Proponente',
+  'global.proponent'                : 'Proponente',
   'global.title'                    : 'Título',
   'global.email'                    : 'Correo electrónico',
   'global.subject'                  : 'Asunto',
@@ -36,6 +36,7 @@ var EStranslate = {
   'global.results.count'            : 'La búsqueda ha dado {{count}} resultado/s',
   'global.update'                   : 'Actualizar',
   'global.adviser.contact'          : 'Contactar al asesor',
+  'global.pofile'                   : 'Perfil',
 
 
   // PESTAÑAS
@@ -51,7 +52,7 @@ var EStranslate = {
   'global.work.types'               : 'Tipos de trabajos',
   'global.work.students.count'      : 'Cantidad de estudiantes',
   'global.main.student.page.title'  : 'Busca tu opción de trabajo de graduación',
-  'global.main.advisor.page.title'  : 'Administrar opciones de trabajo de graduación',
+  'global.main.proponent.page.title': 'Administrar opciones de trabajo de graduación',
   'global.work.add'                 : 'Agregar opciones de trabajos de graduación',
   'global.work.add.button'          : 'Agregar trabajo',
   

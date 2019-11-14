@@ -13,7 +13,7 @@
             <tr md-row ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
               <td md-cell class="py-3 work-item" ng-click="openWorkInfo(work, $event)">
                 <h4 class="no-margin">{{'global.title' | translate}}: {{work.title}}</h4>
-                <h4 class=" no-margin text-muted">{{'global.advisor' | translate}}: {{work.advisor}}</h4>
+                <h4 class=" no-margin text-muted">{{'global.proponent' | translate}}: {{work.proponent}}</h4>
               </td>
             </tr>
           </tbody>
