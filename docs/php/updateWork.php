@@ -18,14 +18,14 @@ if (!$conn->query($sql)){ //ejecucion de query contra la base de datos
   $outp = '{"error":"'.$result.'"}';
 }else{
 
-  $sql = "DELETE FROM candidates WHERE work_code = '".$data["id"]."'";
+  $sql = "DELETE FROM profiles WHERE work_code = '".$data["id"]."'";
   $conn->query($sql);
 
-  $candidates = $data['candidates'];
-  for ($int=0; $int < count($candidates); $int++) { 
+  $profiles = $data['profiles'];
+  for ($int=0; $int < count($profiles); $int++) { 
 
-    $sql = "INSERT INTO candidates (work_code, faculty, career) 
-    VALUES ('".$data["id"]."', '".$candidates[$int]["faculty"]."', '".$candidates[$int]["career"]."')";
+    $sql = "INSERT INTO profiles (work_code, faculty, career) 
+    VALUES ('".$data["id"]."', '".$profiles[$int]["faculty"]."', '".$profiles[$int]["career"]."')";
 
     if (!$conn->query($sql)){ //ejecucion de query contra la base de datos
       $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;

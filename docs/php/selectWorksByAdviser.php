@@ -10,10 +10,10 @@ reset($data);
 $id = current($data); 	//Optiene elemento actual
 
 $query = "SELECT work_code as 'id', work_type as 'type',
-  w_title as 'title', work_desc as descrip, CONCAT(t2.us_fname,' ',t2.us_lname)  as 'advisor', faculty,
+  w_title as 'title', work_desc as descrip, CONCAT(t2.us_fname,' ',t2.us_lname)  as 'proponent', faculty,
   reg_center as 'center', studentsQty as 'students'
   FROM utp_tesis.graduation_works as t1
-INNER JOIN utp_users as t2 ON t1.advisor = t2.us_doc_num
+INNER JOIN utp_users as t2 ON t1.proponent = t2.us_doc_num
 WHERE t2.us_doc_num = '".$id."'
 ORDER BY t1.work_code DESC;";
 
@@ -33,18 +33,18 @@ if(!$conn->query($query)){
     $outp .= '"type":"'   . $rs["type"] . '",';
     $outp .= '"title":"'. $rs["title"] . '",';
     $outp .= '"description":"'. $rs["descrip"] . '",';
-    $outp .= '"advisor":"'. $rs["advisor"] . '",';
+    $outp .= '"proponent":"'. $rs["proponent"] . '",';
     $outp .= '"faculty":"'. $rs["faculty"] . '",';
     $outp .= '"center":"'. $rs["center"] . '",';
     $outp .= '"students":"'. $rs["students"] . '",';
     
-    $outp .= '"candidates":[';
+    $outp .= '"profiles":[';
 
-    $query = "SELECT id, faculty, career FROM candidates WHERE work_code = ".$rs["id"].";";
-    $candidates = $conn->query($query);
+    $query = "SELECT id, faculty, career FROM profiles WHERE work_code = ".$rs["id"].";";
+    $profiles = $conn->query($query);
     $outp2 = "";
     
-    while($res = $candidates->fetch_array(MYSQLI_ASSOC)) {
+    while($res = $profiles->fetch_array(MYSQLI_ASSOC)) {
       if ($outp2 != "") {$outp2 .= ",";}
       $outp2 .= '{"id":"'. $res["id"] . '",';
         $outp2 .= '"faculty":"'. $res["faculty"] . '",';

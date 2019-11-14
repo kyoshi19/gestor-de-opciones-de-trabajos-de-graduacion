@@ -9,15 +9,15 @@ $data = json_decode(file_get_contents("php://input"),true); //Recibe parametros 
 
 // Referencia https://stackoverflow.com/questions/28727163/why-i-cannot-call-the-procedure-from-php " the solution that works"
 
-$candidates_count =  count($data['candidates']); // Cantidad de candidatos
+$profiles_count =  count($data['profiles']); // Cantidad de perfiles
 
 $sql= "call insertWork('".$data['userId']."','".$data['title']."','".$data['type']."','".$data['description']."',".$data['students'];
 
-for ($int=0; $int < 3; $int++) { // Si los la cantidad de candidatos ingresados es menor a tres, la diferencia se mandan en blanco
+for ($int=0; $int < 3; $int++) { // Si los la cantidad de perfiles ingresados es menor a tres, la diferencia se mandan en blanco
   
-  if ($int+1 <= $candidates_count) {
+  if ($int+1 <= $profiles_count) {
 
-    $value = $data['candidates'][$int];
+    $value = $data['profiles'][$int];
     $sql .= ",'".$value['faculty']."','".$value['career']."'";
 
   }else {
