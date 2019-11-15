@@ -10,9 +10,9 @@
 <div md-whiteframe="1">
   <ng-form name="searchJobForm">
 
-    <div layout="row"
+    <div layout="row" layout-xs="column"
       layout-margin>
-      <div flex="25" id="MyDiv">
+      <div flex="25" flex-xs="100" id="MyDiv">
 
         <!--Select Tipo de trabajo -->
 
@@ -29,7 +29,7 @@
 
 
       </div>
-      <div flex="45">
+      <div flex="45" flex-xs="100">
 
         <!--Select Facultad -->
         <md-input-container class="md-block">
@@ -44,7 +44,7 @@
         </md-input-container>
 
       </div>
-      <div flex="33">
+      <div flex="33" flex-xs="100">
 
         <!--Select Centro regional -->
 
@@ -62,11 +62,11 @@
       </div>
     </div>
 
-    <div layout="row"
+    <div layout="row" layout-xs="column"
       layout-margin
       layout-align="start center">
       <!--Input palabras claves -->
-      <div flex="33">
+      <div flex="33" flex-xs="100">
         <md-input-container class="md-block">
           <label>{{'global.key.words' | translate}}</label>
           <input class="text-uppercase"
@@ -78,7 +78,7 @@
 
       </div>
 
-      <div flex="33">
+      <div flex="33" flex-xs="50">
         <md-button class="md-raised md-primary"
           type="submit"
           aa-submit-form="searchJobs()">
