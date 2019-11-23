@@ -1,23 +1,29 @@
 <md-dialog class="modal-lg">
   <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h2>{{ctrl.data.title}}</h2>
-      <span flex></span>
-      <md-button class="md-icon-button"
-        ng-click="ctrl.cancel()">
-        <em class="fas fa-times"></em>
-      </md-button>
+    <div class="md-toolbar-tools" layout="row">
+      <div flex="90">
+        <h2>{{ctrl.data.title}}</h2>
+
+      </div>
+      <div flex="10">
+        <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+          <em class="fas fa-times"></em>
+        </md-button>
+      </div>
     </div>
+
   </md-toolbar>
   <md-dialog-content>
 
-    <work-info work-info="ctrl.data"
-      to-update="true">
+    <work-info work-info="ctrl.data" to-update="true">
     </work-info>
 
   </md-dialog-content>
+
   <md-dialog-actions>
-      <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
-      <md-button class="md-raised md-primary" ng-click="ctrl.accept(true)" >{{'global.adviser.contact' | translate}}</md-button>
+    <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
+    <md-button class="md-raised md-primary" ng-click="ctrl.accept(true)">{{'global.adviser.contact' | translate}}
+    </md-button>
   </md-dialog-actions>
+  
 </md-dialog>

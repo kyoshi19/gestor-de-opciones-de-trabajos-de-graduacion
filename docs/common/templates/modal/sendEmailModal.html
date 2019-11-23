@@ -1,60 +1,56 @@
 <md-dialog class="modal-dialog">
   <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h2>Contactando a: {{ctrl.data.proponent}}</h2>
-      <span flex></span>
-      <md-button class="md-icon-button"
-        ng-click="ctrl.cancel()">
-        <em class="fas fa-times"></em>
-      </md-button>
+    <div class="md-toolbar-tools" layout="row">
+      <div flex="90">
+        <h2>Contactando a: {{ctrl.data.proponent}}</h2>
+      </div>
+      <div flex="10">
+        <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+          <em class="fas fa-times"></em>
+        </md-button>
+      </div>
     </div>
   </md-toolbar>
+
   <ng-form name="sendMailForm">
     <md-dialog-content>
-        
+
       <div layout="column" layout-margin>
 
         <!-- CORREO ELECTRÓNICO -->
         <div flex>
           <md-input-container>
             <label>{{'global.email' | translate}}</label>
-            <input name="mail"
-            aa-field-group="ctrl.message.email"
-            aa-label="{{'global.email' | translate}}"
-            aa-label-strategy="emptyStrategy"
-            utp-pattern="{{ctrl.userRules.email.pattern}}"
-            required>
-          </md-imput-container>
-        </div> 
-          
+            <input name="mail" aa-field-group="ctrl.message.email" aa-label="{{'global.email' | translate}}"
+              aa-label-strategy="emptyStrategy" utp-pattern="{{ctrl.userRules.email.pattern}}" required>
+            </md-imput-container>
+        </div>
+
         <!-- ASUNTO -->
         <div flex>
-          <p class="text-muted no-margin"><strong>{{'global.subject' | translate}}:</strong> {{ctrl.message.subject}}</p>
+          <p class="text-muted no-margin"><strong>{{'global.subject' | translate}}:</strong> {{ctrl.message.subject}}
+          </p>
         </div>
 
         <!-- MENSAJE -->
         <div flex>
           <md-input-container class="md-block">
             <label>{{'global.message' | translate}}</label>
-            <textarea  name="message"
-              aa-field-group="ctrl.message.text"
-              aa-label="{{'global.message' | translate}}"
-              aa-label-strategy="emptyStrategy"
-              required
-              rows="3"
-              ng-maxlength="255">
+            <textarea name="message" aa-field-group="ctrl.message.text" aa-label="{{'global.message' | translate}}"
+              aa-label-strategy="emptyStrategy" required rows="3" ng-maxlength="255">
             </textarea>
           </md-input-container>
         </div>
       </div>
-  
+
     </md-dialog-content>
-    
+
     <md-dialog-actions>
-      
+
       <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
-      <md-button class="md-raised md-primary" aa-submit-form="ctrl.accept(true)" >Contactar asesor</md-button>
-    
+      <md-button class="md-raised md-primary" aa-submit-form="ctrl.accept(true)">{{'global.mail.send' | translate}}
+      </md-button>
+
     </md-dialog-actions>
   </ng-form>
 </md-dialog>

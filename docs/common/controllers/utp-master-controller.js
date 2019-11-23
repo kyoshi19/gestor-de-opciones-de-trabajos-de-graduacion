@@ -1,7 +1,7 @@
 (function (win) {
   'use strict';
 
-  var masterController = function ($log, patterns, $state, storage, $timeout, catalog,
+  var masterController = function ($element, $log, patterns, $state, storage, $timeout, catalog,
     notificationService, isEmpty, userService) {
 
     $log.debug('[utpMasterController] Initializing...');
@@ -19,6 +19,15 @@
     vm.storage.messages = [];
     vm.docPatern = patterns.panamaIdPattern;
     vm.fullYear = new Date().getFullYear();
+
+    vm.bodyClases = function () {
+
+      if ($element[0].style.position == 'fixed') {
+
+        return 'overflow-y';
+      }
+
+    };
 
     vm.initCatalogs = function () {
       catalog();
@@ -135,6 +144,7 @@
 
   };
   masterController.$inject = [
+    '$element',
     '$log',
     'patternList',
     '$state',

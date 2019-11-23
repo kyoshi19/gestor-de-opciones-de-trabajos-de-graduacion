@@ -1,26 +1,29 @@
-<md-dialog class="modal-dialog modal-ms">
+<md-dialog class="modal-dialog modal-sm">
+  <md-toolbar>
+    <div class="md-toolbar-tools" layout="row">
+      <div flex="90">
+        <h2>Eliminar: {{ctrl.data.title}}</h2>
+      </div>
+      <div flex="10">
+        <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+          <em class="fas fa-times"></em>
+        </md-button>
+      </div>
+    </div>
+  </md-toolbar>
 
-  <div class="md-toolbar-tools">
-    <h2>Eliminar: {{ctrl.data.title}}</h2>
-    <span flex></span>
-    <md-button class="md-icon-button"
-      ng-click="ctrl.cancel()">
-      <em class="fas fa-times"></em>
-    </md-button>
-  </div>
+  <md-dialog-content>
 
-<md-dialog-content>
-  
-  <div layout layout-padding>
-    ¿Seguro que quiere eliminar este trabajo?
-  </div>
+    <div layout layout-padding>
+      ¿Seguro que quiere eliminar este trabajo?
+    </div>
 
-</md-dialog-content>
+  </md-dialog-content>
 
 
-<md-dialog-actions>
-    <md-button ng-click="ctrl.cancel()" class="md-raised" >Cancelar</md-button>
-    <md-button ng-click="ctrl.delete()" class="md-raised md-primary" >Eliminar</md-button>
-</md-dialog-actions>
+  <md-dialog-actions>
+    <md-button ng-click="ctrl.cancel()" class="md-raised">Cancelar</md-button>
+    <md-button ng-click="ctrl.delete()" class="md-raised md-primary">Eliminar</md-button>
+  </md-dialog-actions>
 
 </md-dialog>

@@ -17,6 +17,9 @@ body {
 .no-focus-shaddow:focus {
   outline: none; }
 
+.overflow-y {
+  overflow-y: scroll; }
+
 /*
  * ALERTAS
  */
@@ -114,6 +117,21 @@ body {
 .md-button.md-raised.md-primary {
   background-color: #004198 !important;
   color: #ffffff; }
+
+md-dialog .md-toolbar-tools .md-button {
+  color: #ffffff;
+  height: 27px !important;
+  font-size: 20px;
+  border-left: solid;
+  border-radius: 0% !important;
+  padding: 0px 0px 0px 0px !important;
+  border-bottom: solid;
+  margin-bottom: 17px !important;
+  width: 55px !important; }
+md-dialog.modal-lg .md-toolbar-tools .md-button {
+  margin-left: 48% !important; }
+md-dialog.modal-sm .md-toolbar-tools .md-button {
+  margin-left: 5% !important; }
 
 footer {
   background-color: #001129;
@@ -984,7 +1002,7 @@ button, select, textarea {
   max-width: 900px; }
 
 .modal-sm {
-  max-width: 600px;
+  width: 600px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -997,6 +1015,8 @@ md-dialog {
   top: -7%;
   position: fixed;
   background-color: #ffffff; }
+  md-dialog.md-content-overflow md-dialog-actions {
+    border-top-style: none !important; }
 
 .popover {
   max-width: 500px !important; }

@@ -36,6 +36,7 @@ var EStranslate = {
   'global.results.count'            : 'La búsqueda ha dado {{count}} resultado/s',
   'global.update'                   : 'Actualizar',
   'global.adviser.contact'          : 'Contactar al asesor',
+  'global.mail.send'                : 'Enviar correo',
   'global.pofile'                   : 'Perfil',
 
 

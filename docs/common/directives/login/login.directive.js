@@ -34,7 +34,7 @@
 
       scope.showPassword = function() {
         hidePassword = !hidePassword;
-      }
+      };
 
       scope.passwordConfig = function() {
 
@@ -49,11 +49,11 @@
           type: "text",
           icon: "fas fa-eye"
         };
-      }
+      };
 
       scope.findUser = function(user) {
         scope.validateUser(user);
-      }
+      };
 
       function setup() {
         scope.validateUser();

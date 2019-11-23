@@ -19,3 +19,30 @@
   background-color:$utp-main-color !important;
   color:$utp-white;
 }
+
+md-dialog{
+  .md-toolbar-tools .md-button{
+    color: $utp-white;
+    height: 27px !important;
+    font-size: 20px;
+    border-left: solid;
+    border-radius: 0% !important;
+    padding: 0px 0px 0px 0px !important;
+    border-bottom: solid;
+    margin-bottom: 17px !important;
+    width: 55px !important;
+  }
+  
+  &.modal-lg{
+    .md-toolbar-tools .md-button{
+      margin-left: 48% !important;
+
+    }
+  } 
+
+  &.modal-sm{
+    .md-toolbar-tools .md-button{
+      margin-left: 5% !important;
+    }
+  }
+}

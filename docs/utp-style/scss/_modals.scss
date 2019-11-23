@@ -8,7 +8,7 @@
 }
 
 .modal-sm {
-  max-width: 600px;
+  width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -24,4 +24,9 @@ md-dialog{
   top:-7%;
   position: fixed;
   background-color: $utp-white;
+
+  &.md-content-overflow md-dialog-actions{
+    border-top-style: none !important;
+  }
+
 }
