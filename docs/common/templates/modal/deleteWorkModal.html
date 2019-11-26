@@ -2,7 +2,7 @@
   <md-toolbar>
     <div class="md-toolbar-tools" layout="row">
       <div flex="90">
-        <h2>Eliminar: {{ctrl.data.title}}</h2>
+        <h2>Eliminar</h2>
       </div>
       <div flex="10">
         <md-button class="md-icon-button" ng-click="ctrl.cancel()">
@@ -14,8 +14,13 @@
 
   <md-dialog-content>
 
-    <div layout layout-padding>
-      ¿Seguro que quiere eliminar este trabajo?
+    <div layout="column" layout-padding>
+      <div flex>
+        <h4 class="my-0">Tema: {{ctrl.data.title}}</h4>
+      </div>
+      <div flex>
+        <span> ¿Seguro que quiere eliminar este trabajo?</span>
+      </div> 
     </div>
 
   </md-dialog-content>
