@@ -4,11 +4,10 @@
   //  documentation directive
   function documentation($log, workTypesValue) {
     var directive = {
-      restrict        : 'E',
-      templateUrl     : 'common/directives/documentation/documentation.html',
-      scope           : {
-      },
-      link            : linkFunc,
+      restrict: 'E',
+      templateUrl: 'common/directives/documentation/documentation.html',
+      scope: {},
+      link: linkFunc,
     };
     return directive;
 
@@ -19,8 +18,8 @@
       /* --> VARIABLES <-- */
 
       var templates = {
-        mainRules : 'common/templates/documentation/main-rules.html',
-        workTypes : 'common/templates/documentation/work-types.html'
+        mainRules: 'common/templates/documentation/main-rules.html',
+        workTypes: 'common/templates/documentation/work-types.html'
       };
 
       scope.workTypesValue = workTypesValue;
@@ -32,39 +31,39 @@
 
       /* --> METODOS <-- */
 
-      scope.setTemplate = function (option){
+      scope.setTemplate = function(option) {
         scope.active = option;
-        if (option==='workTypes') {
-          scope.viewTemplate =  templates.workTypes;
-        } else if (option==='mainRules') {
+        if (option === 'workTypes') {
+          scope.viewTemplate = templates.workTypes;
+        } else if (option === 'mainRules') {
           scope.viewTemplate = templates.mainRules;
         }
       };
 
       scope.setTemplate('workTypes');
 
-      scope.openItem = function(item, index){
+      scope.openItem = function(item, index) {
 
-        var icon = document.getElementById('icon'+index);
+        var icon = document.getElementById('icon' + index);
 
         item.isOpen = !item.isOpen;
 
-        !$(icon).hasClass('active') ? 
-        $(icon).addClass('active'): $(icon).removeClass('active');
-        
-      }
+        !$(icon).hasClass('active') ?
+          $(icon).addClass('active') : $(icon).removeClass('active');
+
+      };
 
     }
   }
 
-  documentation.$inject =[
+  documentation.$inject = [
     '$log',
     'workTypesValue'
   ];
 
   //  Module
   win.MainApp.Directives
-  .directive('documentation', documentation);
+    .directive('documentation', documentation);
 
 
 }(window));

@@ -10,10 +10,10 @@ El Tipo de Trabajo de Graduación puede ser seleccionado dentro de las siguiente
         <h3 class="my-1 pl-2"><em id="icon{{$index}}" class="fas fa-caret-right"></em> {{item.title}}</h3>
       </div>
 
-      <div flex="100" layout layout-align="center center" class="document-item" ng-if="item.isOpen">
-        <div>
+      <div flex="100" layout class="document-item" ng-if="item.isOpen">
+        <p>
           {{item.name}}
-        </div>
+        </p>
       </div>
     </div>
   </ng-form>

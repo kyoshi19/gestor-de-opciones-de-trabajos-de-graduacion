@@ -42,17 +42,6 @@
     .value('profileModel', {
       faculty: '',
       career: ''
-    })
-
-    .value('identificationTypes', {
-      identification: {
-        "id": "ID",
-        "name": "Cédula"
-      },
-      passport: {
-        "id": "PASSPORT",
-        "name": "Pasaporte"
-      }
     });
 
 }(window));

@@ -26,8 +26,6 @@
 
       scope.userRules = userRules;
 
-      scope.identificationType = bgValueFilter('identificationTypes').identification;
-
       var hidePassword = true;
 
       /* --> METHODS <-- */
