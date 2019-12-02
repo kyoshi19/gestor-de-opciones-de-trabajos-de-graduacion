@@ -19,7 +19,7 @@ $text = next($data);
 
 $message = "
 <html>
-<head>
+<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 <title>HTML email</title>
 </head>
 <body>
@@ -43,5 +43,5 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: Go.Tg <webmaster@example.com>' . "\r\n";
 $headers .= 'Cc: kyoshi.giron@gmail.com' . "\r\n";
 
-//echo(mail($to,$subject,$message,$headers));   //Ejecución de envío de correo
+echo(mail($to,$subject,$message,$headers));   //Ejecución de envío de correo
 ?>
