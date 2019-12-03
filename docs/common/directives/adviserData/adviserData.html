@@ -6,8 +6,8 @@
 
 </div>
 
-<div layout="row">
-  <div flex="33">
+<div layout-gt-sm="row" layout="column">
+  <div flex flex-gt-sm="33">
 
     <md-sidenav md-component-id="left" class="md-sidenav-left sidenav-adviser"
       md-is-locked-open="true">
@@ -28,12 +28,9 @@
       </md-content>
 
     </md-sidenav>
-    
-    
-
 
   </div>
-  <div flex="66">
+  <div flex flex-gt-sm="66">
     <ng-include  src="viewTemplate"></ng-include>
   </div>
 </div>
