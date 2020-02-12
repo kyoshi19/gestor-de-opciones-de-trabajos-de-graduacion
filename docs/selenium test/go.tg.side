@@ -1,0 +1,147 @@
+{
+  "id": "3bc27074-7aa6-433e-898b-b7b564628b11",
+  "version": "2.0",
+  "name": "go.tg",
+  "url": "http://go-tg.site/#!/login",
+  "tests": [{
+    "id": "bc25ce61-1739-4b87-9c7b-0c805d88b8b4",
+    "name": "login",
+    "commands": [{
+      "id": "e8384d93-98f9-4a36-9ef5-fe87e5070081",
+      "comment": "",
+      "command": "open",
+      "target": "http://go-tg.site/#!/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cfa4d19c-2456-4cb7-985a-d24ef2310df2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f259a27c-c46e-423a-bd00-0058f79c54cb",
+      "comment": "",
+      "command": "type",
+      "target": "name=identification",
+      "targets": [
+        ["id=input_0", "id"],
+        ["name=identification", "name"],
+        ["css=#input_0", "css:finder"],
+        ["xpath=//input[@id='input_0']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1-123-11"
+    }, {
+      "id": "28bcbc11-2a10-493d-ac24-d8424b01e86e",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["id=input_1", "id"],
+        ["name=password", "name"],
+        ["css=#input_1", "css:finder"],
+        ["xpath=//input[@id='input_1']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "112cb834-694e-4098-a7f8-cb0d71b43b37",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "907584d4-9818-4b0e-b539-518a28e9c5dc",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.md-table",
+      "targets": [
+        ["css=.ng-isolate-scope > .ng-scope > .ng-scope", "css:finder"],
+        ["xpath=//jobs-list/div/div", "xpath:position"]
+      ],
+      "value": "6000"
+    }, {
+      "id": "6909a476-975a-4ce9-846a-45fac3e1c01c",
+      "comment": "",
+      "command": "click",
+      "target": "id=logoutButton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4efad39b-a562-40c3-95c7-8660deb82cd7",
+      "comment": "",
+      "command": "type",
+      "target": "name=identification",
+      "targets": [
+        ["id=input_9", "id"],
+        ["name=identification", "name"],
+        ["css=#input_9", "css:finder"],
+        ["xpath=//input[@id='input_9']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1-123-12"
+    }, {
+      "id": "c7934a99-848f-4960-abfe-5518ec8f3d2d",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["id=input_10", "id"],
+        ["name=password", "name"],
+        ["css=#input_10", "css:finder"],
+        ["xpath=//input[@id='input_10']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "8e91afa7-7bf4-43ca-b22f-725464662a35",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "636a866a-e788-449f-9b5a-14289eb7846f",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "name=searchJobForm",
+      "targets": [],
+      "value": "6000"
+    }, {
+      "id": "f4c7e544-9882-4abd-88c8-8cd6b07f902a",
+      "comment": "",
+      "command": "click",
+      "target": "id=logoutButton",
+      "targets": [
+        ["id=logoutButton", "id"],
+        ["css=#logoutButton", "css:finder"],
+        ["xpath=//button[@id='logoutButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "1ce4be32-8e79-4f82-8918-eb6aff60afaa",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://go-tg.site/#!/login", "http://go-tg.site/"],
+  "plugins": []
+}
