@@ -22,6 +22,7 @@
             aa-label-strategy="emptyStrategy"
             required>
             <md-option ng-value="item.id"
+              id="workTypeItem{{$index}}"
               ng-repeat="item in ('graduationWorkTypes'|catalog)">{{ item.name }}</md-option>
           </md-select>
         </md-input-container>
@@ -38,6 +39,7 @@
             aa-label-strategy="emptyStrategy"
             required>
             <md-option ng-value="item.id"
+              id="facultyItem{{$index}}"
               ng-repeat="item in ('utpFaculties'|catalog)">{{ item.name }}</md-option>
           </md-select>
         </md-input-container>
@@ -54,6 +56,7 @@
             aa-label-strategy="emptyStrategy"
             required>
             <md-option ng-value="item.id"
+              id="centerItem{{$index}}"
               ng-repeat="item in ('utpRegionalCenters'|catalog)">{{ item.name }}</md-option>
           </md-select>
         </md-input-container>
@@ -77,6 +80,7 @@
 
       <div flex="33" flex-sm="50">
         <md-button class="md-raised md-primary"
+          id="searchButton"
           type="submit"
           aa-submit-form="searchJobs()">
           Buscar Opciones

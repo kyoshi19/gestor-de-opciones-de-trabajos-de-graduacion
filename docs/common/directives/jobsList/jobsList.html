@@ -11,7 +11,7 @@
         <table md-table>
           <tbody md-body>
             <tr md-row ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
-              <td md-cell class="py-3 work-item" ng-click="openWorkInfo(work, $event)">
+              <td md-cell class="py-3 work-item" ng-click="openWorkInfo(work, $event)" id="workItem{{$index}}">
                 <h4 class="no-margin">{{'global.title' | translate}}: {{work.title}}</h4>
                 <h4 class=" no-margin text-muted">{{'global.proponent' | translate}}: {{work.proponent}}</h4>
               </td>
@@ -56,9 +56,9 @@
                 <h4 class="no-margin">{{work.title}}</h4>
               </td>
               <td md-cell ng-if="showOptions">
-                <div layout="row" layout-padding class="no-padding">
-                  <em class="far fa-edit" ng-click="openUpdateWorkModal(work)"></em>
-                  <em class="far fa-trash-alt" ng-click="openDeleteWork(work)"></em>
+                <div layout="row" id="optionButtons{{$index}}" layout-padding class="no-padding">
+                  <em class="far fa-edit{{$index}}" ng-click="openUpdateWorkModal(work)"></em>
+                  <em class="far fa-trash-alt{{$index}}" ng-click="openDeleteWork(work)"></em>
                 </div>
               </td>
             </tr>

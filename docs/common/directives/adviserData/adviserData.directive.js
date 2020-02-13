@@ -98,7 +98,7 @@
             notificationService.showSucces('global.succes.work.added');
 
           }).catch(function(exception) {
-            $log.error('ERROR ==>', exception);
+            notificationService.showError(exception.data.error);
 
           }).finally(function() {
             storage.showLoader = false;

@@ -5,7 +5,7 @@
   "url": "http://go-tg.site/#!/login",
   "tests": [{
     "id": "bc25ce61-1739-4b87-9c7b-0c805d88b8b4",
-    "name": "login",
+    "name": "Login",
     "commands": [{
       "id": "e8384d93-98f9-4a36-9ef5-fe87e5070081",
       "comment": "",
@@ -22,7 +22,7 @@
       "value": ""
     }, {
       "id": "f259a27c-c46e-423a-bd00-0058f79c54cb",
-      "comment": "",
+      "comment": "Identificación para usuario tipo asesor",
       "command": "type",
       "target": "name=identification",
       "targets": [
@@ -35,7 +35,7 @@
       "value": "1-123-11"
     }, {
       "id": "28bcbc11-2a10-493d-ac24-d8424b01e86e",
-      "comment": "",
+      "comment": "Contraseña por defecto",
       "command": "type",
       "target": "name=password",
       "targets": [
@@ -77,7 +77,7 @@
       "value": ""
     }, {
       "id": "4efad39b-a562-40c3-95c7-8660deb82cd7",
-      "comment": "",
+      "comment": "Identificación para usuario tipo estudiante",
       "command": "type",
       "target": "name=identification",
       "targets": [
@@ -90,7 +90,7 @@
       "value": "1-123-12"
     }, {
       "id": "c7934a99-848f-4960-abfe-5518ec8f3d2d",
-      "comment": "",
+      "comment": "Contraseña por defecto",
       "command": "type",
       "target": "name=password",
       "targets": [
@@ -133,6 +133,735 @@
       ],
       "value": ""
     }]
+  }, {
+    "id": "fde22543-ce13-48cd-bbab-12879ae49595",
+    "name": "Añadir trabajo",
+    "commands": [{
+      "id": "cf3f3405-a1ff-4b20-978b-c204f12cc5c1",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": "http://go-tg.site/#!/login"
+    }, {
+      "id": "9028d05f-8b7c-4941-9628-b5e1cbc810e3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "138c7a77-2954-49a2-bf10-581a024225d4",
+      "comment": "",
+      "command": "type",
+      "target": "id=input_0",
+      "targets": [
+        ["id=input_0", "id"],
+        ["name=identification", "name"],
+        ["css=#input_0", "css:finder"],
+        ["xpath=//input[@id='input_0']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1-123-11"
+    }, {
+      "id": "a2ae1cbb-1e27-42de-9a3f-509f9bdb8562",
+      "comment": "",
+      "command": "type",
+      "target": "id=input_1",
+      "targets": [
+        ["id=input_1", "id"],
+        ["name=password", "name"],
+        ["css=#input_1", "css:finder"],
+        ["xpath=//input[@id='input_1']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "b2666d5c-2b25-4c84-8512-c3d6d1ead4e7",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9f6c278f-e126-4bfa-86ec-463b6d0d5550",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidenav-item:nth-child(2)",
+      "targets": [
+        ["css=.sidenav-item:nth-child(2)", "css:finder"],
+        ["xpath=//md-content/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3fa00390-3a0a-4ea3-a881-d07f2bbfbb01",
+      "comment": "",
+      "command": "type",
+      "target": "id=field",
+      "targets": [
+        ["id=field", "id"],
+        ["name=workTitle", "name"],
+        ["css=#field", "css:finder"],
+        ["xpath=//input[@id='field']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Prueba automatizada"
+    }, {
+      "id": "c44ec5db-e613-4f58-8858-86ead14e4e67",
+      "comment": "",
+      "command": "type",
+      "target": "id=workDescription",
+      "targets": [
+        ["id=workDescription", "id"],
+        ["name=workDescription", "name"],
+        ["css=#workDescription", "css:finder"],
+        ["xpath=//textarea[@id='workDescription']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Descripción de prueba automatizada"
+    }, {
+      "id": "5bcc63bc-df64-4099-bce6-d2430bc35fdf",
+      "comment": "",
+      "command": "click",
+      "target": "id=workType",
+      "targets": [
+        ["id=workType", "id"],
+        ["css=#workType", "css:finder"],
+        ["xpath=//md-select[@id='workType']", "xpath:attributes"],
+        ["xpath=//md-select", "xpath:position"],
+        ["xpath=//md-select[contains(.,'Tipo de trabajo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7c40db1-af7b-4e8d-84b0-16a57c61ea75",
+      "comment": "",
+      "command": "click",
+      "target": "css=#workTypeItem2 > .md-text",
+      "targets": [
+        ["css=#workTypeItem2 > .md-text", "css:finder"],
+        ["xpath=//md-option[@id='workTypeItem2']/div", "xpath:idRelative"],
+        ["xpath=//div[3]/md-select-menu/md-content/md-option[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0638699d-4d94-4450-adfa-4a5de8699d22",
+      "comment": "",
+      "command": "click",
+      "target": "id=workCount",
+      "targets": [
+        ["id=workCount", "id"],
+        ["name=workCount", "name"],
+        ["css=#workCount", "css:finder"],
+        ["xpath=//input[@id='workCount']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "346240cf-1f47-462d-8f38-662c89d2048d",
+      "comment": "",
+      "command": "type",
+      "target": "id=workCount",
+      "targets": [
+        ["id=workCount", "id"],
+        ["name=workCount", "name"],
+        ["css=#workCount", "css:finder"],
+        ["xpath=//input[@id='workCount']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "b84ff4ee-8a79-42ca-999e-a25beb0e9505",
+      "comment": "",
+      "command": "click",
+      "target": "id=faculty0",
+      "targets": [
+        ["id=faculty0", "id"],
+        ["css=#faculty0", "css:finder"],
+        ["xpath=//md-select[@id='faculty0']", "xpath:attributes"],
+        ["xpath=//div[4]/div/div/md-input-container/div/md-select", "xpath:position"],
+        ["xpath=//md-select[contains(.,'Facultad')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc92bd98-3b6a-46a7-9dd0-fad806d03d1f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #facultyItem2",
+      "targets": [
+        ["css=.md-overflow #facultyItem2", "css:finder"],
+        ["xpath=(//md-option[@id='facultyItem2'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='select_container_11']/md-select-menu/md-content/md-option[2]", "xpath:idRelative"],
+        ["xpath=//div[4]/md-select-menu/md-content/md-option[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "75c032b6-b6b5-469e-ba08-48a8a6607b6d",
+      "comment": "",
+      "command": "click",
+      "target": "id=career0",
+      "targets": [
+        ["id=career0", "id"],
+        ["css=#career0", "css:finder"],
+        ["xpath=//md-select[@id='career0']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/md-select", "xpath:position"],
+        ["xpath=//md-select[contains(.,'Carrera')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7bdc543c-b073-4180-a8ec-2d2789a92ecc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #careerItem3",
+      "targets": [
+        ["css=.md-overflow #careerItem3", "css:finder"],
+        ["xpath=(//md-option[@id='careerItem3'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='select_container_13']/md-select-menu/md-content/md-option[4]", "xpath:idRelative"],
+        ["xpath=//div[5]/md-select-menu/md-content/md-option[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c7621dc-9580-469f-bd94-153ede5ac572",
+      "comment": "",
+      "command": "click",
+      "target": "id=faculty1",
+      "targets": [
+        ["id=faculty1", "id"],
+        ["css=#faculty1", "css:finder"],
+        ["xpath=//md-select[@id='faculty1']", "xpath:attributes"],
+        ["xpath=//div[5]/div/div/md-input-container/div/md-select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "90a34e26-8cfe-4ea0-a004-25ca64269579",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #facultyItem4",
+      "targets": [
+        ["css=#select_container_15 #facultyItem4", "css:finder"],
+        ["xpath=(//md-option[@id='facultyItem4'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='select_container_15']/md-select-menu/md-content/md-option[4]", "xpath:idRelative"],
+        ["xpath=//div[6]/md-select-menu/md-content/md-option[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "984991b3-39d4-4bd4-ab85-27c34838a226",
+      "comment": "",
+      "command": "click",
+      "target": "id=career1",
+      "targets": [
+        ["id=career1", "id"],
+        ["css=#career1", "css:finder"],
+        ["xpath=//md-select[@id='career1']", "xpath:attributes"],
+        ["xpath=//div[5]/div/div[2]/md-input-container/div/md-select", "xpath:position"],
+        ["xpath=//md-select[contains(.,'Carrera')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8983c4e-c419-4b1a-9eec-33aa8f2483c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #careerItem2",
+      "targets": [
+        ["css=#select_container_17 #careerItem2", "css:finder"],
+        ["xpath=(//md-option[@id='careerItem2'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='select_container_17']/md-select-menu/md-content/md-option[3]", "xpath:idRelative"],
+        ["xpath=//div[7]/md-select-menu/md-content/md-option[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e65f2d10-8533-4177-8e27-069abbd582a7",
+      "comment": "",
+      "command": "click",
+      "target": "id=faculty2",
+      "targets": [
+        ["id=faculty2", "id"],
+        ["css=#faculty2", "css:finder"],
+        ["xpath=//md-select[@id='faculty2']", "xpath:attributes"],
+        ["xpath=//div[6]/div/div/md-input-container/div/md-select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c450df8-8613-44b6-9d84-62a5eaa14b6d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #facultyItem3",
+      "targets": [
+        ["css=#select_container_19 #facultyItem3", "css:finder"],
+        ["xpath=(//md-option[@id='facultyItem3'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='select_container_19']/md-select-menu/md-content/md-option[3]", "xpath:idRelative"],
+        ["xpath=//div[8]/md-select-menu/md-content/md-option[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb055b43-0f9c-4ac4-a700-816d38cbe566",
+      "comment": "",
+      "command": "click",
+      "target": "id=career2",
+      "targets": [
+        ["id=career2", "id"],
+        ["css=#career2", "css:finder"],
+        ["xpath=//md-select[@id='career2']", "xpath:attributes"],
+        ["xpath=//div[6]/div/div[2]/md-input-container/div/md-select", "xpath:position"],
+        ["xpath=//md-select[contains(.,'Carrera')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6acf9ba4-9c17-4760-bc64-ec06eb6edd27",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #careerItem0",
+      "targets": [
+        ["css=#select_container_21 #careerItem0", "css:finder"],
+        ["xpath=(//md-option[@id='careerItem0'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='select_container_21']/md-select-menu/md-content/md-option", "xpath:idRelative"],
+        ["xpath=//div[9]/md-select-menu/md-content/md-option", "xpath:position"],
+        ["xpath=//md-option[contains(.,'Licenciatura en Desarrollo de Software')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3fc4582-00fe-43f1-938c-215010562587",
+      "comment": "",
+      "command": "click",
+      "target": "id=addWorkButton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "10258286-63bc-4f5f-b5de-2e073d7a33c8",
+      "comment": "",
+      "command": "pause",
+      "target": "",
+      "targets": [],
+      "value": "5000"
+    }, {
+      "id": "05895ee3-e280-4d25-8501-3d5dafdb708f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sidenav-item:nth-child(1)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a19a08ba-489c-43ec-b09e-9332d09ab7a1",
+      "comment": "",
+      "command": "click",
+      "target": "id=logoutButton",
+      "targets": [
+        ["id=logoutButton", "id"],
+        ["css=#logoutButton", "css:finder"],
+        ["xpath=//button[@id='logoutButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "04b4ec95-21e3-424f-a057-473e990a4305",
+    "name": "Editar trabajo",
+    "commands": [{
+      "id": "426ccfc9-626e-4f02-b093-21b75809e707",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": "http://go-tg.site/#!/login"
+    }, {
+      "id": "43bfa1ad-8ba6-4f6d-90a6-396982901dc9",
+      "comment": "",
+      "command": "type",
+      "target": "name=identification",
+      "targets": [
+        ["id=input_0", "id"],
+        ["name=identification", "name"],
+        ["css=#input_0", "css:finder"],
+        ["xpath=//input[@id='input_0']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1-123-11"
+    }, {
+      "id": "471e4049-16ab-4230-a2e3-333f7c42c711",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["id=input_1", "id"],
+        ["name=password", "name"],
+        ["css=#input_1", "css:finder"],
+        ["xpath=//input[@id='input_1']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "8b4cf868-7cbc-4e25-8db3-ac220bdb6156",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "45b4eebb-2b77-4044-b610-c054f7bfc2ee",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.md-table",
+      "targets": [
+        ["css=.ng-isolate-scope > .ng-scope > .ng-scope", "css:finder"],
+        ["xpath=//jobs-list/div/div", "xpath:position"]
+      ],
+      "value": "6000"
+    }, {
+      "id": "cce380ca-bfe5-47f1-b324-d38039402f90",
+      "comment": "",
+      "command": "click",
+      "target": "css=.edit0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b97f513-6c7a-4ff3-859e-f2b983fef71b",
+      "comment": "",
+      "command": "type",
+      "target": "name=workTitle",
+      "targets": [
+        ["css=.layout-margin > .flex-100", "css:finder"],
+        ["xpath=//md-dialog-content[@id='dialogContent_24']/div/div", "xpath:idRelative"],
+        ["xpath=//md-dialog-content/div/div", "xpath:position"]
+      ],
+      "value": "Prueba automatizada editada"
+    }, {
+      "id": "fd52fa1b-d2d1-4d95-ad8d-27828385364a",
+      "comment": "",
+      "command": "type",
+      "target": "name=workDescription",
+      "targets": [],
+      "value": "Descripción de prueba automatizada editada"
+    }, {
+      "id": "107d351c-fb87-4f62-b09e-ca5340c7524a",
+      "comment": "",
+      "command": "click",
+      "target": "id=workType",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9332b76b-8bff-4bde-bd68-222daf4e9269",
+      "comment": "",
+      "command": "click",
+      "target": "id=workTypeItem1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a11fec8-7547-424d-9d0e-eb99752d238b",
+      "comment": "",
+      "command": "type",
+      "target": "name=workCount",
+      "targets": [],
+      "value": "1"
+    }, {
+      "id": "680a054a-16a2-42da-a282-8161101f56f9",
+      "comment": "",
+      "command": "click",
+      "target": "id=faculty0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c81b3e1a-dada-4c28-9aaa-e6ae900fca4f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #facultyItem3",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "66cedb56-ef42-4f4c-b4a2-8217c4bdca98",
+      "comment": "",
+      "command": "click",
+      "target": "id=career0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af6724f6-a877-4936-bef4-567c9ae24add",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #careerItem3",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b6d83992-1440-4d47-9ee7-4654257e5ef8",
+      "comment": "",
+      "command": "click",
+      "target": "id=editButton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "895c37e6-82f1-4ed6-a36f-e8d03974a4e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=logoutButton",
+      "targets": [
+        ["id=logoutButton", "id"],
+        ["css=#logoutButton", "css:finder"],
+        ["xpath=//button[@id='logoutButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d216d4a2-5f25-4d00-824b-4781adc03ad1",
+    "name": "Eliminar trabajo",
+    "commands": [{
+      "id": "f6c66260-0144-4761-8963-e5a7b8cbf293",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": "http://go-tg.site/#!/login"
+    }, {
+      "id": "df4059ce-7e31-4ca5-b41a-46938aea6950",
+      "comment": "",
+      "command": "type",
+      "target": "name=identification",
+      "targets": [
+        ["id=input_0", "id"],
+        ["name=identification", "name"],
+        ["css=#input_0", "css:finder"],
+        ["xpath=//input[@id='input_0']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1-123-11"
+    }, {
+      "id": "3f34f67d-3395-42dc-8f31-bcac343c915f",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["id=input_1", "id"],
+        ["name=password", "name"],
+        ["css=#input_1", "css:finder"],
+        ["xpath=//input[@id='input_1']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "cbfee277-7509-429a-acb5-388366ed30b8",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "24b211a9-624c-4c7b-b458-8570c100c1d5",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=.md-table",
+      "targets": [
+        ["css=.ng-isolate-scope > .ng-scope > .ng-scope", "css:finder"],
+        ["xpath=//jobs-list/div/div", "xpath:position"]
+      ],
+      "value": "6000"
+    }, {
+      "id": "963f4b8d-d5da-4040-a9ef-1b2d773d9630",
+      "comment": "",
+      "command": "click",
+      "target": "css=.trash0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c58d2491-c3d9-4fe1-9329-9af29a611c94",
+      "comment": "",
+      "command": "click",
+      "target": "css=md-dialog-actions .md-primary",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4d582ea4-7b49-4a74-a043-3e599dad105e",
+      "comment": "",
+      "command": "click",
+      "target": "id=logoutButton",
+      "targets": [
+        ["id=logoutButton", "id"],
+        ["css=#logoutButton", "css:finder"],
+        ["xpath=//button[@id='logoutButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f08bc139-ea14-4c04-b626-92df882527eb",
+    "name": "Aplicar a trabajo",
+    "commands": [{
+      "id": "6500d95c-0d03-4433-87b1-9b5a99860e16",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": "http://go-tg.site/#!/login"
+    }, {
+      "id": "9d4f31ad-4a49-49be-b681-00137b01b365",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b66e3986-d780-49d3-ad70-2eb77a665875",
+      "comment": "",
+      "command": "type",
+      "target": "id=input_0",
+      "targets": [
+        ["id=input_0", "id"],
+        ["name=identification", "name"],
+        ["css=#input_0", "css:finder"],
+        ["xpath=//input[@id='input_0']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "1-123-12"
+    }, {
+      "id": "aae8e389-8ad6-4249-a23b-90e800f6136f",
+      "comment": "",
+      "command": "type",
+      "target": "id=input_1",
+      "targets": [
+        ["id=input_1", "id"],
+        ["name=password", "name"],
+        ["css=#input_1", "css:finder"],
+        ["xpath=//input[@id='input_1']", "xpath:attributes"],
+        ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
+      ],
+      "value": "test"
+    }, {
+      "id": "20727bd7-7813-4a13-b8aa-e073845e7c8b",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginButton",
+      "targets": [
+        ["id=loginButton", "id"],
+        ["css=#loginButton", "css:finder"],
+        ["xpath=//button[@id='loginButton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8b70305-22b8-46a0-87e7-1ae133233212",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "name=searchJobForm",
+      "targets": [],
+      "value": "6000"
+    }, {
+      "id": "4ed24fd1-8f03-4dbb-a3ea-adcc7d438607",
+      "comment": "",
+      "command": "click",
+      "target": "name=workType",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69ce477c-5ee7-427a-9de6-600129cdbc12",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #workTypeItem0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2ba499fc-dedd-46fa-b936-7bbea98b48cc",
+      "comment": "",
+      "command": "click",
+      "target": "name=faculty",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3aba330a-457c-44c0-8e75-e41d0f6cee67",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #facultyItem0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7568a991-5d81-400a-b307-702ffdb244ba",
+      "comment": "",
+      "command": "click",
+      "target": "name=center",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5db0e4a8-4c78-47d7-b6fd-9461c1e69451",
+      "comment": "",
+      "command": "click",
+      "target": "css=.md-select-menu-container.md-active #centerItem0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f627191f-b434-4741-b202-c6795af8cf0d",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchButton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a19e20dc-1e01-4d63-86cc-618e2ee45c77",
+      "comment": "",
+      "command": "type",
+      "target": "name=field",
+      "targets": [],
+      "value": "tribunal electoral"
+    }, {
+      "id": "abb21b3c-fc0a-430a-aec5-74f1d8b16330",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchButton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9e95309-7546-4dc9-853d-d4bdcac0a474",
+      "comment": "",
+      "command": "click",
+      "target": "id=workItem0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b1e5dff-7f31-49fa-b506-c7c720728913",
+      "comment": "",
+      "command": "click",
+      "target": "id=contactButton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac86e5c3-c0a2-4069-aaac-e207747da1c9",
+      "comment": "",
+      "command": "type",
+      "target": "name=mail",
+      "targets": [],
+      "value": "mymail@hotmail.com"
+    }, {
+      "id": "f68e5ab7-cda8-44cd-a2b8-13bdfaf5b52a",
+      "comment": "",
+      "command": "type",
+      "target": "name=message",
+      "targets": [],
+      "value": "Mensaje de prueba automatizada"
+    }, {
+      "id": "e4744378-81db-4642-88ee-e6d6416008e2",
+      "comment": "",
+      "command": "click",
+      "target": "id=sendButton",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c8361c6f-eb69-4653-b975-d3ecf0adee9c",
+      "comment": "",
+      "command": "click",
+      "target": "id=logoutButton",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "1ce4be32-8e79-4f82-8918-eb6aff60afaa",
@@ -142,6 +871,6 @@
     "timeout": 300,
     "tests": []
   }],
-  "urls": ["http://go-tg.site/#!/login", "http://go-tg.site/"],
+  "urls": ["http://go-tg.site/#!/login", "http://go-tg.site/", "http://localhost/go-tg/docs/#!/login"],
   "plugins": []
 }

@@ -46,10 +46,12 @@
               <label>{{'global.work.type' | translate}}</label>
               <md-select aa-field-group="workInfo.type"
                 name="workType"
+                id="workType"
                 aa-label="{{'global.work.type' | translate}}"
                 aa-label-strategy="emptyStrategy"
                 required>
                 <md-option ng-value="item.id"
+                  id="workTypeItem{{$index}}"
                   ng-if="item.id !== '0'"
                   ng-repeat="item in ('graduationWorkTypes'|catalog)">{{ item.name }}</md-option>
               </md-select>
@@ -72,7 +74,7 @@
           <input type="number"
             name="workCount"
             class="form-control"
-            id="workType"
+            id="workCount"
             min="1"
             max="3"
             ng-init="updateProfiles()"
@@ -106,6 +108,8 @@
             aa-label-strategy="emptyStrategy"
             required>
             <md-option ng-value="item.id"
+              ng-if="item.id !== '0'"
+              id="facultyItem{{$index}}"
               ng-repeat="item in ('utpFaculties'|catalog)">
               {{ item.name }}
             </md-option>
@@ -126,6 +130,7 @@
             ng-disabled="profile.faculty | isEmpty"
             required>
             <md-option ng-value="item.id"
+              id="careerItem{{$index}}"
               ng-repeat="item in (('utpCareers'|catalog)| filter:profile.faculty) track by item.id">
               {{ item.name }}
             </md-option>
