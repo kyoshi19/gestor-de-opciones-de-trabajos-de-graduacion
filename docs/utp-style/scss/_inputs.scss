@@ -32,6 +32,10 @@ md-input-container {
   &.aa-invalid-attempt label {
     color: $utp-red;
   }
+
+  &.mail-container{
+    min-width: 50%;
+  }
 }
 
 /********* INPUT *********/

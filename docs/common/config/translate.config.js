@@ -34,6 +34,7 @@ var EStranslate = {
   'global.key.words'                : 'Palabras claves',
   'global.search.results'           : 'Resultados de la búsqueda',
   'global.results.count'            : 'La búsqueda ha dado {{count}} resultado/s',
+  'global.no.results'               : 'No se han encontrado resultados',
   'global.update'                   : 'Actualizar',
   'global.adviser.contact'          : 'Contactar al asesor',
   'global.mail.send'                : 'Enviar correo',

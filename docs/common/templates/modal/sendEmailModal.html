@@ -19,7 +19,7 @@
 
         <!-- CORREO ELECTRÓNICO -->
         <div flex>
-          <md-input-container>
+          <md-input-container class="mail-container">
             <label>{{'global.email' | translate}}</label>
             <input name="mail" aa-field-group="ctrl.message.email" aa-label="{{'global.email' | translate}}"
               aa-label-strategy="emptyStrategy" utp-pattern="{{ctrl.userRules.email.pattern}}" required>
@@ -48,7 +48,7 @@
     <md-dialog-actions>
 
       <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
-      <md-button class="md-raised md-primary" aa-submit-form="ctrl.accept(true)">{{'global.mail.send' | translate}}
+      <md-button class="md-raised md-primary" id="sendButton" aa-submit-form="ctrl.accept(true)">{{'global.mail.send' | translate}}
       </md-button>
 
     </md-dialog-actions>

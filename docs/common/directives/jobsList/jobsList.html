@@ -1,13 +1,17 @@
 <div ng-if="works">
 
   <!-- TABLA PARA ESTUDIANTES -->
-  <div  ng-if="userType === 'E'">
+  <div ng-if="userType === 'E'">
     <div class="text-center" ng-if="tableTitle">
       <h2>{{tableTitle}}</h2>
     </div>
-    <h4 ng-if="worksCount" class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
 
-    <md-table-container>
+    <h4 ng-if="worksCount" class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
+    <h4 ng-if="!worksCount" class="mb-2 message-result">{{('global.no.results' | translate)}}</h4>
+    
+    <div ng-if="!(works | isEmpty)">
+
+      <md-table-container>
         <table md-table>
           <tbody md-body>
             <tr md-row ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
@@ -19,15 +23,11 @@
           </tbody>
         </table>
       </md-table-container>
-      
-    <md-table-pagination md-limit="dataTable.limit"
-      md-page="dataTable.page"
-      md-page-select
-      md-total="{{dataTable.totalPages}}"
-      md-label="{page: 'Página:', of: 'de'}">
-    </md-table-pagination>
 
-
+      <md-table-pagination md-limit="dataTable.limit" md-page="dataTable.page" md-page-select
+        md-total="{{dataTable.totalPages}}" md-label="{page: 'Página:', of: 'de'}">
+      </md-table-pagination>
+    </div>
 
   </div>
 
@@ -57,8 +57,8 @@
               </td>
               <td md-cell ng-if="showOptions">
                 <div layout="row" id="optionButtons{{$index}}" layout-padding class="no-padding">
-                  <em class="far fa-edit{{$index}}" ng-click="openUpdateWorkModal(work)"></em>
-                  <em class="far fa-trash-alt{{$index}}" ng-click="openDeleteWork(work)"></em>
+                  <em class="far fa-edit edit{{$index}}" ng-click="openUpdateWorkModal(work)"></em>
+                  <em class="far fa-trash-alt trash{{$index}}" ng-click="openDeleteWork(work)"></em>
                 </div>
               </td>
             </tr>

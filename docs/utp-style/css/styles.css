@@ -1043,6 +1043,8 @@ md-input-container {
     color: #004198; }
   md-input-container.aa-invalid-attempt label {
     color: #ff0000; }
+  md-input-container.mail-container {
+    min-width: 50%; }
 
 /********* INPUT *********/
 input {
