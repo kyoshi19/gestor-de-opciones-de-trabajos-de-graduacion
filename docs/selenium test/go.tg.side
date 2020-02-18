@@ -5,7 +5,7 @@
   "url": "http://go-tg.site/#!/login",
   "tests": [{
     "id": "bc25ce61-1739-4b87-9c7b-0c805d88b8b4",
-    "name": "Login",
+    "name": "1. Login",
     "commands": [{
       "id": "e8384d93-98f9-4a36-9ef5-fe87e5070081",
       "comment": "",
@@ -135,7 +135,7 @@
     }]
   }, {
     "id": "fde22543-ce13-48cd-bbab-12879ae49595",
-    "name": "Añadir trabajo",
+    "name": "2. Añadir trabajo",
     "commands": [{
       "id": "cf3f3405-a1ff-4b20-978b-c204f12cc5c1",
       "comment": "",
@@ -459,7 +459,7 @@
     }]
   }, {
     "id": "04b4ec95-21e3-424f-a057-473e990a4305",
-    "name": "Editar trabajo",
+    "name": "3. Editar trabajo",
     "commands": [{
       "id": "426ccfc9-626e-4f02-b093-21b75809e707",
       "comment": "",
@@ -611,7 +611,7 @@
     }]
   }, {
     "id": "d216d4a2-5f25-4d00-824b-4781adc03ad1",
-    "name": "Eliminar trabajo",
+    "name": "4. Eliminar trabajo",
     "commands": [{
       "id": "f6c66260-0144-4761-8963-e5a7b8cbf293",
       "comment": "",
@@ -671,7 +671,7 @@
       "id": "963f4b8d-d5da-4040-a9ef-1b2d773d9630",
       "comment": "",
       "command": "click",
-      "target": "css=.trash0",
+      "target": "css=.trash1",
       "targets": [],
       "value": ""
     }, {
@@ -696,7 +696,7 @@
     }]
   }, {
     "id": "f08bc139-ea14-4c04-b626-92df882527eb",
-    "name": "Aplicar a trabajo",
+    "name": "5. Aplicar a trabajo",
     "commands": [{
       "id": "6500d95c-0d03-4433-87b1-9b5a99860e16",
       "comment": "",
