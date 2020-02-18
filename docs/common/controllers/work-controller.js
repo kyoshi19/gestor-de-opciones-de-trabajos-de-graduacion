@@ -26,7 +26,7 @@
 
     vm.cancel = function () {
       mdDialog.cancel();
-    }
+    };
 
     vm.delete = function () {
 
@@ -50,7 +50,13 @@
 
     };
 
-    vm.update = function () {
+    vm.update = function (workInfoForm) {
+
+      workInfoForm.$aaFormExtensions.$onSubmitAttempt();
+
+      if (!workInfoForm.$valid) {
+        return;
+      }
 
       storage.showLoader = true;
 

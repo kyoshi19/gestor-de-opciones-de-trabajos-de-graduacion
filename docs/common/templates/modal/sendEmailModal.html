@@ -12,8 +12,8 @@
     </div>
   </md-toolbar>
 
-  <ng-form name="sendMailForm">
-    <md-dialog-content>
+  <md-dialog-content>
+    <ng-form name="sendMailForm" ng-submit="ctrl.accept(sendMailForm)"> 
 
       <div layout="column" layout-margin>
 
@@ -42,15 +42,15 @@
           </md-input-container>
         </div>
       </div>
+    </ng-form>
 
-    </md-dialog-content>
+  </md-dialog-content>
 
-    <md-dialog-actions>
+  <md-dialog-actions>
 
-      <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
-      <md-button class="md-raised md-primary" id="sendButton" aa-submit-form="ctrl.accept(true)">{{'global.mail.send' | translate}}
-      </md-button>
+    <md-button class="md-raised" ng-click="ctrl.cancel()">Cancelar</md-button>
+    <md-button class="md-raised md-primary" id="sendButton" ng-click="ctrl.accept(sendMailForm)">{{'global.mail.send' | translate}}
+    </md-button>
 
-    </md-dialog-actions>
-  </ng-form>
+  </md-dialog-actions>
 </md-dialog>

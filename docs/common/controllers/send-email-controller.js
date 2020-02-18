@@ -19,50 +19,43 @@
     vm.message = {};
     vm.message.subject = 'Aplicación: ' + vm.data.title + '.';
 
-    vm.accept = function (result) {
+    vm.accept = function (sendMailForm) {
 
-      if (result) {
+      sendMailForm.$aaFormExtensions.$onSubmitAttempt();
 
-        storage.showLoader = true;
+      if (!sendMailForm.$valid) {
+        return;
+      }
 
-        var student = storage.user.fName + ' ' + storage.user.lName;
+      storage.showLoader = true;
 
-        var xhr = mailService.send(vm.message.email, data.contact,
-          vm.message.subject, student, vm.message.text);
+      var student = storage.user.fName + ' ' + storage.user.lName;
 
-        xhr.then(function (response) {
+      var xhr = mailService.send(vm.message.email, data.contact,
+        vm.message.subject, student, vm.message.text);
 
-          if (response.data.error) {
+      xhr.then(function (response) {
 
-            deferer.reject(response);
+        if (response.data.error) {
 
-            return;
+          deferer.reject(response);
 
-          }
+          return;
 
-          response.result = result;
+        }
 
-          mdDialog.hide(response); // close, but give 500ms for bootstrap to animate
-
-        });
-
-      } else {
-
-        var response = {
-
-          'result': result
-
-        };
+        response.result = true;
 
         mdDialog.hide(response); // close, but give 500ms for bootstrap to animate
-      }
+
+      });
 
     };
 
-    vm.cancel = function (result) {
+    vm.cancel = function () {
 
       var response = {
-        'result': result
+        'result': false
       };
 
       mdDialog.hide(response); // close, but give 500ms for bootstrap to animate

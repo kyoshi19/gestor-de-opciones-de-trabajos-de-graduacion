@@ -1,4 +1,4 @@
-(function(win) {
+(function (win) {
   'use strict';
 
   //  jobsList directive
@@ -29,7 +29,7 @@
 
       /* --> METODOS <-- */
 
-      scope.$watch('works', function(newValue, oldValue) {
+      scope.$watch('works', function (newValue, oldValue) {
         resetTable();
       });
 
@@ -45,56 +45,55 @@
       }
 
 
-      scope.openWorkInfo = function(work, event) {
+      scope.openWorkInfo = function (work, event) {
         mdDialog.show({
-            templateUrl: "common/templates/modal/choseWorkModal.html",
-            controller: "workController",
-            controllerAs: "ctrl",
-            clickOutsideToClose: true,
-            escapeToClose: true,
-            targetEvent: event,
-            locals: {
-              data: work,
-              isEditing: false
-            }
+          templateUrl: "common/templates/modal/choseWorkModal.html",
+          controller: "workController",
+          controllerAs: "ctrl",
+          clickOutsideToClose: true,
+          escapeToClose: true,
+          targetEvent: event,
+          locals: {
+            data: work,
+            isEditing: false
+          }
 
-          }).then(function(response) {
-            $log.info("My response-->", response);
-            openEmailFormModal(work);
-          }).catch(function(response) {
-            $log.error("My error response-->", response);
-          });
-      }
-
-      var openEmailFormModal = function(work) {
-
-        mdDialog.show({
-            templateUrl: "common/templates/modal/sendEmailModal.html",
-            controller: "sendEmailController",
-            controllerAs: "ctrl",
-            clickOutsideToClose: true,
-            escapeToClose: true,
-            targetEvent: event,
-            locals: {
-              data: work,
-              isEditing: false
-            }
-
-          }).then(function(response) {
-            storage.showLoader = false;
-            if (response.result) {
-              if (isEmpty(response.data)) {
-                notificationService.showError('global.error.internet.conection');
-                return;
-              }
-              notificationService.showSucces('global.succes.mail.success');
-            }
-          }).catch(function(err) {
-            $log.debug('ERROR ==> ', err);
-          });
+        }).then(function (response) {
+          openEmailFormModal(work);
+        }).catch(function (response) {
+          $log.debug("Modal is close by cancel");
+        });
       };
 
-      scope.openDeleteWork = function(work, event) {
+      var openEmailFormModal = function (work) {
+
+        mdDialog.show({
+          templateUrl: "common/templates/modal/sendEmailModal.html",
+          controller: "sendEmailController",
+          controllerAs: "ctrl",
+          clickOutsideToClose: true,
+          escapeToClose: true,
+          targetEvent: event,
+          locals: {
+            data: work,
+            isEditing: false
+          }
+
+        }).then(function (response) {
+          storage.showLoader = false;
+          if (response.result) {
+            if (isEmpty(response.data)) {
+              notificationService.showError('global.error.internet.conection');
+              return;
+            }
+            notificationService.showSucces('global.succes.mail.success');
+          }
+        }).catch(function (err) {
+          $log.debug('ERROR ==> ', err);
+        });
+      };
+
+      scope.openDeleteWork = function (work, event) {
 
         mdDialog.show({
           templateUrl: "common/templates/modal/deleteWorkModal.html",
@@ -106,7 +105,7 @@
             isEditing: false
 
           }
-        }).then(function(response) {
+        }).then(function (response) {
           $log.debug("Modal is closed");
 
           if (response.data.error) {
@@ -119,13 +118,13 @@
               notificationService.showError('global.error.work.deleted');
             }
           }
-        }).catch(function(err) {
-          $log.error('ERROR ==> ', err);
+        }).catch(function (err) {
+          $log.debug("Modal is closed");
         });
 
       };
 
-      scope.openUpdateWorkModal = function(work) {
+      scope.openUpdateWorkModal = function (work) {
         mdDialog.show({
           templateUrl: "common/templates/modal/updateWorkModal.html",
           controller: "workController",
@@ -136,7 +135,7 @@
             data: work,
             isEditing: true
           }
-        }).then(function(response) {
+        }).then(function (response) {
           $log.debug("Modal is close ==>", response);
 
           if (response.data.error) {
@@ -153,9 +152,9 @@
             notificationService.showError('global.error.work.updated');
           }
 
-        }).catch(function(err) {
-          $log.error('ERROR ==> ', err);
-        }).finally(function(){
+        }).catch(function (err) {
+          $log.debug("Modal is close by cancel");
+        }).finally(function () {
           storage.showLoader = false;
         });
       };

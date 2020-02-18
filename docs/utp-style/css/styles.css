@@ -128,8 +128,6 @@ md-dialog .md-toolbar-tools .md-button {
   border-bottom: solid;
   margin-bottom: 17px !important;
   width: 55px !important; }
-md-dialog.modal-lg .md-toolbar-tools .md-button {
-  margin-left: 48% !important; }
 md-dialog.modal-sm .md-toolbar-tools .md-button {
   margin-left: 5% !important; }
 
