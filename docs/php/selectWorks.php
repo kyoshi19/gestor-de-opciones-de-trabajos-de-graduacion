@@ -6,7 +6,7 @@ $conn = new mysqli("localhost", "root", "root", "utp_tesis");
 $conn->set_charset("utf8");
 $data = json_decode(file_get_contents("php://input"),true); //Recibe parametros como arreglo asociado
 
-$condition = array(" WHERE ", " AND ", " AND ");
+$condition = array(" WHERE ", " AND ");
 $item = 0;
 
 reset($data);
@@ -23,16 +23,15 @@ INNER JOIN utp_users as t2 ON t1.proponent = t2.us_doc_num";
 
 if ($work_type !== "0"){
   $query .=$condition[$item]."work_type='".$work_type."'";
-  $item = $item + 1;
+  $item = 1;
 }
 if ($faculty !== "0"){
   $query .=$condition[$item]."faculty='".$faculty."'";
-  $item = $item + 1;
+  $item = 1;
 }
 if ($reg_center !== "0"){
   $query .=$condition[$item]."reg_center = '".$reg_center."'";
-  $item = $item + 1;
-
+  $item = 1;
 }
 
 if (strlen($w_title) > 0) {
@@ -41,6 +40,7 @@ if (strlen($w_title) > 0) {
 $query .= " ORDER BY t1.work_code DESC;";
 
 // echo $query; //PARA VERIFICAR QUERY
+
 
 if(!$conn->query($query)){
   $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;
