@@ -1,4 +1,4 @@
-(function(win) {
+(function (win) {
   'use strict';
 
   //workInfo directive
@@ -26,13 +26,13 @@
           return;
         }
 
-        return filter(bgValue('workTypesValue'), function(item) {
+        return filter(bgValue('workTypesValue'), function (item) {
           return item.id == scope.workInfo.type;
         })[0];
 
       }
 
-      scope.openTypeInfo = function(event) {
+      scope.openTypeInfo = function (event) {
 
         alert = mdDialog.show({
           templateUrl: "common/templates/modal/infoModal.html",
@@ -48,9 +48,9 @@
             }
           }
         });
-      }
+      };
 
-      scope.updateProfiles = function() {
+      scope.updateProfiles = function () {
         var cant = scope.workInfo.students - scope.workInfo.profiles.length;
 
         if (cant > 0) {
@@ -70,7 +70,7 @@
       function setup() {
         if (!scope.toUpdate) {
           scope.workInfo.profiles = [];
-          scope.workInfo.students = 1;
+          scope.workInfo.students = '';
           scope.workInfo.type = null;
           scope.workInfo.title = '';
           scope.workInfo.description = '';
@@ -95,4 +95,4 @@
     .directive('workInfo', workInfo);
 
 
-}(window))
+}(window));

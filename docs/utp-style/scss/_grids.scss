@@ -136,6 +136,8 @@ td.work-item:hover{
 }
 
 .hand-hover:hover{
-  background-color: $utp-item-hover;
   cursor: pointer;
+  &.highlighted{
+    background-color: $utp-item-hover;
+  }
 }

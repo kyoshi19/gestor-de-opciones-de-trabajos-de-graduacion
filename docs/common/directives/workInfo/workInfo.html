@@ -17,8 +17,79 @@
     </md-input-container>
   </div>
 
+
+
+  <!-- TIPO -->
+  <div flex="33">
+    <div layout layout-align="center center">
+
+      <div flex="95"
+        class="px-0">
+        <md-input-container class="md-block">
+          <label>{{'global.work.type' | translate}}</label>
+          <md-select aa-field-group="workInfo.type"
+            name="workType"
+            id="workType"
+            aa-label="{{'global.work.type' | translate}}"
+            aa-label-strategy="emptyStrategy"
+            required>
+            <md-option ng-value="item.id"
+              id="workTypeItem{{$index}}"
+              ng-if="item.id !== '0'"
+              ng-repeat="item in ('graduationWorkTypes' | catalog)">{{ item.name }}</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+
+      <div>
+        <em ng-if="workInfo.type"
+          ng-click="openTypeInfo($event)"
+          class="fas fa-info-circle info">
+        </em>
+      </div>
+    </div>
+  </div>
+
+  <!-- CANTIDAD ESTUDIANTES -->
+  <div flex="33">
+    <md-input-container class="md-block">
+      <label>{{'global.work.students.count' | translate}}</label>
+      <input type="number"
+        name="workCount"
+        class="form-control"
+        id="workCount"
+        min="1"
+        max="3"
+        ng-init="updateProfiles()"
+        ng-change="updateProfiles()"
+        aa-field-group="workInfo.students"
+        aa-label="{{'global.work.students.count' | translate}}"
+        aa-label-strategy="emptyStrategy"
+        required="true">
+      </input>
+    </md-input-container>
+  </div>
+
+  <!-- ESTADO -->
+  <div flex="33">
+    <md-input-container class="md-block">
+      <label>{{'global.state' | translate}}</label>
+      <md-select aa-field-group="workInfo.workState"
+        name="workState"
+        id="workState"
+        aa-label="{{'global.state' | translate}}"
+        aa-label-strategy="emptyStrategy"
+        required>
+        <md-option ng-value="item.id"
+          id="workStateItem{{$index}}"
+          ng-if="item.id !== '0'"
+          ng-repeat="item in ('workStates' | catalog)">{{ item.name }}</md-option>
+      </md-select>
+    </md-input-container>
+  </div>
+
   <!-- DESCRIPCIÓN -->
-  <div flex="66">
+  <div flex="100">
     <md-input-container class="md-block">
       <label>{{'global.work.description' | translate}}</label>
       <textarea type="text"
@@ -32,62 +103,6 @@
         rows="4">
     </textarea>
     </md-input-container>
-  </div>
-
-  <div flex="33">
-    <div layout="column">
-      <!-- TIPO -->
-      <div flex>
-        <div layout layout-align="center center">
-
-          <div flex="95"
-            class="px-0">
-            <md-input-container class="md-block">
-              <label>{{'global.work.type' | translate}}</label>
-              <md-select aa-field-group="workInfo.type"
-                name="workType"
-                id="workType"
-                aa-label="{{'global.work.type' | translate}}"
-                aa-label-strategy="emptyStrategy"
-                required>
-                <md-option ng-value="item.id"
-                  id="workTypeItem{{$index}}"
-                  ng-if="item.id !== '0'"
-                  ng-repeat="item in ('graduationWorkTypes'|catalog)">{{ item.name }}</md-option>
-              </md-select>
-            </md-input-container>
-          </div>
-
-          <div>
-            <em ng-if="workInfo.type"
-              ng-click="openTypeInfo($event)"
-              class="fas fa-info-circle info">
-            </em>
-          </div>
-        </div>
-      </div>
-
-      <!-- CANTIDAD ESTUDIANTES -->
-      <div flex>
-        <md-input-container>
-          <label>{{'global.work.students.count' | translate}}</label>
-          <input type="number"
-            name="workCount"
-            class="form-control"
-            id="workCount"
-            min="1"
-            max="3"
-            ng-init="updateProfiles()"
-            ng-change="updateProfiles()"
-            aa-field-group="workInfo.students"
-            aa-label="{{'global.work.students.count' | translate}}"
-            aa-label-strategy="emptyStrategy"
-            required="true">
-          </input>
-        </md-input-container>
-      </div>
-
-    </div>
   </div>
 
   <!-- PERFILES -->

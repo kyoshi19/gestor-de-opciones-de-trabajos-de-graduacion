@@ -45,9 +45,12 @@
       }
 
 
-      scope.openWorkInfo = function (work, event) {
+      scope.openWorkInfo = function (work, event, isProponent) {
+        
+        let template = isProponent ? "common/templates/modal/workInfoModal.html" : "common/templates/modal/choseWorkModal.html";
+
         mdDialog.show({
-          templateUrl: "common/templates/modal/choseWorkModal.html",
+          templateUrl: template,
           controller: "workController",
           controllerAs: "ctrl",
           clickOutsideToClose: true,

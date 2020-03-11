@@ -834,8 +834,9 @@ td.work-item:hover {
   margin-right: auto; }
 
 .hand-hover:hover {
-  background-color: #dceaff;
   cursor: pointer; }
+  .hand-hover:hover.highlighted {
+    background-color: #dceaff; }
 
 .utp-logo {
   width: 300px;

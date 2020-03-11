@@ -4,9 +4,9 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("localhost", "root", "root", "utp_tesis");
 $conn->set_charset("utf8");
+
 $data = json_decode(file_get_contents("php://input"),true); //Recibe parametros como arreglo asociado
 
-$condition = array(" WHERE ", " AND ");
 $item = 0;
 
 reset($data);
@@ -17,30 +17,31 @@ $w_title = next($data);
 
 $query = "SELECT work_code as 'id', work_type as 'type',
   w_title as 'title', work_desc as descrip, CONCAT(t2.us_fname,' ',t2.us_lname)  as 'proponent', faculty,
-  reg_center as 'center', studentsQty as 'students', t2.us_mail as 'contact'
+  reg_center as 'center', studentsQty as 'students', t2.us_mail as 'contact', work_state as 'workState'
   FROM graduation_works as t1
-INNER JOIN utp_users as t2 ON t1.proponent = t2.us_doc_num";
+INNER JOIN utp_users as t2 ON t1.proponent = t2.us_doc_num
+WHERE work_state = 'WSD'";
 
 if ($work_type !== "0"){
-  $query .=$condition[$item]."work_type='".$work_type."'";
+  $query .=" AND work_type='".$work_type."'";
   $item = 1;
 }
 if ($faculty !== "0"){
-  $query .=$condition[$item]."faculty='".$faculty."'";
+  $query .=" AND faculty='".$faculty."'";
   $item = 1;
 }
 if ($reg_center !== "0"){
-  $query .=$condition[$item]."reg_center = '".$reg_center."'";
+  $query .=" AND reg_center = '".$reg_center."'";
   $item = 1;
 }
 
 if (strlen($w_title) > 0) {
-  $query .= $condition[$item]. "w_title like('%".$w_title."%')";
+  $query .=" AND w_title like('%".$w_title."%')";
 }
+
 $query .= " ORDER BY t1.work_code DESC;";
 
 // echo $query; //PARA VERIFICAR QUERY
-
 
 if(!$conn->query($query)){
   $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;
@@ -60,6 +61,7 @@ if(!$conn->query($query)){
     $outp .= '"faculty":"'. $rs["faculty"] . '",';
     $outp .= '"center":"'. $rs["center"] . '",';
     $outp .= '"students":"'. $rs["students"] . '",';
+    $outp .= '"workState":"'. $rs["workState"] . '",';
 
     $outp .= '"profiles":[';
 

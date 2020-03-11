@@ -31,7 +31,7 @@
 
       var student = storage.user.fName + ' ' + storage.user.lName;
 
-      var xhr = mailService.send(vm.message.email, data.contact,
+      var xhr = mailService.send(vm.message.email, vm.message.phone, data.contact,
         vm.message.subject, student, vm.message.text);
 
       xhr.then(function (response) {

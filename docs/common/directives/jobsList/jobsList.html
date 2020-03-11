@@ -42,9 +42,10 @@
         <table md-table>
             <thead md-head>
                 <tr md-row>
-                  <th md-column><div class="text-center">ID</div></th>
-                  <th md-column><div class="text-center">TEMA</div></th>
-                  <th md-column ng-if="showOptions"><div class="text-center">OPCIONES</div></th>
+                  <th md-column id="id"><div class="text-center">ID</div></th>
+                  <th md-column id="title"><div class="text-center">TEMA</div></th>
+                  <th md-column id="satus"><div class="text-center">ESTADO</div></th>
+                  <th md-column id="options" ng-if="showOptions"><div class="text-center">OPCIONES</div></th>
                 </tr>
               </thead>
           <tbody md-body>
@@ -55,10 +56,14 @@
               <td md-cell  class="py-3">
                 <h4 class="no-margin">{{work.title}}</h4>
               </td>
+              <td md-cell>
+                <h4>{{(work.workState | catalogItem:'workStates').name}}</h4>
+              </td>
               <td md-cell ng-if="showOptions">
                 <div layout="row" id="optionButtons{{$index}}" layout-padding class="no-padding">
-                  <em class="far fa-edit edit{{$index}}" ng-click="openUpdateWorkModal(work)"></em>
-                  <em class="far fa-trash-alt trash{{$index}}" ng-click="openDeleteWork(work)"></em>
+                  <em class="fas fa-eye watch{{$index}} hand-hover" ng-click="openWorkInfo(work, $event, true)"></em>
+                  <em class="far fa-edit edit{{$index}} hand-hover" ng-click="openUpdateWorkModal(work)"></em>
+                  <em class="far fa-trash-alt trash{{$index}} hand-hover" ng-click="openDeleteWork(work)"></em>
                 </div>
               </td>
             </tr>

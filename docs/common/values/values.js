@@ -1,4 +1,4 @@
-(function(win) {
+(function (win) {
   'use strict';
 
   win.MainApp.Values
@@ -42,6 +42,11 @@
     .value('profileModel', {
       faculty: '',
       career: ''
+    })
+
+    .value('workStates', {
+      available: 'WSD',
+      working: 'WSP'
     });
 
 }(window));

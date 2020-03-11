@@ -26,6 +26,15 @@
             </md-imput-container>
         </div>
 
+        <!-- TELÉFONO -->
+        <div flex>
+          <md-input-container>
+            <label>{{'global.phone' | translate}}</label>
+            <input type="text" aa-field-group="ctrl.message.phone" aa-label="{{'global.email' | translate}}"
+            aa-label-strategy="emptyStrategy" required>
+          </md-input-container>
+        </div>
+
         <!-- ASUNTO -->
         <div flex>
           <p class="text-muted no-margin"><strong>{{'global.subject' | translate}}:</strong> {{ctrl.message.subject}}

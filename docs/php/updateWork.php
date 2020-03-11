@@ -4,13 +4,15 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("localhost", "root", "root", "utp_tesis"); //conecxión a mysql
 $conn->set_charset("utf8");
+
 $data = json_decode(file_get_contents("php://input"), true); //Recibe parametro
 
 $sql = "UPDATE graduation_works
 SET work_type = '".$data["type"]."',
 w_title = '".$data["title"]."',
 work_desc = '". $data["description"] ."',
-studentsQty = ".$data["students"]."
+studentsQty = ".$data["students"].",
+work_state = '".$data["workState"]."'
 WHERE  work_code = '".$data["id"]."';";
 
 if (!$conn->query($sql)){ //ejecucion de query contra la base de datos

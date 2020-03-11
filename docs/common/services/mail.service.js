@@ -11,10 +11,11 @@
       send: send
     };
 
-    function send(from, to, subject, sender, text) {
+    function send(from, contact, to, subject, sender, text) {
 
       var message = {
         'from': from,
+        'contct': contact,
         'to': to,
         'subject': subject,
         'sender': sender,

@@ -11,7 +11,7 @@ $data = json_decode(file_get_contents("php://input"),true); //Recibe parametros 
 
 $profiles_count =  count($data['profiles']); // Cantidad de perfiles
 
-$sql= "call insertWork('".$data['userId']."','".$data['title']."','".$data['type']."','".$data['description']."',".$data['students'];
+$sql= "call insertWork('".$data['userId']."','".$data['title']."','".$data['type']."','".$data['description']."','".$data['students']."','".$data["workState"]."'";
 
 for ($int=0; $int < 3; $int++) { // Si los la cantidad de perfiles ingresados es menor a tres, la diferencia se mandan en blanco
   
@@ -27,6 +27,8 @@ for ($int=0; $int < 3; $int++) { // Si los la cantidad de perfiles ingresados es
 }
 
 $sql .= ");";
+
+//  echo $sql; //PARA VERIFICAR QUERY
 
 if (!$conn->query($sql)) {
   $result = "Falló CALL: (" . $conn->errno . ") " . $conn->error;

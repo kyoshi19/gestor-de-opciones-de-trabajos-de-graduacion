@@ -11,6 +11,7 @@ $item = 0;
 
 reset($data);
 $from = current($data); 	//Optiene elemento actual
+$contact = next($data);
 $to = next($data);
 $subject = next($data);
 $sender = next($data);
@@ -30,7 +31,8 @@ if (strlen($text) > 0) {
   $message .="
   <p>El mismo indica:<br>".$text."</p>";
 }
-$message.= "<p>Puede contactar al solicitante al correo:<br>".$from." </p>
+$message.= "<p>Puede contactar al solicitante al correo:<br>".$from."<br>
+o al teléfono: <br>".$contact."</p>
 </body>
 </html>
 ";

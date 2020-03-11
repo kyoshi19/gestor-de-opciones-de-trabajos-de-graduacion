@@ -21,6 +21,7 @@ var EStranslate = {
   'global.passport'                 : 'Pasaporte',
   'global.password'                 : 'Contraseña',
   'global.login'                    : 'Iniciar Sesión',
+  'global.close'                    : 'Cerrar',
   'global.logout'                   : 'Cerrar sesión',
   'global.cancel'                   : 'Cancelar',
   'global.proponent'                : 'Proponente',
@@ -38,7 +39,9 @@ var EStranslate = {
   'global.update'                   : 'Actualizar',
   'global.adviser.contact'          : 'Contactar al asesor',
   'global.mail.send'                : 'Enviar correo',
-  'global.pofile'                   : 'Perfil',
+  'global.pofile'                   : 'Perfil estudiantil',
+  'global.state'                    : 'Estado',
+  'global.phone'                    : 'Teléfono',
 
 
   // PESTAÑAS

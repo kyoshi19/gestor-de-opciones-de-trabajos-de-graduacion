@@ -6,7 +6,7 @@ El Tipo de Trabajo de Graduación puede ser seleccionado dentro de las siguiente
 <br><br>
   <ng-form name="documentationForm">
     <div  layout="row" class=" active-animation-transform" layout-wrap ng-repeat="item in workTypesValue track by $index">
-      <div name="title" flex="100" class="hand-hover document-title no-padding no-focus-shaddow" ng-click="openItem(item,$index)">
+      <div name="title" flex="100" class="hand-hover highlighted document-title no-padding no-focus-shaddow" ng-click="openItem(item,$index)">
         <h3 class="my-1 pl-2"><em id="icon{{$index}}" class="fas fa-caret-right"></em> {{item.title}}</h3>
       </div>
 

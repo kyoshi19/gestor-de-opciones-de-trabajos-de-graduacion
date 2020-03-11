@@ -4,6 +4,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 $conn = new mysqli("localhost", "root", "root", "utp_tesis");
 $conn->set_charset("utf8");
+
 $data = json_decode(file_get_contents("php://input"),true); //Recibe parametros como arreglo asociado
 
 reset($data);
@@ -11,7 +12,7 @@ $id = current($data); 	//Optiene elemento actual
 
 $query = "SELECT work_code as 'id', work_type as 'type',
   w_title as 'title', work_desc as descrip, CONCAT(t2.us_fname,' ',t2.us_lname)  as 'proponent', faculty,
-  reg_center as 'center', studentsQty as 'students'
+  reg_center as 'center', studentsQty as 'students', work_state as 'workState'
   FROM utp_tesis.graduation_works as t1
 INNER JOIN utp_users as t2 ON t1.proponent = t2.us_doc_num
 WHERE t2.us_doc_num = '".$id."'
@@ -37,7 +38,8 @@ if(!$conn->query($query)){
     $outp .= '"faculty":"'. $rs["faculty"] . '",';
     $outp .= '"center":"'. $rs["center"] . '",';
     $outp .= '"students":"'. $rs["students"] . '",';
-    
+    $outp .= '"workState":"'. $rs["workState"] . '",';
+
     $outp .= '"profiles":[';
 
     $query = "SELECT id, faculty, career FROM profiles WHERE work_code = ".$rs["id"].";";
