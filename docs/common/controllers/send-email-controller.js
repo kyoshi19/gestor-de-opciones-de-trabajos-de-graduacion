@@ -60,7 +60,7 @@
 
       mdDialog.hide(response); // close, but give 500ms for bootstrap to animate
 
-    }
+    };
 
   };
   sendEmailController.$inject = [
