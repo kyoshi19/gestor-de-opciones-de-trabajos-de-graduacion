@@ -212,19 +212,6 @@
       ],
       "value": "Prueba automatizada"
     }, {
-      "id": "c44ec5db-e613-4f58-8858-86ead14e4e67",
-      "comment": "",
-      "command": "type",
-      "target": "id=workDescription",
-      "targets": [
-        ["id=workDescription", "id"],
-        ["name=workDescription", "name"],
-        ["css=#workDescription", "css:finder"],
-        ["xpath=//textarea[@id='workDescription']", "xpath:attributes"],
-        ["xpath=//textarea", "xpath:position"]
-      ],
-      "value": "Descripción de prueba automatizada"
-    }, {
       "id": "5bcc63bc-df64-4099-bce6-d2430bc35fdf",
       "comment": "",
       "command": "click",
@@ -274,6 +261,33 @@
         ["xpath=//div[2]/md-input-container/div/input", "xpath:position"]
       ],
       "value": "3"
+    }, {
+      "id": "ce5a6cff-8990-4fc4-a7de-d097667cdd7b",
+      "comment": "",
+      "command": "click",
+      "target": "id=workState",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8b4fa2f7-11b8-4a47-b0d9-91ccc69ee1ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=#workStateItem1 > .md-text",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c44ec5db-e613-4f58-8858-86ead14e4e67",
+      "comment": "",
+      "command": "type",
+      "target": "id=workDescription",
+      "targets": [
+        ["id=workDescription", "id"],
+        ["name=workDescription", "name"],
+        ["css=#workDescription", "css:finder"],
+        ["xpath=//textarea[@id='workDescription']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Descripción de prueba automatizada"
     }, {
       "id": "b84ff4ee-8a79-42ca-999e-a25beb0e9505",
       "comment": "",
@@ -445,16 +459,11 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "a19a08ba-489c-43ec-b09e-9332d09ab7a1",
+      "id": "e5b52dcf-b0f2-4ea6-9a46-4c14bb20aa0f",
       "comment": "",
       "command": "click",
       "target": "id=logoutButton",
-      "targets": [
-        ["id=logoutButton", "id"],
-        ["css=#logoutButton", "css:finder"],
-        ["xpath=//button[@id='logoutButton']", "xpath:attributes"],
-        ["xpath=//button", "xpath:position"]
-      ],
+      "targets": [],
       "value": ""
     }]
   }, {
@@ -840,6 +849,13 @@
       "target": "name=mail",
       "targets": [],
       "value": "mymail@hotmail.com"
+    }, {
+      "id": "773d26e2-fede-4b7f-9a78-a092c501d02e",
+      "comment": "",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [],
+      "value": "6771-2170"
     }, {
       "id": "f68e5ab7-cda8-44cd-a2b8-13bdfaf5b52a",
       "comment": "",
