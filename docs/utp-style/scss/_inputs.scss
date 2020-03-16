@@ -7,14 +7,14 @@
 md-input-container {
   margin-bottom: 0px;
 
-  &.disabled{
+  &.disabled {
     label {
       color: $utp-muted;
-  
+
       &::after {
         color: $utp-muted;
       }
-    }    
+    }
   }
 
   label {
@@ -33,7 +33,7 @@ md-input-container {
     color: $utp-red;
   }
 
-  &.mail-container{
+  &.mail-container {
     min-width: 50%;
   }
 }
@@ -96,12 +96,12 @@ md-select {
     }
   }
 
-  &:focus .md-select-value{
+  &:focus .md-select-value {
     border-color: $utp-main-color !important;
     border-width: 0 0 1px 0 !important;
   }
 
-  &[disabled] .md-select-value{
+  &[disabled] .md-select-value {
     color: $utp-muted !important;
 
     span:not(.md-select-icon)::after {
@@ -119,7 +119,8 @@ md-select-menu {
         color: $utp-main-color;
         background-color: $utp-item-hover;
       }
-      &:hover{
+
+      &:hover {
         background-color: $utp-item-hover;
       }
     }
@@ -154,11 +155,27 @@ md-select-menu {
 
 /**********TEXT AREA**********/
 
-textarea{
+textarea {
   border-color: $utp-input-border;
 
-  &:focus{
+  &:focus {
     border-color: $utp-main-color !important;
     border-width: 0 0 1px 0 !important;
+  }
+}
+
+/********* SWITCH ***********/
+
+md-checkbox {
+  .md-icon {
+    border-color: rgb(15, 65, 152);
+  }
+  &.md-checked{
+    .md-icon{
+      background-color: rgb(15, 65, 152);
+    }
+    .md-icon:after{
+      border-color: white;
+    }
   }
 }
