@@ -3,7 +3,7 @@
 
   //  adviserData directive
   function adviserData($log, isEmpty, storage, workService,
-    notificationService, translate) {
+    notificationService, translate, filter, bgValue) {
     var directive = {
       restrict: 'E',
       templateUrl: 'common/directives/adviserData/adviserData.html',
@@ -68,7 +68,8 @@
 
             }
 
-            scope.works = response.data.records;
+            scope.works = getActiveWorks(response.data.records, true);
+            scope.endedWorks = getActiveWorks(response.data.records, false);
 
           }).catch(function(exception) {
             $log.error('ERROR ==>', exception);
@@ -115,6 +116,19 @@
 
       };
 
+      function getActiveWorks(works, active) {
+
+        return filter(works, function(item) {
+
+          if (active) {
+            return item.workState != bgValue('workStates').ended;
+          }
+          if (!active) {
+            return item.workState == bgValue('workStates').ended;
+          }
+        });
+      }
+
       function setUp() {
 
         if (isEmpty(scope.user)) {
@@ -142,7 +156,9 @@
     '$sessionStorage',
     'workUtilService',
     'notificationService',
-    '$translate'
+    '$translate',
+    'filterFilter',
+    'bgValueFilter'
   ];
 
   /* --> MODULE <-- */
