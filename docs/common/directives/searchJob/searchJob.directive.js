@@ -1,8 +1,9 @@
-(function (win) {
+(function(win) {
   'use strict';
 
   //  searchJob directive
-  function searchJob($log, storage, workService, translate, notificationService) {
+  function searchJob($log, storage, workService, translate, 
+    notificationService, filter, bgValue) {
 
     var directive = {
       restrict: 'E',
@@ -30,7 +31,7 @@
         field: ""
       };
 
-      scope.searchJobs = function () {
+      scope.searchJobs = function() {
 
         if (!angular.isDefined(scope.workToSearch.field)) {
 
@@ -41,15 +42,16 @@
 
         workService.searchWorks(scope.workToSearch)
 
-          .then(function (response) {
+          .then(function(response) {
 
-            scope.works = response.data.records;
+            scope.works = getActiveWorks(response.data.records, true);
+            scope.endedWorks = getActiveWorks(response.data.records, false);
 
             scope.tableTitle = translate.instant('global.search.results');
 
             storage.showLoader = false;
 
-          }).catch(function (exception) {
+          }).catch(function(exception) {
 
             notificationService.showError(exception.data.error);
 
@@ -58,6 +60,18 @@
           });
       };
 
+      function getActiveWorks(works, active) {
+
+        return filter(works, function(item) {
+
+          if (active) {
+            return item.workState != bgValue('workStates').ended;
+          }
+          if (!active) {
+            return item.workState == bgValue('workStates').ended;
+          }
+        });
+      }
     }
 
   }
@@ -67,7 +81,9 @@
     '$sessionStorage',
     'workUtilService',
     '$translate',
-    'notificationService'
+    'notificationService',
+    'filterFilter',
+    'bgValueFilter'
   ];
 
   win.MainApp.Directives
