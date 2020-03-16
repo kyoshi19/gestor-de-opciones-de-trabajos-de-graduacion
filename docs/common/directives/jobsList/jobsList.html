@@ -2,75 +2,139 @@
 
   <!-- TABLA PARA ESTUDIANTES -->
   <div ng-if="userType === 'E'">
-    <div class="text-center" ng-if="tableTitle">
+    <div class="text-center"
+      ng-if="tableTitle">
       <h2>{{tableTitle}}</h2>
     </div>
 
-    <h4 ng-if="worksCount" class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
-    <h4 ng-if="!worksCount" class="mb-2 message-result">{{('global.no.results' | translate)}}</h4>
-    
-    <div ng-if="!(works | isEmpty)">
+    <div layout="row" class="mb-2">
+      <div flex="75">
+        <h4 ng-if="worksCount"
+          class="no-margin message-result">{{('global.results.count' | translate:{'count':worksCount})}}
+        </h4>
+        <h4 ng-if="!worksCount"
+          class="no-margin message-result">{{('global.no.results' | translate)}}
+        </h4>
+      </div>
+
+      <div flex="25">
+
+        <md-checkbox ng-change="setWorkHistory(workHistory)"
+          ng-model="workHistory" class="no-margin pull-right">
+          <h4 class="no-margin">{{'global.show.history' | translate}}</h4>
+        </md-checkbox>
+
+      </div>
+    </div>
+
+
+    <div ng-if="!(getWorks() | isEmpty)">
 
       <md-table-container>
         <table md-table>
           <tbody md-body>
-            <tr md-row ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
-              <td md-cell class="py-3 work-item" ng-click="openWorkInfo(work, $event)" id="workItem{{$index}}">
-                <h4 class="no-margin">{{'global.title' | translate}}: {{work.title}}</h4>
-                <h4 class=" no-margin text-muted">{{'global.proponent' | translate}}: {{work.proponent}}</h4>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </md-table-container>
-
-      <md-table-pagination md-limit="dataTable.limit" md-page="dataTable.page" md-page-select
-        md-total="{{dataTable.totalPages}}" md-label="{page: 'Página:', of: 'de'}">
-      </md-table-pagination>
-    </div>
-
-  </div>
-
-  <!-- TABLA PARA ASESORES -->
-  <div class="" ng-if="userType === 'P'">
-    <div class="text-center" ng-if="tableTitle">
-      <h2>{{tableTitle}}</h2>
-    </div>
-    <h4 ng-if="worksCount" class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
-    
-    <md-table-container>
-        <table md-table>
-            <thead md-head>
-                <tr md-row>
-                  <th md-column id="id"><div class="text-center">ID</div></th>
-                  <th md-column id="title"><div class="text-center">TEMA</div></th>
-                  <th md-column id="satus"><div class="text-center">ESTADO</div></th>
-                  <th md-column id="options" ng-if="showOptions"><div class="text-center">OPCIONES</div></th>
-                </tr>
-              </thead>
-          <tbody md-body>
-            <tr md-row ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
-              <td md-cell >
-                <h4 class="no-margin text-muted">{{work.id}}</h4>
-              </td>
-              <td md-cell  class="py-3">
-                <h4 class="no-margin">{{work.title}}</h4>
-              </td>
-              <td md-cell>
-                <h4>{{(work.workState | catalogItem:'workStates').name}}</h4>
-              </td>
-              <td md-cell ng-if="showOptions">
-                <div layout="row" id="optionButtons{{$index}}" layout-padding class="no-padding">
-                  <em class="fas fa-eye watch{{$index}} hand-hover" ng-click="openWorkInfo(work, $event, true)"></em>
-                  <em class="far fa-edit edit{{$index}} hand-hover" ng-click="openUpdateWorkModal(work)"></em>
-                  <em class="far fa-trash-alt trash{{$index}} hand-hover" ng-click="openDeleteWork(work)"></em>
+            <tr md-row
+              ng-repeat="work in getWorks() | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
+              <td md-cell
+                class="py-3 work-item"
+                ng-click="openWorkInfo(work, $event)"
+                id="workItem{{$index}}">
+                <div layout="row">
+                  <div flex="100">
+                    <h4 class="no-margin">{{'global.title' | translate}}: {{work.title}}</h4>
+                  </div>
+                </div>
+                <div layout="row">
+                  <div flex="75">
+                    <h4 class=" no-margin text-muted">{{'global.proponent' | translate}}:
+                      {{work.proponent}}</h4>
+                  </div>
+                  <div flex="25">
+                    <h4 class=" pull-right no-margin text-muted">{{'global.state' | translate}}:
+                      {{(work.workState | catalogItem:'workStates').name}}</h4>
+                  </div>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
       </md-table-container>
-      
+
+      <md-table-pagination md-limit="dataTable.limit"
+        md-page="dataTable.page"
+        md-page-select
+        md-total="{{dataTable.totalPages}}"
+        md-label="{page: 'Página:', of: 'de'}">
+      </md-table-pagination>
+    </div>
+
+  </div>
+
+  <!-- TABLA PARA ASESORES -->
+  <div class=""
+    ng-if="userType === 'P'">
+    <div class="text-center"
+      ng-if="tableTitle">
+      <h2>{{tableTitle}}</h2>
+    </div>
+    <h4 ng-if="worksCount"
+      class="mb-2 message-result">{{('global.results.count' | translate:{'count':worksCount})}}</h4>
+
+    <md-table-container>
+      <table md-table>
+        <thead md-head>
+          <tr md-row>
+            <th md-column
+              id="id">
+              <div class="text-center">ID</div>
+            </th>
+            <th md-column
+              id="title">
+              <div class="text-center">TEMA</div>
+            </th>
+            <th md-column
+              id="satus">
+              <div class="text-center">ESTADO</div>
+            </th>
+            <th md-column
+              id="options"
+              ng-if="showOptions">
+              <div class="text-center">OPCIONES</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row
+            ng-repeat="work in works | limitTo: dataTable.limit: (dataTable.page - 1) * dataTable.limit">
+            <td md-cell>
+              <h4 class="no-margin text-muted">{{work.id}}</h4>
+            </td>
+            <td md-cell
+              class="py-3">
+              <h4 class="no-margin">{{work.title}}</h4>
+            </td>
+            <td md-cell>
+              <h4>{{(work.workState | catalogItem:'workStates').name}}</h4>
+            </td>
+            <td md-cell
+              ng-if="showOptions">
+              <div layout="row"
+                id="optionButtons{{$index}}"
+                layout-padding
+                class="no-padding">
+                <em class="fas fa-eye watch{{$index}} hand-hover"
+                  ng-click="openWorkInfo(work, $event, true)"></em>
+                <em class="far fa-edit edit{{$index}} hand-hover"
+                  ng-click="openUpdateWorkModal(work)"></em>
+                <em class="far fa-trash-alt trash{{$index}} hand-hover"
+                  ng-click="openDeleteWork(work)"></em>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+
     <md-table-pagination md-limit="dataTable.limit"
       md-page="dataTable.page"
       md-page-select
