@@ -47,7 +47,7 @@
     .value('workStates', {
       available: 'WSD',
       working: 'WSP',
-      finished: 'WST'
+      ended: 'WST'
     });
 
 }(window));
