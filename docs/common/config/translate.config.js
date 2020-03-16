@@ -60,6 +60,7 @@ var EStranslate = {
   'global.work.add'                 : 'Agregar temas',
   'global.works.history'            : 'Historial de temas propuestos',
   'global.work.add.button'          : 'Registrar',
+  'global.show.history'             : 'Mostrar historial',
   
   // MENSAJES DE ERROR DE VALIDACION
   'validation.required'             : 'El campo {0} es requerido.',
