@@ -19,9 +19,15 @@
                 ng-class="(active ==='show') ? 'active':''">
                 <em class="fas fa-caret-right"></em> {{'global.my.works' | translate}}
               </div>
+
               <div flex class="sidenav-item animate-color" ng-click="setTemplate('add')"
                 ng-class="(active ==='add') ? 'active':''">
-                <em class="fas fa-caret-right"></em> {{'global.work.add.button' | translate}}
+                <em class="fas fa-caret-right"></em> {{'global.work.add' | translate}}
+              </div>
+
+              <div flex class="sidenav-item animate-color" ng-click="setTemplate('history')"
+                ng-class="(active ==='history') ? 'active':''">
+                <em class="fas fa-caret-right"></em> {{'global.works.history' | translate}}
               </div>
             </div>
 

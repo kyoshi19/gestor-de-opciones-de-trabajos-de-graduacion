@@ -25,7 +25,7 @@
       var templates = {
         showWorks: 'common/templates/adviser/show-works.html',
         addWorks: 'common/templates/adviser/add-works.html',
-        editWorks: 'common/templates/adviser/edit-works.html'
+        history: 'common/templates/adviser/history-works.html'
       };
       var adviser = {
         id: scope.user.docNumber
@@ -33,7 +33,7 @@
 
       scope.workToAdd = {};
       scope.workToAdd.profiles = [];
-      scope.showWorksTitleTable = translate.instant('global.works');
+      scope.showWorksTitleTable = translate.instant('global.my.works');
 
       /* --> METODOS <-- */
 
@@ -47,8 +47,8 @@
         } else if (option === 'add') {
           scope.viewTemplate = templates.addWorks;
 
-        } else if (option === 'edit') {
-          scope.viewTemplate = templates.editWorks;
+        } else if (option === 'history') {
+          scope.viewTemplate = templates.history;
 
         }
 

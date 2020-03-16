@@ -49,17 +49,17 @@ var EStranslate = {
   'global.tab.documentation'        : 'Documentación',
 
   // TRABAJOS DE GRADUACIÓN
-  'global.work'                     : 'Trabajo de graduación',
-  'global.works'                    : 'Opciones de trabajos de graduación',
-  'global.my.works'                 : 'Mis opciones de trabajo de graduación',
-  'global.work.description'         : 'Descripción del trabajo',
+  'global.works'                    : 'Temas propuestos',
+  'global.my.works'                 : 'Mis temas propuestos',
+  'global.work.description'         : 'Descripción del tema',
   'global.work.type'                : 'Tipo de trabajo',
   'global.work.types'               : 'Tipos de trabajos',
   'global.work.students.count'      : 'Cantidad de estudiantes',
-  'global.main.student.page.title'  : 'Busca tu opción de trabajo de graduación',
-  'global.main.proponent.page.title': 'Administrar opciones de trabajo de graduación',
-  'global.work.add'                 : 'Agregar opciones de trabajos de graduación',
-  'global.work.add.button'          : 'Agregar trabajo',
+  'global.main.student.page.title'  : 'Buscador de temas para de trabajos de graduación',
+  'global.main.proponent.page.title': 'Administrar temas propuestos',
+  'global.work.add'                 : 'Agregar temas',
+  'global.works.history'            : 'Historial de temas propuestos',
+  'global.work.add.button'          : 'Registrar',
   
   // MENSAJES DE ERROR DE VALIDACION
   'validation.required'             : 'El campo {0} es requerido.',
