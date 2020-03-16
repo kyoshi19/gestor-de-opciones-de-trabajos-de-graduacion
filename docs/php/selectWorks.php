@@ -7,6 +7,7 @@ $conn->set_charset("utf8");
 
 $data = json_decode(file_get_contents("php://input"),true); //Recibe parametros como arreglo asociado
 
+$condition = array(" WHERE ", " AND ");
 $item = 0;
 
 reset($data);
@@ -19,24 +20,24 @@ $query = "SELECT work_code as 'id', work_type as 'type',
   w_title as 'title', work_desc as descrip, CONCAT(t2.us_fname,' ',t2.us_lname)  as 'proponent', faculty,
   reg_center as 'center', studentsQty as 'students', t2.us_mail as 'contact', work_state as 'workState'
   FROM graduation_works as t1
-INNER JOIN utp_users as t2 ON t1.proponent = t2.us_doc_num
-WHERE work_state = 'WSD'";
+INNER JOIN utp_users as t2 ON t1.proponent = t2.us_doc_num";
+
 
 if ($work_type !== "0"){
-  $query .=" AND work_type='".$work_type."'";
+  $query .=" ".$condition[$item]." work_type='".$work_type."'";
   $item = 1;
 }
 if ($faculty !== "0"){
-  $query .=" AND faculty='".$faculty."'";
+  $query .=" ".$condition[$item]." faculty='".$faculty."'";
   $item = 1;
 }
 if ($reg_center !== "0"){
-  $query .=" AND reg_center = '".$reg_center."'";
+  $query .=" ".$condition[$item]." reg_center = '".$reg_center."'";
   $item = 1;
 }
 
 if (strlen($w_title) > 0) {
-  $query .=" AND w_title like('%".$w_title."%')";
+  $query .=" ".$condition[$item]." w_title like('%".$w_title."%')";
 }
 
 $query .= " ORDER BY t1.work_code DESC;";
