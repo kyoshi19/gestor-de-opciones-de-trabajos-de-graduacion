@@ -12,7 +12,7 @@
         <h4 ng-if="worksCount"
           class="no-margin message-result">{{('global.results.count' | translate:{'count':worksCount})}}
         </h4>
-        <h4 ng-if="!worksCount"
+        <h4 ng-if="!worksCount || worksCount == 0"
           class="no-margin message-result">{{('global.no.results' | translate)}}
         </h4>
       </div>

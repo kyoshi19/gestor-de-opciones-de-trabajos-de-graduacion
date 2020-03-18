@@ -1,4 +1,4 @@
-(function(win) {
+(function (win) {
   'use strict';
 
   //  jobsList directive
@@ -8,7 +8,6 @@
       templateUrl: 'common/directives/jobsList/jobsList.html',
       scope: {
         works: "=",
-        worksCount: "=",
         tableTitle: "=",
         userType: "=",
         showOptions: "=",
@@ -31,22 +30,22 @@
 
       /* --> METODOS <-- */
 
-      scope.$watch('works', function(newValue, oldValue) {
+      scope.$watch('works', function (newValue, oldValue) {
         resetTable();
       });
 
-      scope.setWorkHistory = function(state) {
+      scope.setWorkHistory = function (state) {
         scope.workHistory = state;
         resetTable();
       };
 
-      scope.getWorks = function() {
+      scope.getWorks = function () {
 
         return scope.workHistory ? scope.endedWorks : scope.works;
 
       };
 
-      scope.openWorkInfo = function(work, event, isProponent) {
+      scope.openWorkInfo = function (work, event, isProponent) {
 
         let template = isProponent ? "common/templates/modal/workInfoModal.html" :
           "common/templates/modal/choseWorkModal.html";
@@ -63,14 +62,14 @@
             isEditing: false
           }
 
-        }).then(function(response) {
+        }).then(function (response) {
           openEmailFormModal(work);
-        }).catch(function(response) {
+        }).catch(function (response) {
           $log.debug("Modal is close by cancel");
         });
       };
 
-      scope.openDeleteWork = function(work, event) {
+      scope.openDeleteWork = function (work, event) {
 
         mdDialog.show({
           templateUrl: "common/templates/modal/deleteWorkModal.html",
@@ -82,7 +81,7 @@
             isEditing: false
 
           }
-        }).then(function(response) {
+        }).then(function (response) {
           $log.debug("Modal is closed");
 
           if (response.data.error) {
@@ -95,13 +94,13 @@
               notificationService.showError('global.error.work.deleted');
             }
           }
-        }).catch(function(err) {
+        }).catch(function (err) {
           $log.debug("Modal is closed");
         });
 
       };
 
-      scope.openUpdateWorkModal = function(work) {
+      scope.openUpdateWorkModal = function (work) {
         mdDialog.show({
           templateUrl: "common/templates/modal/updateWorkModal.html",
           controller: "workController",
@@ -112,7 +111,7 @@
             data: work,
             isEditing: true
           }
-        }).then(function(response) {
+        }).then(function (response) {
           $log.debug("Modal is close ==>", response);
 
           if (response.data.error) {
@@ -129,14 +128,14 @@
             notificationService.showError('global.error.work.updated');
           }
 
-        }).catch(function(err) {
+        }).catch(function (err) {
           $log.debug("Modal is close by cancel");
-        }).finally(function() {
+        }).finally(function () {
           storage.showLoader = false;
         });
       };
 
-      var openEmailFormModal = function(work) {
+      var openEmailFormModal = function (work) {
 
         mdDialog.show({
           templateUrl: "common/templates/modal/sendEmailModal.html",
@@ -150,7 +149,7 @@
             isEditing: false
           }
 
-        }).then(function(response) {
+        }).then(function (response) {
           storage.showLoader = false;
           if (response.result) {
             if (isEmpty(response.data)) {
@@ -159,22 +158,26 @@
             }
             notificationService.showSucces('global.succes.mail.success');
           }
-        }).catch(function(err) {
+        }).catch(function (err) {
           $log.debug('ERROR ==> ', err);
         });
       };
 
-      var resetTable = function() {
+      var resetTable = function () {
         $log.debug("ResetTabel Method...");
         if (scope.works) {
           scope.dataTable = worksTableConfig();
         }
       };
 
-      var worksTableConfig = function() {
-        $log.debug('worksTableConfig Method...')
+      var worksTableConfig = function () {
+
+        $log.debug('worksTableConfig Method...');
 
         if (!scope.workHistory) {
+
+          scope.worksCount = scope.works.length;
+
           return {
             limit: 5, // filas por página
             page: 1, //Página actual
@@ -182,6 +185,9 @@
             dataset: scope.works //Información a mostrar
           };
         } else {
+
+          scope.worksCount = scope.endedWorks.length;
+
           return {
             limit: 5, // filas por página
             page: 1, //Página actual
