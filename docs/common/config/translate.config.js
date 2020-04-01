@@ -37,7 +37,7 @@ var EStranslate = {
   'global.results.count'            : 'La búsqueda ha dado {{count}} resultado/s',
   'global.no.results'               : 'No se han encontrado resultados',
   'global.update'                   : 'Actualizar',
-  'global.adviser.contact'          : 'Contactar al asesor',
+  'global.adviser.contact'          : 'Contactar al proponente',
   'global.mail.send'                : 'Enviar correo',
   'global.pofile'                   : 'Perfil estudiantil',
   'global.state'                    : 'Estado',
